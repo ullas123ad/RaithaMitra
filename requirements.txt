@@ -1,0 +1,10 @@
+# RaithaMitra AI/ML Dependencies
+
+# Phase 1 - Kannada ASR Core Stack
+torch>=2.0.0
+torchaudio>=2.0.0
+transformers>=4.30.0
+soundfile>=0.12.1
+librosa>=0.10.0
+scipy>=1.10.0
+jiwer>=3.0.0

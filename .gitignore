@@ -1,0 +1,94 @@
+# ==========================================
+# RaithaMitra AI/ML Git Ignore Configuration
+# ==========================================
+
+# --- Python & Bytecode ---
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# --- Environments & Packages ---
+.venv/
+venv/
+env/
+ENV/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# --- Secrets, Credentials & Environment Configs ---
+.env
+.env.*
+*.pem
+*.key
+secrets/
+id_rsa
+*.pfx
+
+# --- Temporary & OS Files ---
+*.tmp
+*.temp
+*.swp
+*.swo
+*.bak
+*.log
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# --- Testing & Code Quality Caches ---
+.pytest_cache/
+.coverage
+htmlcov/
+.nox/
+.hypothesis/
+
+# --- ML Framework & Model Caches ---
+.cache/
+huggingface_cache/
+torch_cache/
+wandb/
+runs/
+tensorboard/
+*.h5
+*.tflite
+*.onnx
+
+# --- Datasets & Heavy Audio/Media Files ---
+dataset/raw/*
+!dataset/raw/.gitkeep
+dataset/processed/*
+!dataset/processed/.gitkeep
+
+# Audio files configuration
+*.wav
+*.mp3
+*.ogg
+*.flac
+*.m4a
+dataset/samples/sample1.wav
+!dataset/samples/.gitkeep
+!dataset/samples/sample_kannada_query.wav
+
+# --- Saved Models & Heavy Weights ---
+saved_models/*
+!saved_models/.gitkeep
+
+# --- IDE & Editor Settings ---
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace

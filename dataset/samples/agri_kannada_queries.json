@@ -1,0 +1,55 @@
+{
+  "project": "RaithaMitra",
+  "language": "kn",
+  "description": "Benchmark agricultural test phrases in Kannada for Phase 1 ASR and Phase 2 Intent classification testing.",
+  "categories": {
+    "crop_disease": [
+      {
+        "id": "cd_01",
+        "kannada_text": "ನನ್ನ ಟೊಮೇಟೊ ಬೆಳೆಯ ಎಲೆಗಳು ಹಳದಿಯಾಗುತ್ತಿವೆ, ಏನು ಮಾಡಬೇಕು?",
+        "english_translation": "My tomato crop leaves are turning yellow, what should I do?"
+      },
+      {
+        "id": "cd_02",
+        "kannada_text": "ಭತ್ತದ ಬೆಳೆಗೆ ಕೀಟ ಬಾಧೆ ಉಂಟಾಗಿದೆ, ನಿಯಂತ್ರಣ ಕ್ರಮ ತಿಳಿಸಿ",
+        "english_translation": "Pest infestation has occurred on paddy crop, please tell control measures"
+      }
+    ],
+    "weather": [
+      {
+        "id": "wt_01",
+        "kannada_text": "ನಾಳೆ ಮಂಡ್ಯ ಜಿಲ್ಲೆಯಲ್ಲಿ ಮಳೆ ಬರುವ ಸಾಧ್ಯತೆ ಇದೆಯೇ?",
+        "english_translation": "Is there a possibility of rain in Mandya district tomorrow?"
+      },
+      {
+        "id": "wt_02",
+        "kannada_text": "ಈ ವಾರ ಕೊಪ್ಪಳ ಪ್ರದೇಶದ ಹವಾಮಾನ ಹೇಗಿರಲಿದೆ?",
+        "english_translation": "How will the weather be in Koppal region this week?"
+      }
+    ],
+    "market_price": [
+      {
+        "id": "mp_01",
+        "kannada_text": "ಇಂದು ದಾವಣಗೆರೆ ಮಾರುಕಟ್ಟೆಯಲ್ಲಿ ರಾಗಿ ಬೆಲೆ ಎಷ್ಟಿದೆ?",
+        "english_translation": "What is the price of Ragi in Davanagere market today?"
+      },
+      {
+        "id": "mp_02",
+        "kannada_text": "ಚಿಕ್ಕಬಳ್ಳಾಪುರ ಮಂಡಿಯಲ್ಲಿ ಈರುಳ್ಳಿ ಪ್ರಸ್ತುತ ದರ ಎಷ್ಟು?",
+        "english_translation": "What is the current rate of onion in Chikkaballapur Mandi?"
+      }
+    ],
+    "government_scheme": [
+      {
+        "id": "gs_01",
+        "kannada_text": "ರೈತ ವಿದ್ಯಾನಿಧಿ ಯೋಜನೆಗೆ ಅರ್ಜಿ ಸಲ್ಲಿಸುವುದು ಹೇಗೆ?",
+        "english_translation": "How to apply for Raita Vidyanidhi scheme?"
+      },
+      {
+        "id": "gs_02",
+        "kannada_text": "ಕೃಷಿ ಯಂತ್ರೋಪಕರಣ ಸಾಲ ಸಹಾಯಧನ ಯೋಜನೆ ವಿವರ ಕೊಡಿ",
+        "english_translation": "Give details of agricultural machinery loan subsidy scheme"
+      }
+    ]
+  }
+}

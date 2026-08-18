@@ -224,6 +224,9 @@ class AdvisoryEngine:
         source_language: str = "kn",
         target_language: Optional[str] = None,
         context: Optional[str] = None,
+        location: Optional[Any] = None,
+        weather: Optional[Any] = None,
+        crop: Optional[str] = None,
         **kwargs
     ) -> Dict[str, Any]:
         """
@@ -234,6 +237,9 @@ class AdvisoryEngine:
             source_language: Source language code (default 'kn').
             target_language: Output language code (default matches source_language).
             context: Optional explicit contextual metadata.
+            location: Optional LocationContext instance.
+            weather: Optional WeatherContext instance.
+            crop: Optional crop name string.
 
         Returns:
             Dictionary containing structured advisory output and performance metrics.
@@ -268,15 +274,25 @@ class AdvisoryEngine:
             retrieval_latency = time.time() - t_rag_0
             retrieved_context_text = self.retriever.format_context(retrieved_docs)
 
-        # Combine explicit context and retrieved context
+        # 3. Format Dynamic Weather / Location Context
+        weather_context_text = ""
+        if weather is not None:
+            from model.weather.service import WeatherService
+            weather_context_text = WeatherService().format_weather_context(weather)
+        elif location is not None:
+            weather_context_text = f"--- LOCALITY CONTEXT ---\nLocation: {getattr(location, 'hierarchy_label', str(location))}"
+
+        # Combine explicit context, retrieved RAG context, and dynamic weather context
         combined_context_parts = []
         if retrieved_context_text:
             combined_context_parts.append(retrieved_context_text)
+        if weather_context_text:
+            combined_context_parts.append(weather_context_text)
         if context and context.strip():
             combined_context_parts.append(f"Farm Context: {context.strip()}")
         combined_context = "\n\n".join(combined_context_parts) if combined_context_parts else None
 
-        # 3. Format Prompt and Generate Advisory via LLM Backend
+        # 4. Format Prompt and Generate Advisory via LLM Backend
         messages = format_messages(
             query=intermediate_query,
             context=combined_context,
@@ -296,7 +312,7 @@ class AdvisoryEngine:
         )
         t_gen = time.time() - t_gen_0
 
-        # 4. Translate Response back to Target Language (Kannada)
+        # 5. Translate Response back to Target Language (Kannada)
         t_tr_out_0 = time.time()
         final_response = self.language_bridge.translate_from_advisory_lang(
             intermediate_response,
@@ -319,6 +335,8 @@ class AdvisoryEngine:
             "backend": self.config.backend,
             "rag_enabled": self.config.use_rag,
             "retrieved_documents": retrieved_docs,
+            "location": location.to_dict() if hasattr(location, "to_dict") else None,
+            "weather": weather.to_dict() if hasattr(weather, "to_dict") else None,
             "retrieval_time_seconds": round(retrieval_latency, 4),
             "translation_in_time_seconds": round(t_tr_in, 4),
             "generation_time_seconds": round(t_gen, 4),

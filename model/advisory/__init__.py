@@ -2,7 +2,7 @@
 RaithaMitra Agricultural Advisory Module.
 
 Provides LLM-driven agricultural recommendations for farmer queries,
-with pluggable backends (Dhenu2-1B, AgriParam, Mock) and a Language Bridge.
+with pluggable backends (Dhenu2-1B, AgriParam, Mock) and Language Bridges (NLLB-200, Mock, PassThrough).
 """
 
 from typing import Optional, Dict, Any
@@ -20,6 +20,7 @@ from model.advisory.language_bridge import (
     LanguageBridge,
     PassThroughLanguageBridge,
     MockLanguageBridge,
+    NLLBTranslationBridge,
     LanguageBridgeError
 )
 from model.advisory.agriparam_engine import (
@@ -42,6 +43,7 @@ __all__ = [
     "LanguageBridge",
     "PassThroughLanguageBridge",
     "MockLanguageBridge",
+    "NLLBTranslationBridge",
     "LanguageBridgeError",
     "AdvisoryError",
     "AdvisoryValidationError",
@@ -66,7 +68,7 @@ def get_advisory_engine(
 ) -> AdvisoryEngine:
     """Returns or initializes the singleton AdvisoryEngine instance."""
     global _ADVISORY_ENGINE
-    if _ADVISORY_ENGINE is None or config is not None or backend is not None:
+    if _ADVISORY_ENGINE is None or config is not None or backend is not None or language_bridge is not None:
         _ADVISORY_ENGINE = AdvisoryEngine(
             config=config,
             backend=backend,
@@ -80,6 +82,7 @@ def generate_advisory(
     source_language: str = "kn",
     target_language: Optional[str] = None,
     config: Optional[AdvisoryConfig] = None,
+    language_bridge: Optional[LanguageBridge] = None,
     **kwargs
 ) -> Dict[str, Any]:
     """
@@ -87,10 +90,10 @@ def generate_advisory(
 
     Usage:
         from model.advisory import generate_advisory
-        result = generate_advisory("What are common causes of yellow leaves in tomato plants?")
+        result = generate_advisory("ನನ್ನ ಟೊಮೇಟೊ ಗಿಡದ ಎಲೆಗಳು ಹಳದಿಯಾಗುತ್ತಿವೆ. ಏನು ಮಾಡಬೇಕು?")
         print(result["response"])
     """
-    engine = get_advisory_engine(config=config)
+    engine = get_advisory_engine(config=config, language_bridge=language_bridge)
     return engine.generate_advisory(
         query=query,
         source_language=source_language,

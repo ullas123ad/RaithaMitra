@@ -1,7 +1,7 @@
 """
 Unit Tests for RaithaMitra Agricultural Advisory Module.
 
-Tests configuration validation, prompt formatting, language bridge contract,
+Tests configuration validation, prompt formatting, language bridge contract (PassThrough, Mock, NLLB),
 mock backend responses, Dhenu2-1B lazy-loading integrity, and advisory engine orchestration.
 """
 
@@ -18,6 +18,7 @@ from model.advisory.language_bridge import (
     LanguageBridge,
     PassThroughLanguageBridge,
     MockLanguageBridge,
+    NLLBTranslationBridge,
     LanguageBridgeError
 )
 from model.advisory.agriparam_engine import (
@@ -118,11 +119,12 @@ class TestPromptTemplates(unittest.TestCase):
 
 
 class TestLanguageBridge(unittest.TestCase):
-    """Test suite for LanguageBridge interface, PassThrough, and Mock implementations."""
+    """Test suite for LanguageBridge interface, PassThrough, Mock, and NLLB implementations."""
 
     def setUp(self):
         self.passthrough = PassThroughLanguageBridge()
         self.mock_bridge = MockLanguageBridge()
+        self.nllb_bridge = NLLBTranslationBridge()
 
     def test_passthrough_to_advisory_lang(self):
         text = "ನನ್ನ ಟೊಮೇಟೊ ಬೆಳೆಯ ಎಲೆಗಳು ಹಳದಿಯಾಗುತ್ತಿವೆ"
@@ -140,12 +142,25 @@ class TestLanguageBridge(unittest.TestCase):
         self.assertIn("tomato", en_query.lower())
         self.assertIn("yellow leaves", en_query.lower())
 
+    def test_mock_bridge_english_to_kannada(self):
+        en_query = "What are common causes of yellow leaves in tomato plants, and what should a farmer check first?"
+        kn_res = self.mock_bridge.english_to_kannada(en_query)
+        self.assertIn("ಟೊಮೇಟೊ", kn_res)
+
+    def test_nllb_lazy_loading(self):
+        self.assertFalse(self.nllb_bridge.is_loaded)
+        self.assertIsNone(self.nllb_bridge._model)
+        self.assertIsNone(self.nllb_bridge._tokenizer)
+
     def test_empty_translation_raises_error(self):
         with self.assertRaises(LanguageBridgeError):
             self.passthrough.translate_to_advisory_lang("")
 
         with self.assertRaises(LanguageBridgeError):
             self.passthrough.translate_from_advisory_lang("   ")
+
+        with self.assertRaises(LanguageBridgeError):
+            self.nllb_bridge.translate_to_advisory_lang("")
 
 
 class TestMockAdvisoryBackend(unittest.TestCase):

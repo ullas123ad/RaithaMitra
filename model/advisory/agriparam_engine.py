@@ -22,6 +22,7 @@ from model.advisory.language_bridge import (
     PassThroughLanguageBridge
 )
 from model.advisory.retriever import AgriculturalRetriever
+from model.advisory.crop_identifier import resolve_canonical_crop
 
 
 class AdvisoryError(Exception):
@@ -260,6 +261,13 @@ class AdvisoryEngine:
         )
         t_tr_in = time.time() - t_tr_in_0
 
+        # Resolve Canonical Crop Identity (priority: explicit arg -> original Kannada query -> translated query)
+        canonical_crop = resolve_canonical_crop(
+            query=clean_query,
+            translated_query=intermediate_query,
+            explicit_crop=crop
+        )
+
         # 2. Retrieve Relevant Local Agricultural Knowledge (RAG)
         retrieved_docs = []
         retrieval_latency = 0.0
@@ -269,6 +277,7 @@ class AdvisoryEngine:
             t_rag_0 = time.time()
             retrieved_docs = self.retriever.retrieve(
                 intermediate_query,
+                crop=canonical_crop,
                 top_k=self.config.rag_top_k
             )
             retrieval_latency = time.time() - t_rag_0
@@ -326,6 +335,7 @@ class AdvisoryEngine:
         return {
             "query": clean_query,
             "response": final_response,
+            "canonical_crop": canonical_crop,
             "intermediate_query": intermediate_query,
             "intermediate_response": intermediate_response,
             "source_language": source_language,

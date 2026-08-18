@@ -38,6 +38,13 @@ from model.advisory.agriparam_engine import (
     AdvisoryEngine
 )
 from model.advisory.dhenu_engine import DhenuBackend
+from model.advisory.crop_identifier import (
+    SUPPORTED_CROPS,
+    CROP_CANONICAL_MAP,
+    normalize_crop_name,
+    detect_crop_from_text,
+    resolve_canonical_crop,
+)
 
 __all__ = [
     "AdvisoryConfig",
@@ -52,6 +59,11 @@ __all__ = [
     "LanguageBridgeError",
     "AgriculturalRetriever",
     "AgriculturalRetrieverError",
+    "SUPPORTED_CROPS",
+    "CROP_CANONICAL_MAP",
+    "normalize_crop_name",
+    "detect_crop_from_text",
+    "resolve_canonical_crop",
     "AdvisoryError",
     "AdvisoryValidationError",
     "AdvisoryBackendError",

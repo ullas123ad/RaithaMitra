@@ -24,86 +24,8 @@ from model.weather.models import (
 
 logger = logging.getLogger(__name__)
 
-# Canonical mapping for common Karnataka agricultural crops
-CROP_CANONICAL_MAP: Dict[str, Dict[str, str]] = {
-    # Ragi / Finger Millet
-    "ragi": {"canonical": "ragi", "kannada": "ರಾಗಿ"},
-    "finger millet": {"canonical": "ragi", "kannada": "ರಾಗಿ"},
-    "fingermillet": {"canonical": "ragi", "kannada": "ರಾಗಿ"},
-    "eleusine coracana": {"canonical": "ragi", "kannada": "ರಾಗಿ"},
-    "ರಾಗಿ": {"canonical": "ragi", "kannada": "ರಾಗಿ"},
+from model.advisory.crop_identifier import CROP_CANONICAL_MAP
 
-    # Paddy / Rice
-    "paddy": {"canonical": "paddy", "kannada": "ಭತ್ತ"},
-    "rice": {"canonical": "paddy", "kannada": "ಭತ್ತ"},
-    "paddy crop": {"canonical": "paddy", "kannada": "ಭತ್ತ"},
-    "bhatta": {"canonical": "paddy", "kannada": "ಭತ್ತ"},
-    "oryza sativa": {"canonical": "paddy", "kannada": "ಭತ್ತ"},
-    "ಭತ್ತ": {"canonical": "paddy", "kannada": "ಭತ್ತ"},
-
-    # Maize / Corn
-    "maize": {"canonical": "maize", "kannada": "ಮೆಕ್ಕೆಜೋಳ"},
-    "corn": {"canonical": "maize", "kannada": "ಮೆಕ್ಕೆಜೋಳ"},
-    "mekkejola": {"canonical": "maize", "kannada": "ಮೆಕ್ಕೆಜೋಳ"},
-    "zea mays": {"canonical": "maize", "kannada": "ಮೆಕ್ಕೆಜೋಳ"},
-    "ಮೆಕ್ಕೆಜೋಳ": {"canonical": "maize", "kannada": "ಮೆಕ್ಕೆಜೋಳ"},
-
-    # Groundnut / Peanut
-    "groundnut": {"canonical": "groundnut", "kannada": "ಕಡಲೆಕಾಯಿ"},
-    "peanut": {"canonical": "groundnut", "kannada": "ಕಡಲೆಕಾಯಿ"},
-    "kadlekai": {"canonical": "groundnut", "kannada": "ಕಡಲೆಕಾಯಿ"},
-    "shenga": {"canonical": "groundnut", "kannada": "ಕಡಲೆಕಾಯಿ"},
-    "arachis hypogaea": {"canonical": "groundnut", "kannada": "ಕಡಲೆಕಾಯಿ"},
-    "ಕಡಲೆಕಾಯಿ": {"canonical": "groundnut", "kannada": "ಕಡಲೆಕಾಯಿ"},
-
-    # Sugarcane
-    "sugarcane": {"canonical": "sugarcane", "kannada": "ಕಬ್ಬು"},
-    "sugar cane": {"canonical": "sugarcane", "kannada": "ಕಬ್ಬು"},
-    "kabbu": {"canonical": "sugarcane", "kannada": "ಕಬ್ಬು"},
-    "saccharum officinarum": {"canonical": "sugarcane", "kannada": "ಕಬ್ಬು"},
-    "ಕಬ್ಬು": {"canonical": "sugarcane", "kannada": "ಕಬ್ಬು"},
-
-    # Cotton
-    "cotton": {"canonical": "cotton", "kannada": "ಹತ್ತಿ"},
-    "hatti": {"canonical": "cotton", "kannada": "ಹತ್ತಿ"},
-    "gossypium": {"canonical": "cotton", "kannada": "ಹತ್ತಿ"},
-    "ಹತ್ತಿ": {"canonical": "cotton", "kannada": "ಹತ್ತಿ"},
-
-    # Chilli
-    "chilli": {"canonical": "chilli", "kannada": "ಮೆಣಸಿನಕಾಯಿ"},
-    "chili": {"canonical": "chilli", "kannada": "ಮೆಣಸಿನಕಾಯಿ"},
-    "green chilli": {"canonical": "chilli", "kannada": "ಮೆಣಸಿನಕಾಯಿ"},
-    "red chilli": {"canonical": "chilli", "kannada": "ಮೆಣಸಿನಕಾಯಿ"},
-    "menasinakai": {"canonical": "chilli", "kannada": "ಮೆಣಸಿನಕಾಯಿ"},
-    "capsicum": {"canonical": "chilli", "kannada": "ಮೆಣಸಿನಕಾಯಿ"},
-    "ಮೆಣಸಿನಕಾಯಿ": {"canonical": "chilli", "kannada": "ಮೆಣಸಿನಕಾಯಿ"},
-
-    # Onion
-    "onion": {"canonical": "onion", "kannada": "ಈರುಳ್ಳಿ"},
-    "eerulli": {"canonical": "onion", "kannada": "ಈರುಳ್ಳಿ"},
-    "allium cepa": {"canonical": "onion", "kannada": "ಈರುಳ್ಳಿ"},
-    "ಈರುಳ್ಳಿ": {"canonical": "onion", "kannada": "ಈರುಳ್ಳಿ"},
-
-    # Potato
-    "potato": {"canonical": "potato", "kannada": "ಆಲೂಗಡ್ಡೆ"},
-    "aalugadde": {"canonical": "potato", "kannada": "ಆಲೂಗಡ್ಡೆ"},
-    "solanum tuberosum": {"canonical": "potato", "kannada": "ಆಲೂಗಡ್ಡೆ"},
-    "ಆಲೂಗಡ್ಡೆ": {"canonical": "potato", "kannada": "ಆಲೂಗಡ್ಡೆ"},
-
-    # Banana
-    "banana": {"canonical": "banana", "kannada": "ಬಾಳೆ"},
-    "plantain": {"canonical": "banana", "kannada": "ಬಾಳೆ"},
-    "baale": {"canonical": "banana", "kannada": "ಬಾಳೆ"},
-    "musa": {"canonical": "banana", "kannada": "ಬಾಳೆ"},
-    "ಬಾಳೆ": {"canonical": "banana", "kannada": "ಬಾಳೆ"},
-
-    # Tomato
-    "tomato": {"canonical": "tomato", "kannada": "ಟೊಮ್ಯಾಟೊ"},
-    "tamota": {"canonical": "tomato", "kannada": "ಟೊಮ್ಯಾಟೊ"},
-    "solanum lycopersicum": {"canonical": "tomato", "kannada": "ಟೊಮ್ಯಾಟೊ"},
-    "ಟೊಮ್ಯಾಟೊ": {"canonical": "tomato", "kannada": "ಟೊಮ್ಯಾಟೊ"},
-    "ಟೊಮೆಟೊ": {"canonical": "tomato", "kannada": "ಟೊಮ್ಯಾಟೊ"},
-}
 
 
 class WeatherService:

@@ -12,6 +12,13 @@ import re
 from pathlib import Path
 from typing import List, Dict, Any, Optional, Set
 
+from model.advisory.crop_identifier import (
+    CROP_CANONICAL_MAP,
+    SUPPORTED_CROPS,
+    detect_crop_from_text,
+    normalize_crop_name,
+)
+
 
 class AgriculturalRetrieverError(Exception):
     """Raised when knowledge retrieval or corpus loading fails."""
@@ -22,22 +29,23 @@ class AgriculturalRetriever:
     """
     Lightweight, deterministic lexical agricultural knowledge retriever.
     Scores knowledge entries based on crop alignment, domain symptom keywords,
-    topic overlap, and term frequency with precision filtering.
+    topic overlap, and term frequency with precision filtering and strict
+    cross-crop contamination prevention.
     """
 
-    # Common agricultural crop synonyms for matching
+    # Common agricultural crop synonyms for matching (English & Kannada aliases)
     CROP_SYNONYMS: Dict[str, Set[str]] = {
-        "paddy": {"paddy", "rice", "bhatta"},
-        "ragi": {"ragi", "finger millet", "mandua"},
-        "maize": {"maize", "corn", "makka"},
-        "groundnut": {"groundnut", "peanut", "shenga"},
-        "sugarcane": {"sugarcane", "cane", "kabbu"},
-        "cotton": {"cotton", "kapas", "hatti"},
-        "chilli": {"chilli", "chili", "mirchi", "menasinakayi"},
-        "onion": {"onion", "pyaz", "eerulli"},
-        "potato": {"potato", "aloo", "aalugadde"},
-        "banana": {"banana", "plantain", "bale"},
-        "tomato": {"tomato", "tamatar", "tometo"}
+        "paddy": {"paddy", "rice", "bhatta", "ಭತ್ತ"},
+        "ragi": {"ragi", "finger millet", "mandua", "fingermillet", "ರಾಗಿ"},
+        "maize": {"maize", "corn", "makka", "mekkejola", "ಮೆಕ್ಕೆಜೋಳ"},
+        "groundnut": {"groundnut", "peanut", "shenga", "kadlekai", "ಕಡಲೆಕಾಯಿ"},
+        "sugarcane": {"sugarcane", "cane", "kabbu", "ಕಬ್ಬು"},
+        "cotton": {"cotton", "kapas", "hatti", "ಹತ್ತಿ"},
+        "chilli": {"chilli", "chili", "mirchi", "menasinakai", "menasinakayi", "capsicum", "ಮೆಣಸಿನಕಾಯಿ"},
+        "onion": {"onion", "pyaz", "eerulli", "ಈರುಳ್ಳಿ"},
+        "potato": {"potato", "aloo", "aalugadde", "ಆಲೂಗಡ್ಡೆ"},
+        "banana": {"banana", "plantain", "bale", "baale", "ಬಾಳೆ"},
+        "tomato": {"tomato", "tamatar", "tometo", "tamota", "ಟೊಮ್ಯಾಟೊ", "ಟೊಮೆಟೊ"}
     }
 
     # Stopwords and generic non-specific terms ignored in content matching
@@ -49,7 +57,8 @@ class AgriculturalRetriever:
         "something", "eating", "seeing", "showing", "getting", "turning",
         "problem", "problems", "agricultural", "agriculture", "knowledge",
         "base", "covered", "issue", "issues", "farmer", "crop", "crops",
-        "field", "plants", "plant", "help", "guide", "advice", "first", "check"
+        "field", "plants", "plant", "help", "guide", "advice", "first", "check",
+        "also", "few", "day", "days", "now", "properly", "past"
     }
 
     def __init__(
@@ -101,59 +110,171 @@ class AgriculturalRetriever:
         """Returns the number of loaded knowledge entries."""
         return len(self._corpus)
 
+    @staticmethod
+    def _stem(token: str) -> str:
+        """Lightweight rule-based English suffix normalizer."""
+        t = token.lower().strip()
+        if not t:
+            return ""
+
+        # Common agricultural synonyms / irregulars
+        irregulars = {
+            "leaves": "leaf",
+            "leaf": "leaf",
+            "dried": "dry",
+            "drying": "dry",
+            "dry": "dry",
+            "dries": "dry",
+            "curled": "curl",
+            "curling": "curl",
+            "curls": "curl",
+            "curl": "curl",
+            "rained": "rain",
+            "raining": "rain",
+            "rains": "rain",
+            "rainfall": "rain",
+            "rain": "rain",
+            "yellowing": "yellow",
+            "yellowed": "yellow",
+            "yellow": "yellow",
+            "wilting": "wilt",
+            "wilted": "wilt",
+            "wilt": "wilt",
+            "waterlogging": "waterlog",
+            "waterlogged": "waterlog",
+            "spots": "spot",
+            "spotting": "spot",
+            "spotted": "spot",
+            "spot": "spot",
+            "holes": "hole",
+            "hole": "hole",
+            "borers": "borer",
+            "borer": "borer",
+            "insects": "insect",
+            "insect": "insect",
+            "pests": "pest",
+            "pest": "pest",
+            "diseases": "disease",
+            "disease": "disease",
+            "rots": "rot",
+            "rotting": "rot",
+            "rotted": "rot",
+            "rot": "rot",
+        }
+        if t in irregulars:
+            return irregulars[t]
+
+        # Standard rule-based suffixes
+        if t.endswith("ies") and len(t) > 4:
+            return t[:-3] + "y"
+        if t.endswith("es") and len(t) > 3:
+            t = t[:-2]
+        elif t.endswith("s") and not t.endswith("ss") and len(t) > 2:
+            t = t[:-1]
+
+        if t.endswith("ing") and len(t) > 4:
+            t = t[:-3]
+            if len(t) > 2 and t[-1] == t[-2]:
+                t = t[:-1]
+        elif t.endswith("ed") and len(t) > 3:
+            t = t[:-2]
+            if len(t) > 2 and t[-1] == t[-2]:
+                t = t[:-1]
+
+        return irregulars.get(t, t)
+
     def _tokenize(self, text: str) -> List[str]:
-        """Normalizes and tokenizes text into lowercase alphanumeric words."""
+        """Normalizes, tokenizes, and stems text into lowercase alphanumeric words."""
         if not text:
             return []
         cleaned = re.sub(r"[^\w\s-]", " ", text.lower())
         tokens = [t.strip() for t in cleaned.split() if t.strip()]
         return tokens
 
-    def _detect_query_crops(self, query_raw: str) -> Set[str]:
-        """Detects crops explicitly mentioned in the query."""
-        detected = set()
-        query_lower = query_raw.lower()
+    def _get_stemmed_set(self, text: str) -> Set[str]:
+        """Tokenizes text and returns a set of stemmed non-stopword tokens."""
+        tokens = self._tokenize(text)
+        return {self._stem(t) for t in tokens if t not in self.STOPWORDS and self._stem(t) not in self.STOPWORDS}
 
-        for canonical_crop, synonyms in self.CROP_SYNONYMS.items():
+    def _detect_query_crops(self, query_raw: str) -> Set[str]:
+        """Detects crops mentioned in the query string."""
+        detected = set()
+        canonical = detect_crop_from_text(query_raw)
+        if canonical:
+            detected.add(canonical)
+            return detected
+
+        query_lower = query_raw.lower()
+        for canon, synonyms in self.CROP_SYNONYMS.items():
             for syn in synonyms:
                 if syn in query_lower:
-                    detected.add(canonical_crop)
+                    detected.add(canon)
                     break
         return detected
 
-    def score_document(self, query: str, doc: Dict[str, Any]) -> float:
+    def score_document(
+        self,
+        query: str,
+        doc: Dict[str, Any],
+        target_crop: Optional[str] = None
+    ) -> float:
         """
         Calculates a deterministic relevance score between a query and a document.
 
-        Scoring Components:
-        - Crop Match (Weight: 2.5): Signal if the document matches the query's crop.
-        - Symptom Keyword Match (Weight: 2.0 / 0.8): Matches on symptoms, pests, and remedies.
-        - Title Overlap (Weight: 1.2): Matches between query words and document title.
-        - Topic Overlap (Weight: 1.0): Matches between query words and topic category.
-        - Content Overlap (Weight: 0.2 per unique word hit).
+        Scoring & Safety Rules:
+        1. Target Crop Strictness:
+           - If a target crop is specified or detected, documents for a DIFFERENT specific crop
+             are disqualified immediately (score = 0.0) to prevent cross-crop contamination.
+           - Documents matching the target crop receive a +3.0 alignment bonus.
+           - General agronomic documents ('general') remain eligible without crop bonus.
+        2. Symptom & Problem Keyword Match (Weight: 2.0 / 0.8): Matches domain symptoms and remedies.
+        3. Title Overlap (Weight: 1.2): Matches between query terms and document title.
+        4. Topic Overlap (Weight: 1.0): Matches between query terms and topic category.
+        5. Content Overlap (Weight: 0.2 per unique word hit, max 2.0).
         """
         query_tokens = self._tokenize(query)
         if not query_tokens:
             return 0.0
 
-        query_set = set(query_tokens) - self.STOPWORDS
-        if not query_set:
+        query_stemmed_set = self._get_stemmed_set(query)
+        if not query_stemmed_set:
             return 0.0
 
-        score = 0.0
         doc_crop = doc.get("crop", "").lower()
         query_lower = query.lower()
-        detected_crops = self._detect_query_crops(query)
+
+        # Determine effective target crop
+        effective_crop = normalize_crop_name(target_crop) if target_crop else None
+        if not effective_crop:
+            detected = self._detect_query_crops(query)
+            if len(detected) == 1:
+                effective_crop = next(iter(detected))
 
         all_crop_names = set().union(*self.CROP_SYNONYMS.values())
+        all_crop_stemmed = {self._stem(c) for c in all_crop_names}
 
-        # 1. Crop Match
+        score = 0.0
         has_crop_match = False
-        if doc_crop in detected_crops:
-            score += 2.5
-            has_crop_match = True
-        elif detected_crops and doc_crop != "general":
-            score -= 3.0
+
+        # 1. Crop Match & Strict Cross-Crop Exclusion
+        if effective_crop:
+            if doc_crop == effective_crop:
+                score += 3.0
+                has_crop_match = True
+            elif doc_crop == "general":
+                # General agronomy docs eligible on symptom merits
+                has_crop_match = False
+            else:
+                # STRICT REJECTION: Document is for a different specific crop
+                return 0.0
+        else:
+            detected_crops = self._detect_query_crops(query)
+            if detected_crops:
+                if doc_crop in detected_crops:
+                    score += 3.0
+                    has_crop_match = True
+                elif doc_crop != "general":
+                    return 0.0
 
         # 2. Symptom & Domain Keyword Match (excluding pure crop name repetition)
         doc_keywords = doc.get("keywords", [])
@@ -168,26 +289,26 @@ class AgriculturalRetriever:
                 score += 2.0
                 symptom_kw_hits += 1
             else:
-                kw_tokens = set(self._tokenize(kw_lower)) - self.STOPWORDS - all_crop_names
-                overlap = len(query_set.intersection(kw_tokens))
+                kw_stemmed = {self._stem(t) for t in self._tokenize(kw_lower)} - self.STOPWORDS - all_crop_stemmed
+                overlap = len(query_stemmed_set.intersection(kw_stemmed))
                 if overlap > 0:
                     score += 0.8 * overlap
                     symptom_kw_hits += 1
 
         # 3. Title Overlap
-        doc_title_tokens = set(self._tokenize(doc.get("title", ""))) - self.STOPWORDS - all_crop_names
-        title_overlap = len(query_set.intersection(doc_title_tokens))
+        doc_title_stemmed = {self._stem(t) for t in self._tokenize(doc.get("title", ""))} - self.STOPWORDS - all_crop_stemmed
+        title_overlap = len(query_stemmed_set.intersection(doc_title_stemmed))
         score += 1.2 * title_overlap
 
         # 4. Topic Overlap
         doc_topic = doc.get("topic", "").replace("_", " ")
-        topic_tokens = set(self._tokenize(doc_topic)) - self.STOPWORDS
-        topic_overlap = len(query_set.intersection(topic_tokens))
+        topic_stemmed = {self._stem(t) for t in self._tokenize(doc_topic)} - self.STOPWORDS
+        topic_overlap = len(query_stemmed_set.intersection(topic_stemmed))
         score += 1.0 * topic_overlap
 
         # 5. Content Overlap
-        doc_content_tokens = set(self._tokenize(doc.get("content", ""))) - self.STOPWORDS - all_crop_names
-        content_overlap = len(query_set.intersection(doc_content_tokens))
+        doc_content_stemmed = {self._stem(t) for t in self._tokenize(doc.get("content", ""))} - self.STOPWORDS - all_crop_stemmed
+        content_overlap = len(query_stemmed_set.intersection(doc_content_stemmed))
         score += 0.2 * min(content_overlap, 10)
 
         # Policy: If crop matched, but there is zero symptom, title, or topic overlap, penalize
@@ -196,12 +317,18 @@ class AgriculturalRetriever:
 
         return max(0.0, score)
 
-    def retrieve(self, query: str, top_k: Optional[int] = None) -> List[Dict[str, Any]]:
+    def retrieve(
+        self,
+        query: str,
+        crop: Optional[str] = None,
+        top_k: Optional[int] = None
+    ) -> List[Dict[str, Any]]:
         """
         Retrieves top-k relevant knowledge entries for the query with precision filtering.
 
         Args:
-            query: Farmer query in English.
+            query: Farmer query in English (or Kannada).
+            crop: Optional canonical crop name to ground retrieval context.
             top_k: Optional override for number of entries. Defaults to self.top_k.
 
         Returns:
@@ -213,9 +340,10 @@ class AgriculturalRetriever:
 
         k = top_k if top_k is not None else self.top_k
         scored_docs = []
+        norm_crop = normalize_crop_name(crop) if crop else None
 
         for doc in self._corpus:
-            score = self.score_document(query, doc)
+            score = self.score_document(query, doc, target_crop=norm_crop)
             if score >= self.relevance_threshold:
                 doc_copy = {
                     "id": doc.get("id"),

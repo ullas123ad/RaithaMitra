@@ -90,7 +90,14 @@ class MockLanguageBridge(LanguageBridge):
         "ಟೊಮೇಟೊ ಎಲೆಗಳು ಹಳದಿಯಾಗುತ್ತಿವೆ": "Tomato leaves are turning yellow. What should be done?",
         "ನನ್ನ ರಾಗಿ ಬೆಳೆಗೆ ಮಳೆ ಸರಿಯಾಗಿ ಆಗದೆ ಒಣಗುತ್ತಿದೆ. ಏನು ಮಾಡಬೇಕು?": "There has been very little rain and my ragi crop is drying. What should I do?",
         "ಭತ್ತದ ಬೆಳೆಗೆ ಯಾವ ಕೀಟನಾಶಕ ಬಳಸಬೇಕು?": "What pesticide should be used for paddy crop?",
-        "ರಾಗಿ ಬಿತ್ತನೆಗೆ ಯಾವ ಕಾಲ ಸೂಕ್ತ?": "What is the suitable season for sowing ragi?"
+        "ರಾಗಿ ಬಿತ್ತನೆಗೆ ಯಾವ ಕಾಲ ಸೂಕ್ತ?": "What is the suitable season for sowing ragi?",
+        "ನನ್ನ ಮೆಣಸಿನಕಾಯಿ ಗಿಡದ ಎಲೆಗಳು ಮುದುರುತ್ತಿವೆ. ಏನು ಮಾಡಬೇಕು?": "My chilli plant leaves are curling. What should I do?",
+        "ನನ್ನ ಈರುಳ್ಳಿ ಬೆಳೆಗೆ ಹೆಚ್ಚು ಮಳೆಯಾಗಿದೆ. ಏನು ಮಾಡಬೇಕು?": "My onion crop is getting too much rain. What should I do?",
+        "ನನ್ನ ಭತ್ತದ ಗದ್ದೆಯಲ್ಲಿ ಹೆಚ್ಚು ಮಳೆಯಾಗಿದೆ. ನಾನು ಏನು ಪರಿಶೀಲಿಸಬೇಕು?": "My rice paddy is raining too much. What should I check?",
+        "ನನ್ನ ಮೆಕ್ಕೆಜೋಳದ ಬೆಳೆಯಲ್ಲಿ ಎಲೆಗಳಲ್ಲಿ ರಂಧ್ರಗಳು ಕಾಣಿಸುತ್ತಿವೆ. ಏನು ಮಾಡಬೇಕು?": "I am seeing holes in my maize crop leaves. What should I do?",
+        "ನನ್ನ ಕಡಲೆಕಾಯಿ ಬೆಳೆಯ ಎಲೆಗಳಲ್ಲಿ ಕಲೆಗಳು ಕಾಣಿಸುತ್ತಿವೆ. ಏನು ಮಾಡಬೇಕು?": "My groundnut crop leaves are showing spots. What should I do?",
+        "ನನ್ನ ಹತ್ತಿ ಬೆಳೆಯಲ್ಲಿ ಕೀಟಗಳು ಕಾಣಿಸುತ್ತಿವೆ. ಏನು ಮಾಡಬೇಕು?": "There are insects attacking my cotton crop. What should I do?",
+        "ನನ್ನ ಕಬ್ಬಿನ ಬೆಳೆಯ ಬೆಳವಣಿಗೆ ಸರಿಯಾಗಿ ಆಗುತ್ತಿಲ್ಲ. ಏನು ಮಾಡಬೇಕು?": "My sugarcane crop is not growing properly. What should I do?"
     }
 
     SAMPLE_EN_TO_KN: Dict[str, str] = {

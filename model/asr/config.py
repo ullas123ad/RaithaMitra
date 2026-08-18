@@ -25,5 +25,10 @@ class ASRConfig:
     # Model cache directory (stored in workspace saved_models or user home cache)
     cache_dir: Optional[str] = os.getenv("ASR_CACHE_DIR", None)
 
+    # Generation parameters
+    num_beams: int = 4
+    use_cache: bool = True
+    max_new_tokens: int = 440
+
     # Device configuration
     device: Optional[str] = None  # Auto-detected if None

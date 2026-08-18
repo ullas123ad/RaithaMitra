@@ -52,20 +52,19 @@ def load_and_preprocess_audio(
 
     # 3. Read audio file
     try:
-        # Use librosa to load audio safely, handling resampling and stereo conversion automatically
-        speech_array, sr = librosa.load(audio_path, sr=target_sr, mono=True, dtype=np.float32)
-    except Exception as e:
-        # Fallback to soundfile if librosa fails on raw formats
+        data, sr = sf.read(audio_path, dtype="float32")
+        if data.ndim > 1:
+            data = np.mean(data, axis=1)  # Convert multi-channel to mono
+        if sr != target_sr:
+            data = librosa.resample(data, orig_sr=sr, target_sr=target_sr)
+        speech_array = data
+    except Exception:
+        # Fallback to librosa if soundfile cannot parse container format
         try:
-            data, sr = sf.read(audio_path, dtype="float32")
-            if data.ndim > 1:
-                data = np.mean(data, axis=1)  # Convert multi-channel to mono
-            if sr != target_sr:
-                data = librosa.resample(data, orig_sr=sr, target_sr=target_sr)
-            speech_array = data
-        except Exception as sf_e:
+            speech_array, sr = librosa.load(audio_path, sr=target_sr, mono=True, dtype=np.float32)
+        except Exception as e:
             raise AudioProcessingError(
-                f"Failed to read or decode audio file '{audio_path}': {str(e)} | soundfile: {str(sf_e)}"
+                f"Failed to read or decode audio file '{audio_path}': {str(e)}"
             )
 
     # 4. Check for non-empty audio array

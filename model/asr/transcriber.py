@@ -163,41 +163,51 @@ class KannadaASR:
 
         # 3. Run inference
         try:
-            if self.model_type == "pipeline" and self.asr_pipeline is not None:
-                # Run Hugging Face pipeline inference (fine-tuned model naturally outputs Kannada)
-                pipeline_out = self.asr_pipeline(
-                    {"raw": speech_array, "sampling_rate": self.config.target_sampling_rate}
-                )
-                if isinstance(pipeline_out, dict):
-                    transcription_text = pipeline_out.get("text", "")
-                else:
-                    transcription_text = str(pipeline_out)
+            with torch.inference_mode():
+                if self.model_type == "pipeline" and self.asr_pipeline is not None:
+                    # Run Hugging Face pipeline inference (fine-tuned model naturally outputs Kannada)
+                    gen_kwargs = {
+                        "use_cache": getattr(self.config, "use_cache", True),
+                        "num_beams": getattr(self.config, "num_beams", 4),
+                        "max_new_tokens": getattr(self.config, "max_new_tokens", 440)
+                    }
+                    pipeline_out = self.asr_pipeline(
+                        {"raw": speech_array, "sampling_rate": self.config.target_sampling_rate},
+                        generate_kwargs=gen_kwargs
+                    )
+                    if isinstance(pipeline_out, dict):
+                        transcription_text = pipeline_out.get("text", "")
+                    else:
+                        transcription_text = str(pipeline_out)
 
-            elif self.model_type == "seq2seq":
-                inputs = self.processor(
-                    speech_array,
-                    sampling_rate=self.config.target_sampling_rate,
-                    return_tensors="pt"
-                )
-                input_features = inputs.input_features.to(self.device)
-                with torch.no_grad():
-                    predicted_ids = self.model.generate(input_features)
-                transcription_text = self.processor.batch_decode(predicted_ids, skip_special_tokens=True)[0]
+                elif self.model_type == "seq2seq":
+                    inputs = self.processor(
+                        speech_array,
+                        sampling_rate=self.config.target_sampling_rate,
+                        return_tensors="pt"
+                    )
+                    input_features = inputs.input_features.to(self.device)
+                    predicted_ids = self.model.generate(
+                        input_features,
+                        num_beams=getattr(self.config, "num_beams", 4),
+                        use_cache=getattr(self.config, "use_cache", True),
+                        max_new_tokens=getattr(self.config, "max_new_tokens", 440)
+                    )
+                    transcription_text = self.processor.batch_decode(predicted_ids, skip_special_tokens=True)[0]
 
-            elif self.model_type == "ctc":
-                inputs = self.processor(
-                    speech_array,
-                    sampling_rate=self.config.target_sampling_rate,
-                    return_tensors="pt",
-                    padding=True
-                )
-                input_values = inputs.input_values.to(self.device)
-                with torch.no_grad():
+                elif self.model_type == "ctc":
+                    inputs = self.processor(
+                        speech_array,
+                        sampling_rate=self.config.target_sampling_rate,
+                        return_tensors="pt",
+                        padding=True
+                    )
+                    input_values = inputs.input_values.to(self.device)
                     logits = self.model(input_values).logits
-                predicted_ids = torch.argmax(logits, dim=-1)
-                transcription_text = self.processor.batch_decode(predicted_ids)[0]
-            else:
-                raise ASRError("ASR Model is not loaded properly.")
+                    predicted_ids = torch.argmax(logits, dim=-1)
+                    transcription_text = self.processor.batch_decode(predicted_ids)[0]
+                else:
+                    raise ASRError("ASR Model is not loaded properly.")
 
             # Clean whitespace
             transcription_text = " ".join(transcription_text.strip().split())

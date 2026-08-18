@@ -1,0 +1,1463 @@
+{
+  "metadata": {
+    "state": "Karnataka",
+    "state_kn": "ಕರ್ನಾಟಕ",
+    "source": "Local Government Directory (LGD), Ministry of Panchayati Raj, Government of India & KSRSAC",
+    "source_version": "2026-LGD-KRN-v1.0",
+    "last_updated": "2026-08",
+    "license": "Government Open Data License - India (GODL-India)",
+    "total_districts": 31
+  },
+  "districts": [
+    {
+      "name": "Bengaluru Urban",
+      "name_kn": "ಬೆಂಗಳೂರು ನಗರ",
+      "lgd_code": "528",
+      "latitude": 12.9716,
+      "longitude": 77.5946,
+      "taluks": [
+        {
+          "name": "Bangalore North",
+          "name_kn": "ಬೆಂಗಳೂರು ಉತ್ತರ",
+          "lgd_code": "5449",
+          "latitude": 13.0358,
+          "longitude": 77.5970,
+          "villages": [
+            { "name": "Yelahanka", "name_kn": "ಯಲಹಂಕ", "lgd_code": "608451", "latitude": 13.1007, "longitude": 77.5963 },
+            { "name": "Hesaraghatta", "name_kn": "ಹೆಸರಘಟ್ಟ", "lgd_code": "608462", "latitude": 13.1362, "longitude": 77.4921 },
+            { "name": "Jakkur", "name_kn": "ಜಕ್ಕೂರು", "lgd_code": "608475", "latitude": 13.0784, "longitude": 77.6067 }
+          ]
+        },
+        {
+          "name": "Bangalore South",
+          "name_kn": "ಬೆಂಗಳೂರು ದಕ್ಷಿಣ",
+          "lgd_code": "5450",
+          "latitude": 12.9249,
+          "longitude": 77.5833,
+          "villages": [
+            { "name": "Kengeri", "name_kn": "ಕೆಂಗೇರಿ", "lgd_code": "608510", "latitude": 12.9177, "longitude": 77.4838 },
+            { "name": "Begur", "name_kn": "ಬೇಗೂರು", "lgd_code": "608522", "latitude": 12.8798, "longitude": 77.6245 },
+            { "name": "Uttarahalli", "name_kn": "ಉತ್ತರಹಳ್ಳಿ", "lgd_code": "608535", "latitude": 12.9056, "longitude": 77.5447 }
+          ]
+        },
+        {
+          "name": "Bangalore East",
+          "name_kn": "ಬೆಂಗಳೂರು ಪೂರ್ವ",
+          "lgd_code": "5451",
+          "latitude": 12.9866,
+          "longitude": 77.6742,
+          "villages": [
+            { "name": "Varthur", "name_kn": "ವರ್ತೂರು", "lgd_code": "608560", "latitude": 12.9398, "longitude": 77.7471 },
+            { "name": "Bidarahalli", "name_kn": "ಬಿದರಹಳ್ಳಿ", "lgd_code": "608572", "latitude": 13.0645, "longitude": 77.7128 }
+          ]
+        },
+        {
+          "name": "Anekal",
+          "name_kn": "ಆನೇಕಲ್",
+          "lgd_code": "5452",
+          "latitude": 12.7104,
+          "longitude": 77.6961,
+          "villages": [
+            { "name": "Attibele", "name_kn": "ಅತ್ತಿಬೆಲೆ", "lgd_code": "608601", "latitude": 12.7797, "longitude": 77.7699 },
+            { "name": "Sarjapura", "name_kn": "ಸರ್ಜಾಪುರ", "lgd_code": "608615", "latitude": 12.8614, "longitude": 77.7844 },
+            { "name": "Jigani", "name_kn": "ಜಿಗಣಿ", "lgd_code": "608628", "latitude": 12.7842, "longitude": 77.6417 }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Bengaluru Rural",
+      "name_kn": "ಬೆಂಗಳೂರು ಗ್ರಾಮಾಂತರ",
+      "lgd_code": "529",
+      "latitude": 13.2287,
+      "longitude": 77.5753,
+      "taluks": [
+        {
+          "name": "Devanahalli",
+          "name_kn": "ದೇವನಹಳ್ಳಿ",
+          "lgd_code": "5453",
+          "latitude": 13.2483,
+          "longitude": 77.7127,
+          "villages": [
+            { "name": "Vijayapura", "name_kn": "ವಿಜಯಪುರ", "lgd_code": "608701", "latitude": 13.2941, "longitude": 77.7981 },
+            { "name": "Kundana", "name_kn": "ಕುಂದಣ", "lgd_code": "608714", "latitude": 13.2625, "longitude": 77.6521 }
+          ]
+        },
+        {
+          "name": "Doddaballapura",
+          "name_kn": "ದೊಡ್ಡಬಳ್ಳಾಪುರ",
+          "lgd_code": "5454",
+          "latitude": 13.2929,
+          "longitude": 77.5430,
+          "villages": [
+            { "name": "Tubagere", "name_kn": "ತೂಬಗೆರೆ", "lgd_code": "608750", "latitude": 13.3512, "longitude": 77.6041 },
+            { "name": "Sasalu", "name_kn": "ಸಾಸಲು", "lgd_code": "608762", "latitude": 13.3842, "longitude": 77.4518 }
+          ]
+        },
+        {
+          "name": "Hosakote",
+          "name_kn": "ಹೊಸಕೋಟೆ",
+          "lgd_code": "5455",
+          "latitude": 13.0707,
+          "longitude": 77.7980,
+          "villages": [
+            { "name": "Nandagudi", "name_kn": "ನಂದಗುಡಿ", "lgd_code": "608801", "latitude": 13.1764, "longitude": 77.9042 },
+            { "name": "Sulibele", "name_kn": "ಸೂಲಿಬೆಲೆ", "lgd_code": "608815", "latitude": 13.1528, "longitude": 77.8241 }
+          ]
+        },
+        {
+          "name": "Nelamangala",
+          "name_kn": "ನೆಲಮಂಗಲ",
+          "lgd_code": "5456",
+          "latitude": 13.0978,
+          "longitude": 77.3942,
+          "villages": [
+            { "name": "Tyamagondlu", "name_kn": "ತ್ಯಾಮಗೊಂಡ್ಲು", "lgd_code": "608850", "latitude": 13.2081, "longitude": 77.3021 },
+            { "name": "Sompura", "name_kn": "ಸೋಂಪುರ", "lgd_code": "608862", "latitude": 13.1845, "longitude": 77.2514 }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Mandya",
+      "name_kn": "ಮಂಡ್ಯ",
+      "lgd_code": "546",
+      "latitude": 12.5218,
+      "longitude": 76.8951,
+      "taluks": [
+        {
+          "name": "Mandya",
+          "name_kn": "ಮಂಡ್ಯ",
+          "lgd_code": "5536",
+          "latitude": 12.5242,
+          "longitude": 76.8988,
+          "villages": [
+            { "name": "Dudda", "name_kn": "ದುದ್ದ", "lgd_code": "614201", "latitude": 12.5841, "longitude": 76.9214 },
+            { "name": "Kothathi", "name_kn": "ಕೊತ್ತತ್ತಿ", "lgd_code": "614215", "latitude": 12.4812, "longitude": 76.8524 }
+          ]
+        },
+        {
+          "name": "Maddur",
+          "name_kn": "ಮದ್ದೂರು",
+          "lgd_code": "5537",
+          "latitude": 12.5844,
+          "longitude": 77.0456,
+          "villages": [
+            { "name": "Besagarahalli", "name_kn": "ಬೆಸಗರಹಳ್ಳಿ", "lgd_code": "614250", "latitude": 12.5214, "longitude": 77.0125 },
+            { "name": "Koppa", "name_kn": "ಕೊಪ್ಪ", "lgd_code": "614265", "latitude": 12.6512, "longitude": 77.0341 }
+          ]
+        },
+        {
+          "name": "Pandavapura",
+          "name_kn": "ಪಾಂಡವಪುರ",
+          "lgd_code": "5538",
+          "latitude": 12.5002,
+          "longitude": 76.6669,
+          "villages": [
+            { "name": "Melukote", "name_kn": "ಮೇಲುಕೋಟೆ", "lgd_code": "614301", "latitude": 12.6625, "longitude": 76.6542 },
+            { "name": "Chinya", "name_kn": "ಚಿನ್ಯ", "lgd_code": "614312", "latitude": 12.5412, "longitude": 76.6124 }
+          ]
+        },
+        {
+          "name": "Srirangapatna",
+          "name_kn": "ಶ್ರೀರಂಗಪಟ್ಟಣ",
+          "lgd_code": "5539",
+          "latitude": 12.4224,
+          "longitude": 76.6946,
+          "villages": [
+            { "name": "Arakere", "name_kn": "ಅರಕೆರೆ", "lgd_code": "614350", "latitude": 12.4512, "longitude": 76.7824 },
+            { "name": "Belagola", "name_kn": "ಬೆಳಗೊಳ", "lgd_code": "614362", "latitude": 12.3841, "longitude": 76.5921 }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Mysuru",
+      "name_kn": "ಮೈಸೂರು",
+      "lgd_code": "547",
+      "latitude": 12.2958,
+      "longitude": 76.6394,
+      "taluks": [
+        {
+          "name": "Mysuru",
+          "name_kn": "ಮೈಸೂರು",
+          "lgd_code": "5543",
+          "latitude": 12.3051,
+          "longitude": 76.6552,
+          "villages": [
+            { "name": "Varuna", "name_kn": "ವರುಣಾ", "lgd_code": "618101", "latitude": 12.2612, "longitude": 76.7514 },
+            { "name": "Jayapura", "name_kn": "ಜಯಪುರ", "lgd_code": "618115", "latitude": 12.1842, "longitude": 76.5512 }
+          ]
+        },
+        {
+          "name": "Nanjangud",
+          "name_kn": "ನಂಜನಗೂಡು",
+          "lgd_code": "5544",
+          "latitude": 12.1190,
+          "longitude": 76.6806,
+          "villages": [
+            { "name": "Tagadur", "name_kn": "ತಗಡೂರು", "lgd_code": "618150", "latitude": 12.1845, "longitude": 76.8124 },
+            { "name": "Hullahalli", "name_kn": "ಹುಲ್ಲಹಳ್ಳಿ", "lgd_code": "618162", "latitude": 12.0812, "longitude": 76.5412 }
+          ]
+        },
+        {
+          "name": "Hunsur",
+          "name_kn": "ಹುಣಸೂರು",
+          "lgd_code": "5545",
+          "latitude": 12.3081,
+          "longitude": 76.2891,
+          "villages": [
+            { "name": "Bilikere", "name_kn": "ಬಿಳಿಕೆರೆ", "lgd_code": "618201", "latitude": 12.3412, "longitude": 76.4214 }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Belagavi",
+      "name_kn": "ಬೆಳಗಾವಿ",
+      "lgd_code": "525",
+      "latitude": 15.8497,
+      "longitude": 74.4977,
+      "taluks": [
+        {
+          "name": "Belagavi",
+          "name_kn": "ಬೆಳಗಾವಿ",
+          "lgd_code": "5420",
+          "latitude": 15.8612,
+          "longitude": 74.5124,
+          "villages": [
+            { "name": "Peeranwadi", "name_kn": "ಪೀರನವಾಡಿ", "lgd_code": "597101", "latitude": 15.8214, "longitude": 74.4521 },
+            { "name": "Uchagaon", "name_kn": "ಉಚಗಾಂವ್", "lgd_code": "597115", "latitude": 15.9124, "longitude": 74.4812 }
+          ]
+        },
+        {
+          "name": "Gokak",
+          "name_kn": "ಗೋಕಾಕ",
+          "lgd_code": "5421",
+          "latitude": 16.1667,
+          "longitude": 74.8333,
+          "villages": [
+            { "name": "Arbhavi", "name_kn": "ಅರಭಾವಿ", "lgd_code": "597201", "latitude": 16.2214, "longitude": 74.8512 },
+            { "name": "Koujalgi", "name_kn": "ಕೌಜಲಗಿ", "lgd_code": "597215", "latitude": 16.1124, "longitude": 75.0124 }
+          ]
+        },
+        {
+          "name": "Chikkodi",
+          "name_kn": "ಚಿಕ್ಕೋಡಿ",
+          "lgd_code": "5422",
+          "latitude": 16.4312,
+          "longitude": 74.5982,
+          "villages": [
+            { "name": "Nipani", "name_kn": "ನಿಪ್ಪಾಣಿ", "lgd_code": "597250", "latitude": 16.3982, "longitude": 74.3821 },
+            { "name": "Sadalga", "name_kn": "ಸದಲಗಾ", "lgd_code": "597262", "latitude": 16.5621, "longitude": 74.5214 }
+          ]
+        },
+        {
+          "name": "Bailhongal",
+          "name_kn": "ಬೈಲಹೊಂಗಲ",
+          "lgd_code": "5423",
+          "latitude": 15.8167,
+          "longitude": 74.8667,
+          "villages": [
+            { "name": "Nesargi", "name_kn": "ನೇಸರಗಿ", "lgd_code": "597301", "latitude": 15.9124, "longitude": 74.7812 }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Dharwad",
+      "name_kn": "ಧಾರವಾಡ",
+      "lgd_code": "535",
+      "latitude": 15.4589,
+      "longitude": 75.0078,
+      "taluks": [
+        {
+          "name": "Dharwad",
+          "name_kn": "ಧಾರವಾಡ",
+          "lgd_code": "5480",
+          "latitude": 15.4612,
+          "longitude": 75.0124,
+          "villages": [
+            { "name": "Garag", "name_kn": "ಗರಗ", "lgd_code": "601101", "latitude": 15.5412, "longitude": 74.9512 },
+            { "name": "Alnavar", "name_kn": "ಅಳ್ನಾವರ", "lgd_code": "601115", "latitude": 15.4312, "longitude": 74.7421 }
+          ]
+        },
+        {
+          "name": "Hubballi",
+          "name_kn": "ಹುಬ್ಬಳ್ಳಿ",
+          "lgd_code": "5481",
+          "latitude": 15.3647,
+          "longitude": 75.1240,
+          "villages": [
+            { "name": "Navalgund", "name_kn": "ನವಲಗುಂದ", "lgd_code": "601150", "latitude": 15.5642, "longitude": 75.3614 },
+            { "name": "Chabbi", "name_kn": "ಚಬ್ಬಿ", "lgd_code": "601162", "latitude": 15.2412, "longitude": 75.1842 }
+          ]
+        },
+        {
+          "name": "Kalghatgi",
+          "name_kn": "ಕಲಘಟಗಿ",
+          "lgd_code": "5482",
+          "latitude": 15.1833,
+          "longitude": 74.9667,
+          "villages": [
+            { "name": "Dummawad", "name_kn": "ದುಮ್ಮವಾಡ", "lgd_code": "601201", "latitude": 15.2214, "longitude": 74.9124 }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Kalaburagi",
+      "name_kn": "ಕಲಬುರಗಿ",
+      "lgd_code": "539",
+      "latitude": 17.3297,
+      "longitude": 76.8343,
+      "taluks": [
+        {
+          "name": "Kalaburagi",
+          "name_kn": "ಕಲಬುರಗಿ",
+          "lgd_code": "5500",
+          "latitude": 17.3342,
+          "longitude": 76.8412,
+          "villages": [
+            { "name": "Kusnoor", "name_kn": "ಕುಸನೂರು", "lgd_code": "604101", "latitude": 17.2912, "longitude": 76.8714 },
+            { "name": "Farhatabad", "name_kn": "ಫರಹತಾಬಾದ್", "lgd_code": "604115", "latitude": 17.2124, "longitude": 76.7412 }
+          ]
+        },
+        {
+          "name": "Aland",
+          "name_kn": "ಆಳಂದ",
+          "lgd_code": "5501",
+          "latitude": 17.5667,
+          "longitude": 76.5667,
+          "villages": [
+            { "name": "Narona", "name_kn": "ನರೋಣ", "lgd_code": "604150", "latitude": 17.4812, "longitude": 76.6214 },
+            { "name": "Khajuri", "name_kn": "ಖಜೂರಿ", "lgd_code": "604162", "latitude": 17.6214, "longitude": 76.5124 }
+          ]
+        },
+        {
+          "name": "Sedam",
+          "name_kn": "ಸೇಡಂ",
+          "lgd_code": "5502",
+          "latitude": 17.1833,
+          "longitude": 77.2833,
+          "villages": [
+            { "name": "Mudhna", "name_kn": "ಮುದ್ನಾ", "lgd_code": "604201", "latitude": 17.1214, "longitude": 77.3124 }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Shivamogga",
+      "name_kn": "ಶಿವಮೊಗ್ಗ",
+      "lgd_code": "551",
+      "latitude": 13.9299,
+      "longitude": 75.5681,
+      "taluks": [
+        {
+          "name": "Shivamogga",
+          "name_kn": "ಶಿವಮೊಗ್ಗ",
+          "lgd_code": "5565",
+          "latitude": 13.9312,
+          "longitude": 75.5714,
+          "villages": [
+            { "name": "Holalur", "name_kn": "ಹೊಳಲೂರು", "lgd_code": "621101", "latitude": 13.9912, "longitude": 75.7124 },
+            { "name": "Kumsi", "name_kn": "ಕುಂಸಿ", "lgd_code": "621115", "latitude": 14.0412, "longitude": 75.4124 }
+          ]
+        },
+        {
+          "name": "Bhadravathi",
+          "name_kn": "ಭದ್ರಾವತಿ",
+          "lgd_code": "5566",
+          "latitude": 13.8412,
+          "longitude": 75.7025,
+          "villages": [
+            { "name": "Holehonnur", "name_kn": "ಹೊಳೆಹೊನ್ನೂರು", "lgd_code": "621150", "latitude": 13.9512, "longitude": 75.6912 },
+            { "name": "Kudligere", "name_kn": "ಕೂಡ್ಲಿಗೆರೆ", "lgd_code": "621162", "latitude": 13.8914, "longitude": 75.7812 }
+          ]
+        },
+        {
+          "name": "Sagara",
+          "name_kn": "ಸಾಗರ",
+          "lgd_code": "5567",
+          "latitude": 14.1667,
+          "longitude": 75.0333,
+          "villages": [
+            { "name": "Keladi", "name_kn": "ಕೆಳದಿ", "lgd_code": "621201", "latitude": 14.2124, "longitude": 75.0124 },
+            { "name": "Ikkeri", "name_kn": "ಇಕ್ಕೇರಿ", "lgd_code": "621215", "latitude": 14.1214, "longitude": 75.0084 }
+          ]
+        },
+        {
+          "name": "Thirthahalli",
+          "name_kn": "ತೀರ್ಥಹಳ್ಳಿ",
+          "lgd_code": "5568",
+          "latitude": 13.6833,
+          "longitude": 75.2333,
+          "villages": [
+            { "name": "Agumbe", "name_kn": "ಆಗುಂಬೆ", "lgd_code": "621250", "latitude": 13.5042, "longitude": 75.0921 }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Udupi",
+      "name_kn": "ಉಡುಪಿ",
+      "lgd_code": "553",
+      "latitude": 13.3409,
+      "longitude": 74.7421,
+      "taluks": [
+        {
+          "name": "Udupi",
+          "name_kn": "ಉಡುಪಿ",
+          "lgd_code": "5575",
+          "latitude": 13.3442,
+          "longitude": 74.7482,
+          "villages": [
+            { "name": "Malpe", "name_kn": "ಮಲ್ಪೆ", "lgd_code": "624101", "latitude": 13.3512, "longitude": 74.7012 },
+            { "name": "Brahmavara", "name_kn": "ಬ್ರಹ್ಮಾವರ", "lgd_code": "624115", "latitude": 13.4312, "longitude": 74.7514 },
+            { "name": "Kaup", "name_kn": "ಕಾಪು", "lgd_code": "624128", "latitude": 13.2214, "longitude": 74.7412 }
+          ]
+        },
+        {
+          "name": "Kundapura",
+          "name_kn": "ಕುಂದಾಪುರ",
+          "lgd_code": "5576",
+          "latitude": 13.6267,
+          "longitude": 74.6917,
+          "villages": [
+            { "name": "Basrur", "name_kn": "ಬಸ್ರೂರು", "lgd_code": "624160", "latitude": 13.6314, "longitude": 74.7412 },
+            { "name": "Koteshwara", "name_kn": "ಕೋಟೇಶ್ವರ", "lgd_code": "624175", "latitude": 13.5842, "longitude": 74.7124 }
+          ]
+        },
+        {
+          "name": "Karkala",
+          "name_kn": "ಕಾರ್ಕಳ",
+          "lgd_code": "5577",
+          "latitude": 13.2167,
+          "longitude": 74.9967,
+          "villages": [
+            { "name": "Miyaru", "name_kn": "ಮಿಯಾರು", "lgd_code": "624201", "latitude": 13.2012, "longitude": 75.0314 },
+            { "name": "Bajagoli", "name_kn": "ಬಜಗೋಳಿ", "lgd_code": "624215", "latitude": 13.2514, "longitude": 75.0512 }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Dakshina Kannada",
+      "name_kn": "ದಕ್ಷಿಣ ಕನ್ನಡ",
+      "lgd_code": "533",
+      "latitude": 12.8708,
+      "longitude": 74.8804,
+      "taluks": [
+        {
+          "name": "Mangaluru",
+          "name_kn": "ಮಂಗಳೂರು",
+          "lgd_code": "5470",
+          "latitude": 12.8712,
+          "longitude": 74.8841,
+          "villages": [
+            { "name": "Surathkal", "name_kn": "ಸುರತ್ಕಲ್", "lgd_code": "626101", "latitude": 13.0014, "longitude": 74.7921 },
+            { "name": "Gurupura", "name_kn": "ಗುರುಪುರ", "lgd_code": "626115", "latitude": 12.9214, "longitude": 74.9412 }
+          ]
+        },
+        {
+          "name": "Bantwal",
+          "name_kn": "ಬಂಟ್ವಾಳ",
+          "lgd_code": "5471",
+          "latitude": 12.8914,
+          "longitude": 75.0342,
+          "villages": [
+            { "name": "Mani", "name_kn": "ಮಾಣಿ", "lgd_code": "626150", "latitude": 12.8312, "longitude": 75.1614 },
+            { "name": "Panemangalore", "name_kn": "ಪಾಣೆಮಂಗಳೂರು", "lgd_code": "626162", "latitude": 12.8812, "longitude": 75.0214 }
+          ]
+        },
+        {
+          "name": "Puttur",
+          "name_kn": "ಪುತ್ತೂರು",
+          "lgd_code": "5472",
+          "latitude": 12.7667,
+          "longitude": 75.2000,
+          "villages": [
+            { "name": "Uppinangady", "name_kn": "ಉಪ್ಪಿನಂಗಡಿ", "lgd_code": "626201", "latitude": 12.8412, "longitude": 75.2514 }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Ballari",
+      "name_kn": "ಬಳ್ಳಾರಿ",
+      "lgd_code": "524",
+      "latitude": 15.1394,
+      "longitude": 76.9214,
+      "taluks": [
+        {
+          "name": "Ballari",
+          "name_kn": "ಬಳ್ಳಾರಿ",
+          "lgd_code": "5415",
+          "latitude": 15.1412,
+          "longitude": 76.9242,
+          "villages": [
+            { "name": "Kurugodu", "name_kn": "ಕುರುಗೋಡು", "lgd_code": "595101", "latitude": 15.3412, "longitude": 76.8124 },
+            { "name": "Moka", "name_kn": "ಮೋಕಾ", "lgd_code": "595115", "latitude": 15.2214, "longitude": 77.0512 }
+          ]
+        },
+        {
+          "name": "Siruguppa",
+          "name_kn": "ಸಿರುಗುಪ್ಪ",
+          "lgd_code": "5416",
+          "latitude": 15.6333,
+          "longitude": 76.9000,
+          "villages": [
+            { "name": "Tekkalakote", "name_kn": "ತೆಕ್ಕಲಕೋಟೆ", "lgd_code": "595150", "latitude": 15.5412, "longitude": 76.8812 }
+          ]
+        },
+        {
+          "name": "Sandur",
+          "name_kn": "ಸಂಡೂರು",
+          "lgd_code": "5417",
+          "latitude": 15.0833,
+          "longitude": 76.5500,
+          "villages": [
+            { "name": "Toranagallu", "name_kn": "ತೋರಣಗಲ್ಲು", "lgd_code": "595201", "latitude": 15.2012, "longitude": 76.6214 }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Vijayanagara",
+      "name_kn": "ವಿಜಯನಗರ",
+      "lgd_code": "737",
+      "latitude": 15.2750,
+      "longitude": 76.3889,
+      "taluks": [
+        {
+          "name": "Hosapete",
+          "name_kn": "ಹೊಸಪೇಟೆ",
+          "lgd_code": "7045",
+          "latitude": 15.2714,
+          "longitude": 76.3921,
+          "villages": [
+            { "name": "Kamalapura", "name_kn": "ಕಮಲಾಪುರ", "lgd_code": "628101", "latitude": 15.3124, "longitude": 76.4412 },
+            { "name": "Mariyammanahalli", "name_kn": "ಮರಿಯಮ್ಮನಹಳ್ಳಿ", "lgd_code": "628115", "latitude": 15.1842, "longitude": 76.3124 }
+          ]
+        },
+        {
+          "name": "Hagaribommanahalli",
+          "name_kn": "ಹಗರಿಬೊಮ್ಮನಹಳ್ಳಿ",
+          "lgd_code": "7046",
+          "latitude": 15.0914,
+          "longitude": 76.0124,
+          "villages": [
+            { "name": "Malvi", "name_kn": "ಮಾಲ್ವಿ", "lgd_code": "628150", "latitude": 15.0412, "longitude": 76.0812 }
+          ]
+        },
+        {
+          "name": "Harapanahalli",
+          "name_kn": "ಹರಪನಹಳ್ಳಿ",
+          "lgd_code": "7047",
+          "latitude": 14.7942,
+          "longitude": 75.9912,
+          "villages": [
+            { "name": "Teligi", "name_kn": "ತೆಲಿಗಿ", "lgd_code": "628201", "latitude": 14.8512, "longitude": 76.0214 }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Hassan",
+      "name_kn": "ಹಾಸನ",
+      "lgd_code": "537",
+      "latitude": 13.0033,
+      "longitude": 76.1004,
+      "taluks": [
+        {
+          "name": "Hassan",
+          "name_kn": "ಹಾಸನ",
+          "lgd_code": "5490",
+          "latitude": 13.0062,
+          "longitude": 76.1024,
+          "villages": [
+            { "name": "Shantigrama", "name_kn": "ಶಾಂತಿಗ್ರಾಮ", "lgd_code": "610101", "latitude": 12.9812, "longitude": 76.2124 },
+            { "name": "Dudda", "name_kn": "ದುದ್ದ", "lgd_code": "610115", "latitude": 13.1124, "longitude": 76.1842 }
+          ]
+        },
+        {
+          "name": "Arsikere",
+          "name_kn": "ಅರಸೀಕೆರೆ",
+          "lgd_code": "5491",
+          "latitude": 13.3142,
+          "longitude": 76.2575,
+          "villages": [
+            { "name": "Banasavandra", "name_kn": "ಬಣಸವಂದ್ರ", "lgd_code": "610150", "latitude": 13.3412, "longitude": 76.3124 },
+            { "name": "Kanakatte", "name_kn": "ಕಣಕಟ್ಟೆ", "lgd_code": "610162", "latitude": 13.4512, "longitude": 76.3214 }
+          ]
+        },
+        {
+          "name": "Channarayapatna",
+          "name_kn": "ಚನ್ನರಾಯಪಟ್ಟಣ",
+          "lgd_code": "5492",
+          "latitude": 12.9056,
+          "longitude": 76.3912,
+          "villages": [
+            { "name": "Shravanabelagola", "name_kn": "ಶ್ರವಣಬೆಳಗೊಳ", "lgd_code": "610201", "latitude": 12.8584, "longitude": 76.4842 },
+            { "name": "Nuggehalli", "name_kn": "ನುಗ್ಗೆಹಳ್ಳಿ", "lgd_code": "610215", "latitude": 13.0124, "longitude": 76.5124 }
+          ]
+        },
+        {
+          "name": "Sakleshpur",
+          "name_kn": "ಸಕಲೇಶಪುರ",
+          "lgd_code": "5493",
+          "latitude": 12.9712,
+          "longitude": 75.7824,
+          "villages": [
+            { "name": "Hanbal", "name_kn": "ಹಾನ್ಬಾಳ್", "lgd_code": "610250", "latitude": 13.0412, "longitude": 75.7124 }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Tumakuru",
+      "name_kn": "ತುಮಕೂರು",
+      "lgd_code": "552",
+      "latitude": 13.3409,
+      "longitude": 77.1010,
+      "taluks": [
+        {
+          "name": "Tumakuru",
+          "name_kn": "ತುಮಕೂರು",
+          "lgd_code": "5570",
+          "latitude": 13.3442,
+          "longitude": 77.1042,
+          "villages": [
+            { "name": "Hebbur", "name_kn": "ಹೆಬ್ಬೂರು", "lgd_code": "612101", "latitude": 13.1842, "longitude": 77.0514 },
+            { "name": "Urukere", "name_kn": "ಉರುಕೆರೆ", "lgd_code": "612115", "latitude": 13.3812, "longitude": 77.1214 }
+          ]
+        },
+        {
+          "name": "Tiptur",
+          "name_kn": "ತಿಪಟೂರು",
+          "lgd_code": "5571",
+          "latitude": 13.2575,
+          "longitude": 76.4812,
+          "villages": [
+            { "name": "Kibbanahalli", "name_kn": "ಕಿಬ್ಬನಹಳ್ಳಿ", "lgd_code": "612150", "latitude": 13.3124, "longitude": 76.6512 },
+            { "name": "Nonavinakere", "name_kn": "ನೊಣವಿನಕೆರೆ", "lgd_code": "612162", "latitude": 13.1842, "longitude": 76.5412 }
+          ]
+        },
+        {
+          "name": "Kunigal",
+          "name_kn": "ಕುಣಿಗಲ್",
+          "lgd_code": "5572",
+          "latitude": 13.0242,
+          "longitude": 77.0312,
+          "villages": [
+            { "name": "Amruthur", "name_kn": "ಅಮೃತೂರು", "lgd_code": "612201", "latitude": 12.9214, "longitude": 76.9812 },
+            { "name": "Huliyurdurga", "name_kn": "ಹುಲಿಯೂರುದುರ್ಗ", "lgd_code": "612215", "latitude": 12.8512, "longitude": 77.0412 }
+          ]
+        },
+        {
+          "name": "Madhugiri",
+          "name_kn": "ಮಧುಗಿರಿ",
+          "lgd_code": "5573",
+          "latitude": 13.6642,
+          "longitude": 77.2124,
+          "villages": [
+            { "name": "Midigeshi", "name_kn": "ಮಿಡಿಗೇಶಿ", "lgd_code": "612250", "latitude": 13.8124, "longitude": 77.2014 },
+            { "name": "Puravara", "name_kn": "ಪುರವರ", "lgd_code": "612262", "latitude": 13.6124, "longitude": 77.3412 }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Chitradurga",
+      "name_kn": "ಚಿತ್ರದುರ್ಗ",
+      "lgd_code": "532",
+      "latitude": 14.2251,
+      "longitude": 76.4022,
+      "taluks": [
+        {
+          "name": "Chitradurga",
+          "name_kn": "ಚಿತ್ರದುರ್ಗ",
+          "lgd_code": "5465",
+          "latitude": 14.2284,
+          "longitude": 76.4056,
+          "villages": [
+            { "name": "Sirigere", "name_kn": "ಸಿರಿಗೆರೆ", "lgd_code": "616101", "latitude": 14.3812, "longitude": 76.2514 },
+            { "name": "Turuvanoor", "name_kn": "ತುರುವನೂರು", "lgd_code": "616115", "latitude": 14.3412, "longitude": 76.5412 }
+          ]
+        },
+        {
+          "name": "Hiriyur",
+          "name_kn": "ಹಿರಿಯೂರು",
+          "lgd_code": "5466",
+          "latitude": 13.9456,
+          "longitude": 76.6214,
+          "villages": [
+            { "name": "Aimangala", "name_kn": "ಐಮಂಗಲ", "lgd_code": "616150", "latitude": 14.0812, "longitude": 76.5412 },
+            { "name": "Dharmapura", "name_kn": "ಧರ್ಮಪುರ", "lgd_code": "616162", "latitude": 13.8214, "longitude": 76.7124 }
+          ]
+        },
+        {
+          "name": "Challakere",
+          "name_kn": "ಚಳ್ಳಕೆರೆ",
+          "lgd_code": "5467",
+          "latitude": 14.3124,
+          "longitude": 76.6512,
+          "villages": [
+            { "name": "Parasurampura", "name_kn": "ಪರಶುರಾಂಪುರ", "lgd_code": "616201", "latitude": 14.2812, "longitude": 76.8812 }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Davanagere",
+      "name_kn": "ದಾವಣಗೆರೆ",
+      "lgd_code": "534",
+      "latitude": 14.4644,
+      "longitude": 75.9218,
+      "taluks": [
+        {
+          "name": "Davanagere",
+          "name_kn": "ದಾವಣಗೆರೆ",
+          "lgd_code": "5475",
+          "latitude": 14.4682,
+          "longitude": 75.9245,
+          "villages": [
+            { "name": "Anaji", "name_kn": "ಆಣಜಿ", "lgd_code": "617101", "latitude": 14.5612, "longitude": 76.0514 },
+            { "name": "Mayakonda", "name_kn": "ಮಾಯಿಕೊಂಡ", "lgd_code": "617115", "latitude": 14.2812, "longitude": 76.0812 }
+          ]
+        },
+        {
+          "name": "Harihara",
+          "name_kn": "ಹರಿಹರ",
+          "lgd_code": "5476",
+          "latitude": 14.5124,
+          "longitude": 75.8012,
+          "villages": [
+            { "name": "Malebennur", "name_kn": "ಮಲೇಬೆನ್ನೂರು", "lgd_code": "617150", "latitude": 14.3512, "longitude": 75.7124 }
+          ]
+        },
+        {
+          "name": "Honnali",
+          "name_kn": "ಹೊನ್ನಾಳಿ",
+          "lgd_code": "5477",
+          "latitude": 14.2412,
+          "longitude": 75.6412,
+          "villages": [
+            { "name": "Sasvehalli", "name_kn": "ಸಾಸವೆಹಳ್ಳಿ", "lgd_code": "617201", "latitude": 14.1512, "longitude": 75.7214 }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Kolar",
+      "name_kn": "ಕೋಲಾರ",
+      "lgd_code": "544",
+      "latitude": 13.1367,
+      "longitude": 78.1291,
+      "taluks": [
+        {
+          "name": "Kolar",
+          "name_kn": "ಕೋಲಾರ",
+          "lgd_code": "5525",
+          "latitude": 13.1394,
+          "longitude": 78.1324,
+          "villages": [
+            { "name": "Vokkaleri", "name_kn": "ವೊಕ್ಕಲೇರಿ", "lgd_code": "611101", "latitude": 13.0812, "longitude": 78.1842 },
+            { "name": "Vemagal", "name_kn": "ವೇಮಗಲ್", "lgd_code": "611115", "latitude": 13.2214, "longitude": 78.0512 }
+          ]
+        },
+        {
+          "name": "Bangarapet",
+          "name_kn": "ಬಂಗಾರಪೇಟೆ",
+          "lgd_code": "5526",
+          "latitude": 12.9812,
+          "longitude": 78.1912,
+          "villages": [
+            { "name": "KGF", "name_kn": "ಕೆ.ಜಿ.ಎಫ್", "lgd_code": "611150", "latitude": 12.9512, "longitude": 78.2714 },
+            { "name": "Kammasandra", "name_kn": "ಕಮ್ಮಸಂದ್ರ", "lgd_code": "611162", "latitude": 12.9124, "longitude": 78.2124 }
+          ]
+        },
+        {
+          "name": "Malur",
+          "name_kn": "ಮಾಲೂರು",
+          "lgd_code": "5527",
+          "latitude": 13.0042,
+          "longitude": 77.9384,
+          "villages": [
+            { "name": "Lakkur", "name_kn": "ಲಕ್ಕೂರು", "lgd_code": "611201", "latitude": 12.9412, "longitude": 77.8512 }
+          ]
+        },
+        {
+          "name": "Srinivaspur",
+          "name_kn": "ಶ್ರೀನಿವಾಸಪುರ",
+          "lgd_code": "5528",
+          "latitude": 13.3412,
+          "longitude": 78.2124,
+          "villages": [
+            { "name": "Rayalpad", "name_kn": "ರಾಯಲ್ಪಾಡು", "lgd_code": "611250", "latitude": 13.4124, "longitude": 78.3412 }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Chikkaballapura",
+      "name_kn": "ಚಿಕ್ಕಬಳ್ಳಾಪುರ",
+      "lgd_code": "530",
+      "latitude": 13.4325,
+      "longitude": 77.7275,
+      "taluks": [
+        {
+          "name": "Chikkaballapura",
+          "name_kn": "ಚಿಕ್ಕಬಳ್ಳಾಪುರ",
+          "lgd_code": "5460",
+          "latitude": 13.4356,
+          "longitude": 77.7312,
+          "villages": [
+            { "name": "Nandi", "name_kn": "ನಂದಿ", "lgd_code": "609101", "latitude": 13.3712, "longitude": 77.6842 },
+            { "name": "Mandikal", "name_kn": "ಮಂಡಿಕಲ್", "lgd_code": "609115", "latitude": 13.5512, "longitude": 77.7812 }
+          ]
+        },
+        {
+          "name": "Chintamani",
+          "name_kn": "ಚಿಂತಾಮಣಿ",
+          "lgd_code": "5461",
+          "latitude": 13.4012,
+          "longitude": 78.0567,
+          "villages": [
+            { "name": "Muragamalla", "name_kn": "ಮುರುಗಮಲ್ಲ", "lgd_code": "609150", "latitude": 13.4214, "longitude": 78.1842 },
+            { "name": "Ambajidurga", "name_kn": "ಅಂಬಾಜಿ ದುರ್ಗ", "lgd_code": "609162", "latitude": 13.3612, "longitude": 78.0312 }
+          ]
+        },
+        {
+          "name": "Gowribidanur",
+          "name_kn": "ಗೌರಿಬಿದನೂರು",
+          "lgd_code": "5462",
+          "latitude": 13.6124,
+          "longitude": 77.5184,
+          "villages": [
+            { "name": "Manchenahalli", "name_kn": "ಮಂಚೇನಹಳ್ಳಿ", "lgd_code": "609201", "latitude": 13.5412, "longitude": 77.6124 }
+          ]
+        },
+        {
+          "name": "Sidlaghatta",
+          "name_kn": "ಶಿಡ್ಲಘಟ್ಟ",
+          "lgd_code": "5463",
+          "latitude": 13.3912,
+          "longitude": 77.8614,
+          "villages": [
+            { "name": "Jangamakote", "name_kn": "ಜಂಗಮಕೋಟೆ", "lgd_code": "609250", "latitude": 13.2612, "longitude": 77.8412 }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Ramanagara",
+      "name_kn": "ರಾಮನಗರ",
+      "lgd_code": "550",
+      "latitude": 12.7209,
+      "longitude": 77.2799,
+      "taluks": [
+        {
+          "name": "Ramanagara",
+          "name_kn": "ರಾಮನಗರ",
+          "lgd_code": "5560",
+          "latitude": 12.7242,
+          "longitude": 77.2841,
+          "villages": [
+            { "name": "Kailancha", "name_kn": "ಕೈಲಾಂಚ", "lgd_code": "620101", "latitude": 12.6512, "longitude": 77.2214 },
+            { "name": "Bidadi", "name_kn": "ಬಿದದಿ", "lgd_code": "620115", "latitude": 12.7981, "longitude": 77.3824 }
+          ]
+        },
+        {
+          "name": "Channapatna",
+          "name_kn": "ಚನ್ನಪಟ್ಟಣ",
+          "lgd_code": "5561",
+          "latitude": 12.6512,
+          "longitude": 77.2012,
+          "villages": [
+            { "name": "Makkunda", "name_kn": "ಮಕ್ಕುಂದ", "lgd_code": "620150", "latitude": 12.5812, "longitude": 77.1614 },
+            { "name": "Iggalur", "name_kn": "ಇಗ್ಗಲೂರು", "lgd_code": "620162", "latitude": 12.6012, "longitude": 77.0812 }
+          ]
+        },
+        {
+          "name": "Kanakapura",
+          "name_kn": "ಕನಕಪುರ",
+          "lgd_code": "5562",
+          "latitude": 12.5467,
+          "longitude": 77.4184,
+          "villages": [
+            { "name": "Harohalli", "name_kn": "ಹಾರೋಹಳ್ಳಿ", "lgd_code": "620201", "latitude": 12.6812, "longitude": 77.4812 },
+            { "name": "Maralawadi", "name_kn": "ಮರಳವಾಡಿ", "lgd_code": "620215", "latitude": 12.5842, "longitude": 77.5412 }
+          ]
+        },
+        {
+          "name": "Magadi",
+          "name_kn": "ಮಾಗಡಿ",
+          "lgd_code": "5563",
+          "latitude": 12.9567,
+          "longitude": 77.2267,
+          "villages": [
+            { "name": "Kudur", "name_kn": "ಕೂಡೂರು", "lgd_code": "620250", "latitude": 13.0812, "longitude": 77.1842 },
+            { "name": "Thippasandra", "name_kn": "ತಿಪ್ಪಸಂದ್ರ", "lgd_code": "620262", "latitude": 12.9812, "longitude": 77.0812 }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Chamarajanagar",
+      "name_kn": "ಚಾಮರಾಜನಗರ",
+      "lgd_code": "531",
+      "latitude": 11.9261,
+      "longitude": 76.9437,
+      "taluks": [
+        {
+          "name": "Chamarajanagar",
+          "name_kn": "ಚಾಮರಾಜನಗರ",
+          "lgd_code": "5464",
+          "latitude": 11.9284,
+          "longitude": 76.9482,
+          "villages": [
+            { "name": "Kuderu", "name_kn": "ಕುದೇರು", "lgd_code": "619101", "latitude": 12.0124, "longitude": 76.9812 },
+            { "name": "Santhemarahalli", "name_kn": "ಸಂತೆಮರಹಳ್ಳಿ", "lgd_code": "619115", "latitude": 12.0512, "longitude": 76.9512 }
+          ]
+        },
+        {
+          "name": "Gundlupet",
+          "name_kn": "ಗುಂಡ್ಲುಪೇಟೆ",
+          "lgd_code": "5465",
+          "latitude": 11.8084,
+          "longitude": 76.6894,
+          "villages": [
+            { "name": "Terakanambi", "name_kn": "ತೆರಕಣಾಂಬಿ", "lgd_code": "619150", "latitude": 11.8412, "longitude": 76.7812 },
+            { "name": "Begur", "name_kn": "ಬೇಗೂರು", "lgd_code": "619162", "latitude": 11.8912, "longitude": 76.6512 }
+          ]
+        },
+        {
+          "name": "Kollegal",
+          "name_kn": "ಕೊಳ್ಳೇಗಾಲ",
+          "lgd_code": "5466",
+          "latitude": 12.1556,
+          "longitude": 77.1142,
+          "villages": [
+            { "name": "Mamballi", "name_kn": "ಮಾಂಬಳ್ಳಿ", "lgd_code": "619201", "latitude": 12.1124, "longitude": 77.0612 }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Kodagu",
+      "name_kn": "ಕೊಡಗು",
+      "lgd_code": "543",
+      "latitude": 12.3375,
+      "longitude": 75.8069,
+      "taluks": [
+        {
+          "name": "Madikeri",
+          "name_kn": "ಮಡಿಕೇರಿ",
+          "lgd_code": "5520",
+          "latitude": 12.4244,
+          "longitude": 75.7382,
+          "villages": [
+            { "name": "Napoklu", "name_kn": "ನಾಪೋಕ್ಲು", "lgd_code": "625101", "latitude": 12.3124, "longitude": 75.7012 },
+            { "name": "Bhagamandala", "name_kn": "ಭಾಗಮಂಡಲ", "lgd_code": "625115", "latitude": 12.3842, "longitude": 75.5312 }
+          ]
+        },
+        {
+          "name": "Virajpet",
+          "name_kn": "ವಿರಾಜಪೇಟೆ",
+          "lgd_code": "5521",
+          "latitude": 12.2012,
+          "longitude": 75.8012,
+          "villages": [
+            { "name": "Gonikoppal", "name_kn": "ಗೋಣಿಕೊಪ್ಪಲು", "lgd_code": "625150", "latitude": 12.1842, "longitude": 75.9312 },
+            { "name": "Ponnampet", "name_kn": "ಪೊನ್ನಂಪೇಟೆ", "lgd_code": "625162", "latitude": 12.1412, "longitude": 75.9412 }
+          ]
+        },
+        {
+          "name": "Somwarpet",
+          "name_kn": "ಸೋಮವಾರಪೇಟೆ",
+          "lgd_code": "5522",
+          "latitude": 12.5984,
+          "longitude": 75.8642,
+          "villages": [
+            { "name": "Shanivarsanthe", "name_kn": "ಶನಿವಾರಸಂತೆ", "lgd_code": "625201", "latitude": 12.7512, "longitude": 75.9412 },
+            { "name": "Kushalnagar", "name_kn": "ಕುಶಾಲನಗರ", "lgd_code": "625215", "latitude": 12.4584, "longitude": 75.9612 }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Chikkamagaluru",
+      "name_kn": "ಚಿಕ್ಕಮಗಳೂರು",
+      "lgd_code": "531",
+      "latitude": 13.3161,
+      "longitude": 75.7720,
+      "taluks": [
+        {
+          "name": "Chikkamagaluru",
+          "name_kn": "ಚಿಕ್ಕಮಗಳೂರು",
+          "lgd_code": "5468",
+          "latitude": 13.3184,
+          "longitude": 75.7745,
+          "villages": [
+            { "name": "Vastare", "name_kn": "ವಸ್ತಾರೆ", "lgd_code": "613101", "latitude": 13.2612, "longitude": 75.7124 },
+            { "name": "Aldur", "name_kn": "ಆಲ್ದೂರು", "lgd_code": "613115", "latitude": 13.2412, "longitude": 75.6124 }
+          ]
+        },
+        {
+          "name": "Mudigere",
+          "name_kn": "ಮೂಡಿಗೆರೆ",
+          "lgd_code": "5469",
+          "latitude": 13.1367,
+          "longitude": 75.6412,
+          "villages": [
+            { "name": "Kalasa", "name_kn": "ಕಳಸ", "lgd_code": "613150", "latitude": 13.2214, "longitude": 75.3614 },
+            { "name": "Gonibeedu", "name_kn": "ಗೋಣಿಬೀಡು", "lgd_code": "613162", "latitude": 13.1124, "longitude": 75.7412 }
+          ]
+        },
+        {
+          "name": "Tarikere",
+          "name_kn": "ತರೀಕೆರೆ",
+          "lgd_code": "5470",
+          "latitude": 13.7124,
+          "longitude": 75.8142,
+          "villages": [
+            { "name": "Ajjampura", "name_kn": "ಅಜ್ಜಂಪುರ", "lgd_code": "613201", "latitude": 13.7214, "longitude": 76.0124 }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Uttara Kannada",
+      "name_kn": "ಉತ್ತರ ಕನ್ನಡ",
+      "lgd_code": "554",
+      "latitude": 14.8185,
+      "longitude": 74.1416,
+      "taluks": [
+        {
+          "name": "Karwar",
+          "name_kn": "ಕಾರವಾರ",
+          "lgd_code": "5580",
+          "latitude": 14.8214,
+          "longitude": 74.1352,
+          "villages": [
+            { "name": "Majali", "name_kn": "ಮಾಜಾಳಿ", "lgd_code": "622101", "latitude": 14.8812, "longitude": 74.1124 },
+            { "name": "Kadra", "name_kn": "ಕದ್ರಾ", "lgd_code": "622115", "latitude": 14.8912, "longitude": 74.3412 }
+          ]
+        },
+        {
+          "name": "Sirsi",
+          "name_kn": "ಶಿರಸಿ",
+          "lgd_code": "5581",
+          "latitude": 14.6184,
+          "longitude": 74.8356,
+          "villages": [
+            { "name": "Banavasi", "name_kn": "ಬನವಾಸಿ", "lgd_code": "622150", "latitude": 14.5342, "longitude": 75.0124 },
+            { "name": "Dasankoppa", "name_kn": "ದಾಸನಕೊಪ್ಪ", "lgd_code": "622162", "latitude": 14.6812, "longitude": 74.9124 }
+          ]
+        },
+        {
+          "name": "Kumta",
+          "name_kn": "ಕುಮಟಾ",
+          "lgd_code": "5582",
+          "latitude": 14.4284,
+          "longitude": 74.4084,
+          "villages": [
+            { "name": "Gokarna", "name_kn": "ಗೋಕರ್ಣ", "lgd_code": "622201", "latitude": 14.5442, "longitude": 74.3184 }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Haveri",
+      "name_kn": "ಹಾವೇರಿ",
+      "lgd_code": "538",
+      "latitude": 14.7974,
+      "longitude": 75.4056,
+      "taluks": [
+        {
+          "name": "Haveri",
+          "name_kn": "ಹಾವೇರಿ",
+          "lgd_code": "5495",
+          "latitude": 14.8012,
+          "longitude": 75.4124,
+          "villages": [
+            { "name": "Guttal", "name_kn": "ಗುತ್ತಲ", "lgd_code": "603101", "latitude": 14.8312, "longitude": 75.6124 },
+            { "name": "Karajgi", "name_kn": "ಕರಜಗಿ", "lgd_code": "603115", "latitude": 14.7124, "longitude": 75.3812 }
+          ]
+        },
+        {
+          "name": "Ranebennur",
+          "name_kn": "ರಾಣೆಬೆನ್ನೂರು",
+          "lgd_code": "5496",
+          "latitude": 14.6231,
+          "longitude": 75.6214,
+          "villages": [
+            { "name": "Medleri", "name_kn": "ಮೇಡ್ಲೇರಿ", "lgd_code": "603150", "latitude": 14.6812, "longitude": 75.7412 },
+            { "name": "Halageri", "name_kn": "ಹಲಗೇರಿ", "lgd_code": "603162", "latitude": 14.5412, "longitude": 75.5812 }
+          ]
+        },
+        {
+          "name": "Byadgi",
+          "name_kn": "ಬ್ಯಾಡಗಿ",
+          "lgd_code": "5497",
+          "latitude": 14.6812,
+          "longitude": 75.4812,
+          "villages": [
+            { "name": "Motebennur", "name_kn": "ಮೋಟೇಬೆನ್ನೂರು", "lgd_code": "603201", "latitude": 14.6512, "longitude": 75.4124 }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Gadag",
+      "name_kn": "ಗದಗ",
+      "lgd_code": "536",
+      "latitude": 15.4312,
+      "longitude": 75.6312,
+      "taluks": [
+        {
+          "name": "Gadag",
+          "name_kn": "ಗದಗ",
+          "lgd_code": "5485",
+          "latitude": 15.4342,
+          "longitude": 75.6356,
+          "villages": [
+            { "name": "Betageri", "name_kn": "ಬೆಟಗೇರಿ", "lgd_code": "602101", "latitude": 15.4512, "longitude": 75.6512 },
+            { "name": "Hulkoti", "name_kn": "ಹುಲಕೋಟಿ", "lgd_code": "602115", "latitude": 15.4124, "longitude": 75.5214 }
+          ]
+        },
+        {
+          "name": "Ron",
+          "name_kn": "ರೋಣ",
+          "lgd_code": "5486",
+          "latitude": 15.6984,
+          "longitude": 75.7342,
+          "villages": [
+            { "name": "Gajendragad", "name_kn": "ಗಜೇಂದ್ರಗಡ", "lgd_code": "602150", "latitude": 15.7412, "longitude": 75.9812 },
+            { "name": "Naregal", "name_kn": "ನರೇಗಲ್", "lgd_code": "602162", "latitude": 15.5812, "longitude": 75.8124 }
+          ]
+        },
+        {
+          "name": "Shirhatti",
+          "name_kn": "ಶಿರಹಟ್ಟಿ",
+          "lgd_code": "5487",
+          "latitude": 15.2312,
+          "longitude": 75.5812,
+          "villages": [
+            { "name": "Laxmeshwar", "name_kn": "ಲಕ್ಷ್ಮೇಶ್ವರ", "lgd_code": "602201", "latitude": 15.1312, "longitude": 75.4712 }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Bagalkote",
+      "name_kn": "ಬಾಗಲಕೋಟೆ",
+      "lgd_code": "523",
+      "latitude": 16.1812,
+      "longitude": 75.6961,
+      "taluks": [
+        {
+          "name": "Bagalkote",
+          "name_kn": "ಬಾಗಲಕೋಟೆ",
+          "lgd_code": "5410",
+          "latitude": 16.1845,
+          "longitude": 75.7012,
+          "villages": [
+            { "name": "Navanagar", "name_kn": "ನವನಗರ", "lgd_code": "594101", "latitude": 16.1912, "longitude": 75.7314 },
+            { "name": "Kaladgi", "name_kn": "ಕಲಾದಗಿ", "lgd_code": "594115", "latitude": 16.2012, "longitude": 75.5012 }
+          ]
+        },
+        {
+          "name": "Badami",
+          "name_kn": "ಬಾದಾಮಿ",
+          "lgd_code": "5411",
+          "latitude": 15.9184,
+          "longitude": 75.6794,
+          "villages": [
+            { "name": "Pattadakal", "name_kn": "ಪಟ್ಟದಕಲ್ಲು", "lgd_code": "594150", "latitude": 15.9482, "longitude": 75.8164 },
+            { "name": "Aihole", "name_kn": "ಐಹೊಳೆ", "lgd_code": "594162", "latitude": 16.0184, "longitude": 75.8812 },
+            { "name": "Kerur", "name_kn": "ಕೇರೂರು", "lgd_code": "594175", "latitude": 16.0124, "longitude": 75.5612 }
+          ]
+        },
+        {
+          "name": "Jamkhandi",
+          "name_kn": "ಜಮಖಂಡಿ",
+          "lgd_code": "5412",
+          "latitude": 16.5084,
+          "longitude": 75.2984,
+          "villages": [
+            { "name": "Rabkavi", "name_kn": "ರಬಕವಿ", "lgd_code": "604201", "latitude": 16.4812, "longitude": 75.1214 },
+            { "name": "Banahatti", "name_kn": "ಬನಹಟ್ಟಿ", "lgd_code": "604215", "latitude": 16.4712, "longitude": 75.1412 }
+          ]
+        },
+        {
+          "name": "Mudhol",
+          "name_kn": "ಮುಧೋಳ",
+          "lgd_code": "5413",
+          "latitude": 16.3412,
+          "longitude": 75.2812,
+          "villages": [
+            { "name": "Lokapur", "name_kn": "ಲೋಕಾಪುರ", "lgd_code": "604250", "latitude": 16.1612, "longitude": 75.3612 }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Vijayapura",
+      "name_kn": "ವಿಜಯಪುರ",
+      "lgd_code": "526",
+      "latitude": 16.8302,
+      "longitude": 75.7100,
+      "taluks": [
+        {
+          "name": "Vijayapura",
+          "name_kn": "ವಿಜಯಪುರ",
+          "lgd_code": "5430",
+          "latitude": 16.8342,
+          "longitude": 75.7145,
+          "villages": [
+            { "name": "Tikota", "name_kn": "ಟಿಕೋಟಾ", "lgd_code": "598101", "latitude": 16.8612, "longitude": 75.5214 },
+            { "name": "Babalshwar", "name_kn": "ಬಬಲೇಶ್ವರ", "lgd_code": "598115", "latitude": 16.6812, "longitude": 75.6012 }
+          ]
+        },
+        {
+          "name": "Indi",
+          "name_kn": "ಇಂಡಿ",
+          "lgd_code": "5431",
+          "latitude": 17.1712,
+          "longitude": 75.9612,
+          "villages": [
+            { "name": "Chadchan", "name_kn": "ಚಡಚಣ", "lgd_code": "598150", "latitude": 17.2112, "longitude": 75.6812 },
+            { "name": "Horti", "name_kn": "ಹೋರ್ತಿ", "lgd_code": "598162", "latitude": 17.0612, "longitude": 75.8412 }
+          ]
+        },
+        {
+          "name": "Muddebihal",
+          "name_kn": "ಮುದ್ದೇಬಿಹಾಳ",
+          "lgd_code": "5432",
+          "latitude": 16.3412,
+          "longitude": 76.1312,
+          "villages": [
+            { "name": "Talikote", "name_kn": "ತಾಳಿಕೋಟೆ", "lgd_code": "598201", "latitude": 16.4812, "longitude": 76.3124 }
+          ]
+        },
+        {
+          "name": "Basavana Bagewadi",
+          "name_kn": "ಬಸವನ ಬಾಗೇವಾಡಿ",
+          "lgd_code": "5433",
+          "latitude": 16.5812,
+          "longitude": 75.9612,
+          "villages": [
+            { "name": "Kolhar", "name_kn": "ಕೊಲ್ಹಾರ", "lgd_code": "598250", "latitude": 16.5912, "longitude": 75.8214 }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Koppal",
+      "name_kn": "ಕೊಪ್ಪಳ",
+      "lgd_code": "545",
+      "latitude": 15.3456,
+      "longitude": 76.1556,
+      "taluks": [
+        {
+          "name": "Koppal",
+          "name_kn": "ಕೊಪ್ಪಳ",
+          "lgd_code": "5530",
+          "latitude": 15.3482,
+          "longitude": 76.1591,
+          "villages": [
+            { "name": "Alavandi", "name_kn": "ಅಳವಂಡಿ", "lgd_code": "605101", "latitude": 15.2812, "longitude": 76.0124 },
+            { "name": "Ginigera", "name_kn": "ಗಿಣಿಗೇರಾ", "lgd_code": "605115", "latitude": 15.3812, "longitude": 76.2514 }
+          ]
+        },
+        {
+          "name": "Gangavathi",
+          "name_kn": "ಗಂಗಾವತಿ",
+          "lgd_code": "5531",
+          "latitude": 15.4312,
+          "longitude": 76.5312,
+          "villages": [
+            { "name": "Anegundi", "name_kn": "ಆನೆಗುಂದಿ", "lgd_code": "605150", "latitude": 15.3512, "longitude": 76.4912 },
+            { "name": "Karatagi", "name_kn": "ಕಾರಟಗಿ", "lgd_code": "605162", "latitude": 15.5812, "longitude": 76.6512 }
+          ]
+        },
+        {
+          "name": "Kushtagi",
+          "name_kn": "ಕುಷ್ಟಗಿ",
+          "lgd_code": "5532",
+          "latitude": 15.7512,
+          "longitude": 76.1912,
+          "villages": [
+            { "name": "Tavargera", "name_kn": "ತಾವರಗೇರಾ", "lgd_code": "605201", "latitude": 15.8214, "longitude": 76.3124 }
+          ]
+        },
+        {
+          "name": "Yelburga",
+          "name_kn": "ಯಲಬುರ್ಗಾ",
+          "lgd_code": "5533",
+          "latitude": 15.6124,
+          "longitude": 75.9812,
+          "villages": [
+            { "name": "Kuknoor", "name_kn": "ಕುಕನೂರು", "lgd_code": "605250", "latitude": 15.4912, "longitude": 75.9812 }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Raichur",
+      "name_kn": "ರಾಯಚೂರು",
+      "lgd_code": "549",
+      "latitude": 16.2076,
+      "longitude": 77.3463,
+      "taluks": [
+        {
+          "name": "Raichur",
+          "name_kn": "ರಾಯಚೂರು",
+          "lgd_code": "5555",
+          "latitude": 16.2112,
+          "longitude": 77.3512,
+          "villages": [
+            { "name": "Shaktinagar", "name_kn": "ಶಕ್ತಿನಗರ", "lgd_code": "606101", "latitude": 16.3412, "longitude": 77.4124 },
+            { "name": "Yeramarus", "name_kn": "ಯರಮರಸ್", "lgd_code": "606115", "latitude": 16.2512, "longitude": 77.3812 }
+          ]
+        },
+        {
+          "name": "Sindhanur",
+          "name_kn": "ಸಿಂಧನೂರು",
+          "lgd_code": "5556",
+          "latitude": 15.7712,
+          "longitude": 76.7612,
+          "villages": [
+            { "name": "Turvihal", "name_kn": "ತುರ್ವಿಹಾಳ", "lgd_code": "606150", "latitude": 15.8512, "longitude": 76.9124 },
+            { "name": "Jawalgira", "name_kn": "ಜವಳಗೇರಾ", "lgd_code": "606162", "latitude": 15.7124, "longitude": 76.6812 }
+          ]
+        },
+        {
+          "name": "Manvi",
+          "name_kn": "ಮಾನ್ವಿ",
+          "lgd_code": "5557",
+          "latitude": 15.9912,
+          "longitude": 77.0512,
+          "villages": [
+            { "name": "Sirwar", "name_kn": "ಸಿರವಾರ", "lgd_code": "606201", "latitude": 16.0812, "longitude": 77.0124 }
+          ]
+        },
+        {
+          "name": "Devadurga",
+          "name_kn": "ದೇವದುರ್ಗ",
+          "lgd_code": "5558",
+          "latitude": 16.4214,
+          "longitude": 76.9312,
+          "villages": [
+            { "name": "Gabbur", "name_kn": "ಗಬ್ಬೂರು", "lgd_code": "606250", "latitude": 16.4812, "longitude": 77.0812 }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Yadgir",
+      "name_kn": "ಯಾದಗಿರಿ",
+      "lgd_code": "556",
+      "latitude": 16.7644,
+      "longitude": 77.1378,
+      "taluks": [
+        {
+          "name": "Yadgir",
+          "name_kn": "ಯಾದಗಿರಿ",
+          "lgd_code": "5590",
+          "latitude": 16.7682,
+          "longitude": 77.1412,
+          "villages": [
+            { "name": "Saidapur", "name_kn": "ಸೈದಾಪುರ", "lgd_code": "607101", "latitude": 16.6412, "longitude": 77.2514 },
+            { "name": "Balichakra", "name_kn": "ಬಲಿಚಕ್ರ", "lgd_code": "607115", "latitude": 16.7124, "longitude": 77.0512 }
+          ]
+        },
+        {
+          "name": "Shahapur",
+          "name_kn": "ಶಹಾಪುರ",
+          "lgd_code": "5591",
+          "latitude": 16.7012,
+          "longitude": 76.8412,
+          "villages": [
+            { "name": "Gogipeth", "name_kn": "ಗೋಗಿಪೇಟೆ", "lgd_code": "607150", "latitude": 16.7412, "longitude": 76.7512 },
+            { "name": "Doranhalli", "name_kn": "ದೋರನಹಳ್ಳಿ", "lgd_code": "607162", "latitude": 16.6124, "longitude": 76.8912 }
+          ]
+        },
+        {
+          "name": "Shorapur",
+          "name_kn": "ಶೋರಾಪುರ",
+          "lgd_code": "5592",
+          "latitude": 16.5214,
+          "longitude": 76.7612,
+          "villages": [
+            { "name": "Hunsagi", "name_kn": "ಹುಣಸಗಿ", "lgd_code": "607201", "latitude": 16.4512, "longitude": 76.5124 },
+            { "name": "Kembhavi", "name_kn": "ಕೆಂಭಾವಿ", "lgd_code": "607215", "latitude": 16.6512, "longitude": 76.5512 }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Bidar",
+      "name_kn": "ಬೀದರ್",
+      "lgd_code": "527",
+      "latitude": 17.9104,
+      "longitude": 77.5194,
+      "taluks": [
+        {
+          "name": "Bidar",
+          "name_kn": "ಬೀದರ್",
+          "lgd_code": "5440",
+          "latitude": 17.9142,
+          "longitude": 77.5245,
+          "villages": [
+            { "name": "Janwada", "name_kn": "ಜನವಾಡ", "lgd_code": "596101", "latitude": 17.9512, "longitude": 77.6012 },
+            { "name": "Bagdal", "name_kn": "ಬಾಗ್ದಾಲ್", "lgd_code": "596115", "latitude": 17.8412, "longitude": 77.4124 }
+          ]
+        },
+        {
+          "name": "Basavakalyan",
+          "name_kn": "ಬಸವಕಲ್ಯಾಣ",
+          "lgd_code": "5441",
+          "latitude": 17.8712,
+          "longitude": 76.9512,
+          "villages": [
+            { "name": "Hulsoor", "name_kn": "ಹುಲಸೂರು", "lgd_code": "596150", "latitude": 17.7812, "longitude": 77.0124 },
+            { "name": "Mudbi", "name_kn": "ಮುದ್ಬಿ", "lgd_code": "596162", "latitude": 17.8124, "longitude": 76.8412 }
+          ]
+        },
+        {
+          "name": "Bhalki",
+          "name_kn": "ಭಾಲ್ಕಿ",
+          "lgd_code": "5442",
+          "latitude": 18.0412,
+          "longitude": 77.2124,
+          "villages": [
+            { "name": "Khatakchincholi", "name_kn": "ಖಟಕಚಿಂಚೋಳಿ", "lgd_code": "596201", "latitude": 18.1124, "longitude": 77.2812 }
+          ]
+        },
+        {
+          "name": "Humnabad",
+          "name_kn": "ಹುಮನಾಬಾದ್",
+          "lgd_code": "5443",
+          "latitude": 17.7712,
+          "longitude": 77.1312,
+          "villages": [
+            { "name": "Dubalgundi", "name_kn": "ದುಬಲಗುಂಡಿ", "lgd_code": "596250", "latitude": 17.7124, "longitude": 77.1842 }
+          ]
+        },
+        {
+          "name": "Aurad",
+          "name_kn": "ಔರಾದ್",
+          "lgd_code": "5444",
+          "latitude": 18.2512,
+          "longitude": 77.4312,
+          "villages": [
+            { "name": "Kamalnagar", "name_kn": "ಕಮಲನಗರ", "lgd_code": "596301", "latitude": 18.2812, "longitude": 77.2412 }
+          ]
+        }
+      ]
+    }
+  ]
+}

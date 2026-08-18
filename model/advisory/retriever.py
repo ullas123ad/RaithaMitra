@@ -21,8 +21,8 @@ class AgriculturalRetrieverError(Exception):
 class AgriculturalRetriever:
     """
     Lightweight, deterministic lexical agricultural knowledge retriever.
-    Scores knowledge entries based on crop alignment, domain keyword matches,
-    topic overlap, and term frequency.
+    Scores knowledge entries based on crop alignment, domain symptom keywords,
+    topic overlap, and term frequency with precision filtering.
     """
 
     # Common agricultural crop synonyms for matching
@@ -56,18 +56,21 @@ class AgriculturalRetriever:
         self,
         corpus_path: Optional[str] = None,
         top_k: int = 3,
-        relevance_threshold: float = 1.0
+        relevance_threshold: float = 1.5,
+        score_gap_ratio: float = 0.5
     ):
         """
         Initialize the AgriculturalRetriever.
 
         Args:
             corpus_path: Path to agricultural_corpus.json. Defaults to project standard path.
-            top_k: Number of top-scoring documents to return. Default is 3.
+            top_k: Maximum number of top-scoring documents to return. Default is 3.
             relevance_threshold: Minimum score required for a document to be returned.
+            score_gap_ratio: Minimum ratio of top document's score required for secondary documents.
         """
         self.top_k = top_k
         self.relevance_threshold = relevance_threshold
+        self.score_gap_ratio = score_gap_ratio
         self.corpus_path = corpus_path or self._get_default_corpus_path()
         self._corpus: List[Dict[str, Any]] = []
         self._load_corpus()
@@ -106,7 +109,7 @@ class AgriculturalRetriever:
         tokens = [t.strip() for t in cleaned.split() if t.strip()]
         return tokens
 
-    def _detect_query_crops(self, query_tokens: List[str], query_raw: str) -> Set[str]:
+    def _detect_query_crops(self, query_raw: str) -> Set[str]:
         """Detects crops explicitly mentioned in the query."""
         detected = set()
         query_lower = query_raw.lower()
@@ -123,10 +126,10 @@ class AgriculturalRetriever:
         Calculates a deterministic relevance score between a query and a document.
 
         Scoring Components:
-        - Crop Match (Weight: 3.5): Strong signal if the document matches the query's crop.
-        - Keyword Match (Weight: 1.5): Matches between query words and document keywords.
-        - Title Overlap (Weight: 1.0): Matches between query words and document title.
-        - Topic Overlap (Weight: 0.8): Topic keywords present in query.
+        - Crop Match (Weight: 2.5): Signal if the document matches the query's crop.
+        - Symptom Keyword Match (Weight: 2.0 / 0.8): Matches on symptoms, pests, and remedies.
+        - Title Overlap (Weight: 1.2): Matches between query words and document title.
+        - Topic Overlap (Weight: 1.0): Matches between query words and topic category.
         - Content Overlap (Weight: 0.2 per unique word hit).
         """
         query_tokens = self._tokenize(query)
@@ -139,48 +142,63 @@ class AgriculturalRetriever:
 
         score = 0.0
         doc_crop = doc.get("crop", "").lower()
-        detected_crops = self._detect_query_crops(query_tokens, query)
+        query_lower = query.lower()
+        detected_crops = self._detect_query_crops(query)
+
+        all_crop_names = set().union(*self.CROP_SYNONYMS.values())
 
         # 1. Crop Match
+        has_crop_match = False
         if doc_crop in detected_crops:
-            score += 3.5
+            score += 2.5
+            has_crop_match = True
         elif detected_crops and doc_crop != "general":
-            # If the user asked about a specific crop and doc is for another specific crop, penalize
-            score -= 2.0
+            score -= 3.0
 
-        # 2. Keyword Match
+        # 2. Symptom & Domain Keyword Match (excluding pure crop name repetition)
         doc_keywords = doc.get("keywords", [])
+        symptom_kw_hits = 0
+
         for kw in doc_keywords:
             kw_lower = kw.lower()
-            if kw_lower in query.lower():
-                score += 1.5
+            if kw_lower in all_crop_names:
+                continue
+
+            if kw_lower in query_lower:
+                score += 2.0
+                symptom_kw_hits += 1
             else:
-                kw_tokens = set(self._tokenize(kw_lower)) - self.STOPWORDS
+                kw_tokens = set(self._tokenize(kw_lower)) - self.STOPWORDS - all_crop_names
                 overlap = len(query_set.intersection(kw_tokens))
                 if overlap > 0:
-                    score += 0.6 * overlap
+                    score += 0.8 * overlap
+                    symptom_kw_hits += 1
 
         # 3. Title Overlap
-        doc_title_tokens = set(self._tokenize(doc.get("title", ""))) - self.STOPWORDS
+        doc_title_tokens = set(self._tokenize(doc.get("title", ""))) - self.STOPWORDS - all_crop_names
         title_overlap = len(query_set.intersection(doc_title_tokens))
-        score += 1.0 * title_overlap
+        score += 1.2 * title_overlap
 
         # 4. Topic Overlap
         doc_topic = doc.get("topic", "").replace("_", " ")
         topic_tokens = set(self._tokenize(doc_topic)) - self.STOPWORDS
         topic_overlap = len(query_set.intersection(topic_tokens))
-        score += 0.8 * topic_overlap
+        score += 1.0 * topic_overlap
 
         # 5. Content Overlap
-        doc_content_tokens = set(self._tokenize(doc.get("content", ""))) - self.STOPWORDS
+        doc_content_tokens = set(self._tokenize(doc.get("content", ""))) - self.STOPWORDS - all_crop_names
         content_overlap = len(query_set.intersection(doc_content_tokens))
         score += 0.2 * min(content_overlap, 10)
+
+        # Policy: If crop matched, but there is zero symptom, title, or topic overlap, penalize
+        if has_crop_match and (symptom_kw_hits == 0 and title_overlap == 0 and topic_overlap == 0):
+            score *= 0.3
 
         return max(0.0, score)
 
     def retrieve(self, query: str, top_k: Optional[int] = None) -> List[Dict[str, Any]]:
         """
-        Retrieves top-k relevant knowledge entries for the query.
+        Retrieves top-k relevant knowledge entries for the query with precision filtering.
 
         Args:
             query: Farmer query in English.
@@ -212,6 +230,15 @@ class AgriculturalRetriever:
 
         # Sort descending by score, tie-break by ID for determinism
         scored_docs.sort(key=lambda d: (d["score"], d["id"]), reverse=True)
+
+        # Relative score gap filter: keep secondary docs only if they are competitive with top doc
+        if scored_docs:
+            top_score = scored_docs[0]["score"]
+            scored_docs = [
+                d for d in scored_docs
+                if d["score"] >= (self.score_gap_ratio * top_score)
+            ]
+
         return scored_docs[:k]
 
     def format_context(self, retrieved_docs: List[Dict[str, Any]]) -> str:

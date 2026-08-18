@@ -85,7 +85,7 @@ class TestAgriculturalRetriever(unittest.TestCase):
 
     def test_8_top_k_parameter(self):
         """TEST 8: top_k works correctly."""
-        query = "paddy pest stem borer dead heart"
+        query = "paddy yellow leaves nitrogen zinc"
         results_1 = self.retriever.retrieve(query, top_k=1)
         results_3 = self.retriever.retrieve(query, top_k=3)
         self.assertEqual(len(results_1), 1)
@@ -156,6 +156,12 @@ class TestAgriculturalRetriever(unittest.TestCase):
         self.assertGreater(len(results), 0)
         self.assertEqual(results[0]["crop"], "banana")
         self.assertIn("yellow", results[0]["title"].lower() + results[0]["content"].lower())
+
+    def test_negative_queries(self):
+        """Verify negative queries with no corpus match return empty results."""
+        self.assertEqual(self.retriever.retrieve("How to cultivate saffron in cold climate?"), [])
+        self.assertEqual(self.retriever.retrieve("How to repair a laptop motherboard?"), [])
+        self.assertEqual(self.retriever.retrieve("My tractor engine is overheating."), [])
 
     def test_format_context(self):
         """Verify format_context returns clean structured text."""

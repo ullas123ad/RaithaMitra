@@ -1,8 +1,10 @@
 """
 RaithaMitra Agricultural Advisory Configuration.
 
-Defines configuration parameters for the LLM advisory backend,
-including model identifiers, inference parameters, and execution modes.
+Defines configuration parameters for the LLM advisory backends:
+1. Dhenu (KissanAI/Dhenu2-In-Llama3.2-1B-Instruct) - Local 1B CPU Agricultural LLM
+2. AgriParam (bharatgenai/AgriParam) - Optional remote/high-memory LLM
+3. Mock Backend - Fast, deterministic testing
 """
 
 from dataclasses import dataclass, field
@@ -19,11 +21,11 @@ class AdvisoryConfigError(Exception):
 class AdvisoryConfig:
     """Configuration settings for RaithaMitra Agricultural Advisory Engine."""
 
-    # Model identification
-    model_id: str = "bharatgenai/AgriParam"
-
-    # Backend selection: "mock" (default for development), "transformers", "quantized", "remote"
+    # Backend selection: "mock" (default for testing), "dhenu", "transformers", "quantized", "remote"
     backend: str = "mock"
+
+    # Model identification
+    model_id: str = "KissanAI/Dhenu2-In-Llama3.2-1B-Instruct"
 
     # Inference hyperparameters
     temperature: float = 0.7
@@ -32,12 +34,12 @@ class AdvisoryConfig:
     repetition_penalty: float = 1.1
 
     # Execution device configuration
-    device: Optional[str] = None  # None for auto-detect (cpu, cuda)
-    trust_remote_code: bool = True
-    cache_dir: Optional[str] = os.getenv("AGRIPARAM_CACHE_DIR", None)
+    device: Optional[str] = "cpu"
+    trust_remote_code: bool = False
+    cache_dir: Optional[str] = os.getenv("HF_HOME", None)
 
     # Language configuration
-    # Note: AgriParam natively supports English ("en") and Hindi ("hi").
+    # Note: Dhenu and AgriParam operate natively in English ("en").
     # Kannada queries are routed through the Language Bridge.
     advisory_language: str = "en"  # "en" or "hi"
 
@@ -46,7 +48,7 @@ class AdvisoryConfig:
 
     # Allowed backends
     ALLOWED_BACKENDS: List[str] = field(
-        default_factory=lambda: ["mock", "transformers", "quantized", "remote"]
+        default_factory=lambda: ["mock", "dhenu", "transformers", "quantized", "remote"]
     )
 
     def validate(self) -> None:
@@ -76,5 +78,5 @@ class AdvisoryConfig:
 
         if self.advisory_language not in ["en", "hi"]:
             raise AdvisoryConfigError(
-                f"advisory_language must be 'en' or 'hi' (AgriParam native languages), got '{self.advisory_language}'"
+                f"advisory_language must be 'en' or 'hi' (Advisory LLM native languages), got '{self.advisory_language}'"
             )

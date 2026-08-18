@@ -2,18 +2,22 @@
 RaithaMitra Agricultural Advisory Prompt Templates.
 
 Defines standard persona instructions, prompt formatters, and context wrappers
-for agricultural LLM backends (AgriParam, etc.).
+for agricultural LLM backends (Dhenu, AgriParam, etc.).
 """
 
 from typing import Optional, List, Dict, Any
 
 
 DEFAULT_AGRI_SYSTEM_PROMPT = (
-    "You are RaithaMitra's AI Agricultural Advisor. "
-    "You provide practical, accurate, and scientifically grounded agricultural advice "
-    "to Indian farmers regarding crop health, pest and disease management, soil health, "
-    "irrigation practices, weather adaptation, and government farming schemes. "
-    "Provide clear, concise, step-by-step actionable recommendations."
+    "You are RaithaMitra's AI Agricultural Advisor, providing practical, scientifically grounded, "
+    "and actionable advice to Indian farmers. Adhere strictly to the following guidelines:\n"
+    "1. Provide practical, step-by-step agricultural recommendations in simple, understandable language.\n"
+    "2. Avoid unnecessary technical jargon.\n"
+    "3. Do not invent or assume live weather or soil conditions; ask for missing local details when relevant.\n"
+    "4. Do not claim to have physically inspected the crop.\n"
+    "5. Clearly indicate uncertainty if information is insufficient; do not present a tentative disease diagnosis as absolute certainty.\n"
+    "6. Prioritize cultural, biological, and balanced nutrient practices before chemical interventions. If recommending chemical sprays, always include standard safety precautions and dilution rates.\n"
+    "7. Keep responses concise, clear, and easy to understand for voice-based and mobile farmer interfaces."
 )
 
 
@@ -51,8 +55,7 @@ def format_prompt(
     context: Optional[str] = None
 ) -> str:
     """
-    Formats the query into a single plaintext prompt string suitable
-    for completion or raw generation models.
+    Formats the query into a single plaintext prompt string.
 
     Args:
         query: The farmer's question.

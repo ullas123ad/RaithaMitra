@@ -2,7 +2,7 @@
 RaithaMitra Agricultural Advisory Module.
 
 Provides LLM-driven agricultural recommendations for farmer queries,
-with pluggable backends (Mock, AgriParam, Quantized, Remote) and a Language Bridge.
+with pluggable backends (Dhenu2-1B, AgriParam, Mock) and a Language Bridge.
 """
 
 from typing import Optional, Dict, Any
@@ -19,6 +19,7 @@ from model.advisory.prompt_templates import (
 from model.advisory.language_bridge import (
     LanguageBridge,
     PassThroughLanguageBridge,
+    MockLanguageBridge,
     LanguageBridgeError
 )
 from model.advisory.agriparam_engine import (
@@ -30,6 +31,7 @@ from model.advisory.agriparam_engine import (
     AgriParamBackend,
     AdvisoryEngine
 )
+from model.advisory.dhenu_engine import DhenuBackend
 
 __all__ = [
     "AdvisoryConfig",
@@ -39,6 +41,7 @@ __all__ = [
     "format_prompt",
     "LanguageBridge",
     "PassThroughLanguageBridge",
+    "MockLanguageBridge",
     "LanguageBridgeError",
     "AdvisoryError",
     "AdvisoryValidationError",
@@ -46,6 +49,7 @@ __all__ = [
     "AdvisoryBackend",
     "MockAdvisoryBackend",
     "AgriParamBackend",
+    "DhenuBackend",
     "AdvisoryEngine",
     "get_advisory_engine",
     "generate_advisory",
@@ -83,7 +87,7 @@ def generate_advisory(
 
     Usage:
         from model.advisory import generate_advisory
-        result = generate_advisory("ಟೊಮೇಟೊ ಎಲೆಗಳು ಹಳದಿಯಾಗುತ್ತಿವೆ")
+        result = generate_advisory("What are common causes of yellow leaves in tomato plants?")
         print(result["response"])
     """
     engine = get_advisory_engine(config=config)

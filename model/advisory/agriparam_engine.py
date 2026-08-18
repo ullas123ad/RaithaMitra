@@ -3,8 +3,9 @@ RaithaMitra Agricultural Advisory Engine and Backend Abstraction.
 
 Provides a decoupled, extensible advisory engine supporting multiple LLM backends:
 1. MockAdvisoryBackend: Fast, deterministic testing without downloading model weights.
-2. AgriParamBackend: Official bharatgenai/AgriParam Hugging Face integration with lazy loading.
-3. Replaceable interface for future Quantized and Remote backends.
+2. DhenuBackend: Local 1B CPU Agricultural LLM (KissanAI/Dhenu2-In-Llama3.2-1B-Instruct).
+3. AgriParamBackend: Official bharatgenai/AgriParam Hugging Face integration with lazy loading.
+4. Replaceable interface for future Quantized and Remote backends.
 """
 
 from abc import ABC, abstractmethod
@@ -94,6 +95,10 @@ class MockAdvisoryBackend(AdvisoryBackend):
             "Weather Advisory: Monitor rainfall forecasts closely before applying chemical sprays or irrigation. "
             "Ensure adequate field drainage during heavy monsoon spells."
         ),
+        "rainfall": (
+            "Excessive rainfall can lead to waterlogging, root rot, and increased fungal infection risk. "
+            "Ensure immediate field drainage and avoid fertilizer application during heavy downpours."
+        ),
         "scheme": (
             "Government Scheme Advisory: Farmers can apply for state and central subsidies via the "
             "official Krishi / Seva Sindhu portals or visit the nearest Krishi Vigyan Kendra (KVK)."
@@ -134,8 +139,11 @@ class AgriParamBackend(AdvisoryBackend):
     Uses lazy loading so model weights are NEVER loaded upon import or instantiation.
     """
 
-    def __init__(self, config: AdvisoryConfig):
-        self.config = config
+    def __init__(self, config: Optional[AdvisoryConfig] = None):
+        self.config = config or AdvisoryConfig(
+            backend="transformers",
+            model_id="bharatgenai/AgriParam"
+        )
         self._pipeline = None
         self._tokenizer = None
         self._model = None
@@ -249,8 +257,8 @@ class AdvisoryEngine:
     1. Input query validation
     2. Cross-lingual translation via LanguageBridge
     3. Context and prompt formatting
-    4. Execution against pluggable AdvisoryBackend
-    5. Reverse translation to Kannada
+    4. Execution against pluggable AdvisoryBackend (Dhenu, AgriParam, Mock)
+    5. Reverse translation to Kannada (when configured)
     6. Structured payload packaging
     """
 
@@ -271,11 +279,14 @@ class AdvisoryEngine:
             self.backend = backend
         elif self.config.backend == "mock":
             self.backend = MockAdvisoryBackend()
+        elif self.config.backend == "dhenu":
+            from model.advisory.dhenu_engine import DhenuBackend
+            self.backend = DhenuBackend(self.config)
         elif self.config.backend == "transformers":
             self.backend = AgriParamBackend(self.config)
         else:
             raise AdvisoryConfigError(
-                f"Backend '{self.config.backend}' is not yet implemented. Use 'mock' or 'transformers'."
+                f"Backend '{self.config.backend}' is not yet implemented. Use 'mock', 'dhenu', or 'transformers'."
             )
 
     def generate_advisory(
@@ -309,7 +320,7 @@ class AdvisoryEngine:
 
         start_time = time.time()
 
-        # 2. Bridge query: Kannada -> Advisory language (English / Hindi)
+        # 2. Bridge query: Kannada -> Advisory language (English)
         intermediate_query = self.language_bridge.translate_to_advisory_lang(
             clean_query,
             source_lang=source_language,
@@ -328,14 +339,14 @@ class AdvisoryEngine:
             context=context
         )
 
-        # 4. Generate response via pluggable backend
+        # 4. Generate response via pluggable backend (Dhenu, etc.)
         llm_response = self.backend.generate(
             prompt=prompt_str,
             messages=messages,
             **kwargs
         )
 
-        # 5. Bridge response: Advisory language -> Final target language (Kannada)
+        # 5. Bridge response: Advisory language -> Final target language
         final_response = self.language_bridge.translate_from_advisory_lang(
             llm_response,
             source_lang=advisory_lang,

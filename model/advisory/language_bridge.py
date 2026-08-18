@@ -12,6 +12,7 @@ agricultural LLMs (Dhenu2-1B, AgriParam, etc.) using:
 from abc import ABC, abstractmethod
 from typing import Optional, Dict, List
 import os
+import re
 
 
 class LanguageBridgeError(Exception):
@@ -87,12 +88,14 @@ class MockLanguageBridge(LanguageBridge):
     SAMPLE_KN_TO_EN: Dict[str, str] = {
         "ನನ್ನ ಟೊಮೇಟೊ ಗಿಡದ ಎಲೆಗಳು ಹಳದಿಯಾಗುತ್ತಿವೆ. ಏನು ಮಾಡಬೇಕು?": "What are common causes of yellow leaves in tomato plants, and what should a farmer check first?",
         "ಟೊಮೇಟೊ ಎಲೆಗಳು ಹಳದಿಯಾಗುತ್ತಿವೆ": "Tomato leaves are turning yellow. What should be done?",
+        "ನನ್ನ ರಾಗಿ ಬೆಳೆಗೆ ಮಳೆ ಸರಿಯಾಗಿ ಆಗದೆ ಒಣಗುತ್ತಿದೆ. ಏನು ಮಾಡಬೇಕು?": "There has been very little rain and my ragi crop is drying. What should I do?",
         "ಭತ್ತದ ಬೆಳೆಗೆ ಯಾವ ಕೀಟನಾಶಕ ಬಳಸಬೇಕು?": "What pesticide should be used for paddy crop?",
         "ರಾಗಿ ಬಿತ್ತನೆಗೆ ಯಾವ ಕಾಲ ಸೂಕ್ತ?": "What is the suitable season for sowing ragi?"
     }
 
     SAMPLE_EN_TO_KN: Dict[str, str] = {
-        "What are common causes of yellow leaves in tomato plants, and what should a farmer check first?": "ಟೊಮೇಟೊ ಗಿಡಗಳಲ್ಲಿ ಹಳದಿ ಎಲೆಗಳಿಗೆ ಸಾಮಾನ್ಯ ಕಾರಣಗಳು ಪೋಷಕಾಂಶಗಳ ಕೊರತೆ ಅಥವಾ ಅತಿಯಾದ ನೀರಾವರಿ. ಮೊದಲು ಮಣ್ಣಿನ ತೇವಾಂಶ ಮತ್ತು ಪೋಷಕಾಂಶಗಳನ್ನು ಪರೀಕ್ಷಿಸಿ."
+        "What are common causes of yellow leaves in tomato plants, and what should a farmer check first?": "ಟೊಮೇಟೊ ಗಿಡಗಳಲ್ಲಿ ಹಳದಿ ಎಲೆಗಳಿಗೆ ಸಾಮಾನ್ಯ ಕಾರಣಗಳು ಪೋಷಕಾಂಶಗಳ ಕೊರತೆ ಅಥವಾ ಅತಿಯಾದ ನೀರಾವರಿ. ಮೊದಲು ಮಣ್ಣಿನ ತೇವಾಂಶ ಮತ್ತು ಪೋಷಕಾಂಶಗಳನ್ನು ಪರೀಕ್ಷಿಸಿ.",
+        "There has been very little rain and my ragi crop is drying. What should I do?": "ರಾಗಿ ಬೆಳೆಗೆ ನೀರಿನ ಕೊರತೆಯಾದಾಗ ರಕ್ಷಣಾತ್ಮಕ ನೀರಾವರಿ ನೀಡಿ ಮತ್ತು ತೇವಾಂಶ ಸಂರಕ್ಷಣೆಗೆ ಮಣ್ಣಿನ ಹೊದಿಕೆ ಮಾಡಿ."
     }
 
     def translate_to_advisory_lang(
@@ -129,6 +132,20 @@ class NLLBTranslationBridge(LanguageBridge):
         "kn": "kan_Knda",
         "en": "eng_Latn",
         "hi": "hin_Deva"
+    }
+
+    # Agricultural terminology alignment for Karnataka crops
+    KN_CROP_CORRECTIONS = {
+        "ರಾಗಿ": "ragi",
+        "ಮೆಕ್ಕೆಜೋಳ": "maize",
+        "ಕಡಲೆಕಾಯಿ": "groundnut",
+        "ಕಬ್ಬು": "sugarcane",
+        "ಹತ್ತಿ": "cotton",
+        "ಮೆಣಸಿನಕಾಯಿ": "chilli",
+        "ಈರುಳ್ಳಿ": "onion",
+        "ಆಲೂಗಡ್ಡೆ": "potato",
+        "ಬಾಳೆ": "banana",
+        "ಟೊಮೇಟೊ": "tomato"
     }
 
     def __init__(
@@ -204,8 +221,17 @@ class NLLBTranslationBridge(LanguageBridge):
                     max_new_tokens=max_new_tokens
                 )
 
-            translated_text = self._tokenizer.decode(outputs[0], skip_special_tokens=True)
-            return translated_text.strip()
+            translated_text = self._tokenizer.decode(outputs[0], skip_special_tokens=True).strip()
+
+            # Align specific Kannada crop terms when translating kn -> en
+            if src_lang == "kn" and tgt_lang == "en":
+                if "ರಾಗಿ" in text:
+                    # NLLB occasionally mistranslates 'ರಾಗಿ' as 'rice'
+                    translated_text = re.sub(r"\brice\b", "ragi", translated_text, flags=re.IGNORECASE)
+                if "ಮೆಕ್ಕೆಜೋಳ" in text:
+                    translated_text = re.sub(r"\bcorn\b", "maize", translated_text, flags=re.IGNORECASE)
+
+            return translated_text
 
         except Exception as e:
             raise LanguageBridgeError(f"NLLB translation error ({src_lang}->{tgt_lang}): {str(e)}")

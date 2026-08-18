@@ -2,7 +2,8 @@
 RaithaMitra Agricultural Advisory Module.
 
 Provides LLM-driven agricultural recommendations for farmer queries,
-with pluggable backends (Dhenu2-1B, AgriParam, Mock) and Language Bridges (NLLB-200, Mock, PassThrough).
+with pluggable backends (Dhenu2-1B, AgriParam, Mock), Language Bridges (NLLB-200, Mock, PassThrough),
+and Local Agricultural Knowledge Retrieval (RAG from ICAR/UAS Corpus).
 """
 
 from typing import Optional, Dict, Any
@@ -22,6 +23,10 @@ from model.advisory.language_bridge import (
     MockLanguageBridge,
     NLLBTranslationBridge,
     LanguageBridgeError
+)
+from model.advisory.retriever import (
+    AgriculturalRetriever,
+    AgriculturalRetrieverError
 )
 from model.advisory.agriparam_engine import (
     AdvisoryError,
@@ -45,6 +50,8 @@ __all__ = [
     "MockLanguageBridge",
     "NLLBTranslationBridge",
     "LanguageBridgeError",
+    "AgriculturalRetriever",
+    "AgriculturalRetrieverError",
     "AdvisoryError",
     "AdvisoryValidationError",
     "AdvisoryBackendError",
@@ -64,15 +71,23 @@ _ADVISORY_ENGINE: Optional[AdvisoryEngine] = None
 def get_advisory_engine(
     config: Optional[AdvisoryConfig] = None,
     backend: Optional[AdvisoryBackend] = None,
-    language_bridge: Optional[LanguageBridge] = None
+    language_bridge: Optional[LanguageBridge] = None,
+    retriever: Optional[AgriculturalRetriever] = None
 ) -> AdvisoryEngine:
     """Returns or initializes the singleton AdvisoryEngine instance."""
     global _ADVISORY_ENGINE
-    if _ADVISORY_ENGINE is None or config is not None or backend is not None or language_bridge is not None:
+    if (
+        _ADVISORY_ENGINE is None
+        or config is not None
+        or backend is not None
+        or language_bridge is not None
+        or retriever is not None
+    ):
         _ADVISORY_ENGINE = AdvisoryEngine(
             config=config,
             backend=backend,
-            language_bridge=language_bridge
+            language_bridge=language_bridge,
+            retriever=retriever
         )
     return _ADVISORY_ENGINE
 
@@ -83,6 +98,7 @@ def generate_advisory(
     target_language: Optional[str] = None,
     config: Optional[AdvisoryConfig] = None,
     language_bridge: Optional[LanguageBridge] = None,
+    retriever: Optional[AgriculturalRetriever] = None,
     **kwargs
 ) -> Dict[str, Any]:
     """
@@ -90,10 +106,10 @@ def generate_advisory(
 
     Usage:
         from model.advisory import generate_advisory
-        result = generate_advisory("ನನ್ನ ಟೊಮೇಟೊ ಗಿಡದ ಎಲೆಗಳು ಹಳದಿಯಾಗುತ್ತಿವೆ. ಏನು ಮಾಡಬೇಕು?")
+        result = generate_advisory("ನನ್ನ ರಾಗಿ ಬೆಳೆಗೆ ಮಳೆ ಸರಿಯಾಗಿ ಆಗದೆ ಒಣಗುತ್ತಿದೆ. ಏನು ಮಾಡಬೇಕು?")
         print(result["response"])
     """
-    engine = get_advisory_engine(config=config, language_bridge=language_bridge)
+    engine = get_advisory_engine(config=config, language_bridge=language_bridge, retriever=retriever)
     return engine.generate_advisory(
         query=query,
         source_language=source_language,

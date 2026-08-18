@@ -1,168 +1,130 @@
 """
-RaithaMitra Agricultural Advisory Engine and Backend Abstraction.
+RaithaMitra Agricultural Advisory Engine and Backend Routing.
 
-Provides a decoupled, extensible advisory engine supporting multiple LLM backends:
-1. MockAdvisoryBackend: Fast, deterministic testing without downloading model weights.
-2. DhenuBackend: Local 1B CPU Agricultural LLM (KissanAI/Dhenu2-In-Llama3.2-1B-Instruct).
-3. AgriParamBackend: Official bharatgenai/AgriParam Hugging Face integration with lazy loading.
-4. Replaceable interface for future Quantized and Remote backends.
+Provides modular orchestration across:
+1. Language Translation Bridge (Kannada <-> English)
+2. Local Agricultural Knowledge Retrieval (RAG from ICAR/UAS Corpus)
+3. Advisory Backends (Dhenu2-1B, AgriParam, Mock)
 """
 
-from abc import ABC, abstractmethod
-from typing import Optional, Dict, Any, List
 import time
-import os
+from abc import ABC, abstractmethod
+from typing import Dict, Any, Optional, List
 
-from model.advisory.config import AdvisoryConfig, AdvisoryConfigError
-from model.advisory.prompt_templates import format_messages, format_prompt, DEFAULT_AGRI_SYSTEM_PROMPT
-from model.advisory.language_bridge import LanguageBridge, PassThroughLanguageBridge, LanguageBridgeError
+from model.advisory.config import AdvisoryConfig
+from model.advisory.prompt_templates import (
+    DEFAULT_AGRI_SYSTEM_PROMPT,
+    format_messages,
+    format_prompt
+)
+from model.advisory.language_bridge import (
+    LanguageBridge,
+    PassThroughLanguageBridge
+)
+from model.advisory.retriever import AgriculturalRetriever
 
 
 class AdvisoryError(Exception):
-    """Base exception for all advisory module errors."""
+    """Base exception for advisory module errors."""
     pass
 
 
 class AdvisoryValidationError(AdvisoryError):
-    """Raised when input validation fails (e.g. empty or invalid query)."""
+    """Raised when query input or configuration is invalid."""
     pass
 
 
 class AdvisoryBackendError(AdvisoryError):
-    """Raised when backend model execution encounters an error."""
+    """Raised when the LLM inference backend encounters an execution failure."""
     pass
 
 
-# =====================================================================
-# Backend Abstraction Interface
-# =====================================================================
-
 class AdvisoryBackend(ABC):
-    """Abstract interface for all LLM advisory backends."""
+    """Abstract interface defining the contract for LLM inference backends."""
 
     @abstractmethod
     def generate(self, prompt: str, messages: Optional[List[Dict[str, str]]] = None, **kwargs) -> str:
-        """
-        Generates an agricultural advisory response from the model.
-
-        Args:
-            prompt: Plaintext formatted prompt string.
-            messages: Optional structured list of chat messages.
-            **kwargs: Generation parameter overrides.
-
-        Returns:
-            Generated response string.
-        """
+        """Generates advisory response text given a formatted prompt or messages."""
         pass
 
     @abstractmethod
     def is_available(self) -> bool:
-        """Returns True if the backend is ready and available for generation."""
+        """Returns True if the backend is ready for inference."""
         pass
 
 
-# =====================================================================
-# Mock Advisory Backend (For Fast, Deterministic Development & Testing)
-# =====================================================================
-
 class MockAdvisoryBackend(AdvisoryBackend):
     """
-    Lightweight mock backend returning structured agricultural recommendations
-    without downloading or loading large model weights.
+    Mock backend for fast, deterministic unit testing and CI validation.
+    Returns targeted agricultural recommendations without loading large LLM weights.
     """
 
-    # Domain response patterns for common agricultural test topics
-    MOCK_KNOWLEDGE: Dict[str, str] = {
+    MOCK_RESPONSES: Dict[str, str] = {
         "tomato": (
-            "For yellowing leaves in tomato plants, check for Early Blight or Nitrogen deficiency. "
-            "Recommendation: Ensure proper soil drainage, avoid overhead watering, "
-            "and apply copper oxychloride spray (2g/L) or balanced NPK (19:19:19) fertilizer."
-        ),
-        "paddy": (
-            "For pest infestation in paddy crops (e.g., Stem Borer / Leaf Folder), "
-            "Recommendation: Maintain optimum water levels, use pheromone traps (5/acre), "
-            "and apply Chlorantraniliprole 18.5% SC @ 60 ml/acre if pest population exceeds threshold."
+            "Tomato leaf yellowing can indicate early blight or nitrogen shortage. "
+            "Inspect underside of leaves for dark spots and apply copper oxychloride (2.5g/L) "
+            "if fungal infection is observed. Ensure soil is well-drained."
         ),
         "ragi": (
-            "Ragi (Finger Millet) advisory: For blast disease resistance, ensure seed treatment "
-            "with Carbendazim (2g/kg). Maintain 25x10 cm spacing and apply recommended FYM and fertilizers."
+            "Ragi finger blast is managed by seed treatment with Carbendazim (2g/kg). "
+            "Avoid excessive nitrogen fertilization and maintain clean weeding during tillering."
         ),
-        "onion": (
-            "Onion crop advisory: To manage Purple Blotch and Thrips, apply Mancozeb 75% WP (2.5g/L) "
-            "mixed with a sticker, and ensure soil is not waterlogged."
+        "paddy": (
+            "Paddy yellow stem borer can be managed using pheromone traps @ 5/acre. "
+            "Apply Cartap hydrochloride 4G if dead hearts exceed 5% during vegetative stage."
         ),
-        "weather": (
-            "Weather Advisory: Monitor rainfall forecasts closely before applying chemical sprays or irrigation. "
-            "Ensure adequate field drainage during heavy monsoon spells."
+        "maize": (
+            "Maize fall armyworm requires prompt action: install pheromone traps @ 4/acre "
+            "and apply Emamectin benzoate 5% SG (0.4g/L) inside the central whorl if holes appear."
         ),
-        "rainfall": (
-            "Excessive rainfall can lead to waterlogging, root rot, and increased fungal infection risk. "
-            "Ensure immediate field drainage and avoid fertilizer application during heavy downpours."
+        "drainage": (
+            "Excess water causes root suffocation. Dig drainage trenches immediately "
+            "and apply 1% urea foliar spray once stagnant water is cleared."
         ),
-        "scheme": (
-            "Government Scheme Advisory: Farmers can apply for state and central subsidies via the "
-            "official Krishi / Seva Sindhu portals or visit the nearest Krishi Vigyan Kendra (KVK)."
+        "rain": (
+            "Excess rainfall and standing water cause root suffocation. Dig drainage trenches immediately "
+            "and apply 1% urea foliar spray once stagnant water is cleared."
         )
     }
-
-    DEFAULT_RESPONSE: str = (
-        "Agricultural Advisory Recommendation: Ensure proper soil moisture, inspect crops for early "
-        "pest symptoms, and follow integrated nutrient management practices suitable for your local agro-climatic zone."
-    )
-
-    def generate(self, prompt: str, messages: Optional[List[Dict[str, str]]] = None, **kwargs) -> str:
-        """Returns a deterministic, domain-relevant mock agricultural advisory."""
-        query_text = prompt.lower()
-        if messages:
-            for msg in messages:
-                if msg.get("role") == "user":
-                    query_text += " " + msg.get("content", "").lower()
-
-        # Match domain keywords
-        for keyword, advice in self.MOCK_KNOWLEDGE.items():
-            if keyword in query_text:
-                return advice
-
-        return self.DEFAULT_RESPONSE
 
     def is_available(self) -> bool:
         return True
 
+    def generate(self, prompt: str, messages: Optional[List[Dict[str, str]]] = None, **kwargs) -> str:
+        p_lower = prompt.lower()
+        for key, resp in self.MOCK_RESPONSES.items():
+            if key in p_lower:
+                return resp
 
-# =====================================================================
-# AgriParam LLM Backend (Official Transformers Integration)
-# =====================================================================
+        return (
+            "Agricultural Advisory Recommendation: Maintain balanced NPK nutrition, "
+            "monitor soil moisture, and consult your local Krishi Vigyan Kendra (KVK) "
+            "for specific crop disease identification."
+        )
+
 
 class AgriParamBackend(AdvisoryBackend):
     """
-    Official Hugging Face Transformers wrapper for bharatgenai/AgriParam.
-    Uses lazy loading so model weights are NEVER loaded upon import or instantiation.
+    Optional Hugging Face transformers backend for AgriParam / external causal LLMs.
+    Uses strict lazy loading so weights are never loaded on instantiation.
     """
 
-    def __init__(self, config: Optional[AdvisoryConfig] = None):
-        self.config = config or AdvisoryConfig(
-            backend="transformers",
-            model_id="bharatgenai/AgriParam"
-        )
-        self._pipeline = None
-        self._tokenizer = None
+    def __init__(self, config: AdvisoryConfig):
+        self.config = config
         self._model = None
+        self._tokenizer = None
+        self._pipeline = None
         self._is_loaded = False
 
     @property
     def is_loaded(self) -> bool:
-        """Returns whether model weights are currently loaded in memory."""
         return self._is_loaded
 
     def is_available(self) -> bool:
-        """Returns True if the backend is configured."""
-        return bool(self.config.model_id)
+        return True
 
     def load_model(self) -> None:
-        """
-        Lazily loads the AgriParam model and tokenizer into memory.
-        Explicitly requires trust_remote_code=True per official specifications.
-        """
+        """Lazily load model weights into RAM/device."""
         if self._is_loaded:
             return
 
@@ -170,124 +132,91 @@ class AgriParamBackend(AdvisoryBackend):
             import torch
             from transformers import AutoTokenizer, AutoModelForCausalLM, pipeline
 
-            device = self.config.device
-            if device is None:
-                device = "cuda" if torch.cuda.is_available() else "cpu"
-
-            torch_dtype = torch.bfloat16 if (device == "cuda" and torch.cuda.is_bf16_supported()) else torch.float32
-
-            # Load tokenizer
             self._tokenizer = AutoTokenizer.from_pretrained(
                 self.config.model_id,
-                trust_remote_code=self.config.trust_remote_code,
-                cache_dir=self.config.cache_dir
+                trust_remote_code=True
             )
-
-            # Load model
             self._model = AutoModelForCausalLM.from_pretrained(
                 self.config.model_id,
-                trust_remote_code=self.config.trust_remote_code,
-                torch_dtype=torch_dtype,
-                cache_dir=self.config.cache_dir
+                torch_dtype=torch.float32,
+                trust_remote_code=True,
+                low_cpu_mem_usage=True
             )
-            self._model.to(device)
+            self._model.to(self.config.device)
             self._model.eval()
 
             self._pipeline = pipeline(
                 "text-generation",
                 model=self._model,
                 tokenizer=self._tokenizer,
-                device=0 if device == "cuda" else -1
+                device=self.config.device
             )
             self._is_loaded = True
-
         except Exception as e:
-            raise AdvisoryBackendError(
-                f"Failed to load AgriParam model '{self.config.model_id}': {str(e)}"
-            )
+            raise AdvisoryBackendError(f"Failed to load AgriParam model '{self.config.model_id}': {str(e)}")
 
     def generate(self, prompt: str, messages: Optional[List[Dict[str, str]]] = None, **kwargs) -> str:
-        """
-        Executes text generation using the loaded AgriParam model.
-        """
         if not self._is_loaded:
             self.load_model()
 
         try:
-            import torch
-
-            gen_kwargs = {
-                "max_new_tokens": kwargs.get("max_new_tokens", self.config.max_new_tokens),
-                "temperature": kwargs.get("temperature", self.config.temperature),
-                "top_p": kwargs.get("top_p", self.config.top_p),
-                "repetition_penalty": kwargs.get("repetition_penalty", self.config.repetition_penalty),
-                "do_sample": self.config.temperature > 0.0,
-                "pad_token_id": self._tokenizer.eos_token_id if self._tokenizer else None
-            }
-
-            with torch.inference_mode():
-                if messages and hasattr(self._tokenizer, "apply_chat_template"):
-                    input_text = self._tokenizer.apply_chat_template(
-                        messages,
-                        tokenize=False,
-                        add_generation_prompt=True
-                    )
-                else:
-                    input_text = prompt
-
-                inputs = self._tokenizer(input_text, return_tensors="pt").to(self._model.device)
-                outputs = self._model.generate(**inputs, **gen_kwargs)
-                input_len = inputs.input_ids.shape[1]
-                response_tokens = outputs[0][input_len:]
-                generated_text = self._tokenizer.decode(response_tokens, skip_special_tokens=True)
-
-            return generated_text.strip()
-
+            outputs = self._pipeline(
+                prompt,
+                max_new_tokens=self.config.max_new_tokens,
+                temperature=self.config.temperature,
+                top_p=self.config.top_p,
+                do_sample=True if self.config.temperature > 0 else False
+            )
+            return outputs[0]["generated_text"]
         except Exception as e:
-            raise AdvisoryBackendError(f"AgriParam inference error: {str(e)}")
+            raise AdvisoryBackendError(f"Generation error in AgriParam backend: {str(e)}")
 
-
-# =====================================================================
-# Advisory Engine Coordinator
-# =====================================================================
 
 class AdvisoryEngine:
     """
-    Coordinates the end-to-end agricultural advisory flow:
-    1. Input query validation
-    2. Cross-lingual translation via LanguageBridge
-    3. Context and prompt formatting
-    4. Execution against pluggable AdvisoryBackend (Dhenu, AgriParam, Mock)
-    5. Reverse translation to Kannada (when configured)
-    6. Structured payload packaging
+    Main orchestration engine for RaithaMitra Agricultural Advisory.
+    Connects:
+    1. Language Translation Bridge (Kannada -> English)
+    2. Local Knowledge Retrieval (RAG)
+    3. Agricultural LLM Backend (Dhenu2 / Mock / AgriParam)
+    4. Language Translation Bridge (English -> Kannada)
     """
 
     def __init__(
         self,
         config: Optional[AdvisoryConfig] = None,
         backend: Optional[AdvisoryBackend] = None,
-        language_bridge: Optional[LanguageBridge] = None
+        language_bridge: Optional[LanguageBridge] = None,
+        retriever: Optional[AgriculturalRetriever] = None
     ):
         self.config = config or AdvisoryConfig()
         self.config.validate()
 
-        # Pluggable Language Bridge
         self.language_bridge = language_bridge or PassThroughLanguageBridge()
 
-        # Pluggable Backend
+        # Initialize Retriever if RAG is enabled
+        if retriever is not None:
+            self.retriever = retriever
+        elif self.config.use_rag:
+            self.retriever = AgriculturalRetriever(
+                corpus_path=self.config.rag_corpus_path,
+                top_k=self.config.rag_top_k,
+                relevance_threshold=self.config.rag_threshold
+            )
+        else:
+            self.retriever = None
+
         if backend is not None:
             self.backend = backend
         elif self.config.backend == "mock":
             self.backend = MockAdvisoryBackend()
         elif self.config.backend == "dhenu":
             from model.advisory.dhenu_engine import DhenuBackend
-            self.backend = DhenuBackend(self.config)
+            self.backend = DhenuBackend(config=self.config)
         elif self.config.backend == "transformers":
-            self.backend = AgriParamBackend(self.config)
+            self.backend = AgriParamBackend(config=self.config)
         else:
-            raise AdvisoryConfigError(
-                f"Backend '{self.config.backend}' is not yet implemented. Use 'mock', 'dhenu', or 'transformers'."
-            )
+            raise AdvisoryConfigError(f"Backend '{self.config.backend}' is not implemented.")
 
     def generate_advisory(
         self,
@@ -298,72 +227,101 @@ class AdvisoryEngine:
         **kwargs
     ) -> Dict[str, Any]:
         """
-        Generates an agricultural advisory response for a farmer query.
+        Processes farmer query through Translation -> RAG Retrieval -> LLM Reasoning -> Translation.
 
         Args:
-            query: Farmer question text.
-            source_language: Language code of input query (default: 'kn').
-            target_language: Language code of desired final response (default: same as source).
-            context: Optional domain context (crop, season, location).
-            **kwargs: Generation parameter overrides.
+            query: The farmer's question in Kannada (or English/Hindi).
+            source_language: Source language code (default 'kn').
+            target_language: Output language code (default matches source_language).
+            context: Optional explicit contextual metadata.
 
         Returns:
-            Structured advisory dictionary payload.
+            Dictionary containing structured advisory output and performance metrics.
         """
-        # 1. Input validation
-        if query is None or not isinstance(query, str) or not query.strip():
-            raise AdvisoryValidationError("Farmer query must be a non-empty string.")
+        if not query or not query.strip():
+            raise AdvisoryValidationError("Farmer query text cannot be empty.")
 
+        target_lang = target_language or source_language
         clean_query = query.strip()
-        final_lang = target_language or source_language
-        advisory_lang = self.config.advisory_language
+        t_start = time.time()
 
-        start_time = time.time()
-
-        # 2. Bridge query: Kannada -> Advisory language (English)
+        # 1. Translate Query from Source Language to Internal Advisory Language (English)
+        t_tr_in_0 = time.time()
         intermediate_query = self.language_bridge.translate_to_advisory_lang(
             clean_query,
             source_lang=source_language,
-            target_lang=advisory_lang
+            target_lang=self.config.advisory_language
         )
+        t_tr_in = time.time() - t_tr_in_0
 
-        # 3. Format prompt
+        # 2. Retrieve Relevant Local Agricultural Knowledge (RAG)
+        retrieved_docs = []
+        retrieval_latency = 0.0
+        retrieved_context_text = ""
+
+        if self.config.use_rag and self.retriever is not None:
+            t_rag_0 = time.time()
+            retrieved_docs = self.retriever.retrieve(
+                intermediate_query,
+                top_k=self.config.rag_top_k
+            )
+            retrieval_latency = time.time() - t_rag_0
+            retrieved_context_text = self.retriever.format_context(retrieved_docs)
+
+        # Combine explicit context and retrieved context
+        combined_context_parts = []
+        if retrieved_context_text:
+            combined_context_parts.append(retrieved_context_text)
+        if context and context.strip():
+            combined_context_parts.append(f"Farm Context: {context.strip()}")
+        combined_context = "\n\n".join(combined_context_parts) if combined_context_parts else None
+
+        # 3. Format Prompt and Generate Advisory via LLM Backend
         messages = format_messages(
             query=intermediate_query,
-            system_prompt=self.config.system_prompt,
-            context=context
+            context=combined_context,
+            system_prompt=self.config.system_prompt
         )
         prompt_str = format_prompt(
             query=intermediate_query,
-            system_prompt=self.config.system_prompt,
-            context=context
+            context=combined_context,
+            system_prompt=self.config.system_prompt
         )
 
-        # 4. Generate response via pluggable backend (Dhenu, etc.)
-        llm_response = self.backend.generate(
+        t_gen_0 = time.time()
+        intermediate_response = self.backend.generate(
             prompt=prompt_str,
             messages=messages,
             **kwargs
         )
+        t_gen = time.time() - t_gen_0
 
-        # 5. Bridge response: Advisory language -> Final target language
+        # 4. Translate Response back to Target Language (Kannada)
+        t_tr_out_0 = time.time()
         final_response = self.language_bridge.translate_from_advisory_lang(
-            llm_response,
-            source_lang=advisory_lang,
-            target_lang=final_lang
+            intermediate_response,
+            source_lang=self.config.advisory_language,
+            target_lang=target_lang
         )
+        t_tr_out = time.time() - t_tr_out_0
 
-        elapsed_time = time.time() - start_time
+        total_time = time.time() - t_start
 
         return {
             "query": clean_query,
             "response": final_response,
             "intermediate_query": intermediate_query,
-            "intermediate_response": llm_response,
+            "intermediate_response": intermediate_response,
             "source_language": source_language,
-            "advisory_language": advisory_lang,
-            "target_language": final_lang,
+            "advisory_language": self.config.advisory_language,
+            "target_language": target_lang,
             "model": self.config.model_id,
             "backend": self.config.backend,
-            "processing_time_seconds": round(elapsed_time, 4)
+            "rag_enabled": self.config.use_rag,
+            "retrieved_documents": retrieved_docs,
+            "retrieval_time_seconds": round(retrieval_latency, 4),
+            "translation_in_time_seconds": round(t_tr_in, 4),
+            "generation_time_seconds": round(t_gen, 4),
+            "translation_out_time_seconds": round(t_tr_out, 4),
+            "processing_time_seconds": round(total_time, 4)
         }

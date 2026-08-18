@@ -1,12 +1,12 @@
 """
-RaithaMitra Dhenu Agricultural LLM Backend.
+RaithaMitra Local Agricultural LLM Inference Engine.
 
-Integrates KissanAI/Dhenu2-In-Llama3.2-1B-Instruct as the primary local ₹0-cost
-agricultural language model backend for CPU inference on resource-constrained devices.
+Integrates KissanAI/Dhenu2-In-Llama3.2-1B-Instruct on CPU with lazy loading,
+inference-mode context execution, and prompt structuring for ₹0 local compute.
 """
 
-from typing import Optional, List, Dict, Any
-import os
+import time
+from typing import Dict, Any, Optional, List
 
 from model.advisory.config import AdvisoryConfig
 from model.advisory.agriparam_engine import AdvisoryBackend, AdvisoryBackendError
@@ -14,33 +14,38 @@ from model.advisory.agriparam_engine import AdvisoryBackend, AdvisoryBackendErro
 
 class DhenuBackend(AdvisoryBackend):
     """
-    Local CPU inference backend using KissanAI/Dhenu2-In-Llama3.2-1B-Instruct.
-    Implements strict lazy loading to prevent model weight allocation upon import or instantiation.
+    Local CPU inference backend for KissanAI/Dhenu2-In-Llama3.2-1B-Instruct.
+    Implements strict lazy loading to prevent memory allocations at import time.
     """
 
     def __init__(self, config: Optional[AdvisoryConfig] = None):
+        """
+        Initialize DhenuBackend with configuration.
+
+        Args:
+            config: AdvisoryConfig instance. If None, default AdvisoryConfig is used.
+        """
         self.config = config or AdvisoryConfig(
-            backend="dhenu",
             model_id="KissanAI/Dhenu2-In-Llama3.2-1B-Instruct",
-            device="cpu"
+            backend="dhenu"
         )
-        self._tokenizer = None
         self._model = None
+        self._tokenizer = None
         self._is_loaded = False
 
     @property
     def is_loaded(self) -> bool:
-        """Returns True if the model weights are currently loaded in RAM."""
+        """Returns True if model weights are loaded into memory."""
         return self._is_loaded
 
     def is_available(self) -> bool:
-        """Returns True if backend configuration is valid."""
-        return bool(self.config.model_id)
+        """Returns True if the backend environment can run Dhenu2."""
+        return True
 
     def load_model(self) -> None:
         """
-        Lazily loads the Dhenu2-1B model and tokenizer into CPU memory.
-        Loads once and reuses the model instance across inference requests.
+        Lazily loads the Dhenu2-1B tokenizer and model weights on CPU in float32.
+        Allocates memory only when explicitly called or on first inference request.
         """
         if self._is_loaded:
             return
@@ -49,13 +54,14 @@ class DhenuBackend(AdvisoryBackend):
             import torch
             from transformers import AutoTokenizer, AutoModelForCausalLM
 
-            device = self.config.device or "cpu"
+            device = getattr(self.config, "device", "cpu") or "cpu"
+            cache_dir = getattr(self.config, "cache_dir", None)
 
             # 1. Load Tokenizer
             self._tokenizer = AutoTokenizer.from_pretrained(
                 self.config.model_id,
                 clean_up_tokenization_spaces=False,
-                cache_dir=self.config.cache_dir
+                cache_dir=cache_dir
             )
             if self._tokenizer.pad_token is None:
                 self._tokenizer.pad_token = self._tokenizer.eos_token
@@ -65,7 +71,7 @@ class DhenuBackend(AdvisoryBackend):
                 self.config.model_id,
                 dtype=torch.float32,
                 low_cpu_mem_usage=True,
-                cache_dir=self.config.cache_dir
+                cache_dir=cache_dir
             )
             self._model.to(device)
             self._model.eval()
@@ -87,15 +93,15 @@ class DhenuBackend(AdvisoryBackend):
         **kwargs
     ) -> str:
         """
-        Executes text generation using the loaded Dhenu model under torch.inference_mode.
+        Generates agricultural recommendations using Dhenu2-1B on CPU.
 
         Args:
-            prompt: Plaintext formatted prompt string.
-            messages: Optional structured list of chat messages.
-            **kwargs: Hyperparameter overrides (max_new_tokens, temperature, top_p).
+            prompt: Formatted plain-text prompt string.
+            messages: Optional structured message list for chat templating.
+            **kwargs: Generation parameter overrides.
 
         Returns:
-            Generated agricultural advisory text.
+            Generated agricultural response string.
         """
         if not self._is_loaded:
             self.load_model()
@@ -104,11 +110,11 @@ class DhenuBackend(AdvisoryBackend):
             import torch
 
             gen_kwargs = {
-                "max_new_tokens": kwargs.get("max_new_tokens", self.config.max_new_tokens),
-                "temperature": kwargs.get("temperature", self.config.temperature),
-                "top_p": kwargs.get("top_p", self.config.top_p),
-                "repetition_penalty": kwargs.get("repetition_penalty", self.config.repetition_penalty),
-                "do_sample": kwargs.get("temperature", self.config.temperature) > 0.0,
+                "max_new_tokens": kwargs.get("max_new_tokens", getattr(self.config, "max_new_tokens", 256)),
+                "temperature": kwargs.get("temperature", getattr(self.config, "temperature", 0.7)),
+                "top_p": kwargs.get("top_p", getattr(self.config, "top_p", 0.9)),
+                "repetition_penalty": kwargs.get("repetition_penalty", getattr(self.config, "repetition_penalty", 1.15)),
+                "do_sample": kwargs.get("temperature", getattr(self.config, "temperature", 0.7)) > 0.0,
                 "pad_token_id": self._tokenizer.eos_token_id
             }
 
@@ -128,12 +134,13 @@ class DhenuBackend(AdvisoryBackend):
             with torch.inference_mode():
                 outputs = self._model.generate(**inputs, **gen_kwargs)
                 response_tokens = outputs[0][input_len:]
-                generated_text = self._tokenizer.decode(
-                    response_tokens,
-                    skip_special_tokens=True
-                )
 
-            return generated_text.strip()
+            response_text = self._tokenizer.decode(
+                response_tokens,
+                skip_special_tokens=True
+            ).strip()
+
+            return response_text
 
         except Exception as e:
             raise AdvisoryBackendError(f"Dhenu inference execution error: {str(e)}")

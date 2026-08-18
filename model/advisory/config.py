@@ -1,82 +1,89 @@
 """
-RaithaMitra Agricultural Advisory Configuration.
-
-Defines configuration parameters for the LLM advisory backends:
-1. Dhenu (KissanAI/Dhenu2-In-Llama3.2-1B-Instruct) - Local 1B CPU Agricultural LLM
-2. AgriParam (bharatgenai/AgriParam) - Optional remote/high-memory LLM
-3. Mock Backend - Fast, deterministic testing
+Configuration dataclasses for the RaithaMitra Advisory Module.
+Supports Dhenu2-1B, AgriParam, Mock backends, NLLB translation, and Local RAG.
 """
 
 from dataclasses import dataclass, field
 from typing import Optional, List
-import os
+
+ALLOWED_BACKENDS = ["mock", "transformers", "dhenu", "remote"]
+ALLOWED_LANGUAGES = ["kn", "en", "hi"]
 
 
 class AdvisoryConfigError(Exception):
-    """Raised when advisory configuration parameters are invalid."""
+    """Raised when an invalid configuration is provided."""
     pass
 
 
 @dataclass
 class AdvisoryConfig:
-    """Configuration settings for RaithaMitra Agricultural Advisory Engine."""
+    """
+    Configuration settings for agricultural advisory inference and RAG.
 
-    # Backend selection: "mock" (default for testing), "dhenu", "transformers", "quantized", "remote"
-    backend: str = "mock"
-
-    # Model identification
+    Attributes:
+        model_id: Hugging Face model identifier (e.g. KissanAI/Dhenu2-In-Llama3.2-1B-Instruct).
+        backend: Inference engine type ('mock', 'transformers', 'dhenu', 'remote').
+        device: Device for local execution ('cpu', 'cuda').
+        temperature: Sampling temperature for generation (0.0 to 1.0).
+        top_p: Nucleus sampling parameter.
+        repetition_penalty: Repetition penalty for generation.
+        max_new_tokens: Maximum number of tokens generated in response.
+        advisory_language: Internal language used by the LLM backend ('en' or 'hi').
+        system_prompt: Custom system instructions override.
+        cache_dir: Optional custom Hugging Face model cache directory.
+        use_rag: Whether to retrieve relevant local agricultural knowledge.
+        rag_top_k: Number of retrieved knowledge entries supplied to LLM context.
+        rag_threshold: Minimum relevance score threshold for retrieved entries.
+        rag_corpus_path: Optional custom path to agricultural_corpus.json.
+    """
     model_id: str = "KissanAI/Dhenu2-In-Llama3.2-1B-Instruct"
-
-    # Inference hyperparameters
+    backend: str = "mock"
+    device: str = "cpu"
     temperature: float = 0.7
     top_p: float = 0.9
+    repetition_penalty: float = 1.15
     max_new_tokens: int = 256
-    repetition_penalty: float = 1.1
-
-    # Execution device configuration
-    device: Optional[str] = "cpu"
-    trust_remote_code: bool = False
-    cache_dir: Optional[str] = os.getenv("HF_HOME", None)
-
-    # Language configuration
-    # Note: Dhenu and AgriParam operate natively in English ("en").
-    # Kannada queries are routed through the Language Bridge.
-    advisory_language: str = "en"  # "en" or "hi"
-
-    # Custom system prompt override (if None, standard prompt template is used)
+    advisory_language: str = "en"
     system_prompt: Optional[str] = None
-
-    # Allowed backends
-    ALLOWED_BACKENDS: List[str] = field(
-        default_factory=lambda: ["mock", "dhenu", "transformers", "quantized", "remote"]
-    )
+    cache_dir: Optional[str] = None
+    use_rag: bool = True
+    rag_top_k: int = 3
+    rag_threshold: float = 1.0
+    rag_corpus_path: Optional[str] = None
 
     def validate(self) -> None:
-        """Validates configuration parameters."""
-        if not self.model_id or not isinstance(self.model_id, str):
-            raise AdvisoryConfigError("model_id must be a non-empty string.")
-
-        if self.backend not in self.ALLOWED_BACKENDS:
+        """Validates configuration parameters to avoid runtime execution failures."""
+        if self.backend not in ALLOWED_BACKENDS:
             raise AdvisoryConfigError(
-                f"Invalid backend '{self.backend}'. Allowed backends: {self.ALLOWED_BACKENDS}"
+                f"Unsupported backend '{self.backend}'. Allowed: {ALLOWED_BACKENDS}"
             )
 
         if not (0.0 <= self.temperature <= 2.0):
             raise AdvisoryConfigError(
-                f"temperature must be between 0.0 and 2.0, got {self.temperature}"
+                f"Temperature must be between 0.0 and 2.0, got {self.temperature}"
             )
 
-        if not (0.0 < self.top_p <= 1.0):
+        if not (0.0 <= self.top_p <= 1.0):
             raise AdvisoryConfigError(
-                f"top_p must be between 0.0 (exclusive) and 1.0, got {self.top_p}"
+                f"top_p must be between 0.0 and 1.0, got {self.top_p}"
             )
 
         if self.max_new_tokens <= 0:
             raise AdvisoryConfigError(
-                f"max_new_tokens must be greater than 0, got {self.max_new_tokens}"
+                f"max_new_tokens must be positive, got {self.max_new_tokens}"
             )
 
-        if self.advisory_language not in ["en", "hi"]:
+        if self.advisory_language not in ALLOWED_LANGUAGES:
             raise AdvisoryConfigError(
-                f"advisory_language must be 'en' or 'hi' (Advisory LLM native languages), got '{self.advisory_language}'"
+                f"Unsupported advisory language '{self.advisory_language}'. Allowed: {ALLOWED_LANGUAGES}"
+            )
+
+        if self.rag_top_k <= 0:
+            raise AdvisoryConfigError(
+                f"rag_top_k must be positive, got {self.rag_top_k}"
+            )
+
+        if self.rag_threshold < 0.0:
+            raise AdvisoryConfigError(
+                f"rag_threshold must be non-negative, got {self.rag_threshold}"
             )

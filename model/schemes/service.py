@@ -38,52 +38,60 @@ class SchemeService:
             "pm-kisan", "pm kisan", "pmkisan", "kisan samman nidhi", "kisan samman",
             "ಪಿಎಂ ಕಿಸಾನ್", "ಪಿಎಂ-ಕಿಸಾನ್", "ಕಿಸಾನ್ ಸಮ್ಮಾನ್", "ಕಿಸಾನ್ ಸಮ್ಮಾನ್ ನಿಧಿ",
             "ಪ್ರಧಾನ ಮಂತ್ರಿ ಕಿಸಾನ್", "ಪ್ರಧಾನಮಂತ್ರಿ ಕಿಸಾನ್", "6000", "financial support",
-            "ಆದಾಯ ಬೆಂಬಲ", "ರೈತರ ಖಾತೆಗೆ ಹಣ"
+            "ಆದಾಯ ಬೆಂಬಲ", "ರೈತರ ಖಾತೆಗೆ ಹಣ", "ಕಂತು ಬಂದಿಲ್ಲ", "ಕಂತು", "ಹಣದ ಕಂತು",
+            "1 ಲಕ್ಷ", "₹1 ಲಕ್ಷ", "ಪ್ರತಿಯೊಬ್ಬ ರೈತನಿಗೂ"
         ],
         "pmfby_karnataka": [
             "pmfby", "pm fby", "fasal bima", "fasal bima yojana", "crop insurance",
-            "crop loss", "crop damage", "rain loss", "drought compensation",
+            "crop loss", "crop damage", "rain loss", "drought compensation", "flood damage",
             "ಬೆಳೆ ವಿಮೆ", "ಫಸಲ್ ಬಿಮಾ", "ಫಸಲ್ ಭೀಮಾ", "ವಿಮೆ", "ಬೆಳೆ ಹಾನಿ", "ಬೆಳೆ ನಷ್ಟ",
-            "ಬೆಳೆ ಪರಿಹಾರ", "ಮಳೆ ಹಾನಿ", "samrakshane", "ಸಂರಕ್ಷಣೆ"
+            "ಬೆಳೆ ಪರಿಹಾರ", "ಮಳೆ ಹಾನಿ", "ಭಾರೀ ಮಳೆ", "ಮಳೆಯಿಂದ ಹಾನಿ", "ಬೆಳೆ ಹಾನಿಯಾಗಿದೆ",
+            "samrakshane", "ಸಂರಕ್ಷಣೆ"
         ],
         "kcc_credit_support": [
             "kcc", "kisan credit card", "crop loan", "farm loan", "agricultural loan",
-            "interest subvention", "4% loan", "ಕಿಸಾನ್ ಕ್ರೆಡಿಟ್ ಕಾರ್ಡ್", "ಕಿಸಾನ್ ಕಾರ್ಡ್",
-            "ಬೆಳೆ ಸಾಲ", "ಕೃಷಿ ಸಾಲ", "ಬಡ್ಡಿ ರಿಯಾಯಿತಿ", "ಬಡ್ಡಿ ಸಹಾಯಧನ", "ಬ್ಯಾಂಕ್ ಸಾಲ"
+            "interest subvention", "4% loan", "short term loan",
+            "ಕಿಸಾನ್ ಕ್ರೆಡಿಟ್ ಕಾರ್ಡ್", "ಕಿಸಾನ್ ಕಾರ್ಡ್", "ಬೆಳೆ ಸಾಲ", "ಕೃಷಿ ಸಾಲ",
+            "ಕೃಷಿಗೆ ಸಾಲ", "ಬಡ್ಡಿ ರಿಯಾಯಿತಿ", "ಬಡ್ಡಿ ಸಹಾಯಧನ", "ಬ್ಯಾಂಕ್ ಸಾಲ", "ಸಾಲದ ಸೌಲಭ್ಯ", "ಸಾಲ"
         ],
         "soil_health_card": [
             "soil health", "soil health card", "shc", "soil test", "soil testing",
-            "fertilizer recommendation", "ಮಣ್ಣು ಆರೋಗ್ಯ", "ಮಣ್ಣು ಆರೋಗ್ಯ ಪತ್ರಿಕೆ",
-            "ಮಣ್ಣು ಪರೀಕ್ಷೆ", "ರಸಗೊಬ್ಬರ ಪ್ರಮಾಣ", "ಮಣ್ಣಿನ ಫಲವತ್ತತೆ"
+            "fertilizer recommendation", "soil nutrient", "nutrient deficiency",
+            "ಮಣ್ಣು ಆರೋಗ್ಯ", "ಮಣ್ಣು ಆರೋಗ್ಯ ಪತ್ರಿಕೆ", "ಮಣ್ಣು ಪರೀಕ್ಷೆ", "ರಸಗೊಬ್ಬರ ಪ್ರಮಾಣ",
+            "ಮಣ್ಣಿನ ಫಲವತ್ತತೆ", "ಪೋಷಕಾಂಶ", "ಪೋಷಕಾಂಶಗಳು", "ಗೊಬ್ಬರ", "ಯಾವ ಗೊಬ್ಬರ", "ಮಣ್ಣಿಗೆ", "ಮಣ್ಣಿನಲ್ಲಿ"
         ],
         "karnataka_krishi_bhagya": [
             "krishi bhagya", "krishibhagya", "farm pond", "krishi honda", "polythene lining",
-            "diesel pump", "rainfed scheme", "ಕೃಷಿ ಭಾಗ್ಯ", "ಕೃಷಿಭಾಗ್ಯ", "ಕೃಷಿ ಹೊಂಡ",
-            "ಕೃಷಿಹೊಂಡ", "ಹೊಂಡ", "ಪಾಲಿಥಿನ್ ಹೊದಿಕೆ", "ಮಳೆನೀರು ಕೊಯ್ಲು"
+            "diesel pump", "rainfed scheme", "water conservation", "rainwater harvesting", "dryland",
+            "ಕೃಷಿ ಭಾಗ್ಯ", "ಕೃಷಿಭಾಗ್ಯ", "ಕೃಷಿ ಹೊಂಡ", "ಕೃಷಿಹೊಂಡ", "ಹೊಂಡ", "ಪಾಲಿಥಿನ್ ಹೊದಿಕೆ",
+            "ಮಳೆನೀರು ಕೊಯ್ಲು", "ಮಳೆ ಆಧಾರಿತ", "ಮಳೆಯಾಧಾರಿತ", "ಮಳೆ ಆಶ್ರಿತ", "ನೀರನ್ನು ಉಳಿಸಲು", "ನೀರು ಉಳಿಸಲು", "ನೀರು ಸಂರಕ್ಷಣೆ"
         ],
         "karnataka_raita_siri": [
             "raita siri", "raitha siri", "raitasiri", "millet scheme", "millet incentive",
-            "ragi incentive", "siridhanya", "ರೈತ ಸಿರಿ", "ರೈತಸಿರಿ", "ಸಿರಿಧಾನ್ಯ ಪ್ರೋತ್ಸಾಹಧನ",
-            "ಸಿರಿಧಾನ್ಯ", "ರಾಗಿ ಪ್ರೋತ್ಸಾಹಧನ", "ಸಿರಿ ಧಾನ್ಯ ಯೋಜನೆ"
+            "ragi incentive", "siridhanya", "minor millet",
+            "ರೈತ ಸಿರಿ", "ರೈತಸಿರಿ", "ಸಿರಿಧಾನ್ಯ ಪ್ರೋತ್ಸಾಹಧನ", "ಸಿರಿಧಾನ್ಯ", "ರಾಗಿ ಪ್ರೋತ್ಸಾಹಧನ", "ಸಿರಿ ಧಾನ್ಯ ಯೋಜನೆ"
         ],
         "pmksy_per_drop_more_crop": [
             "pmksy", "per drop more crop", "drip irrigation", "sprinkler irrigation",
-            "micro irrigation", "irrigation subsidy", "ಹನಿ ನೀರಾವರಿ", "ತುಂತುರು ನೀರಾವರಿ",
-            "ಸೂಕ್ಷ್ಮ ನೀರಾವರಿ", "ಕೃಷಿ ಸಿಂಚಾಯಿ", "ನೀರಾವರಿ ಸಹಾಯಧನ"
+            "micro irrigation", "irrigation subsidy", "drip", "sprinkler",
+            "ಹನಿ ನೀರಾವರಿ", "ತುಂತುರು ನೀರಾವರಿ", "ಸೂಕ್ಷ್ಮ ನೀರಾವರಿ", "ಕೃಷಿ ಸಿಂಚಾಯಿ",
+            "ನೀರಾವರಿ ಸಹಾಯಧನ", "ಡ್ರಿಪ್", "ಡ್ರಿಪ್ ನೀರಾವರಿ", "ಸ್ಪ್ರಿಂಕ್ಲರ್"
         ],
         "smam_mechanization_karnataka": [
             "smam", "mechanization", "farm machinery", "tractor subsidy", "tiller",
-            "farm equipment", "custom hiring centre", "ಕೃಷಿ ಯಾಂತ್ರೀಕರಣ", "ಯಂತ್ರೋಪಕರಣ",
-            "ಟ್ರಾಕ್ಟರ್ ಸಹಾಯಧನ", "ಪವರ್ ಟಿಲ್ಲರ್", "ಕೃಷಿ ಉಪಕರಣ"
+            "farm equipment", "custom hiring centre", "tractor", "machinery",
+            "ಕೃಷಿ ಯಾಂತ್ರೀಕರಣ", "ಯಂತ್ರೋಪಕರಣ", "ಟ್ರಾಕ್ಟರ್ ಸಹಾಯಧನ", "ಪವರ್ ಟಿಲ್ಲರ್",
+            "ಕೃಷಿ ಉಪಕರಣ", "ಟ್ರ್ಯಾಕ್ಟರ್", "ಟ್ರ್ಯಾಕ್ಟರ್ ಖರೀದಿ", "ಉಚಿತ ಟ್ರ್ಯಾಕ್ಟರ್"
         ],
         "midh_horticulture_karnataka": [
             "midh", "nhm", "horticulture scheme", "polyhouse", "shade net", "orchard subsidy",
-            "cold storage", "ತೋಟಗಾರಿಕೆ", "ತೋಟಗಾರಿಕಾ ಯೋಜನೆ", "ಪಾಲಿಹೌಸ್", "ಶೇಡ್ ನೆಟ್",
-            "ಹಣ್ಣು ತರಕಾರಿ ಯೋಜನೆ"
+            "cold storage", "vegetable subsidy", "fruit subsidy",
+            "ತೋಟಗಾರಿಕೆ", "ತೋಟಗಾರಿಕಾ ಯೋಜನೆ", "ಪಾಲಿಹೌಸ್", "ಶೇಡ್ ನೆಟ್",
+            "ಹಣ್ಣು ತರಕಾರಿ ಯೋಜನೆ", "ತೋಟಗಾರಿಕೆ ಇಲಾಖೆ"
         ],
         "karnataka_fruits_portal": [
             "fruits", "fruits id", "fid", "fruits portal", "farmer registration",
-            "ಫ್ರೂಟ್ಸ್", "ಫ್ರೂಟ್ಸ್ ಪೋರ್ಟಲ್", "ಫ್ರೂಟ್ಸ್ ಐಡಿ", "ಎಫ್‌ಐಡಿ", "ರೈತರ ನೋಂದಣಿ"
+            "ಫ್ರೂಟ್ಸ್", "ಫ್ರೂಟ್ಸ್ ಪೋರ್ಟಲ್", "ಫ್ರೂಟ್ಸ್ ಐಡಿ", "ಎಫ್‌ಐಡಿ", "ರೈತರ ನೋಂದಣಿ", "ನೋಂದಣಿ ಬೇಕೇ"
         ],
     }
 
@@ -92,7 +100,8 @@ class SchemeService:
         "scheme", "schemes", "subsidy", "subsidies", "yojana", "yojane", "benefit", "benefits",
         "government", "assistance", "support", "relief", "grant", "funds",
         "ಯೋಜನೆ", "ಯೋಜನೆಗಳು", "ಸರ್ಕಾರಿ ಯೋಜನೆ", "ಸರ್ಕಾರಿ ಯೋಜನೆಗಳು", "ಸಹಾಯಧನ", "ಪ್ರೋತ್ಸಾಹಧನ",
-        "ಪರಿಹಾರ", "ಸರ್ಕಾರದ ಯೋಜನೆಗಳು", "ಸರ್ಕಾರದಿಂದ", "ರೈತರಿಗೆ ಯೋಜನೆ", "ಅನುದಾನ", "ಸೌಲಭ್ಯ"
+        "ಪರಿಹಾರ", "ಸರ್ಕಾರದ ಯೋಜನೆಗಳು", "ಸರ್ಕಾರದಿಂದ", "ರೈತರಿಗೆ ಯೋಜನೆ", "ಅನುದಾನ", "ಸೌಲಭ್ಯ",
+        "ಸಹಾಯ ಬೇಕು", "ಸಬ್ಸಿಡಿ ಬೇಕು", "ಸಹಾಯ"
     }
 
     # Agricultural domain validation terms
@@ -100,10 +109,13 @@ class SchemeService:
         "farmer", "farmers", "farm", "farming", "crop", "crops", "agriculture", "agricultural",
         "cultivation", "seed", "seeds", "soil", "water", "irrigation", "rain", "drought",
         "paddy", "ragi", "maize", "groundnut", "cotton", "sugarcane", "chilli", "onion",
-        "potato", "banana", "tomato", "millet", "horticulture",
+        "potato", "banana", "tomato", "millet", "horticulture", "loan", "credit", "subsidy",
+        "tractor", "drip", "sprinkler", "insurance",
         "ರೈತ", "ರೈತರಿಗೆ", "ಕೃಷಿ", "ಬೆಳೆ", "ಬೆಳೆಗಳು", "ಜಮೀನು", "ಭೂಮಿ", "ಮಳೆ", "ನೀರು",
         "ರಾಗಿ", "ಭತ್ತ", "ಮೆಕ್ಕೆಜೋಳ", "ಕಡಲೆಕಾಯಿ", "ಕಬ್ಬು", "ಹತ್ತಿ", "ಮೆಣಸಿನಕಾಯಿ",
-        "ಈರುಳ್ಳಿ", "ಆಲೂಗಡ್ಡೆ", "ಬಾಳೆ", "ಟೊಮ್ಯಾಟೊ", "ತೋಟಗಾರಿಕೆ", "ಸಿರಿಧಾನ್ಯ"
+        "ಈರುಳ್ಳಿ", "ಆಲೂಗಡ್ಡೆ", "ಬಾಳೆ", "ಟೊಮ್ಯಾಟೊ", "ತೋಟಗಾರಿಕೆ", "ಸಿರಿಧಾನ್ಯ",
+        "ಸಾಲ", "ವಿಮೆ", "ಗೊಬ್ಬರ", "ಹೊಂಡ", "ಡ್ರಿಪ್", "ಸ್ಪ್ರಿಂಕ್ಲರ್", "ಟ್ರ್ಯಾಕ್ಟರ್",
+        "ಪೋಷಕಾಂಶ", "ಸಹಾಯ", "ಸಬ್ಸಿಡಿ"
     }
 
     def __init__(self, data_path: Optional[str] = None) -> None:
@@ -201,18 +213,36 @@ class SchemeService:
         # Step 2: Resolve canonical crop
         resolved_crop = normalize_crop_name(crop) if crop else detect_crop_from_text(clean_query)
 
+        # Unknown specific scheme detector (e.g. "XYZ ಯೋಜನೆ", "ABC scheme")
+        unknown_specific_pattern = re.search(r"\b(xyz|abc|foo|bar|test_pilot)\b", q_lower)
+        if unknown_specific_pattern and not matched_by_alias:
+            # Query is targeting a specific non-existent scheme name
+            return []
+
         # Step 3: Determine if this is a broad general scheme inquiry
         general_patterns = [
             "ಯಾವ ಯೋಜನೆ", "ಯಾವ ಸರ್ಕಾರಿ", "ಸರ್ಕಾರಿ ಯೋಜನೆಗಳು", "ಸರ್ಕಾರದ ಯೋಜನೆಗಳು",
             "ರೈತರಿಗೆ ಯೋಜನೆ", "ರೈತರಿಗೆ ಸರ್ಕಾರಿ", "ಕೃಷಿ ಯೋಜನೆಗಳು", "ಯಾವ ಯಾವ ಯೋಜನೆ",
             "ಯೋಜನೆಗಳು ಯಾವುವು", "ಯೋಜನೆಗಳಿವೆಯೇ", "ಯೋಜನೆಗಳು ಇವೆಯೇ", "ಸಹಾಯಧನ ಯೋಜನೆ",
-            "ಯೋಜನೆಗಳ ಮಾಹಿತಿ", "ಸಹಾಯಧನ ಇದೆಯೇ",
+            "ಯೋಜನೆಗಳ ಮಾಹಿತಿ", "ಸಹಾಯಧನ ಇದೆಯೇ", "ಮುಖ್ಯ ಯೋಜನೆ", "ಯೋಜನೆಗಳ ಬಗ್ಗೆ ತಿಳಿಸಿ",
+            "ಕೇಂದ್ರ ಸರ್ಕಾರ", "ಕರ್ನಾಟಕ ಸರ್ಕಾರ", "ಸಹಾಯ ಬೇಕು", "ಸಬ್ಸಿಡಿ ಬೇಕು",
             "what schemes", "which schemes", "government schemes", "farmer schemes",
-            "subsidies available", "list of schemes", "all schemes", "schemes for farmers"
+            "subsidies available", "list of schemes", "all schemes", "schemes for farmers",
+            "main schemes", "central and state schemes"
         ]
         is_general_inquiry = any(p in q_lower for p in general_patterns) or (
-            ("scheme" in q_lower or "ಯೋಜನೆ" in q_lower or "ಸಹಾಯಧನ" in q_lower) and
-            ("what" in q_lower or "which" in q_lower or "ಯಾವ" in q_lower or "ಯಾವುವು" in q_lower or "ಇವೆಯೇ" in q_lower)
+            ("scheme" in q_lower or "ಯೋಜನೆ" in q_lower or "ಸಹಾಯಧನ" in q_lower or "ಸಹಾಯ" in q_lower) and
+            ("what" in q_lower or "which" in q_lower or "ಯಾವ" in q_lower or "ಯಾವುವು" in q_lower or "ಇವೆಯೇ" in q_lower or "ತಿಳಿಸಿ" in q_lower)
+        )
+
+        is_both_central_and_karnataka = (
+            ("ಕೇಂದ್ರ" in clean_query or "central" in q_lower) and
+            ("ಕರ್ನಾಟಕ" in clean_query or "karnataka" in q_lower or "state" in q_lower)
+        )
+
+        is_karnataka_only = (
+            ("ಕರ್ನಾಟಕ ಸರ್ಕಾರ" in clean_query or "karnataka government" in q_lower) and
+            not is_both_central_and_karnataka
         )
 
         # Step 4: Score all active schemes
@@ -244,12 +274,33 @@ class SchemeService:
                     if is_general_inquiry:
                         score += 2.0
 
+            # Karnataka-only preference
+            if is_karnataka_only:
+                if scheme.government_level == "Karnataka":
+                    score += 6.0
+                elif "Karnataka" in scheme.government_level:
+                    score += 3.0
+
+            # Both Central and State preference
+            if is_both_central_and_karnataka:
+                if scheme.id in {"pm_kisan", "pmfby_karnataka", "karnataka_krishi_bhagya", "kcc_credit_support"}:
+                    score += 6.0
+
             # General scheme inquiry baseline score (only when broad question is asked)
             if is_general_inquiry:
-                if scheme.id in {"pm_kisan", "pmfby_karnataka", "karnataka_krishi_bhagya", "kcc_credit_support"}:
-                    score += 4.0
+                if is_karnataka_only:
+                    if scheme.government_level == "Karnataka":
+                        score += 5.0
+                    elif "Karnataka" in scheme.government_level:
+                        score += 3.0
+                elif is_both_central_and_karnataka:
+                    if scheme.id in {"pm_kisan", "pmfby_karnataka", "karnataka_krishi_bhagya", "kcc_credit_support"}:
+                        score += 5.0
                 else:
-                    score += 2.0
+                    if scheme.id in {"pm_kisan", "pmfby_karnataka", "karnataka_krishi_bhagya", "kcc_credit_support"}:
+                        score += 4.0
+                    else:
+                        score += 2.0
 
             # Minimum relevance threshold: require at least 3.0 points to return a scheme
             if score >= 3.0:

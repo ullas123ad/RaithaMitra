@@ -61,6 +61,38 @@ class MockAdvisoryBackend(AdvisoryBackend):
     """
 
     MOCK_RESPONSES: Dict[str, str] = {
+        "pm-kisan": (
+            "Under PM-KISAN, eligible landholding farmer families receive ₹6,000 per year in 3 equal installments of ₹2,000 via DBT. "
+            "Farmers must complete mandatory eKYC and land seeding on pmkisan.gov.in or through their local Raitha Samparka Kendra."
+        ),
+        "installment": (
+            "Under PM-KISAN, eligible landholding farmer families receive ₹6,000 per year in 3 equal installments of ₹2,000 via DBT. "
+            "Farmers must complete mandatory eKYC and land seeding on pmkisan.gov.in or through their local Raitha Samparka Kendra."
+        ),
+        "insurance": (
+            "Under Pradhan Mantri Fasal Bima Yojana (PMFBY) in Karnataka, farmers can insure notified crops through the Samrakshane portal. "
+            "Premium is capped at 2% for Kharif food/oilseed crops and 1.5% for Rabi crops, with government subsidies covering the remainder."
+        ),
+        "drip": (
+            "Under PMKSY Per Drop More Crop, assistance is available for micro-irrigation (drip/sprinkler). "
+            "In Karnataka, combined subsidies reach up to 90% for SC/ST and 75% for general category farmers subject to official verification."
+        ),
+        "tractor": (
+            "Under SMAM Farm Mechanization, subsidies are provided on approved tractors and implements for eligible farmers. "
+            "Assistance is subject to state targets, empanelled models, and official verification at the local Raitha Samparka Kendra."
+        ),
+        "machinery": (
+            "Under Sub-Mission on Agricultural Mechanization (SMAM) in Karnataka, subsidies of 40% to 50% for general farmers and "
+            "50% to 90% for SC/ST farmers are available for approved farm equipment subject to department targets."
+        ),
+        "xyz": (
+            "No verified government scheme was found matching this name. Please verify official schemes at your local Raitha Samparka Kendra "
+            "or on the official Karnataka Agriculture portal (raitamitra.karnataka.gov.in)."
+        ),
+        "scheme": (
+            "Key agricultural schemes available in Karnataka include PM-KISAN (direct income support), PMFBY (crop insurance via Samrakshane), "
+            "Krishi Bhagya (farm pond and water conservation subsidy), and KCC (concessional crop loans). Farmers can verify eligibility via the FRUITS portal."
+        ),
         "tomato": (
             "Tomato leaf yellowing can indicate early blight or nitrogen shortage. "
             "Inspect underside of leaves for dark spots and apply copper oxychloride (2.5g/L) "
@@ -85,18 +117,6 @@ class MockAdvisoryBackend(AdvisoryBackend):
         "rain": (
             "Excess rainfall and standing water cause root suffocation. Dig drainage trenches immediately "
             "and apply 1% urea foliar spray once stagnant water is cleared."
-        ),
-        "pm-kisan": (
-            "Under PM-KISAN, eligible landholding farmer families receive ₹6,000 per year in 3 equal installments of ₹2,000 via DBT. "
-            "Farmers must complete mandatory eKYC and land seeding on pmkisan.gov.in or through their local Raitha Samparka Kendra."
-        ),
-        "insurance": (
-            "Under Pradhan Mantri Fasal Bima Yojana (PMFBY) in Karnataka, farmers can insure notified crops through the Samrakshane portal. "
-            "Premium is capped at 2% for Kharif food/oilseed crops and 1.5% for Rabi crops, with government subsidies covering the remainder."
-        ),
-        "scheme": (
-            "Key agricultural schemes available in Karnataka include PM-KISAN (direct income support), PMFBY (crop insurance via Samrakshane), "
-            "Krishi Bhagya (farm pond and water conservation subsidy), and KCC (concessional crop loans). Farmers can verify eligibility via the FRUITS portal."
         )
     }
 
@@ -104,9 +124,23 @@ class MockAdvisoryBackend(AdvisoryBackend):
         return True
 
     def generate(self, prompt: str, messages: Optional[List[Dict[str, str]]] = None, **kwargs) -> str:
-        p_lower = prompt.lower()
+        # Extract user query from messages if provided, or from prompt
+        raw_text = prompt
+        if messages:
+            for m in messages:
+                if m.get("role") == "user":
+                    raw_text = m.get("content", "")
+                    break
+
+        if "Farmer Query:" in raw_text:
+            query_only = raw_text.split("Farmer Query:")[-1].strip().lower()
+        elif "Question:" in raw_text:
+            query_only = raw_text.split("Question:")[-1].strip().lower()
+        else:
+            query_only = raw_text.strip().lower()
+
         for key, resp in self.MOCK_RESPONSES.items():
-            if key in p_lower:
+            if key in query_only:
                 return resp
 
         return (

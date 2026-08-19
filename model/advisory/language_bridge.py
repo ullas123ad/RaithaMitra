@@ -100,8 +100,14 @@ class MockLanguageBridge(LanguageBridge):
         "ನನ್ನ ಕಬ್ಬಿನ ಬೆಳೆಯ ಬೆಳವಣಿಗೆ ಸರಿಯಾಗಿ ಆಗುತ್ತಿಲ್ಲ. ಏನು ಮಾಡಬೇಕು?": "My sugarcane crop is not growing properly. What should I do?",
         "ರೈತರಿಗೆ ಸರ್ಕಾರದ ಯೋಜನೆಗಳು ಯಾವುವು?": "What are the government schemes available for farmers?",
         "PM-KISAN ಯೋಜನೆಯ ಬಗ್ಗೆ ಮಾಹಿತಿ ಬೇಕು.": "I need information about the PM-KISAN scheme.",
+        "ನನಗೆ PM-KISAN ಹಣದ ಕಂತು ಬಂದಿಲ್ಲ. ನಾನು ಏನು ಮಾಡಬೇಕು?": "I have not received my PM-KISAN installment. What should I do?",
         "ನಾನು ರಾಗಿ ಬೆಳೆಸುತ್ತಿದ್ದೇನೆ. ನನಗೆ ಯಾವ ಸರ್ಕಾರಿ ಯೋಜನೆಗಳು ಸಂಬಂಧಿಸಬಹುದು?": "I am growing ragi. Which government schemes may be applicable to me?",
+        "ನಾನು ರಾಗಿ ಬೆಳೆಸುತ್ತೇನೆ. ನನ್ನ ಬೆಳೆಗೆ ಸಂಬಂಧಿಸಿದ ಸರ್ಕಾರದ ಯೋಜನೆಗಳು ಯಾವುವು?": "I am cultivating ragi. What government schemes are relevant to my crop?",
         "ನನ್ನ ಬೆಳೆ ಹಾನಿಯಾಗಿದೆ. ಬೆಳೆ ವಿಮೆ ಬಗ್ಗೆ ಮಾಹಿತಿ ಬೇಕು.": "My crop is damaged. I need information about crop insurance.",
+        "ನನ್ನ ರಾಗಿ ಬೆಳೆ ಮಳೆಯಿಂದ ಹಾನಿಯಾಗಿದೆ. ಬೆಳೆ ವಿಮೆಯಿಂದ ಸಹಾಯ ಸಿಗುತ್ತದೆಯೇ?": "My ragi crop is damaged due to rain. Can I get help from crop insurance?",
+        "ನನ್ನ ಹೊಲಕ್ಕೆ ಡ್ರಿಪ್ ನೀರಾವರಿ ಹಾಕಿಸಿಕೊಳ್ಳಲು ಸರ್ಕಾರದಿಂದ ಸಬ್ಸಿಡಿ ಇದೆಯೇ?": "Is there a government subsidy to install drip irrigation in my field?",
+        "ಕೃಷಿ ಯಂತ್ರೋಪಕರಣಗಳನ್ನು ಖರೀದಿಸಲು ಸರ್ಕಾರದಿಂದ ಸಬ್ಸಿಡಿ ಸಿಗುತ್ತದೆಯೇ?": "Is there a subsidy from the government to purchase farm machinery?",
+        "ಕರ್ನಾಟಕ ಸರ್ಕಾರದ XYZ ರೈತ ಯೋಜನೆಗೆ ನಾನು ಹೇಗೆ ಅರ್ಜಿ ಹಾಕಬೇಕು?": "How do I apply for the Karnataka Government XYZ farmer scheme?",
         "XYZ ಕೃಷಿ ಯೋಜನೆ ಬಗ್ಗೆ ಮಾಹಿತಿ ನೀಡಿ.": "Give information about XYZ agriculture scheme.",
         "ಲ್ಯಾಪ್ಟಾಪ್ ಹೇಗೆ ಸರಿಪಡಿಸುವುದು?": "How to repair a laptop?"
     }
@@ -110,7 +116,10 @@ class MockLanguageBridge(LanguageBridge):
         "What are common causes of yellow leaves in tomato plants, and what should a farmer check first?": "ಟೊಮೇಟೊ ಗಿಡಗಳಲ್ಲಿ ಹಳದಿ ಎಲೆಗಳಿಗೆ ಸಾಮಾನ್ಯ ಕಾರಣಗಳು ಪೋಷಕಾಂಶಗಳ ಕೊರತೆ ಅಥವಾ ಅತಿಯಾದ ನೀರಾವರಿ. ಮೊದಲು ಮಣ್ಣಿನ ತೇವಾಂಶ ಮತ್ತು ಪೋಷಕಾಂಶಗಳನ್ನು ಪರೀಕ್ಷಿಸಿ.",
         "There has been very little rain and my ragi crop is drying. What should I do?": "ರಾಗಿ ಬೆಳೆಗೆ ನೀರಿನ ಕೊರತೆಯಾದಾಗ ರಕ್ಷಣಾತ್ಮಕ ನೀರಾವರಿ ನೀಡಿ ಮತ್ತು ತೇವಾಂಶ ಸಂರಕ್ಷಣೆಗೆ ಮಣ್ಣಿನ ಹೊದಿಕೆ ಮಾಡಿ.",
         "Under PM-KISAN, eligible landholding farmer families receive ₹6,000 per year in 3 equal installments of ₹2,000 via DBT. Farmers must complete mandatory eKYC and land seeding on pmkisan.gov.in or through their local Raitha Samparka Kendra.": "ಪಿಎಂ-ಕಿಸಾನ್ ಯೋಜನೆಯಡಿ ಅರ್ಹ ರೈತ ಕುಟುಂಬಗಳಿಗೆ ವರ್ಷಕ್ಕೆ ₹6,000 (ತಲಾ ₹2,000 ರ ಮೂರು ಕಂತುಗಳಲ್ಲಿ) ಡಿಬಿಟಿ ಮೂಲಕ ನೇರವಾಗಿ ಜಮೆಯಾಗುತ್ತದೆ. ರೈತರು ಕಡ್ಡಾಯವಾಗಿ ಇ-ಕೆವೈಸಿ ಮತ್ತು ಭೂದಾಖಲೆ ಜೋಡಣೆ ಮಾಡಿಸಬೇಕು.",
-        "Under Pradhan Mantri Fasal Bima Yojana (PMFBY) in Karnataka, farmers can insure notified crops through the Samrakshane portal. Premium is capped at 2% for Kharif food/oilseed crops and 1.5% for Rabi crops, with government subsidies covering the remainder.": "ಕರ್ನಾಟಕದಲ್ಲಿ ಪ್ರಧಾನ ಮಂತ್ರಿ ಫಸಲ್ ಬಿಮಾ ಯೋಜನೆಯಡಿ ಸಂರಕ್ಷಣೆ ಪೋರ್ಟಲ್ ಮೂಲಕ ಬೆಳೆ ವಿಮೆ ಮಾಡಿಸಬಹುದು. ಖಾರೀಫ್ ಆಹಾರ/ಎಣ್ಣೆಕಾಳು ಬೆಳೆಗಳಿಗೆ ಶೇ 2 ಮತ್ತು ರಬಿ ಬೆಳೆಗಳಿಗೆ ಶೇ 1.5 ಪ್ರೀಮಿಯಂ ಇರುತ್ತದೆ."
+        "Under Pradhan Mantri Fasal Bima Yojana (PMFBY) in Karnataka, farmers can insure notified crops through the Samrakshane portal. Premium is capped at 2% for Kharif food/oilseed crops and 1.5% for Rabi crops, with government subsidies covering the remainder.": "ಕರ್ನಾಟಕದಲ್ಲಿ ಪ್ರಧಾನ ಮಂತ್ರಿ ಫಸಲ್ ಬಿಮಾ ಯೋಜನೆಯಡಿ ಸಂರಕ್ಷಣೆ ಪೋರ್ಟಲ್ ಮೂಲಕ ಬೆಳೆ ವಿಮೆ ಮಾಡಿಸಬಹುದು. ಖಾರೀಫ್ ಆಹಾರ/ಎಣ್ಣೆಕಾಳು ಬೆಳೆಗಳಿಗೆ ಶೇ 2 ಮತ್ತು ರಬಿ ಬೆಳೆಗಳಿಗೆ ಶೇ 1.5 ಪ್ರೀಮಿಯಂ ಇರುತ್ತದೆ.",
+        "Under PMKSY Per Drop More Crop, assistance is available for micro-irrigation (drip/sprinkler). In Karnataka, combined subsidies reach up to 90% for SC/ST and 75% for general category farmers subject to official verification.": "ಪ್ರಧಾನ ಮಂತ್ರಿ ಕೃಷಿ ಸಿಂಚಾಯಿ ಯೋಜನೆಯಡಿ (ಡ್ರಾಪ್ ಮೋರ್ ಕ್ರಾಪ್) ಹನಿ ಮತ್ತು ತುಂತುರು ನೀರಾವರಿಗೆ ಸಹಾಯಧನ ಲಭ್ಯವಿದೆ. ಕರ್ನಾಟಕದಲ್ಲಿ ಎಸ್‌ಸಿ/ಎಸ್‌ಟಿ ರೈತರಿಗೆ ಶೇ 90 ರವರೆಗೆ ಮತ್ತು ಸಾಮಾನ್ಯ ವರ್ಗದ ರೈತರಿಗೆ ಶೇ 75 ರವರೆಗೆ ಸಹಾಯಧನ ಲಭ್ಯವಿರುತ್ತದೆ.",
+        "Under Sub-Mission on Agricultural Mechanization (SMAM) in Karnataka, subsidies of 40% to 50% for general farmers and 50% to 90% for SC/ST farmers are available for approved farm equipment subject to department targets.": "ಕರ್ನಾಟಕದಲ್ಲಿ ಕೃಷಿ ಯಾಂತ್ರೀಕರಣ ಯೋಜನೆಯಡಿ (SMAM) ಸಾಮಾನ್ಯ ರೈತರಿಗೆ ಶೇ 40-50 ಮತ್ತು ಎಸ್‌ಸಿ/ಎಸ್‌ಟಿ ರೈತರಿಗೆ ಶೇ 50-90 ರವರೆಗೆ ಅನುಮೋದಿತ ಯಂತ್ರೋಪಕರಣಗಳಿಗೆ ಸಹಾಯಧನ ಲಭ್ಯವಿದೆ.",
+        "No verified government scheme was found matching this name. Please verify official schemes at your local Raitha Samparka Kendra or on the official Karnataka Agriculture portal (raitamitra.karnataka.gov.in).": "ಈ ಹೆಸರಿನ ಯಾವುದೇ ಅಧಿಕೃತ ಸರ್ಕಾರಿ ಯೋಜನೆ ಲಭ್ಯವಿಲ್ಲ. ದಯವಿಟ್ಟು ನಿಮ್ಮ ಸ್ಥಳೀಯ ರೈತ ಸಂಪರ್ಕ ಕೇಂದ್ರ ಅಥವಾ ಅಧಿಕೃತ ಕೃಷಿ ಪೋರ್ಟಲ್ (raitamitra.karnataka.gov.in) ನಲ್ಲಿ ಪರಿಶೀಲಿಸಿ."
     }
 
     def translate_to_advisory_lang(

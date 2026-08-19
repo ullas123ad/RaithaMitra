@@ -97,12 +97,20 @@ class MockLanguageBridge(LanguageBridge):
         "ನನ್ನ ಮೆಕ್ಕೆಜೋಳದ ಬೆಳೆಯಲ್ಲಿ ಎಲೆಗಳಲ್ಲಿ ರಂಧ್ರಗಳು ಕಾಣಿಸುತ್ತಿವೆ. ಏನು ಮಾಡಬೇಕು?": "I am seeing holes in my maize crop leaves. What should I do?",
         "ನನ್ನ ಕಡಲೆಕಾಯಿ ಬೆಳೆಯ ಎಲೆಗಳಲ್ಲಿ ಕಲೆಗಳು ಕಾಣಿಸುತ್ತಿವೆ. ಏನು ಮಾಡಬೇಕು?": "My groundnut crop leaves are showing spots. What should I do?",
         "ನನ್ನ ಹತ್ತಿ ಬೆಳೆಯಲ್ಲಿ ಕೀಟಗಳು ಕಾಣಿಸುತ್ತಿವೆ. ಏನು ಮಾಡಬೇಕು?": "There are insects attacking my cotton crop. What should I do?",
-        "ನನ್ನ ಕಬ್ಬಿನ ಬೆಳೆಯ ಬೆಳವಣಿಗೆ ಸರಿಯಾಗಿ ಆಗುತ್ತಿಲ್ಲ. ಏನು ಮಾಡಬೇಕು?": "My sugarcane crop is not growing properly. What should I do?"
+        "ನನ್ನ ಕಬ್ಬಿನ ಬೆಳೆಯ ಬೆಳವಣಿಗೆ ಸರಿಯಾಗಿ ಆಗುತ್ತಿಲ್ಲ. ಏನು ಮಾಡಬೇಕು?": "My sugarcane crop is not growing properly. What should I do?",
+        "ರೈತರಿಗೆ ಸರ್ಕಾರದ ಯೋಜನೆಗಳು ಯಾವುವು?": "What are the government schemes available for farmers?",
+        "PM-KISAN ಯೋಜನೆಯ ಬಗ್ಗೆ ಮಾಹಿತಿ ಬೇಕು.": "I need information about the PM-KISAN scheme.",
+        "ನಾನು ರಾಗಿ ಬೆಳೆಸುತ್ತಿದ್ದೇನೆ. ನನಗೆ ಯಾವ ಸರ್ಕಾರಿ ಯೋಜನೆಗಳು ಸಂಬಂಧಿಸಬಹುದು?": "I am growing ragi. Which government schemes may be applicable to me?",
+        "ನನ್ನ ಬೆಳೆ ಹಾನಿಯಾಗಿದೆ. ಬೆಳೆ ವಿಮೆ ಬಗ್ಗೆ ಮಾಹಿತಿ ಬೇಕು.": "My crop is damaged. I need information about crop insurance.",
+        "XYZ ಕೃಷಿ ಯೋಜನೆ ಬಗ್ಗೆ ಮಾಹಿತಿ ನೀಡಿ.": "Give information about XYZ agriculture scheme.",
+        "ಲ್ಯಾಪ್ಟಾಪ್ ಹೇಗೆ ಸರಿಪಡಿಸುವುದು?": "How to repair a laptop?"
     }
 
     SAMPLE_EN_TO_KN: Dict[str, str] = {
         "What are common causes of yellow leaves in tomato plants, and what should a farmer check first?": "ಟೊಮೇಟೊ ಗಿಡಗಳಲ್ಲಿ ಹಳದಿ ಎಲೆಗಳಿಗೆ ಸಾಮಾನ್ಯ ಕಾರಣಗಳು ಪೋಷಕಾಂಶಗಳ ಕೊರತೆ ಅಥವಾ ಅತಿಯಾದ ನೀರಾವರಿ. ಮೊದಲು ಮಣ್ಣಿನ ತೇವಾಂಶ ಮತ್ತು ಪೋಷಕಾಂಶಗಳನ್ನು ಪರೀಕ್ಷಿಸಿ.",
-        "There has been very little rain and my ragi crop is drying. What should I do?": "ರಾಗಿ ಬೆಳೆಗೆ ನೀರಿನ ಕೊರತೆಯಾದಾಗ ರಕ್ಷಣಾತ್ಮಕ ನೀರಾವರಿ ನೀಡಿ ಮತ್ತು ತೇವಾಂಶ ಸಂರಕ್ಷಣೆಗೆ ಮಣ್ಣಿನ ಹೊದಿಕೆ ಮಾಡಿ."
+        "There has been very little rain and my ragi crop is drying. What should I do?": "ರಾಗಿ ಬೆಳೆಗೆ ನೀರಿನ ಕೊರತೆಯಾದಾಗ ರಕ್ಷಣಾತ್ಮಕ ನೀರಾವರಿ ನೀಡಿ ಮತ್ತು ತೇವಾಂಶ ಸಂರಕ್ಷಣೆಗೆ ಮಣ್ಣಿನ ಹೊದಿಕೆ ಮಾಡಿ.",
+        "Under PM-KISAN, eligible landholding farmer families receive ₹6,000 per year in 3 equal installments of ₹2,000 via DBT. Farmers must complete mandatory eKYC and land seeding on pmkisan.gov.in or through their local Raitha Samparka Kendra.": "ಪಿಎಂ-ಕಿಸಾನ್ ಯೋಜನೆಯಡಿ ಅರ್ಹ ರೈತ ಕುಟುಂಬಗಳಿಗೆ ವರ್ಷಕ್ಕೆ ₹6,000 (ತಲಾ ₹2,000 ರ ಮೂರು ಕಂತುಗಳಲ್ಲಿ) ಡಿಬಿಟಿ ಮೂಲಕ ನೇರವಾಗಿ ಜಮೆಯಾಗುತ್ತದೆ. ರೈತರು ಕಡ್ಡಾಯವಾಗಿ ಇ-ಕೆವೈಸಿ ಮತ್ತು ಭೂದಾಖಲೆ ಜೋಡಣೆ ಮಾಡಿಸಬೇಕು.",
+        "Under Pradhan Mantri Fasal Bima Yojana (PMFBY) in Karnataka, farmers can insure notified crops through the Samrakshane portal. Premium is capped at 2% for Kharif food/oilseed crops and 1.5% for Rabi crops, with government subsidies covering the remainder.": "ಕರ್ನಾಟಕದಲ್ಲಿ ಪ್ರಧಾನ ಮಂತ್ರಿ ಫಸಲ್ ಬಿಮಾ ಯೋಜನೆಯಡಿ ಸಂರಕ್ಷಣೆ ಪೋರ್ಟಲ್ ಮೂಲಕ ಬೆಳೆ ವಿಮೆ ಮಾಡಿಸಬಹುದು. ಖಾರೀಫ್ ಆಹಾರ/ಎಣ್ಣೆಕಾಳು ಬೆಳೆಗಳಿಗೆ ಶೇ 2 ಮತ್ತು ರಬಿ ಬೆಳೆಗಳಿಗೆ ಶೇ 1.5 ಪ್ರೀಮಿಯಂ ಇರುತ್ತದೆ."
     }
 
     def translate_to_advisory_lang(

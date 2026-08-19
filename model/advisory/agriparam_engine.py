@@ -85,6 +85,18 @@ class MockAdvisoryBackend(AdvisoryBackend):
         "rain": (
             "Excess rainfall and standing water cause root suffocation. Dig drainage trenches immediately "
             "and apply 1% urea foliar spray once stagnant water is cleared."
+        ),
+        "pm-kisan": (
+            "Under PM-KISAN, eligible landholding farmer families receive ₹6,000 per year in 3 equal installments of ₹2,000 via DBT. "
+            "Farmers must complete mandatory eKYC and land seeding on pmkisan.gov.in or through their local Raitha Samparka Kendra."
+        ),
+        "insurance": (
+            "Under Pradhan Mantri Fasal Bima Yojana (PMFBY) in Karnataka, farmers can insure notified crops through the Samrakshane portal. "
+            "Premium is capped at 2% for Kharif food/oilseed crops and 1.5% for Rabi crops, with government subsidies covering the remainder."
+        ),
+        "scheme": (
+            "Key agricultural schemes available in Karnataka include PM-KISAN (direct income support), PMFBY (crop insurance via Samrakshane), "
+            "Krishi Bhagya (farm pond and water conservation subsidy), and KCC (concessional crop loans). Farmers can verify eligibility via the FRUITS portal."
         )
     }
 
@@ -188,7 +200,8 @@ class AdvisoryEngine:
         config: Optional[AdvisoryConfig] = None,
         backend: Optional[AdvisoryBackend] = None,
         language_bridge: Optional[LanguageBridge] = None,
-        retriever: Optional[AgriculturalRetriever] = None
+        retriever: Optional[AgriculturalRetriever] = None,
+        scheme_service: Optional[Any] = None
     ):
         self.config = config or AdvisoryConfig()
         self.config.validate()
@@ -206,6 +219,13 @@ class AdvisoryEngine:
             )
         else:
             self.retriever = None
+
+        # Initialize Scheme Service
+        if scheme_service is not None:
+            self.scheme_service = scheme_service
+        else:
+            from model.schemes.service import SchemeService
+            self.scheme_service = SchemeService()
 
         if backend is not None:
             self.backend = backend
@@ -228,10 +248,11 @@ class AdvisoryEngine:
         location: Optional[Any] = None,
         weather: Optional[Any] = None,
         crop: Optional[str] = None,
+        schemes: Optional[Any] = None,
         **kwargs
     ) -> Dict[str, Any]:
         """
-        Processes farmer query through Translation -> RAG Retrieval -> LLM Reasoning -> Translation.
+        Processes farmer query through Translation -> RAG Retrieval -> Scheme Retrieval -> LLM Reasoning -> Translation.
 
         Args:
             query: The farmer's question in Kannada (or English/Hindi).
@@ -241,6 +262,7 @@ class AdvisoryEngine:
             location: Optional LocationContext instance.
             weather: Optional WeatherContext instance.
             crop: Optional crop name string.
+            schemes: Optional list of GovernmentScheme instances.
 
         Returns:
             Dictionary containing structured advisory output and performance metrics.
@@ -283,7 +305,29 @@ class AdvisoryEngine:
             retrieval_latency = time.time() - t_rag_0
             retrieved_context_text = self.retriever.format_context(retrieved_docs)
 
-        # 3. Format Dynamic Weather / Location Context
+        # 3. Retrieve Relevant Government Schemes
+        retrieved_schemes = []
+        scheme_context_text = ""
+        if schemes is not None:
+            retrieved_schemes = schemes
+            scheme_context_text = self.scheme_service.format_scheme_context(retrieved_schemes)
+        elif self.scheme_service is not None:
+            retrieved_schemes = self.scheme_service.find_relevant_schemes(
+                query=clean_query,
+                crop=canonical_crop,
+                location=location
+            )
+            if not retrieved_schemes and intermediate_query != clean_query:
+                # Also check translated query if raw query had no alias match
+                retrieved_schemes = self.scheme_service.find_relevant_schemes(
+                    query=intermediate_query,
+                    crop=canonical_crop,
+                    location=location
+                )
+            if retrieved_schemes:
+                scheme_context_text = self.scheme_service.format_scheme_context(retrieved_schemes)
+
+        # 4. Format Dynamic Weather / Location Context
         weather_context_text = ""
         if weather is not None:
             from model.weather.service import WeatherService
@@ -291,17 +335,19 @@ class AdvisoryEngine:
         elif location is not None:
             weather_context_text = f"--- LOCALITY CONTEXT ---\nLocation: {getattr(location, 'hierarchy_label', str(location))}"
 
-        # Combine explicit context, retrieved RAG context, and dynamic weather context
+        # Combine explicit context, retrieved RAG context, government schemes, and dynamic weather context
         combined_context_parts = []
         if retrieved_context_text:
             combined_context_parts.append(retrieved_context_text)
+        if scheme_context_text:
+            combined_context_parts.append(scheme_context_text)
         if weather_context_text:
             combined_context_parts.append(weather_context_text)
         if context and context.strip():
             combined_context_parts.append(f"Farm Context: {context.strip()}")
         combined_context = "\n\n".join(combined_context_parts) if combined_context_parts else None
 
-        # 4. Format Prompt and Generate Advisory via LLM Backend
+        # 5. Format Prompt and Generate Advisory via LLM Backend
         messages = format_messages(
             query=intermediate_query,
             context=combined_context,
@@ -321,7 +367,7 @@ class AdvisoryEngine:
         )
         t_gen = time.time() - t_gen_0
 
-        # 5. Translate Response back to Target Language (Kannada)
+        # 6. Translate Response back to Target Language (Kannada)
         t_tr_out_0 = time.time()
         final_response = self.language_bridge.translate_from_advisory_lang(
             intermediate_response,
@@ -345,6 +391,7 @@ class AdvisoryEngine:
             "backend": self.config.backend,
             "rag_enabled": self.config.use_rag,
             "retrieved_documents": retrieved_docs,
+            "retrieved_schemes": [s.to_dict() if hasattr(s, "to_dict") else s for s in retrieved_schemes],
             "location": location.to_dict() if hasattr(location, "to_dict") else None,
             "weather": weather.to_dict() if hasattr(weather, "to_dict") else None,
             "retrieval_time_seconds": round(retrieval_latency, 4),

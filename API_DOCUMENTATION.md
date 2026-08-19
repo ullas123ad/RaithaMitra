@@ -40,7 +40,8 @@ By default, the server starts on `http://127.0.0.1:5000` (`http://localhost:5000
 | :--- | :--- | :--- | :--- |
 | `GET` | `/api/v1/health` | Lightweight service health check (does NOT load heavy models) | No |
 | `GET` | `/api/v1/version` | Returns API version and commit hash | No |
-| `POST` | `/api/v1/advisory` | Primary agricultural advisory generation endpoint | No |
+| `POST` | `/api/v1/advisory` | Primary agricultural advisory generation endpoint (JSON text query) | No |
+| `POST` | `/api/v1/advisory/audio` | Voice advisory generation endpoint (Multipart audio upload) | No |
 
 ---
 

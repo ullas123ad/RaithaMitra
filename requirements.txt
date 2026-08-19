@@ -8,3 +8,7 @@ soundfile>=0.12.1
 librosa>=0.10.0
 scipy>=1.10.0
 jiwer>=3.0.0
+
+# Phase 5.1 - Backend API Adapter
+flask>=3.0.0
+flask-cors>=5.0.0

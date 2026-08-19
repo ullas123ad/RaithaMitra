@@ -88,6 +88,7 @@ class MockLanguageBridge(LanguageBridge):
     SAMPLE_KN_TO_EN: Dict[str, str] = {
         "ನನ್ನ ಟೊಮೇಟೊ ಗಿಡದ ಎಲೆಗಳು ಹಳದಿಯಾಗುತ್ತಿವೆ. ಏನು ಮಾಡಬೇಕು?": "What are common causes of yellow leaves in tomato plants, and what should a farmer check first?",
         "ಟೊಮೇಟೊ ಎಲೆಗಳು ಹಳದಿಯಾಗುತ್ತಿವೆ": "Tomato leaves are turning yellow. What should be done?",
+        "ನನ್ನ ರಾಗಿ ಬೆಳೆ ಒಣಗುತ್ತಿದೆ": "There has been very little rain and my ragi crop is drying. What should I do?",
         "ನನ್ನ ರಾಗಿ ಬೆಳೆಗೆ ಮಳೆ ಸರಿಯಾಗಿ ಆಗದೆ ಒಣಗುತ್ತಿದೆ. ಏನು ಮಾಡಬೇಕು?": "There has been very little rain and my ragi crop is drying. What should I do?",
         "ಭತ್ತದ ಬೆಳೆಗೆ ಯಾವ ಕೀಟನಾಶಕ ಬಳಸಬೇಕು?": "What pesticide should be used for paddy crop?",
         "ರಾಗಿ ಬಿತ್ತನೆಗೆ ಯಾವ ಕಾಲ ಸೂಕ್ತ?": "What is the suitable season for sowing ragi?",
@@ -170,6 +171,8 @@ class MockLanguageBridge(LanguageBridge):
         if not text or not text.strip():
             raise LanguageBridgeError("Cannot translate empty text.")
         clean = text.strip()
+        if source_lang == target_lang or source_lang == "en":
+            return clean
         return self.SAMPLE_KN_TO_EN.get(clean, f"Translated: {clean}")
 
     def translate_from_advisory_lang(
@@ -181,6 +184,8 @@ class MockLanguageBridge(LanguageBridge):
         if not text or not text.strip():
             raise LanguageBridgeError("Cannot translate empty text.")
         clean = text.strip()
+        if target_lang == source_lang or target_lang == "en":
+            return clean
         return self.SAMPLE_EN_TO_KN.get(clean, clean)
 
 

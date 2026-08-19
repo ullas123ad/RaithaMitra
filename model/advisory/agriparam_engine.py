@@ -97,6 +97,33 @@ class MockAdvisoryBackend(AdvisoryBackend):
             "Regional soil health information provides general soil texture and classification. "
             "For field-specific nutrient diagnosis and Soil Health Card testing, visit your local Raitha Samparka Kendra (RSK)."
         ),
+        "ragi price": (
+            "At Mandya APMC on 2026-08-19, reported Ragi prices ranged from ₹2,800 to ₹3,400 per quintal with a modal price of ₹3,200/quintal (Arrivals: 45 tonnes). Note that actual price received depends on grain quality and moisture."
+        ),
+        "price of maize": (
+            "At Belagavi APMC, latest available reported Maize price is dated 2026-08-18 with a modal price of ₹2,350/quintal (Range: ₹2,100 - ₹2,450/quintal, Arrivals: 120 tonnes)."
+        ),
+        "belagavi": (
+            "At Belagavi APMC, latest available reported Maize price is dated 2026-08-18 with a modal price of ₹2,350/quintal (Range: ₹2,100 - ₹2,450/quintal, Arrivals: 120 tonnes)."
+        ),
+        "maize price": (
+            "At Belagavi APMC, latest available reported Maize price is dated 2026-08-18 with a modal price of ₹2,350/quintal (Range: ₹2,100 - ₹2,450/quintal, Arrivals: 120 tonnes)."
+        ),
+        "tomato price": (
+            "At Binny Mill (F&V) APMC in Bengaluru on 2026-08-19, reported Tomato prices ranged from ₹1,400 to ₹2,200 per quintal with a modal price of ₹1,800/quintal (Arrivals: 250 tonnes)."
+        ),
+        "onion price": (
+            "Based on reported official APMC data for 2026-08-19, Yeshwanthpur Bengaluru reported a modal price of ₹2,500/quintal (Range: ₹2,000 - ₹2,800) and Hubballi APMC reported ₹2,300/quintal (Range: ₹1,800 - ₹2,600). Confirm current auction rates before transporting produce."
+        ),
+        "better price": (
+            "Based on reported official APMC data for 2026-08-19, Yeshwanthpur Bengaluru reported a modal price of ₹2,500/quintal (Range: ₹2,000 - ₹2,800) and Hubballi APMC reported ₹2,300/quintal (Range: ₹1,800 - ₹2,600). Confirm current auction rates before transporting produce."
+        ),
+        "best price": (
+            "Based on reported official APMC data for 2026-08-19, Yeshwanthpur Bengaluru reported a modal price of ₹2,500/quintal (Range: ₹2,000 - ₹2,800) and Hubballi APMC reported ₹2,300/quintal (Range: ₹1,800 - ₹2,600). Confirm current auction rates before transporting produce."
+        ),
+        "market price": (
+            "Official APMC market prices vary by district and daily trading session. Please specify your crop and nearby APMC market to check latest reported prices."
+        ),
         "scheme": (
             "Key agricultural schemes available in Karnataka include PM-KISAN (direct income support), PMFBY (crop insurance via Samrakshane), "
             "Krishi Bhagya (farm pond and water conservation subsidy), and KCC (concessional crop loans). Farmers can verify eligibility via the FRUITS portal."
@@ -244,7 +271,8 @@ class AdvisoryEngine:
         language_bridge: Optional[LanguageBridge] = None,
         retriever: Optional[AgriculturalRetriever] = None,
         scheme_service: Optional[Any] = None,
-        soil_service: Optional[Any] = None
+        soil_service: Optional[Any] = None,
+        market_service: Optional[Any] = None
     ):
         self.config = config or AdvisoryConfig()
         self.config.validate()
@@ -277,6 +305,13 @@ class AdvisoryEngine:
             from model.soil.service import SoilService
             self.soil_service = SoilService()
 
+        # Initialize Market Service
+        if market_service is not None:
+            self.market_service = market_service
+        else:
+            from model.market.service import MarketService
+            self.market_service = MarketService()
+
         if backend is not None:
             self.backend = backend
         elif self.config.backend == "mock":
@@ -298,12 +333,13 @@ class AdvisoryEngine:
         location: Optional[Any] = None,
         weather: Optional[Any] = None,
         soil: Optional[Any] = None,
+        market: Optional[Any] = None,
         crop: Optional[str] = None,
         schemes: Optional[Any] = None,
         **kwargs
     ) -> Dict[str, Any]:
         """
-        Processes farmer query through Translation -> RAG Retrieval -> Scheme Retrieval -> Soil Context -> LLM Reasoning -> Translation.
+        Processes farmer query through Translation -> RAG Retrieval -> Scheme Retrieval -> Soil Context -> Market Context -> LLM Reasoning -> Translation.
 
         Args:
             query: The farmer's question in Kannada (or English/Hindi).
@@ -313,6 +349,7 @@ class AdvisoryEngine:
             location: Optional LocationContext instance.
             weather: Optional WeatherContext instance.
             soil: Optional SoilContext instance.
+            market: Optional MarketContext instance.
             crop: Optional crop name string.
             schemes: Optional list of GovernmentScheme instances.
 
@@ -391,7 +428,21 @@ class AdvisoryEngine:
             if soil_ctx and soil_ctx.available:
                 soil_context_text = self.soil_service.format_soil_context(soil_ctx)
 
-        # 5. Format Dynamic Weather / Location Context
+        # 5. Format APMC Mandi Market Context
+        market_context_text = ""
+        market_ctx = None
+        is_market_query = any(k in clean_query.lower() or k in intermediate_query.lower() for k in ["ಬೆಲೆ", "price", "ಮಾರುಕಟ್ಟೆ", "mandi", "apmc", "ಮಾರಾಟ", "rate", "market", "cost"])
+        if market is not None:
+            market_ctx = market
+            if self.market_service is not None:
+                market_context_text = self.market_service.format_market_context(market_ctx)
+        elif self.market_service is not None and (is_market_query or canonical_crop is not None):
+            if is_market_query and canonical_crop:
+                market_ctx = self.market_service.get_prices(crop=canonical_crop, location=location)
+                if market_ctx and market_ctx.available:
+                    market_context_text = self.market_service.format_market_context(market_ctx)
+
+        # 6. Format Dynamic Weather / Location Context
         weather_context_text = ""
         if weather is not None:
             from model.weather.service import WeatherService
@@ -399,7 +450,7 @@ class AdvisoryEngine:
         elif location is not None:
             weather_context_text = f"--- LOCALITY CONTEXT ---\nLocation: {getattr(location, 'hierarchy_label', str(location))}"
 
-        # Combine explicit context, retrieved RAG context, government schemes, soil health, and dynamic weather context
+        # Combine explicit context, retrieved RAG context, government schemes, soil health, market, and dynamic weather context
         combined_context_parts = []
         if retrieved_context_text:
             combined_context_parts.append(retrieved_context_text)
@@ -407,13 +458,15 @@ class AdvisoryEngine:
             combined_context_parts.append(scheme_context_text)
         if soil_context_text:
             combined_context_parts.append(soil_context_text)
+        if market_context_text:
+            combined_context_parts.append(market_context_text)
         if weather_context_text:
             combined_context_parts.append(weather_context_text)
         if context and context.strip():
             combined_context_parts.append(f"Farm Context: {context.strip()}")
         combined_context = "\n\n".join(combined_context_parts) if combined_context_parts else None
 
-        # 6. Format Prompt and Generate Advisory via LLM Backend
+        # 7. Format Prompt and Generate Advisory via LLM Backend
         messages = format_messages(
             query=intermediate_query,
             context=combined_context,
@@ -433,7 +486,7 @@ class AdvisoryEngine:
         )
         t_gen = time.time() - t_gen_0
 
-        # 7. Translate Response back to Target Language (Kannada)
+        # 8. Translate Response back to Target Language (Kannada)
         t_tr_out_0 = time.time()
         final_response = self.language_bridge.translate_from_advisory_lang(
             intermediate_response,
@@ -459,6 +512,7 @@ class AdvisoryEngine:
             "retrieved_documents": retrieved_docs,
             "retrieved_schemes": [s.to_dict() if hasattr(s, "to_dict") else s for s in retrieved_schemes],
             "soil": soil_ctx.to_dict() if soil_ctx and hasattr(soil_ctx, "to_dict") else None,
+            "market": market_ctx.to_dict() if market_ctx and hasattr(market_ctx, "to_dict") else None,
             "location": location.to_dict() if hasattr(location, "to_dict") else None,
             "weather": weather.to_dict() if hasattr(weather, "to_dict") else None,
             "retrieval_time_seconds": round(retrieval_latency, 4),

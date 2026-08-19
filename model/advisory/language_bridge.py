@@ -115,7 +115,19 @@ class MockLanguageBridge(LanguageBridge):
         "ನನ್ನ ಭತ್ತದ ಗದ್ದೆಯ ಮಣ್ಣಿನ ಬಗ್ಗೆ ಮಾಹಿತಿ ಬೇಕು.": "I need information about the soil in my paddy field.",
         "ನನ್ನ ಹೊಲದ ಮಣ್ಣಿನಲ್ಲಿ ಪೋಷಕಾಂಶ ಕಡಿಮೆಯಿದೆಯೇ?": "Are nutrients deficient in my farm's soil?",
         "ನನ್ನ ಮಣ್ಣಿಗೆ ಯಾವ ಗೊಬ್ಬರ ಹಾಕಬೇಕು?": "Which fertilizer should I apply to my soil?",
-        "ನನ್ನ ಲ್ಯಾಪ್ಟಾಪ್ ಸರಿಯಾಗಿ ಕೆಲಸ ಮಾಡುತ್ತಿಲ್ಲ.": "My laptop is not working properly."
+        "ನನ್ನ ಲ್ಯಾಪ್ಟಾಪ್ ಸರಿಯಾಗಿ ಕೆಲಸ ಮಾಡುತ್ತಿಲ್ಲ.": "My laptop is not working properly.",
+        "ಮಂಡ್ಯದಲ್ಲಿ ರಾಗಿ ಬೆಲೆ ಎಷ್ಟು?": "What is the ragi price in Mandya?",
+        "ಬೆಳಗಾವಿಯಲ್ಲಿ ಮೆಕ್ಕೆಜೋಳದ ಇತ್ತೀಚಿನ ಬೆಲೆ ಎಷ್ಟು?": "What is the latest price of maize in Belagavi?",
+        "ಬೆಂಗಳೂರಿನಲ್ಲಿ ಟೊಮ್ಯಾಟೊ ಬೆಲೆ ಎಷ್ಟು?": "What is the tomato price in Bengaluru?",
+        "ಈರುಳ್ಳಿಗೆ ಕರ್ನಾಟಕದಲ್ಲಿ ಯಾವ ಮಾರುಕಟ್ಟೆಯಲ್ಲಿ ಉತ್ತಮ ಬೆಲೆ ಇದೆ?": "Which market in Karnataka has a better price for onion?",
+        "ಇವತ್ತು ರಾಗಿಯ ಬೆಲೆ ಎಷ್ಟು?": "What is the ragi price today?",
+        "ನನ್ನ ಮೆಕ್ಕೆಜೋಳವನ್ನು ಯಾವ ಮಾರುಕಟ್ಟೆಯಲ್ಲಿ ಮಾರಬಹುದು?": "In which market can I sell my maize?",
+        "ಮಂಡ್ಯದಲ್ಲಿ ಟೊಮ್ಯಾಟೊ ಬೆಲೆ ಎಷ್ಟು?": "What is the tomato price in Mandya?",
+        "ನನ್ನ ಈರುಳ್ಳಿಗೆ ಯಾವ APMC ಮಾರುಕಟ್ಟೆಯಲ್ಲಿ ಉತ್ತಮ ಬೆಲೆ ಇದೆ?": "Which APMC market has the best price for my onion?",
+        "ಕಳೆದ ಕೆಲವು ದಿನಗಳಲ್ಲಿ ರಾಗಿ ಬೆಲೆ ಹೇಗಿದೆ?": "How is the ragi price in recent days?",
+        "ಇವತ್ತು ಮಾರುಕಟ್ಟೆ ಬೆಲೆ ಎಷ್ಟು?": "What is today's market price?",
+        "ನನ್ನ ಲ್ಯಾಪ್ಟಾಪ್ ಬೆಲೆ ಎಷ್ಟು?": "What is the price of my laptop?",
+        "My ragi price in Mandya today": "My ragi price in Mandya today"
     }
 
     SAMPLE_EN_TO_KN: Dict[str, str] = {
@@ -127,7 +139,12 @@ class MockLanguageBridge(LanguageBridge):
         "Under Sub-Mission on Agricultural Mechanization (SMAM) in Karnataka, subsidies of 40% to 50% for general farmers and 50% to 90% for SC/ST farmers are available for approved farm equipment subject to department targets.": "ಕರ್ನಾಟಕದಲ್ಲಿ ಕೃಷಿ ಯಾಂತ್ರೀಕರಣ ಯೋಜನೆಯಡಿ (SMAM) ಸಾಮಾನ್ಯ ರೈತರಿಗೆ ಶೇ 40-50 ಮತ್ತು ಎಸ್‌ಸಿ/ಎಸ್‌ಟಿ ರೈತರಿಗೆ ಶೇ 50-90 ರವರೆಗೆ ಅನುಮೋದಿತ ಯಂತ್ರೋಪಕರಣಗಳಿಗೆ ಸಹಾಯಧನ ಲಭ್ಯವಿದೆ.",
         "No verified government scheme was found matching this name. Please verify official schemes at your local Raitha Samparka Kendra or on the official Karnataka Agriculture portal (raitamitra.karnataka.gov.in).": "ಈ ಹೆಸರಿನ ಯಾವುದೇ ಅಧಿಕೃತ ಸರ್ಕಾರಿ ಯೋಜನೆ ಲಭ್ಯವಿಲ್ಲ. ದಯವಿಟ್ಟು ನಿಮ್ಮ ಸ್ಥಳೀಯ ರೈತ ಸಂಪರ್ಕ ಕೇಂದ್ರ ಅಥವಾ ಅಧಿಕೃತ ಕೃಷಿ ಪೋರ್ಟಲ್ (raitamitra.karnataka.gov.in) ನಲ್ಲಿ ಪರಿಶೀಲಿಸಿ.",
         "For balanced fertilizer management, do not apply arbitrary chemical dosages. Regional soils benefit from organic Farm Yard Manure (FYM). For crop-specific NPK dosages, obtain an official Soil Health Card test from your local Raitha Samparka Kendra.": "ಸಮತೋಲಿತ ಗೊಬ್ಬರ ನಿರ್ವಹಣೆಗೆ ಅಂದಾಜಿನ ಮೇಲೆ ರಾಸಾಯನಿಕ ಗೊಬ್ಬರ ಬಳಸಬೇಡಿ. ಸಾವಯವ ಕೊಟ್ಟಿಗೆ ಗೊಬ್ಬರ ಬಳಸಿ ಮತ್ತು ನಿಖರ ಪೋಷಕಾಂಶಗಳಿಗಾಗಿ ಸ್ಥಳೀಯ ರೈತ ಸಂಪರ್ಕ ಕೇಂದ್ರದಲ್ಲಿ ಮಣ್ಣು ಆರೋಗ್ಯ ಪತ್ರಿಕೆ (Soil Health Card) ಪರೀಕ್ಷೆ ಮಾಡಿಸಿ.",
-        "Regional soil health information provides general soil texture and classification. For field-specific nutrient diagnosis and Soil Health Card testing, visit your local Raitha Samparka Kendra (RSK).": "ಪ್ರಾದೇಶಿಕ ಮಣ್ಣಿನ ಮಾಹಿತಿಯು ಸಾಮಾನ್ಯ ಮಣ್ಣಿನ ವಿಧವನ್ನು ತಿಳಿಸುತ್ತದೆ. ನಿಮ್ಮ ಹೊಲದ ನಿಖರ ಪೋಷಕಾಂಶ ಪರೀಕ್ಷೆಗಾಗಿ ಸ್ಥಳೀಯ ರೈತ ಸಂಪರ್ಕ ಕೇಂದ್ರದಲ್ಲಿ ಮಣ್ಣು ಪರೀಕ್ಷೆ ಮಾಡಿಸಿ."
+        "Regional soil health information provides general soil texture and classification. For field-specific nutrient diagnosis and Soil Health Card testing, visit your local Raitha Samparka Kendra (RSK).": "ಪ್ರಾದೇಶಿಕ ಮಣ್ಣಿನ ಮಾಹಿತಿಯು ಸಾಮಾನ್ಯ ಮಣ್ಣಿನ ವಿಧವನ್ನು ತಿಳಿಸುತ್ತದೆ. ನಿಮ್ಮ ಹೊಲದ ನಿಖರ ಪೋಷಕಾಂಶ ಪರೀಕ್ಷೆಗಾಗಿ ಸ್ಥಳೀಯ ರೈತ ಸಂಪರ್ಕ ಕೇಂದ್ರದಲ್ಲಿ ಮಣ್ಣು ಪರೀಕ್ಷೆ ಮಾಡಿಸಿ.",
+        "At Mandya APMC on 2026-08-19, reported Ragi prices ranged from ₹2,800 to ₹3,400 per quintal with a modal price of ₹3,200/quintal (Arrivals: 45 tonnes). Note that actual price received depends on grain quality and moisture.": "2026-08-19 ರಂದು ಮಂಡ್ಯ ಎಪಿಎಂಸಿಯಲ್ಲಿ ವರದಿಯಾದ ರಾಗಿ ಬೆಲೆ ಕ್ವಿಂಟಾಲ್‌ಗೆ ₹2,800 ರಿಂದ ₹3,400 ಇದ್ದು, ಮಾದರಿ ಬೆಲೆ ₹3,200/ಕ್ವಿಂಟಾಲ್ ಆಗಿದೆ (ಆವಕ: 45 ಟನ್).",
+        "At Belagavi APMC, latest available reported Maize price is dated 2026-08-18 with a modal price of ₹2,350/quintal (Range: ₹2,100 - ₹2,450/quintal, Arrivals: 120 tonnes).": "ಬೆಳಗಾವಿ ಎಪಿಎಂಸಿಯಲ್ಲಿ ಲಭ್ಯವಿರುವ ಇತ್ತೀಚಿನ ಮೆಕ್ಕೆಜೋಳದ ಬೆಲೆ 2026-08-18 ರ ವರದಿಯಂತೆ ಮಾದರಿ ಬೆಲೆ ₹2,350/ಕ್ವಿಂಟಾಲ್ ಆಗಿದೆ (ದರ ಶ್ರೇಣಿ: ₹2,100 - ₹2,450/ಕ್ವಿಂಟಾಲ್, ಆವಕ: 120 ಟನ್).",
+        "At Binny Mill (F&V) APMC in Bengaluru on 2026-08-19, reported Tomato prices ranged from ₹1,400 to ₹2,200 per quintal with a modal price of ₹1,800/quintal (Arrivals: 250 tonnes).": "2026-08-19 ರಂದು ಬೆಂಗಳೂರಿನ ಬಿನ್ನಿಮಿಲ್ ಎಪಿಎಂಸಿಯಲ್ಲಿ ಟೊಮ್ಯಾಟೊ ಬೆಲೆ ಕ್ವಿಂಟಾಲ್‌ಗೆ ₹1,400 ರಿಂದ ₹2,200 ಇದ್ದು, ಮಾದರಿ ಬೆಲೆ ₹1,800/ಕ್ವಿಂಟಾಲ್ ಆಗಿದೆ (ಆವಕ: 250 ಟನ್).",
+        "Based on reported official APMC data for 2026-08-19, Yeshwanthpur Bengaluru reported a modal price of ₹2,500/quintal (Range: ₹2,000 - ₹2,800) and Hubballi APMC reported ₹2,300/quintal (Range: ₹1,800 - ₹2,600). Confirm current auction rates before transporting produce.": "2026-08-19 ರ ಎಪಿಎಂಸಿ ವರದಿಯ ಪ್ರಕಾರ, ಯಶವಂತಪುರ ಮಾರುಕಟ್ಟೆಯಲ್ಲಿ ಈರುಳ್ಳಿ ಮಾದರಿ ಬೆಲೆ ₹2,500/ಕ್ವಿಂಟಾಲ್ (ಶ್ರೇಣಿ: ₹2,000 - ₹2,800) ಮತ್ತು ಹುಬ್ಬಳ್ಳಿ ಮಾರುಕಟ್ಟೆಯಲ್ಲಿ ₹2,300/ಕ್ವಿಂಟಾಲ್ (ಶ್ರೇಣಿ: ₹1,800 - ₹2,600) ಆಗಿದೆ.",
+        "Official APMC market prices vary by district and daily trading session. Please specify your crop and nearby APMC market to check latest reported prices.": "ಅಧಿಕೃತ ಎಪಿಎಂಸಿ ಮಾರುಕಟ್ಟೆ ಬೆಲೆಗಳು ಜಿಲ್ಲೆ ಮತ್ತು ದಿನದ ವಹಿವಾಟಿಗೆ ಅನುಗುಣವಾಗಿ ಬದಲಾಗುತ್ತವೆ. ಇತ್ತೀಚಿನ ಬೆಲೆ ತಿಳಿಯಲು ನಿಮ್ಮ ಬೆಳೆ ಮತ್ತು ಸಮೀಪದ ಮಾರುಕಟ್ಟೆಯನ್ನು ನಿರ್ದಿಷ್ಟಪಡಿಸಿ."
     }
 
     def translate_to_advisory_lang(

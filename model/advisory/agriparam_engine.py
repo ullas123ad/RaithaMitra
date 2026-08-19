@@ -89,6 +89,14 @@ class MockAdvisoryBackend(AdvisoryBackend):
             "No verified government scheme was found matching this name. Please verify official schemes at your local Raitha Samparka Kendra "
             "or on the official Karnataka Agriculture portal (raitamitra.karnataka.gov.in)."
         ),
+        "fertilizer": (
+            "For balanced fertilizer management, do not apply arbitrary chemical dosages. Regional soils benefit from organic Farm Yard Manure (FYM). "
+            "For crop-specific NPK dosages, obtain an official Soil Health Card test from your local Raitha Samparka Kendra."
+        ),
+        "soil": (
+            "Regional soil health information provides general soil texture and classification. "
+            "For field-specific nutrient diagnosis and Soil Health Card testing, visit your local Raitha Samparka Kendra (RSK)."
+        ),
         "scheme": (
             "Key agricultural schemes available in Karnataka include PM-KISAN (direct income support), PMFBY (crop insurance via Samrakshane), "
             "Krishi Bhagya (farm pond and water conservation subsidy), and KCC (concessional crop loans). Farmers can verify eligibility via the FRUITS portal."
@@ -235,7 +243,8 @@ class AdvisoryEngine:
         backend: Optional[AdvisoryBackend] = None,
         language_bridge: Optional[LanguageBridge] = None,
         retriever: Optional[AgriculturalRetriever] = None,
-        scheme_service: Optional[Any] = None
+        scheme_service: Optional[Any] = None,
+        soil_service: Optional[Any] = None
     ):
         self.config = config or AdvisoryConfig()
         self.config.validate()
@@ -261,6 +270,13 @@ class AdvisoryEngine:
             from model.schemes.service import SchemeService
             self.scheme_service = SchemeService()
 
+        # Initialize Soil Service
+        if soil_service is not None:
+            self.soil_service = soil_service
+        else:
+            from model.soil.service import SoilService
+            self.soil_service = SoilService()
+
         if backend is not None:
             self.backend = backend
         elif self.config.backend == "mock":
@@ -281,12 +297,13 @@ class AdvisoryEngine:
         context: Optional[str] = None,
         location: Optional[Any] = None,
         weather: Optional[Any] = None,
+        soil: Optional[Any] = None,
         crop: Optional[str] = None,
         schemes: Optional[Any] = None,
         **kwargs
     ) -> Dict[str, Any]:
         """
-        Processes farmer query through Translation -> RAG Retrieval -> Scheme Retrieval -> LLM Reasoning -> Translation.
+        Processes farmer query through Translation -> RAG Retrieval -> Scheme Retrieval -> Soil Context -> LLM Reasoning -> Translation.
 
         Args:
             query: The farmer's question in Kannada (or English/Hindi).
@@ -295,6 +312,7 @@ class AdvisoryEngine:
             context: Optional explicit contextual metadata.
             location: Optional LocationContext instance.
             weather: Optional WeatherContext instance.
+            soil: Optional SoilContext instance.
             crop: Optional crop name string.
             schemes: Optional list of GovernmentScheme instances.
 
@@ -361,7 +379,19 @@ class AdvisoryEngine:
             if retrieved_schemes:
                 scheme_context_text = self.scheme_service.format_scheme_context(retrieved_schemes)
 
-        # 4. Format Dynamic Weather / Location Context
+        # 4. Format Soil Health Context
+        soil_context_text = ""
+        soil_ctx = None
+        if soil is not None:
+            soil_ctx = soil
+            if self.soil_service is not None:
+                soil_context_text = self.soil_service.format_soil_context(soil_ctx)
+        elif self.soil_service is not None and location is not None:
+            soil_ctx = self.soil_service.get_soil_context(location=location, crop=canonical_crop)
+            if soil_ctx and soil_ctx.available:
+                soil_context_text = self.soil_service.format_soil_context(soil_ctx)
+
+        # 5. Format Dynamic Weather / Location Context
         weather_context_text = ""
         if weather is not None:
             from model.weather.service import WeatherService
@@ -369,19 +399,21 @@ class AdvisoryEngine:
         elif location is not None:
             weather_context_text = f"--- LOCALITY CONTEXT ---\nLocation: {getattr(location, 'hierarchy_label', str(location))}"
 
-        # Combine explicit context, retrieved RAG context, government schemes, and dynamic weather context
+        # Combine explicit context, retrieved RAG context, government schemes, soil health, and dynamic weather context
         combined_context_parts = []
         if retrieved_context_text:
             combined_context_parts.append(retrieved_context_text)
         if scheme_context_text:
             combined_context_parts.append(scheme_context_text)
+        if soil_context_text:
+            combined_context_parts.append(soil_context_text)
         if weather_context_text:
             combined_context_parts.append(weather_context_text)
         if context and context.strip():
             combined_context_parts.append(f"Farm Context: {context.strip()}")
         combined_context = "\n\n".join(combined_context_parts) if combined_context_parts else None
 
-        # 5. Format Prompt and Generate Advisory via LLM Backend
+        # 6. Format Prompt and Generate Advisory via LLM Backend
         messages = format_messages(
             query=intermediate_query,
             context=combined_context,
@@ -401,7 +433,7 @@ class AdvisoryEngine:
         )
         t_gen = time.time() - t_gen_0
 
-        # 6. Translate Response back to Target Language (Kannada)
+        # 7. Translate Response back to Target Language (Kannada)
         t_tr_out_0 = time.time()
         final_response = self.language_bridge.translate_from_advisory_lang(
             intermediate_response,
@@ -426,6 +458,7 @@ class AdvisoryEngine:
             "rag_enabled": self.config.use_rag,
             "retrieved_documents": retrieved_docs,
             "retrieved_schemes": [s.to_dict() if hasattr(s, "to_dict") else s for s in retrieved_schemes],
+            "soil": soil_ctx.to_dict() if soil_ctx and hasattr(soil_ctx, "to_dict") else None,
             "location": location.to_dict() if hasattr(location, "to_dict") else None,
             "weather": weather.to_dict() if hasattr(weather, "to_dict") else None,
             "retrieval_time_seconds": round(retrieval_latency, 4),

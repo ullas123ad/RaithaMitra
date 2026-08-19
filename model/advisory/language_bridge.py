@@ -109,7 +109,13 @@ class MockLanguageBridge(LanguageBridge):
         "ಕೃಷಿ ಯಂತ್ರೋಪಕರಣಗಳನ್ನು ಖರೀದಿಸಲು ಸರ್ಕಾರದಿಂದ ಸಬ್ಸಿಡಿ ಸಿಗುತ್ತದೆಯೇ?": "Is there a subsidy from the government to purchase farm machinery?",
         "ಕರ್ನಾಟಕ ಸರ್ಕಾರದ XYZ ರೈತ ಯೋಜನೆಗೆ ನಾನು ಹೇಗೆ ಅರ್ಜಿ ಹಾಕಬೇಕು?": "How do I apply for the Karnataka Government XYZ farmer scheme?",
         "XYZ ಕೃಷಿ ಯೋಜನೆ ಬಗ್ಗೆ ಮಾಹಿತಿ ನೀಡಿ.": "Give information about XYZ agriculture scheme.",
-        "ಲ್ಯಾಪ್ಟಾಪ್ ಹೇಗೆ ಸರಿಪಡಿಸುವುದು?": "How to repair a laptop?"
+        "ಲ್ಯಾಪ್ಟಾಪ್ ಹೇಗೆ ಸರಿಪಡಿಸುವುದು?": "How to repair a laptop?",
+        "ನನ್ನ ರಾಗಿ ಬೆಳೆಗೆ ಗೊಬ್ಬರ ಯಾವುದು ಹಾಕಬೇಕು?": "What fertilizer should I apply for my ragi crop?",
+        "ನನ್ನ ಹೊಲದ ಮಣ್ಣಿನಲ್ಲಿ ಪೋಷಕಾಂಶ ಕಡಿಮೆಯಾಗಿದೆ ಎಂದು ತಿಳಿಯುವುದು ಹೇಗೆ?": "How to know if nutrients are deficient in my farm's soil?",
+        "ನನ್ನ ಭತ್ತದ ಗದ್ದೆಯ ಮಣ್ಣಿನ ಬಗ್ಗೆ ಮಾಹಿತಿ ಬೇಕು.": "I need information about the soil in my paddy field.",
+        "ನನ್ನ ಹೊಲದ ಮಣ್ಣಿನಲ್ಲಿ ಪೋಷಕಾಂಶ ಕಡಿಮೆಯಿದೆಯೇ?": "Are nutrients deficient in my farm's soil?",
+        "ನನ್ನ ಮಣ್ಣಿಗೆ ಯಾವ ಗೊಬ್ಬರ ಹಾಕಬೇಕು?": "Which fertilizer should I apply to my soil?",
+        "ನನ್ನ ಲ್ಯಾಪ್ಟಾಪ್ ಸರಿಯಾಗಿ ಕೆಲಸ ಮಾಡುತ್ತಿಲ್ಲ.": "My laptop is not working properly."
     }
 
     SAMPLE_EN_TO_KN: Dict[str, str] = {
@@ -119,7 +125,9 @@ class MockLanguageBridge(LanguageBridge):
         "Under Pradhan Mantri Fasal Bima Yojana (PMFBY) in Karnataka, farmers can insure notified crops through the Samrakshane portal. Premium is capped at 2% for Kharif food/oilseed crops and 1.5% for Rabi crops, with government subsidies covering the remainder.": "ಕರ್ನಾಟಕದಲ್ಲಿ ಪ್ರಧಾನ ಮಂತ್ರಿ ಫಸಲ್ ಬಿಮಾ ಯೋಜನೆಯಡಿ ಸಂರಕ್ಷಣೆ ಪೋರ್ಟಲ್ ಮೂಲಕ ಬೆಳೆ ವಿಮೆ ಮಾಡಿಸಬಹುದು. ಖಾರೀಫ್ ಆಹಾರ/ಎಣ್ಣೆಕಾಳು ಬೆಳೆಗಳಿಗೆ ಶೇ 2 ಮತ್ತು ರಬಿ ಬೆಳೆಗಳಿಗೆ ಶೇ 1.5 ಪ್ರೀಮಿಯಂ ಇರುತ್ತದೆ.",
         "Under PMKSY Per Drop More Crop, assistance is available for micro-irrigation (drip/sprinkler). In Karnataka, combined subsidies reach up to 90% for SC/ST and 75% for general category farmers subject to official verification.": "ಪ್ರಧಾನ ಮಂತ್ರಿ ಕೃಷಿ ಸಿಂಚಾಯಿ ಯೋಜನೆಯಡಿ (ಡ್ರಾಪ್ ಮೋರ್ ಕ್ರಾಪ್) ಹನಿ ಮತ್ತು ತುಂತುರು ನೀರಾವರಿಗೆ ಸಹಾಯಧನ ಲಭ್ಯವಿದೆ. ಕರ್ನಾಟಕದಲ್ಲಿ ಎಸ್‌ಸಿ/ಎಸ್‌ಟಿ ರೈತರಿಗೆ ಶೇ 90 ರವರೆಗೆ ಮತ್ತು ಸಾಮಾನ್ಯ ವರ್ಗದ ರೈತರಿಗೆ ಶೇ 75 ರವರೆಗೆ ಸಹಾಯಧನ ಲಭ್ಯವಿರುತ್ತದೆ.",
         "Under Sub-Mission on Agricultural Mechanization (SMAM) in Karnataka, subsidies of 40% to 50% for general farmers and 50% to 90% for SC/ST farmers are available for approved farm equipment subject to department targets.": "ಕರ್ನಾಟಕದಲ್ಲಿ ಕೃಷಿ ಯಾಂತ್ರೀಕರಣ ಯೋಜನೆಯಡಿ (SMAM) ಸಾಮಾನ್ಯ ರೈತರಿಗೆ ಶೇ 40-50 ಮತ್ತು ಎಸ್‌ಸಿ/ಎಸ್‌ಟಿ ರೈತರಿಗೆ ಶೇ 50-90 ರವರೆಗೆ ಅನುಮೋದಿತ ಯಂತ್ರೋಪಕರಣಗಳಿಗೆ ಸಹಾಯಧನ ಲಭ್ಯವಿದೆ.",
-        "No verified government scheme was found matching this name. Please verify official schemes at your local Raitha Samparka Kendra or on the official Karnataka Agriculture portal (raitamitra.karnataka.gov.in).": "ಈ ಹೆಸರಿನ ಯಾವುದೇ ಅಧಿಕೃತ ಸರ್ಕಾರಿ ಯೋಜನೆ ಲಭ್ಯವಿಲ್ಲ. ದಯವಿಟ್ಟು ನಿಮ್ಮ ಸ್ಥಳೀಯ ರೈತ ಸಂಪರ್ಕ ಕೇಂದ್ರ ಅಥವಾ ಅಧಿಕೃತ ಕೃಷಿ ಪೋರ್ಟಲ್ (raitamitra.karnataka.gov.in) ನಲ್ಲಿ ಪರಿಶೀಲಿಸಿ."
+        "No verified government scheme was found matching this name. Please verify official schemes at your local Raitha Samparka Kendra or on the official Karnataka Agriculture portal (raitamitra.karnataka.gov.in).": "ಈ ಹೆಸರಿನ ಯಾವುದೇ ಅಧಿಕೃತ ಸರ್ಕಾರಿ ಯೋಜನೆ ಲಭ್ಯವಿಲ್ಲ. ದಯವಿಟ್ಟು ನಿಮ್ಮ ಸ್ಥಳೀಯ ರೈತ ಸಂಪರ್ಕ ಕೇಂದ್ರ ಅಥವಾ ಅಧಿಕೃತ ಕೃಷಿ ಪೋರ್ಟಲ್ (raitamitra.karnataka.gov.in) ನಲ್ಲಿ ಪರಿಶೀಲಿಸಿ.",
+        "For balanced fertilizer management, do not apply arbitrary chemical dosages. Regional soils benefit from organic Farm Yard Manure (FYM). For crop-specific NPK dosages, obtain an official Soil Health Card test from your local Raitha Samparka Kendra.": "ಸಮತೋಲಿತ ಗೊಬ್ಬರ ನಿರ್ವಹಣೆಗೆ ಅಂದಾಜಿನ ಮೇಲೆ ರಾಸಾಯನಿಕ ಗೊಬ್ಬರ ಬಳಸಬೇಡಿ. ಸಾವಯವ ಕೊಟ್ಟಿಗೆ ಗೊಬ್ಬರ ಬಳಸಿ ಮತ್ತು ನಿಖರ ಪೋಷಕಾಂಶಗಳಿಗಾಗಿ ಸ್ಥಳೀಯ ರೈತ ಸಂಪರ್ಕ ಕೇಂದ್ರದಲ್ಲಿ ಮಣ್ಣು ಆರೋಗ್ಯ ಪತ್ರಿಕೆ (Soil Health Card) ಪರೀಕ್ಷೆ ಮಾಡಿಸಿ.",
+        "Regional soil health information provides general soil texture and classification. For field-specific nutrient diagnosis and Soil Health Card testing, visit your local Raitha Samparka Kendra (RSK).": "ಪ್ರಾದೇಶಿಕ ಮಣ್ಣಿನ ಮಾಹಿತಿಯು ಸಾಮಾನ್ಯ ಮಣ್ಣಿನ ವಿಧವನ್ನು ತಿಳಿಸುತ್ತದೆ. ನಿಮ್ಮ ಹೊಲದ ನಿಖರ ಪೋಷಕಾಂಶ ಪರೀಕ್ಷೆಗಾಗಿ ಸ್ಥಳೀಯ ರೈತ ಸಂಪರ್ಕ ಕೇಂದ್ರದಲ್ಲಿ ಮಣ್ಣು ಪರೀಕ್ಷೆ ಮಾಡಿಸಿ."
     }
 
     def translate_to_advisory_lang(

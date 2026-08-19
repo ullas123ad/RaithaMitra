@@ -1,0 +1,422 @@
+[
+  {
+    "district": "Mandya",
+    "agro_climatic_zone": "Southern Dry Zone (Zone 6)",
+    "dominant_soil_types": ["Red sandy loam", "Red loamy soil", "Localized alluvium"],
+    "soil_order": "Alfisols",
+    "texture": "Coarse to medium textured, light to medium loamy",
+    "drainage": "Well-drained to moderately well-drained",
+    "typical_ph_range": "6.2 - 7.5 (Slightly acidic to neutral)",
+    "general_fertility_status": {
+      "organic_carbon_status": "Low to Medium (0.35% - 0.55%)",
+      "available_nitrogen_status": "Low (< 280 kg/ha)",
+      "available_phosphorus_status": "Medium (12 - 24 kg/ha)",
+      "available_potassium_status": "Medium to High (150 - 280 kg/ha)",
+      "major_micronutrient_deficiencies": ["Zinc (Zn)", "Boron (B)"]
+    },
+    "major_crops_suited": ["ragi", "sugarcane", "paddy", "maize", "groundnut", "banana"],
+    "management_recommendations": "Add Farm Yard Manure (FYM) or compost to improve water-retention in red sandy soils. Balanced split application of nitrogen is advised to avoid leaching.",
+    "source_authority": "ICAR-NBSS&LUP Regional Centre Bengaluru & KSDA",
+    "source_document": "Soils of Karnataka for Optimising Land Use, ICAR-NBSS&LUP Publ. 47",
+    "last_verified": "2026-08-19"
+  },
+  {
+    "district": "Udupi",
+    "agro_climatic_zone": "Coastal Zone (Zone 10)",
+    "dominant_soil_types": ["Coastal alluvium", "Laterite soil", "Sandy coastal soil"],
+    "soil_order": "Ultisols / Inceptisols / Entisols",
+    "texture": "Coarse sandy to gravelly loam, highly porous",
+    "drainage": "Excessively to well-drained in uplands, poorly drained in low-lying coastal plains",
+    "typical_ph_range": "4.8 - 6.0 (Moderately to strongly acidic)",
+    "general_fertility_status": {
+      "organic_carbon_status": "Medium to High (0.60% - 0.90%)",
+      "available_nitrogen_status": "Medium (280 - 400 kg/ha)",
+      "available_phosphorus_status": "Low (< 10 kg/ha due to aluminium/iron fixation)",
+      "available_potassium_status": "Low (< 120 kg/ha due to high rainfall leaching)",
+      "major_micronutrient_deficiencies": ["Boron (B)", "Magnesium (Mg)", "Calcium (Ca)"]
+    },
+    "major_crops_suited": ["paddy", "arecanut", "coconut", "banana", "cashew"],
+    "management_recommendations": "Liming or agricultural dolomite application is recommended to manage soil acidity based on soil test. Apply rock phosphate or single super phosphate for phosphorus availability.",
+    "source_authority": "ICAR-NBSS&LUP Regional Centre Bengaluru & UAS Bengaluru",
+    "source_document": "Soils of Karnataka Coastal Zone, ICAR-NBSS&LUP Publ. 47",
+    "last_verified": "2026-08-19"
+  },
+  {
+    "district": "Belagavi",
+    "agro_climatic_zone": "Northern Transition & Northern Dry Zone (Zone 8 & 3)",
+    "dominant_soil_types": ["Medium to deep black soil", "Red sandy loam (in southern/eastern taluks)"],
+    "soil_order": "Vertisols / Inceptisols",
+    "texture": "Clayey, fine-textured with high moisture-retention capacity",
+    "drainage": "Moderately slow to imperfectly drained in heavy black soils",
+    "typical_ph_range": "7.5 - 8.5 (Moderately alkaline to neutral)",
+    "general_fertility_status": {
+      "organic_carbon_status": "Low to Medium (0.30% - 0.50%)",
+      "available_nitrogen_status": "Low (< 250 kg/ha)",
+      "available_phosphorus_status": "Low to Medium (10 - 20 kg/ha)",
+      "available_potassium_status": "High (> 300 kg/ha)",
+      "major_micronutrient_deficiencies": ["Zinc (Zn)", "Iron (Fe)"]
+    },
+    "major_crops_suited": ["sugarcane", "maize", "cotton", "paddy", "groundnut", "chilli", "onion"],
+    "management_recommendations": "Deep black soils require proper surface drainage to avoid waterlogging. Apply zinc sulphate and incorporate organic biomass to improve soil structure.",
+    "source_authority": "ICAR-NBSS&LUP Regional Centre Bengaluru & UAS Dharwad",
+    "source_document": "Soils of Karnataka for Optimising Land Use, ICAR-NBSS&LUP Publ. 47",
+    "last_verified": "2026-08-19"
+  },
+  {
+    "district": "Bengaluru Rural",
+    "agro_climatic_zone": "Eastern Dry Zone (Zone 5)",
+    "dominant_soil_types": ["Red sandy clay loam", "Red loamy soil"],
+    "soil_order": "Alfisols",
+    "texture": "Medium textured sandy clay loam",
+    "drainage": "Well-drained",
+    "typical_ph_range": "6.0 - 7.2 (Slightly acidic to neutral)",
+    "general_fertility_status": {
+      "organic_carbon_status": "Low to Medium (0.35% - 0.50%)",
+      "available_nitrogen_status": "Low (< 260 kg/ha)",
+      "available_phosphorus_status": "Medium (15 - 28 kg/ha)",
+      "available_potassium_status": "Medium (160 - 260 kg/ha)",
+      "major_micronutrient_deficiencies": ["Zinc (Zn)", "Boron (B)"]
+    },
+    "major_crops_suited": ["ragi", "maize", "tomato", "banana", "groundnut", "potato"],
+    "management_recommendations": "Organic manuring and green manuring (e.g. sunnhemp) enhance nutrient retention and biological activity.",
+    "source_authority": "ICAR-NBSS&LUP Regional Centre Bengaluru & UAS Bengaluru",
+    "source_document": "Soils of Eastern Dry Zone of Karnataka, ICAR-NBSS&LUP Publ. 47",
+    "last_verified": "2026-08-19"
+  },
+  {
+    "district": "Bengaluru Urban",
+    "agro_climatic_zone": "Eastern Dry Zone (Zone 5)",
+    "dominant_soil_types": ["Red loamy soil", "Red sandy clay loam"],
+    "soil_order": "Alfisols",
+    "texture": "Medium textured, gravelly in ridges",
+    "drainage": "Well-drained",
+    "typical_ph_range": "6.0 - 7.2 (Slightly acidic to neutral)",
+    "general_fertility_status": {
+      "organic_carbon_status": "Low to Medium (0.35% - 0.52%)",
+      "available_nitrogen_status": "Low (< 260 kg/ha)",
+      "available_phosphorus_status": "Medium to High (18 - 32 kg/ha)",
+      "available_potassium_status": "Medium (150 - 250 kg/ha)",
+      "major_micronutrient_deficiencies": ["Zinc (Zn)"]
+    },
+    "major_crops_suited": ["ragi", "tomato", "banana", "vegetables"],
+    "management_recommendations": "Test soil for micronutrients and heavy metals in peri-urban areas. Maintain organic matter inputs.",
+    "source_authority": "ICAR-NBSS&LUP Regional Centre Bengaluru & UAS Bengaluru",
+    "source_document": "Soils of Eastern Dry Zone of Karnataka, ICAR-NBSS&LUP Publ. 47",
+    "last_verified": "2026-08-19"
+  },
+  {
+    "district": "Mysuru",
+    "agro_climatic_zone": "Southern Dry Zone (Zone 6)",
+    "dominant_soil_types": ["Red sandy loam", "Medium black soil", "Red loamy soil"],
+    "soil_order": "Alfisols / Inceptisols",
+    "texture": "Medium textured, sandy loam to clay loam",
+    "drainage": "Well-drained to moderately well-drained",
+    "typical_ph_range": "6.5 - 7.8 (Neutral to slightly alkaline)",
+    "general_fertility_status": {
+      "organic_carbon_status": "Medium (0.45% - 0.65%)",
+      "available_nitrogen_status": "Low to Medium (240 - 320 kg/ha)",
+      "available_phosphorus_status": "Medium (14 - 26 kg/ha)",
+      "available_potassium_status": "Medium to High (180 - 310 kg/ha)",
+      "major_micronutrient_deficiencies": ["Zinc (Zn)", "Iron (Fe)"]
+    },
+    "major_crops_suited": ["ragi", "paddy", "cotton", "maize", "sugarcane", "banana", "tobacco"],
+    "management_recommendations": "Adopt integrated nutrient management (INM) combining chemical fertilizers with bio-fertilizers (Azospirillum, PSB).",
+    "source_authority": "ICAR-NBSS&LUP Regional Centre Bengaluru & UAS Bengaluru",
+    "source_document": "Soils of Karnataka for Optimising Land Use, ICAR-NBSS&LUP Publ. 47",
+    "last_verified": "2026-08-19"
+  },
+  {
+    "district": "Tumakuru",
+    "agro_climatic_zone": "Central Dry Zone (Zone 4)",
+    "dominant_soil_types": ["Red sandy loam", "Red gravelly loam", "Mixed red and black soil"],
+    "soil_order": "Alfisols / Inceptisols",
+    "texture": "Coarse to medium textured, gravelly",
+    "drainage": "Well-drained to excessively drained in gravelly upland terrains",
+    "typical_ph_range": "6.2 - 7.6 (Slightly acidic to neutral)",
+    "general_fertility_status": {
+      "organic_carbon_status": "Low (0.25% - 0.45%)",
+      "available_nitrogen_status": "Low (< 240 kg/ha)",
+      "available_phosphorus_status": "Low to Medium (10 - 20 kg/ha)",
+      "available_potassium_status": "Medium (140 - 240 kg/ha)",
+      "major_micronutrient_deficiencies": ["Zinc (Zn)", "Boron (B)"]
+    },
+    "major_crops_suited": ["ragi", "groundnut", "maize", "arecanut", "coconut"],
+    "management_recommendations": "Soil moisture conservation via mulching and contour bunding. Gypsum application is beneficial for groundnut peg development.",
+    "source_authority": "ICAR-NBSS&LUP Regional Centre Bengaluru & UAS Bengaluru",
+    "source_document": "Soils of Central Dry Zone of Karnataka, ICAR-NBSS&LUP Publ. 47",
+    "last_verified": "2026-08-19"
+  },
+  {
+    "district": "Kolar",
+    "agro_climatic_zone": "Eastern Dry Zone (Zone 5)",
+    "dominant_soil_types": ["Red sandy loam", "Red clayey loam"],
+    "soil_order": "Alfisols",
+    "texture": "Coarse to medium textured, prone to crusting",
+    "drainage": "Well-drained",
+    "typical_ph_range": "6.4 - 7.5 (Neutral)",
+    "general_fertility_status": {
+      "organic_carbon_status": "Low to Medium (0.30% - 0.50%)",
+      "available_nitrogen_status": "Low (< 250 kg/ha)",
+      "available_phosphorus_status": "Medium to High (18 - 35 kg/ha)",
+      "available_potassium_status": "Medium to High (160 - 280 kg/ha)",
+      "major_micronutrient_deficiencies": ["Zinc (Zn)", "Boron (B)", "Calcium (Ca)"]
+    },
+    "major_crops_suited": ["tomato", "potato", "ragi", "groundnut", "chilli", "banana"],
+    "management_recommendations": "Mulching reduces soil surface crusting and conserves drip irrigation water. Apply soluble calcium and boron for tomato and potato fruit development.",
+    "source_authority": "ICAR-NBSS&LUP Regional Centre Bengaluru & UAS Bengaluru",
+    "source_document": "Soils of Eastern Dry Zone of Karnataka, ICAR-NBSS&LUP Publ. 47",
+    "last_verified": "2026-08-19"
+  },
+  {
+    "district": "Chikkaballapura",
+    "agro_climatic_zone": "Eastern Dry Zone (Zone 5)",
+    "dominant_soil_types": ["Red sandy loam", "Red gravelly loam"],
+    "soil_order": "Alfisols",
+    "texture": "Coarse to medium textured",
+    "drainage": "Well-drained",
+    "typical_ph_range": "6.3 - 7.4 (Slightly acidic to neutral)",
+    "general_fertility_status": {
+      "organic_carbon_status": "Low (0.28% - 0.48%)",
+      "available_nitrogen_status": "Low (< 250 kg/ha)",
+      "available_phosphorus_status": "Medium to High (16 - 32 kg/ha)",
+      "available_potassium_status": "Medium (150 - 270 kg/ha)",
+      "major_micronutrient_deficiencies": ["Zinc (Zn)", "Boron (B)"]
+    },
+    "major_crops_suited": ["tomato", "potato", "ragi", "groundnut", "maize"],
+    "management_recommendations": "Adopt fertigation through drip irrigation to ensure targeted nutrient delivery in light soils.",
+    "source_authority": "ICAR-NBSS&LUP Regional Centre Bengaluru & UAS Bengaluru",
+    "source_document": "Soils of Eastern Dry Zone of Karnataka, ICAR-NBSS&LUP Publ. 47",
+    "last_verified": "2026-08-19"
+  },
+  {
+    "district": "Hassan",
+    "agro_climatic_zone": "Southern Transition Zone (Zone 7)",
+    "dominant_soil_types": ["Red sandy loam", "Red loamy soil", "Lateritic gravelly soil"],
+    "soil_order": "Alfisols / Inceptisols",
+    "texture": "Medium textured, light loamy to gravelly clay",
+    "drainage": "Well-drained",
+    "typical_ph_range": "5.8 - 6.8 (Moderately acidic to neutral)",
+    "general_fertility_status": {
+      "organic_carbon_status": "Medium (0.45% - 0.70%)",
+      "available_nitrogen_status": "Medium (260 - 350 kg/ha)",
+      "available_phosphorus_status": "Low to Medium (10 - 22 kg/ha)",
+      "available_potassium_status": "Medium (150 - 260 kg/ha)",
+      "major_micronutrient_deficiencies": ["Zinc (Zn)", "Magnesium (Mg)"]
+    },
+    "major_crops_suited": ["potato", "ragi", "maize", "paddy", "sugarcane", "coffee"],
+    "management_recommendations": "Correct subsoil acidity with lime or dolomite in hilly taluks. Monitor for potato early/late blight associated with soil moisture.",
+    "source_authority": "ICAR-NBSS&LUP Regional Centre Bengaluru & UAS Bengaluru",
+    "source_document": "Soils of Southern Transition Zone of Karnataka, ICAR-NBSS&LUP Publ. 47",
+    "last_verified": "2026-08-19"
+  },
+  {
+    "district": "Dharwad",
+    "agro_climatic_zone": "Northern Transition Zone (Zone 8)",
+    "dominant_soil_types": ["Medium to deep black soil", "Red loamy soil"],
+    "soil_order": "Vertisols / Inceptisols / Alfisols",
+    "texture": "Clayey to clay loam with high swelling/shrinking property",
+    "drainage": "Moderately well-drained in transition ridges, slow in deep black flats",
+    "typical_ph_range": "7.2 - 8.3 (Neutral to moderately alkaline)",
+    "general_fertility_status": {
+      "organic_carbon_status": "Low to Medium (0.35% - 0.55%)",
+      "available_nitrogen_status": "Low (< 260 kg/ha)",
+      "available_phosphorus_status": "Medium (12 - 25 kg/ha)",
+      "available_potassium_status": "High (> 280 kg/ha)",
+      "major_micronutrient_deficiencies": ["Zinc (Zn)", "Iron (Fe)"]
+    },
+    "major_crops_suited": ["chilli", "cotton", "maize", "groundnut", "onion", "paddy"],
+    "management_recommendations": "Deep black soils require broad bed and furrow (BBF) systems for in-situ moisture conservation and excess water runoff control.",
+    "source_authority": "ICAR-NBSS&LUP Regional Centre Bengaluru & UAS Dharwad",
+    "source_document": "Soils of Northern Transition Zone of Karnataka, ICAR-NBSS&LUP Publ. 47",
+    "last_verified": "2026-08-19"
+  },
+  {
+    "district": "Dakshina Kannada",
+    "agro_climatic_zone": "Coastal Zone (Zone 10)",
+    "dominant_soil_types": ["Laterite soil", "Coastal alluvium", "Red gravelly loam"],
+    "soil_order": "Ultisols / Inceptisols",
+    "texture": "Coarse to medium textured with high gravel content",
+    "drainage": "Well-drained in uplands, poorly drained in coastal valleys",
+    "typical_ph_range": "4.8 - 5.8 (Strongly to moderately acidic)",
+    "general_fertility_status": {
+      "organic_carbon_status": "Medium to High (0.65% - 0.95%)",
+      "available_nitrogen_status": "Medium (270 - 380 kg/ha)",
+      "available_phosphorus_status": "Low (< 10 kg/ha)",
+      "available_potassium_status": "Low (< 110 kg/ha)",
+      "major_micronutrient_deficiencies": ["Boron (B)", "Calcium (Ca)", "Magnesium (Mg)"]
+    },
+    "major_crops_suited": ["paddy", "arecanut", "coconut", "banana", "cashew", "rubber"],
+    "management_recommendations": "Apply agricultural lime or dolomite at recommended soil-test rates to reduce aluminium toxicity and enhance phosphorus efficiency.",
+    "source_authority": "ICAR-NBSS&LUP Regional Centre Bengaluru & UAS Bengaluru",
+    "source_document": "Soils of Coastal Karnataka, ICAR-NBSS&LUP Publ. 47",
+    "last_verified": "2026-08-19"
+  },
+  {
+    "district": "Uttara Kannada",
+    "agro_climatic_zone": "Coastal & Hilly Zone (Zone 10 & 9)",
+    "dominant_soil_types": ["Laterite soil", "Forest loamy soil", "Coastal alluvium"],
+    "soil_order": "Ultisols / Inceptisols",
+    "texture": "Gravelly loam to clay loam, rich in humus in forest fringe",
+    "drainage": "Well-drained to excessively drained on slopes",
+    "typical_ph_range": "5.0 - 6.2 (Moderately acidic)",
+    "general_fertility_status": {
+      "organic_carbon_status": "High (> 0.80%)",
+      "available_nitrogen_status": "Medium to High (300 - 450 kg/ha)",
+      "available_phosphorus_status": "Low (< 12 kg/ha)",
+      "available_potassium_status": "Low to Medium (120 - 200 kg/ha)",
+      "major_micronutrient_deficiencies": ["Boron (B)", "Zinc (Zn)"]
+    },
+    "major_crops_suited": ["paddy", "arecanut", "spices", "banana", "coconut"],
+    "management_recommendations": "Terracing and vegetative cover prevent severe topsoil erosion during monsoon downpours.",
+    "source_authority": "ICAR-NBSS&LUP Regional Centre Bengaluru & UAS Dharwad",
+    "source_document": "Soils of Coastal and Hilly Zone of Karnataka, ICAR-NBSS&LUP Publ. 47",
+    "last_verified": "2026-08-19"
+  },
+  {
+    "district": "Chitradurga",
+    "agro_climatic_zone": "Central Dry Zone (Zone 4)",
+    "dominant_soil_types": ["Medium to deep black soil", "Red sandy loam"],
+    "soil_order": "Vertisols / Alfisols",
+    "texture": "Variable: light sandy loam in uplands to heavy clay in plains",
+    "drainage": "Well-drained (red soils) to moderately slow (black soils)",
+    "typical_ph_range": "7.0 - 8.4 (Neutral to moderately alkaline)",
+    "general_fertility_status": {
+      "organic_carbon_status": "Low (0.20% - 0.40%)",
+      "available_nitrogen_status": "Low (< 230 kg/ha)",
+      "available_phosphorus_status": "Low to Medium (10 - 20 kg/ha)",
+      "available_potassium_status": "Medium to High (180 - 320 kg/ha)",
+      "major_micronutrient_deficiencies": ["Zinc (Zn)", "Iron (Fe)"]
+    },
+    "major_crops_suited": ["groundnut", "maize", "ragi", "cotton", "onion", "paddy"],
+    "management_recommendations": "Drought-proofing through in-situ moisture conservation (compartmental bunding). Gypsum application supports groundnut production.",
+    "source_authority": "ICAR-NBSS&LUP Regional Centre Bengaluru & UAS Bengaluru",
+    "source_document": "Soils of Central Dry Zone of Karnataka, ICAR-NBSS&LUP Publ. 47",
+    "last_verified": "2026-08-19"
+  },
+  {
+    "district": "Ballari",
+    "agro_climatic_zone": "Northern Dry Zone (Zone 3)",
+    "dominant_soil_types": ["Deep black soil", "Medium black soil", "Red sandy loam"],
+    "soil_order": "Vertisols / Inceptisols / Alfisols",
+    "texture": "Heavy clay in canal command / black soils, sandy loam in granite outcrops",
+    "drainage": "Slow to imperfectly drained in heavy vertisols, susceptible to salinity under over-irrigation",
+    "typical_ph_range": "7.8 - 8.8 (Moderately alkaline to alkaline)",
+    "general_fertility_status": {
+      "organic_carbon_status": "Low (0.25% - 0.42%)",
+      "available_nitrogen_status": "Low (< 220 kg/ha)",
+      "available_phosphorus_status": "Medium (14 - 24 kg/ha)",
+      "available_potassium_status": "High (> 320 kg/ha)",
+      "major_micronutrient_deficiencies": ["Zinc (Zn)", "Iron (Fe)"]
+    },
+    "major_crops_suited": ["paddy", "cotton", "maize", "chilli", "groundnut", "sugarcane"],
+    "management_recommendations": "Avoid excessive canal irrigation to prevent waterlogging and secondary soil salinization. Foliar spray of FeSO4 is beneficial for iron chlorosis in alkaline soils.",
+    "source_authority": "ICAR-NBSS&LUP Regional Centre Bengaluru & UAS Raichur",
+    "source_document": "Soils of Northern Dry Zone of Karnataka, ICAR-NBSS&LUP Publ. 47",
+    "last_verified": "2026-08-19"
+  },
+  {
+    "district": "Kalaburagi",
+    "agro_climatic_zone": "North Eastern Dry Zone (Zone 2)",
+    "dominant_soil_types": ["Deep black soil", "Medium black soil"],
+    "soil_order": "Vertisols / Inceptisols",
+    "texture": "Heavy clay (montmorillonitic), highly expansive",
+    "drainage": "Slow to imperfectly drained",
+    "typical_ph_range": "7.8 - 8.6 (Moderately alkaline)",
+    "general_fertility_status": {
+      "organic_carbon_status": "Low (0.25% - 0.45%)",
+      "available_nitrogen_status": "Low (< 240 kg/ha)",
+      "available_phosphorus_status": "Low to Medium (10 - 22 kg/ha)",
+      "available_potassium_status": "High (> 340 kg/ha)",
+      "major_micronutrient_deficiencies": ["Zinc (Zn)", "Iron (Fe)"]
+    },
+    "major_crops_suited": ["pigeonpea", "cotton", "maize", "sugarcane", "chilli"],
+    "management_recommendations": "Deep tillage during summer opens soil for aeration and monsoon infiltration. Soil application of zinc sulphate (25 kg/ha) is recommended based on soil test.",
+    "source_authority": "ICAR-NBSS&LUP Regional Centre Bengaluru & UAS Raichur",
+    "source_document": "Soils of North Eastern Dry Zone of Karnataka, ICAR-NBSS&LUP Publ. 47",
+    "last_verified": "2026-08-19"
+  },
+  {
+    "district": "Vijayapura",
+    "agro_climatic_zone": "Northern Dry Zone (Zone 3)",
+    "dominant_soil_types": ["Medium to deep black soil", "Shallow red soil"],
+    "soil_order": "Vertisols / Entisols",
+    "texture": "Clayey in valleys, shallow gravelly on plateaus",
+    "drainage": "Slow in black clay soils, rapid in shallow gravelly plateaus",
+    "typical_ph_range": "7.6 - 8.6 (Moderately alkaline)",
+    "general_fertility_status": {
+      "organic_carbon_status": "Low (0.22% - 0.40%)",
+      "available_nitrogen_status": "Low (< 220 kg/ha)",
+      "available_phosphorus_status": "Low to Medium (10 - 20 kg/ha)",
+      "available_potassium_status": "High (> 300 kg/ha)",
+      "major_micronutrient_deficiencies": ["Zinc (Zn)", "Iron (Fe)"]
+    },
+    "major_crops_suited": ["maize", "sugarcane", "grapes", "pomegranate", "cotton", "onion"],
+    "management_recommendations": "Adopt drip irrigation and fertigation to prevent salinity hazards and maximize water use efficiency.",
+    "source_authority": "ICAR-NBSS&LUP Regional Centre Bengaluru & UAS Dharwad",
+    "source_document": "Soils of Northern Dry Zone of Karnataka, ICAR-NBSS&LUP Publ. 47",
+    "last_verified": "2026-08-19"
+  },
+  {
+    "district": "Raichur",
+    "agro_climatic_zone": "North Eastern Dry Zone (Zone 2)",
+    "dominant_soil_types": ["Deep black soil", "Red sandy loam"],
+    "soil_order": "Vertisols / Alfisols",
+    "texture": "Fine clay in Tungabhadra command, sandy loam in dry uplands",
+    "drainage": "Moderately slow to slow in black soils",
+    "typical_ph_range": "7.8 - 8.7 (Alkaline)",
+    "general_fertility_status": {
+      "organic_carbon_status": "Low (0.24% - 0.44%)",
+      "available_nitrogen_status": "Low (< 230 kg/ha)",
+      "available_phosphorus_status": "Medium (14 - 24 kg/ha)",
+      "available_potassium_status": "High (> 310 kg/ha)",
+      "major_micronutrient_deficiencies": ["Zinc (Zn)", "Iron (Fe)"]
+    },
+    "major_crops_suited": ["paddy", "cotton", "chilli", "maize", "groundnut"],
+    "management_recommendations": "Ensure proper drainage in paddy canal command areas to mitigate salinity and sodicity risks.",
+    "source_authority": "ICAR-NBSS&LUP Regional Centre Bengaluru & UAS Raichur",
+    "source_document": "Soils of North Eastern Dry Zone of Karnataka, ICAR-NBSS&LUP Publ. 47",
+    "last_verified": "2026-08-19"
+  },
+  {
+    "district": "Shivamogga",
+    "agro_climatic_zone": "Southern Transition & Hilly Zone (Zone 7 & 9)",
+    "dominant_soil_types": ["Red sandy loam", "Laterite soil", "Clay loam in valleys"],
+    "soil_order": "Alfisols / Ultisols / Inceptisols",
+    "texture": "Medium to fine textured",
+    "drainage": "Well-drained to moderately well-drained",
+    "typical_ph_range": "5.6 - 6.8 (Moderately acidic to neutral)",
+    "general_fertility_status": {
+      "organic_carbon_status": "Medium to High (0.50% - 0.80%)",
+      "available_nitrogen_status": "Medium (260 - 360 kg/ha)",
+      "available_phosphorus_status": "Low to Medium (10 - 22 kg/ha)",
+      "available_potassium_status": "Medium (150 - 260 kg/ha)",
+      "major_micronutrient_deficiencies": ["Zinc (Zn)", "Boron (B)"]
+    },
+    "major_crops_suited": ["paddy", "arecanut", "maize", "sugarcane", "banana", "ginger"],
+    "management_recommendations": "Apply lime/dolomite in acidic pockets based on soil testing. Efficient surface drainage in lowlands prevents paddy root rot during heavy rainfall.",
+    "source_authority": "ICAR-NBSS&LUP Regional Centre Bengaluru & KSNUAHS Shivamogga",
+    "source_document": "Soils of Karnataka Hilly and Transition Zones, ICAR-NBSS&LUP Publ. 47",
+    "last_verified": "2026-08-19"
+  },
+  {
+    "district": "Chikkamagaluru",
+    "agro_climatic_zone": "Hilly & Central Dry Zone (Zone 9 & 4)",
+    "dominant_soil_types": ["Laterite soil", "Red loamy soil", "Medium black soil (eastern taluks)"],
+    "soil_order": "Ultisols / Alfisols / Inceptisols",
+    "texture": "Medium textured gravelly loam to clay loam",
+    "drainage": "Well-drained to excessively drained on slopes",
+    "typical_ph_range": "5.2 - 6.8 (Acidic in malnad, neutral in maidan)",
+    "general_fertility_status": {
+      "organic_carbon_status": "High in hills (> 0.75%), Low in plains (0.35%)",
+      "available_nitrogen_status": "Medium (270 - 380 kg/ha)",
+      "available_phosphorus_status": "Low to Medium (10 - 22 kg/ha)",
+      "available_potassium_status": "Medium (160 - 270 kg/ha)",
+      "major_micronutrient_deficiencies": ["Zinc (Zn)", "Boron (B)", "Magnesium (Mg)"]
+    },
+    "major_crops_suited": ["coffee", "paddy", "arecanut", "ragi", "banana", "spices"],
+    "management_recommendations": "Soil conservation measures on slopes; application of organic compost and lime for acidic plantation soils.",
+    "source_authority": "ICAR-NBSS&LUP Regional Centre Bengaluru & KSNUAHS Shivamogga",
+    "source_document": "Soils of Chikkamagaluru District, ICAR-NBSS&LUP Publ. 47",
+    "last_verified": "2026-08-19"
+  }
+]

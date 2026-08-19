@@ -82,6 +82,7 @@ dataset/processed/*
 dataset/samples/sample1.wav
 !dataset/samples/.gitkeep
 !dataset/samples/sample_kannada_query.wav
+!dataset/samples/sample_kannada_ragi_drought.wav
 
 # --- Saved Models & Heavy Weights ---
 saved_models/*

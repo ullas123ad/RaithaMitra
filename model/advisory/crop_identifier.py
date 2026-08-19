@@ -1,8 +1,9 @@
 """
-RaithaMitra — Canonical Crop Identity & Registry Module
-======================================================
+RaithaMitra — Canonical Crop Identity & Registry Module (Phase 5.6A)
+===================================================================
 Provides deterministic, lightweight canonical crop recognition, categorization,
-and normalization for Karnataka agriculture based on a three-tier classification:
+Karnataka agro-climatic suitability classification, and normalization for 100+
+agricultural crops based on a three-tier support model:
   1. SUPPORTED: Validated agricultural package-of-practices in local RAG corpus.
   2. RECOGNIZED BUT NOT SUPPORTED: Known crop identity with insufficient localized knowledge.
   3. UNSUPPORTED: Unmapped / non-agricultural / out of scope.
@@ -66,6 +67,34 @@ def _build_canonical_map() -> Dict[str, Dict[str, str]]:
 
 CROP_CANONICAL_MAP: Dict[str, Dict[str, str]] = _build_canonical_map()
 
+# Pre-sorted list of aliases by length descending for longest-match matching
+_SORTED_ALIASES = sorted(CROP_CANONICAL_MAP.keys(), key=len, reverse=True)
+
+
+# Ambiguous crop terms that should prompt for clarification when standalone
+AMBIGUOUS_CROP_TERMS: Dict[str, Dict[str, Any]] = {
+    "ಮೆಣಸು": {
+        "clarification_prompt_kn": "ದಯವಿಟ್ಟು ನೀವು ಯಾವ ಬೆಳೆಯ ಬಗ್ಗೆ ಕೇಳುತ್ತಿದ್ದೀರಿ ಎಂದು ತಿಳಿಸಿ (ಉದಾಹರಣೆಗೆ: ಹಸಿ ಮೆಣಸಿನಕಾಯಿ ಅಥವಾ ಕರಿಮೆಣಸು).",
+        "clarification_prompt_en": "Please clarify which crop you are referring to (e.g. green chilli or black pepper).",
+        "candidates": ["chilli", "black_pepper"]
+    },
+    "pepper": {
+        "clarification_prompt_kn": "ದಯವಿಟ್ಟು ನೀವು ಯಾವ ಬೆಳೆಯ ಬಗ್ಗೆ ಕೇಳುತ್ತಿದ್ದೀರಿ ಎಂದು ತಿಳಿಸಿ (ಉದಾಹರಣೆಗೆ: ಹಸಿ ಮೆಣಸಿನಕಾಯಿ ಅಥವಾ ಕರಿಮೆಣಸು).",
+        "clarification_prompt_en": "Please clarify which crop you are referring to (e.g. green chilli or black pepper).",
+        "candidates": ["chilli", "black_pepper"]
+    },
+    "ತರಕಾರಿ": {
+        "clarification_prompt_kn": "ದಯವಿಟ್ಟು ನೀವು ನಿರ್ದಿಷ್ಟವಾಗಿ ಯಾವ ತರಕಾರಿ ಬೆಳೆಯ ಬಗ್ಗೆ ಕೇಳುತ್ತಿದ್ದೀರಿ ಎಂದು ತಿಳಿಸಿ (ಉದಾಹರಣೆಗೆ: ಟೊಮ್ಯಾಟೊ, ಈರುಳ್ಳಿ, ಆಲೂಗಡ್ಡೆ, ಬದನೆಕಾಯಿ).",
+        "clarification_prompt_en": "Please specify which vegetable crop you are asking about (e.g. tomato, onion, potato, brinjal).",
+        "candidates": ["tomato", "onion", "potato", "brinjal"]
+    },
+    "ಹಣ್ಣು": {
+        "clarification_prompt_kn": "ದಯವಿಟ್ಟು ನೀವು ನಿರ್ದಿಷ್ಟವಾಗಿ ಯಾವ ಹಣ್ಣಿನ ಬೆಳೆಯ ಬಗ್ಗೆ ಕೇಳುತ್ತಿದ್ದೀರಿ ಎಂದು ತಿಳಿಸಿ (ಉದಾಹರಣೆಗೆ: ಬಾಳೆ, ಮಾವು, ದಾಳಿಂಬೆ, ದ್ರಾಕ್ಷಿ, ಕಲ್ಲಂಗಡಿ).",
+        "clarification_prompt_en": "Please specify which fruit crop you are asking about (e.g. banana, mango, pomegranate, grapes, watermelon).",
+        "candidates": ["banana", "mango", "pomegranate", "grapes", "watermelon"]
+    }
+}
+
 
 def get_crop_registry() -> Dict[str, Any]:
     """Returns the full machine-readable crop registry data."""
@@ -119,10 +148,62 @@ def get_crop_support_status(crop_name: Optional[str]) -> str:
 
 
 def get_crop_category(crop_name: Optional[str]) -> Optional[str]:
-    """Returns the agricultural category for a crop (e.g. 'cereal', 'pulse', 'spice')."""
+    """Returns the agricultural category for a crop (e.g. 'cereal', 'pulse', 'spice', 'fruit')."""
     entry = get_crop_entry(crop_name)
     if entry:
         return entry.get("category")
+    return None
+
+
+def get_karnataka_suitability(crop_name: Optional[str]) -> str:
+    """
+    Returns the Karnataka agro-climatic cultivation suitability classification:
+      - 'KARNATAKA_RELEVANT': Extensively/traditionally cultivated in Karnataka.
+      - 'KARNATAKA_CONDITIONALLY_SUITABLE': Suitable under specific agro-ecological conditions / intercropping.
+      - 'KARNATAKA_LIMITED': Localized high-elevation pockets / non-traditional experimental.
+      - 'KARNATAKA_NOT_RECOMMENDED': Ecologically unviable for open commercial cultivation in Karnataka.
+      - 'UNKNOWN': Insufficient authoritative regional evidence.
+    """
+    entry = get_crop_entry(crop_name)
+    if entry:
+        return entry.get("karnataka_suitability", "UNKNOWN")
+    return "UNKNOWN"
+
+
+def get_crop_suitability_details(crop_name: Optional[str]) -> Optional[Dict[str, Any]]:
+    """Returns detailed agro-climatic suitability parameters and notes for a crop."""
+    entry = get_crop_entry(crop_name)
+    if entry:
+        return {
+            "canonical_name": entry.get("canonical_name"),
+            "karnataka_suitability": entry.get("karnataka_suitability", "UNKNOWN"),
+            "primary_districts": entry.get("primary_districts", []),
+            "agro_climatic_details": entry.get("agro_climatic_details", {}),
+            "source_institutions": entry.get("source_institutions", [])
+        }
+    return None
+
+
+def check_crop_ambiguity(text: str) -> Optional[Dict[str, Any]]:
+    """
+    Checks if a query contains standalone ambiguous terms (e.g. bare 'ಮೆಣಸು' or 'pepper'
+    without clarifying adjectives like 'ಹಸಿ', 'ಕಪ್ಪು', 'black', 'chilli').
+    Returns clarification metadata if ambiguous, else None.
+    """
+    if not text or not text.strip():
+        return None
+
+    text_lower = text.lower().strip()
+    words = set(re.findall(r"[\w\u0C80-\u0CFF]+", text_lower))
+
+    # Check for exact standalone ambiguous words
+    for term, data in AMBIGUOUS_CROP_TERMS.items():
+        if term in words or text_lower == term:
+            # Check if disambiguating adjectives are present
+            if term in ["ಮೆಣಸು", "pepper"]:
+                if any(w in text_lower for w in ["ಕರಿಮೆಣಸು", "ಕಾಳುಮೆಣಸು", "ಕಪ್ಪು", "black", "ಹಸಿಮೆಣಸು", "ಕೆಂಪು", "ಬ್ಯಾಡಗಿ", "chilli", "chili", "bell", "capsicum", "ದಪ್ಪ"]):
+                    continue
+            return data
     return None
 
 
@@ -130,25 +211,28 @@ def normalize_crop_name(name: Optional[str]) -> Optional[str]:
     """
     Normalizes any crop string (English alias, transliteration, or Kannada script)
     to its canonical English identifier.
-
-    Args:
-        name: Raw crop name string.
-
-    Returns:
-        Canonical crop string (e.g. 'ragi', 'paddy', 'chilli', 'arecanut') or None if unmapped.
+    Uses longest-match precedence to prevent substring collisions.
     """
     if not name or not str(name).strip():
         return None
 
     clean_name = str(name).strip().lower()
+    
+    # 1. Exact match in canonical map
     mapping = CROP_CANONICAL_MAP.get(clean_name)
     if mapping:
         return mapping["canonical"]
 
-    # Try matching against aliases
-    for alias, meta in CROP_CANONICAL_MAP.items():
-        if alias in clean_name:
-            return meta["canonical"]
+    # 2. Match against sorted aliases by length descending
+    for alias in _SORTED_ALIASES:
+        # For English-only aliases, use word boundary regex if short
+        if alias.isascii() and len(alias) <= 4:
+            pattern = rf"\b{re.escape(alias)}\b"
+            if re.search(pattern, clean_name):
+                return CROP_CANONICAL_MAP[alias]["canonical"]
+        else:
+            if alias in clean_name:
+                return CROP_CANONICAL_MAP[alias]["canonical"]
 
     return None
 
@@ -156,26 +240,24 @@ def normalize_crop_name(name: Optional[str]) -> Optional[str]:
 def detect_crop_from_text(text: str) -> Optional[str]:
     """
     Detects canonical crop mentioned in arbitrary text (Kannada or English).
-    Searches longer alias phrases first to avoid partial substring collisions.
-
-    Args:
-        text: Input string.
-
-    Returns:
-        Canonical crop name if detected, else None.
+    Searches longer alias phrases first to avoid partial substring collisions,
+    and applies word-boundary checks for short ASCII terms.
     """
     if not text or not text.strip():
         return None
 
     text_lower = text.lower()
 
-    # Sort aliases by length descending so multi-word aliases match before single words
-    sorted_aliases = sorted(CROP_CANONICAL_MAP.keys(), key=len, reverse=True)
-
-    for alias in sorted_aliases:
-        # Check direct inclusion
-        if alias in text_lower:
-            return CROP_CANONICAL_MAP[alias]["canonical"]
+    # Search in order of longest alias first
+    for alias in _SORTED_ALIASES:
+        # For short English aliases (<= 4 chars), enforce word boundaries
+        if alias.isascii() and len(alias) <= 4:
+            pattern = rf"\b{re.escape(alias)}\b"
+            if re.search(pattern, text_lower):
+                return CROP_CANONICAL_MAP[alias]["canonical"]
+        else:
+            if alias in text_lower:
+                return CROP_CANONICAL_MAP[alias]["canonical"]
 
     return None
 
@@ -193,14 +275,6 @@ def resolve_canonical_crop(
 
     This ensures mistranslations in step 3 (e.g. 'ಮೆಣಸಿನಕಾಯಿ' -> 'cucumber')
     never override the true crop detected in step 2 ('chilli').
-
-    Args:
-        query: Original farmer query (Kannada or English).
-        translated_query: Translated English query if available.
-        explicit_crop: Explicitly passed crop name string.
-
-    Returns:
-        Canonical crop identifier (e.g. 'chilli', 'onion', 'ragi', 'arecanut') or None.
     """
     # 1. Explicit argument priority
     if explicit_crop:

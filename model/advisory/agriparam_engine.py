@@ -26,6 +26,9 @@ from model.advisory.crop_identifier import (
     resolve_canonical_crop,
     get_crop_support_status,
     get_crop_category,
+    get_karnataka_suitability,
+    get_crop_suitability_details,
+    check_crop_ambiguity,
     is_crop_supported
 )
 
@@ -278,6 +281,9 @@ class MockAdvisoryBackend(AdvisoryBackend):
         ),
         "papaya": (
             "Papaya ringspot virus is managed by planting barrier crops like maize and spraying Carbendazim (1g/L) for fruit rot."
+        ),
+        "watermelon": (
+            "Watermelon excess water is managed by digging drainage trenches immediately, placing dry straw mulch beneath developing melons to prevent fruit rot, and spraying Metalaxyl + Mancozeb (2g/L) or Copper oxychloride (2.5g/L)."
         )
     }
 
@@ -300,28 +306,33 @@ class MockAdvisoryBackend(AdvisoryBackend):
         else:
             query_only = raw_text.strip().lower()
 
+        # Check for apple suitability question
+        if "apple" in query_only or "ಸೇಬು" in query_only:
+            if any(w in query_only for w in ["grow", "cultivate", "karnataka", "ಬೆಳೆಯ", "ಕರ್ನಾಟಕ", "ಸಾಧ್ಯ"]):
+                return "Apples require 800-1200 chilling hours below 7°C which is not available in Karnataka's tropical climate. Commercial open cultivation is not recommended in Karnataka, though low-chill varieties like HRMN-99 are experimentally grown in high-elevation Kodagu/Chikkamagaluru."
+
         # Single-word crop input without problem description -> ask for clarification
         short_crops = {
             "ragi", "paddy", "maize", "groundnut", "sugarcane", "cotton", "chilli", "onion",
             "potato", "banana", "tomato", "jowar", "bajra", "red_gram", "bengal_gram",
             "green_gram", "black_gram", "sunflower", "soybean", "turmeric", "ginger",
             "black_pepper", "cardamom", "brinjal", "cabbage", "bhendi", "mango",
-            "pomegranate", "grapes", "papaya", "lime", "arecanut", "coconut", "coffee",
-            "cashew", "tobacco", "jasmine", "marigold", "vanilla", "saffron",
+            "pomegranate", "grapes", "papaya", "lime", "watermelon", "arecanut", "coconut", "coffee",
+            "cashew", "tobacco", "jasmine", "marigold", "vanilla", "saffron", "apple",
             "ರಾಗಿ", "ಭತ್ತ", "ಮೆಕ್ಕೆಜೋಳ", "ಕಡಲೆಕಾಯಿ", "ಕಬ್ಬು", "ಹತ್ತಿ", "ಮೆಣಸಿನಕಾಯಿ",
             "ಈರುಳ್ಳಿ", "ಆಲೂಗಡ್ಡೆ", "ಬಾಳೆ", "ಟೊಮ್ಯಾಟೊ", "ಜೋಳ", "ಸಜ್ಜೆ", "ತೊಗರಿ", "ಕಡಲೆ",
             "ಹೆಸರು", "ಉದ್ದು", "ಸೂರ್ಯಕಾಂತಿ", "ಸೋಯಾಬೀನ್", "ಅರಿಶಿನ", "ಶುಂಠಿ", "ಕರಿಮೆಣಸು",
             "ಏಲಕ್ಕಿ", "ಬದನೆಕಾಯಿ", "ಎಲೆಕೋಸು", "ಬೆಂಡೆಕಾಯಿ", "ಮಾವು", "ದಾಳಿಂಬೆ", "ದ್ರಾಕ್ಷಿ",
-            "ಪಪ್ಪಾಯಿ", "ನಿಂಬೆ", "ಅಡಿಕೆ", "ತೆಂಗು", "ಕಾಫಿ", "ಗೋಡಂಬಿ", "ತಂಬಾಕು", "ಮಲ್ಲಿಗೆ",
-            "ಚೆಂಡುಹೂ", "ವೆನಿಲ್ಲಾ", "ಕೇಸರಿ"
+            "ಪಪ್ಪಾಯಿ", "ನಿಂಬೆ", "ಕಲ್ಲಂಗಡಿ", "ಅಡಿಕೆ", "ತೆಂಗು", "ಕಾಫಿ", "ಗೋಡಂಬಿ", "ತಂಬಾಕು", "ಮಲ್ಲಿಗೆ",
+            "ಚೆಂಡುಹೂ", "ವೆನಿಲ್ಲಾ", "ಕೇಸರಿ", "ಸೇಬು"
         }
         clean_short = query_only.strip().rstrip(".?!")
         if clean_short in short_crops:
             return "What issue are you facing with your crop? Please specify if you need guidance regarding leaf symptoms, pests, diseases, irrigation, fertilizer/soil, market prices, or government schemes."
 
-        for key, resp in self.MOCK_RESPONSES.items():
+        for key in sorted(self.MOCK_RESPONSES.keys(), key=len, reverse=True):
             if key in query_only:
-                return resp
+                return self.MOCK_RESPONSES[key]
 
         return (
             "Agricultural Advisory Recommendation: Maintain balanced NPK nutrition, "
@@ -524,6 +535,40 @@ class AdvisoryEngine:
             explicit_crop=crop
         )
 
+        # Disambiguate standalone ambiguous crop terms if no specific crop resolved
+        ambiguity = check_crop_ambiguity(clean_query)
+        if ambiguity and not canonical_crop:
+            clarification_kn = ambiguity["clarification_prompt_kn"]
+            clarification_en = ambiguity["clarification_prompt_en"]
+            return {
+                "query": clean_query,
+                "response": clarification_kn,
+                "canonical_crop": None,
+                "crop_support_status": "unsupported",
+                "crop_category": None,
+                "karnataka_suitability": "UNKNOWN",
+                "karnataka_suitability_details": None,
+                "intermediate_query": clean_query,
+                "intermediate_response": clarification_en,
+                "source_language": source_language,
+                "advisory_language": self.config.advisory_language,
+                "target_language": target_lang,
+                "model": self.config.model_id,
+                "backend": self.config.backend,
+                "rag_enabled": False,
+                "retrieved_documents": [],
+                "retrieved_schemes": [],
+                "soil": None,
+                "market": None,
+                "location": location.to_dict() if hasattr(location, "to_dict") else None,
+                "weather": weather.to_dict() if hasattr(weather, "to_dict") else None,
+                "retrieval_time_seconds": 0.0,
+                "translation_in_time_seconds": round(t_tr_in, 4),
+                "generation_time_seconds": 0.0,
+                "translation_out_time_seconds": 0.0,
+                "processing_time_seconds": round(time.time() - t_start, 4)
+            }
+
         # 2. Retrieve Relevant Local Agricultural Knowledge (RAG)
         retrieved_docs = []
         retrieval_latency = 0.0
@@ -648,6 +693,8 @@ class AdvisoryEngine:
             "canonical_crop": canonical_crop,
             "crop_support_status": get_crop_support_status(canonical_crop),
             "crop_category": get_crop_category(canonical_crop),
+            "karnataka_suitability": get_karnataka_suitability(canonical_crop),
+            "karnataka_suitability_details": get_crop_suitability_details(canonical_crop),
             "intermediate_query": intermediate_query,
             "intermediate_response": intermediate_response,
             "source_language": source_language,

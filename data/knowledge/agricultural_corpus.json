@@ -530,6 +530,26 @@
     "karnataka_relevance": "karnataka_specific"
   },
   {
+    "id": "watermelon_excess_rain_drainage_055",
+    "crop": "watermelon",
+    "topic": "excess_rainfall",
+    "title": "Watermelon Excess Rainfall, Waterlogging and Fruit Rot Management",
+    "content": "Watermelon is extremely sensitive to waterlogging and saturated soils. Continuous rain and standing water cause vine wilting, root asphyxiation, fruit cracking, and soil-borne fungal fruit rots (Pythium / Phytophthora). Farmers must immediately dig drainage trenches between beds to drain stagnant water, place straw or dry mulch beneath developing melons to keep them off wet soil, and apply a preventive drenching/spray of Metalaxyl + Mancozeb (2g/L) or Copper Oxychloride (2.5g/L) around the vine collar once excess water drains.",
+    "keywords": ["watermelon", "kallangadi", "excess rain", "waterlogging", "heavy rain", "fruit rot", "drainage", "standing water", "vine wilting"],
+    "source": "University of Horticultural Sciences (UHS), Bagalkot & ICAR-IIHR Bengaluru Package of Practices",
+    "karnataka_relevance": "karnataka_specific"
+  },
+  {
+    "id": "watermelon_downy_mildew_gummy_stem_056",
+    "crop": "watermelon",
+    "topic": "disease_management",
+    "title": "Watermelon Downy Mildew and Gummy Stem Blight Management",
+    "content": "During overcast and humid weather following rainfall, watermelon vines are severely infected by Downy Mildew (yellow angular leaf lesions with purplish sporulation below) and Gummy Stem Blight (brown stem lesions oozing amber gum). Control measures include avoiding overhead sprinkler irrigation, removing badly infected leaves, and spraying Cymoxanil 8% + Mancozeb 64% WP (2g/L) or Dimethomorph 50% WP (1g/L) alternating with Mancozeb (2g/L) at 7-10 day intervals.",
+    "keywords": ["watermelon", "kallangadi", "downy mildew", "gummy stem blight", "leaf yellowing", "amber gum", "fungal disease", "foliar spray"],
+    "source": "ICAR-Indian Institute of Horticultural Research (IIHR), Bengaluru",
+    "karnataka_relevance": "karnataka_specific"
+  },
+  {
     "id": "general_soil_waterlogging_remediation_022",
     "crop": "general",
     "topic": "excess_rainfall",

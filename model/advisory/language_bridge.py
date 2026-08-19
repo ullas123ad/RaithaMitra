@@ -131,9 +131,12 @@ class MockLanguageBridge(LanguageBridge):
         "ನನ್ನ ಈರುಳ್ಳಿಗೆ ಯಾವ APMC ಮಾರುಕಟ್ಟೆಯಲ್ಲಿ ಉತ್ತಮ ಬೆಲೆ ಇದೆ?": "Which APMC market has the best price for my onion?",
         "ಕಳೆದ ಕೆಲವು ದಿನಗಳಲ್ಲಿ ರಾಗಿ ಬೆಲೆ ಹೇಗಿದೆ?": "How is the ragi price in recent days?",
         "ಇವತ್ತು ಮಾರುಕಟ್ಟೆ ಬೆಲೆ ಎಷ್ಟು?": "What is today's market price?",
-        "ನನ್ನ ಲ್ಯಾಪ್ಟಾಪ್ ಬೆಲೆ ಎಷ್ಟು?": "What is the price of my laptop?",
+        "ನನ್ನ ಲ್ಯಾಪ್ಟಾಪ್ কিভাবে ಸರಿಪಡಿಸುವುದು?": "How to repair a laptop?",
         "ನನ್ನ ಲ್ಯಾಪ್ಟಾಪ್ ಹೇಗೆ ಸರಿಪಡಿಸುವುದು?": "How to repair a laptop?",
         "ನಾನು ಕೇಸರಿ ಬೆಳೆಯಲು ಬಯಸುತ್ತೇನೆ.": "I want to grow saffron.",
+        "ನಾನು ಕರ್ನಾಟಕದಲ್ಲಿ ಸೇಬು ಬೆಳೆಯಬಹುದೇ?": "Can I grow apple in Karnataka?",
+        "ಕರ್ನಾಟಕದಲ್ಲಿ ಸೇಬು ಬೆಳೆಯಬಹುದೇ?": "Can I grow apple in Karnataka?",
+        "ನನ್ನ ಕಲ್ಲಂಗಡಿ ಬೆಳೆಗೆ ಹೆಚ್ಚು ಮಳೆಯಾಗಿದೆ. ಏನು ಮಾಡಬೇಕು?": "My watermelon crop has received excess rain. What should I do?",
         "ನನ್ನ ವೆನಿಲ್ಲಾ ಬೆಳೆಗೆ ರೋಗ ಬಂದಿದೆ": "My vanilla crop has disease. What should I do?",
         "ನನ್ನ ವೆನಿಲ್ಲಾ ಬೆಳೆಗೆ ರೋಗ ಬಂದಿದೆ. ಏನು ಮಾಡಬೇಕು?": "My vanilla crop has disease. What should I do?",
         "ಮಂಡ್ಯದಲ್ಲಿ ನನ್ನ ರಾಗಿ ಬೆಳೆ ಒಣಗುತ್ತಿದೆ": "There has been very little rain in Mandya and my ragi crop is drying. What should I do?",
@@ -180,7 +183,9 @@ class MockLanguageBridge(LanguageBridge):
         "What issue are you facing with your crop? Please specify if you need guidance regarding leaf symptoms, pests, diseases, irrigation, fertilizer/soil, market prices, or government schemes.": "ನಿಮ್ಮ ಬೆಳೆಯಲ್ಲಿ ನಿಮಗೆ ಯಾವ ಸಮಸ್ಯೆ ಇದೆ? ಎಲೆಗಳ ಲಕ್ಷಣ, ಕೀಟ, ರೋಗ, ನೀರಾವರಿ, ಗೊಬ್ಬರ/ಮಣ್ಣು, ಮಾರುಕಟ್ಟೆ ಬೆಲೆ ಅಥವಾ ಸರ್ಕಾರಿ ಯೋಜನೆಗಳ ಬಗ್ಗೆ ಮಾಹಿತಿ ಬೇಕೇ ಎಂದು ದಯವಿಟ್ಟು ತಿಳಿಸಿ.",
         "Excess rainfall and standing water cause root suffocation. Dig drainage trenches immediately and apply 1% urea foliar spray once stagnant water is cleared.": "ಅತಿಯಾದ ಮಳೆ ಮತ್ತು ನಿಂತ ನೀರು ಬೇರುಗಳ ಉಸಿರುಗಟ್ಟುವಿಕೆಗೆ ಕಾರಣವಾಗುತ್ತದೆ. ತಕ್ಷಣವೇ ಬಸಿಗಾಲುವೆಗಳನ್ನು ನಿರ್ಮಿಸಿ ನೀರನ್ನು ಹೊರಹಾಕಿ ಮತ್ತು ಶಿಲೀಂಧ್ರ ರೋಗಗಳ ಲಕ್ಷಣಗಳನ್ನು ಪರಿಶೀಲಿಸಿ.",
         "Maize fall armyworm requires prompt action: install pheromone traps @ 4/acre and apply Emamectin benzoate 5% SG (0.4g/L) inside the central whorl if holes appear.": "ಮೆಕ್ಕೆಜೋಳದ ಸೈನಿಕ ಹುಳು ಬಾಧೆಗೆ ಎಕರೆಗೆ 4 ಮೋಹಕ ಬಲೆಗಳನ್ನು ಅಳವಡಿಸಿ. ಎಲೆಗಳಲ್ಲಿ ರಂಧ್ರಗಳಿದ್ದರೆ ಸುಳಿಯ ಒಳಗೆ ಎಮಾಮೆಕ್ಟಿನ್ ಬೆಂಜೊಯೇಟ್ 5% SG (0.4 ಗ್ರಾಂ/ಲೀಟರ್) ಸಿಂಪಡಿಸಿ.",
-        "Key agricultural schemes available in Karnataka include PM-KISAN (direct income support), PMFBY (crop insurance via Samrakshane), Krishi Bhagya (farm pond and water conservation subsidy), and KCC (concessional crop loans). Farmers can verify eligibility via the FRUITS portal.": "ಕರ್ನಾಟಕದಲ್ಲಿ ರೈತರಿಗೆ ಲಭ್ಯವಿರುವ ಪ್ರಮುಖ ಯೋಜನೆಗಳೆಂದರೆ ಪಿಎಂ-ಕಿಸಾನ್, ಪಿಎಂಎಫ್‌ಬಿವೈ (ಸಂರಕ್ಷಣೆ ಪೋರ್ಟಲ್ ಮೂಲಕ ಬೆಳೆ ವಿಮೆ), ಕೃಷಿ ಭಾಗ್ಯ ಮತ್ತು ಕಿಸಾನ್ ಕ್ರೆಡಿಟ್ ಕಾರ್ಡ್. ರೈತರು ಫ್ರೂಟ್ಸ್ (FRUITS) ಪೋರ್ಟಲ್ ಮೂಲಕ ತಮ್ಮ ಅರ್ಹತೆ ಪರಿಶೀಲಿಸಬಹುದು."
+        "Key agricultural schemes available in Karnataka include PM-KISAN (direct income support), PMFBY (crop insurance via Samrakshane), Krishi Bhagya (farm pond and water conservation subsidy), and KCC (concessional crop loans). Farmers can verify eligibility via the FRUITS portal.": "ಕರ್ನಾಟಕದಲ್ಲಿ ರೈತರಿಗೆ ಲಭ್ಯವಿರುವ ಪ್ರಮುಖ ಯೋಜನೆಗಳೆಂದರೆ ಪಿಎಂ-ಕಿಸಾನ್, ಪಿಎಂಎಫ್‌ಬಿವೈ (ಸಂರಕ್ಷಣೆ ಪೋರ್ಟಲ್ ಮೂಲಕ ಬೆಳೆ ವಿಮೆ), ಕೃಷಿ ಭಾಗ್ಯ ಮತ್ತು ಕಿಸಾನ್ ಕ್ರೆಡಿಟ್ ಕಾರ್ಡ್. ರೈತರು ಫ್ರೂಟ್ಸ್ (FRUITS) ಪೋರ್ಟಲ್ ಮೂಲಕ ತಮ್ಮ ಅರ್ಹತೆ ಪರಿಶೀಲಿಸಬಹುದು.",
+        "Apples require 800-1200 chilling hours below 7°C which is not available in Karnataka's tropical climate. Commercial open cultivation is not recommended in Karnataka, though low-chill varieties like HRMN-99 are experimentally grown in high-elevation Kodagu/Chikkamagaluru.": "ಸೇಬು ಮೂಲತಃ ಹಿಮಾಲಯನ್ ಸಮಶೀತೋಷ್ಣ ಬೆಳೆಯಾಗಿದ್ದು, ಹೂವು ಬಿಡಲು 800-1200 ಗಂಟೆಗಳ ಕಾಲ 7°C ಗಿಂತ ಕಡಿಮೆ ಚಳಿ ಅಗತ್ಯ. ಕರ್ನಾಟಕದ ಉಷ್ಣವಲಯದ ಬಯಲು ಪ್ರದೇಶಗಳಲ್ಲಿ ವಾಣಿಜ್ಯ ಸೇಬು ಕೃಷಿ ಸೂಕ್ತವಲ್ಲ. ಕಡಿಮೆ ಚಳಿ ಬಯಸುವ ಎಚ್‌ಆರ್‌ಎಂಎನ್-99 ತಳಿಯನ್ನು ಕೊಡಗು/ಚಿಕ್ಕಮಗಳೂರಿನ ಎತ್ತರದ ತಂಪಾದ ಪ್ರದೇಶಗಳಲ್ಲಿ ಸೀಮಿತವಾಗಿ ಬೆಳೆಯಬಹುದು.",
+        "Watermelon excess water is managed by digging drainage trenches immediately, placing dry straw mulch beneath developing melons to prevent fruit rot, and spraying Metalaxyl + Mancozeb (2g/L) or Copper oxychloride (2.5g/L).": "ಕಲ್ಲಂಗಡಿ ಬೆಳೆಗೆ ನಿಂತ ನೀರು ಅತಿ ಹಾನಿಕಾರಕ. ತಕ್ಷಣವೇ ಬದುಗಳ ನಡುವೆ ಬಸಿಗಾಲುವೆಗಳನ್ನು ನಿರ್ಮಿಸಿ ನೀರನ್ನು ಹೊರಹಾಕಿ, ಕಾಯಿಗಳು ಒದ್ದೆ ಮಣ್ಣಿಗೆ ತಾಗದಂತೆ ಒಣಹುಲ್ಲಿನ ಹೊದಿಕೆ ಹಾಕಿ ಮತ್ತು ನೀರು ಬಸಿದ ನಂತರ ತಾಮ್ರದ ಆಕ್ಸಿಕ್ಲೋರೈಡ್ (2.5 ಗ್ರಾಂ/ಲೀ) ಸಿಂಪಡಿಸಿ."
     }
 
     def translate_to_advisory_lang(

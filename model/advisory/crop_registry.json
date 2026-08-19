@@ -1,8 +1,9 @@
 {
-  "registry_version": "1.0.0",
+  "registry_version": "2.0.0",
   "authority": "RaithaMitra Agricultural Intelligence Core — KSSEM AI & Data Science",
   "jurisdiction": "Karnataka, India",
   "audit_date": "2026-08-19",
+  "total_crops": 140,
   "categories": [
     "cereal",
     "millet",
@@ -18,964 +19,5964 @@
     "tuber"
   ],
   "crops": {
-    "ragi": {
-      "canonical_name": "ragi",
-      "category": "millet",
-      "english_names": ["ragi", "finger millet", "fingermillet", "mandua"],
-      "kannada_names": ["ರಾಗಿ"],
-      "aliases": ["ragi", "finger millet", "fingermillet", "mandua", "eleusine coracana", "ರಾಗಿ", "ರಾಗಿಯ", "ರಾಗಿಗೆ", "ರಾಗಿಬೆಳೆ", "ರಾಗಿಯಲ್ಲಿನ", "ರಾಗಿಯಲ್ಲಿ"],
-      "support_status": "supported",
-      "rag_supported": true,
-      "document_count": 2,
-      "topics": ["water_stress", "disease_management"],
-      "karnataka_relevance": "karnataka_specific",
-      "primary_districts": ["Mandya", "Mysuru", "Tumakuru", "Hassan", "Kolar", "Chikkaballapura", "Ramanagara", "Bengaluru Rural"],
-      "source_institutions": ["University of Agricultural Sciences (UAS), Bangalore", "ICAR-AICRP on Small Millets Bengaluru"],
-      "tested": true
-    },
     "paddy": {
       "canonical_name": "paddy",
       "category": "cereal",
-      "english_names": ["paddy", "rice"],
-      "kannada_names": ["ಭತ್ತ"],
-      "aliases": ["paddy", "rice", "paddy crop", "bhatta", "oryza sativa", "ಭತ್ತ", "ಭತ್ತದ", "ಭತ್ತಕ್ಕೆ", "ಭತ್ತಬೆಳೆ", "ಭತ್ತದಲ್ಲಿನ", "ಭತ್ತದಲ್ಲಿ"],
+      "english_names": [
+        "paddy",
+        "rice"
+      ],
+      "kannada_names": [
+        "ಭತ್ತ",
+        "ಅಕ್ಕಿ"
+      ],
+      "aliases": [
+        "paddy",
+        "rice",
+        "paddy crop",
+        "bhatta",
+        "akki",
+        "oryza sativa",
+        "ಭತ್ತದ",
+        "ಭತ್ತಕ್ಕೆ",
+        "ಭತ್ತಬೆಳೆ",
+        "ಭತ್ತದಲ್ಲಿ",
+        "ಅಕ್ಕಿ ಬೆಳೆ",
+        "ಭತ್ತ",
+        "ಅಕ್ಕಿ"
+      ],
       "support_status": "supported",
       "rag_supported": true,
       "document_count": 2,
-      "topics": ["nutrient_deficiency", "pest_management"],
-      "karnataka_relevance": "karnataka_specific",
-      "primary_districts": ["Mandya", "Shivamogga", "Davangere", "Ballari", "Raichur", "Udupi", "Dakshina Kannada", "Uttara Kannada"],
-      "source_institutions": ["ICAR-Indian Institute of Rice Research (IIRR)", "UAS Bangalore"],
+      "topics": [
+        "nutrient_deficiency",
+        "pest_management",
+        "water_drainage"
+      ],
+      "karnataka_suitability": "KARNATAKA_RELEVANT",
+      "primary_districts": [
+        "Mandya",
+        "Shivamogga",
+        "Davangere",
+        "Ballari",
+        "Raichur",
+        "Udupi",
+        "Dakshina Kannada",
+        "Uttara Kannada"
+      ],
+      "source_institutions": [
+        "ICAR-Indian Institute of Rice Research (IIRR)",
+        "UAS Bangalore",
+        "UAS Dharwad",
+        "KSDA"
+      ],
+      "agro_climatic_details": {
+        "soil_requirements": "Clayey loam, alluvial and coastal sandy loam with good water retention.",
+        "rainfall_range_mm": "1000-2500 mm or assured canal irrigation",
+        "temperature_range_c": "20-35°C",
+        "suitability_notes_kn": "ಕರ್ನಾಟಕದ ಕರಾವಳಿ ಮತ್ತು ಕಾಲುವೆ ಅಚ್ಚುಕಟ್ಟು ಪ್ರದೇಶಗಳಲ್ಲಿ ಪ್ರಮುಖ ಆಹಾರ ಬೆಳೆ."
+      },
       "tested": true
     },
     "maize": {
       "canonical_name": "maize",
       "category": "cereal",
-      "english_names": ["maize", "corn"],
-      "kannada_names": ["ಮೆಕ್ಕೆಜೋಳ"],
-      "aliases": ["maize", "corn", "makka", "mekkejola", "zea mays", "ಮೆಕ್ಕೆಜೋಳ", "ಮೆಕ್ಕೆ ಜೋಳ", "ಮೆಕ್ಕೆಜೋಳದ", "ಮೆಕ್ಕೆಜೋಳಕ್ಕೆ", "ಮೆಕ್ಕೆಜೋಳಬೆಳೆ", "ಮೆಕ್ಕೆಜೋಳದಲ್ಲಿ"],
+      "english_names": [
+        "maize",
+        "corn"
+      ],
+      "kannada_names": [
+        "ಮೆಕ್ಕೆಜೋಳ"
+      ],
+      "aliases": [
+        "maize",
+        "corn",
+        "makka",
+        "mekkejola",
+        "zea mays",
+        "ಮೆಕ್ಕೆ ಜೋಳ",
+        "ಮೆಕ್ಕೆಜೋಳದ",
+        "ಮೆಕ್ಕೆಜೋಳಕ್ಕೆ",
+        "ಮೆಕ್ಕೆಜೋಳಬೆಳೆ",
+        "ಮೆಕ್ಕೆಜೋಳದಲ್ಲಿ",
+        "ಮೆಕ್ಕೆಜೋಳ"
+      ],
       "support_status": "supported",
       "rag_supported": true,
       "document_count": 2,
-      "topics": ["pest_management", "excess_rainfall"],
-      "karnataka_relevance": "karnataka_specific",
-      "primary_districts": ["Davangere", "Haveri", "Belagavi", "Chitradurga", "Ballari", "Bagalkot"],
-      "source_institutions": ["ICAR-Indian Institute of Maize Research (IIMR)", "ICAR-NBAIR Bengaluru"],
+      "topics": [
+        "pest_management",
+        "excess_rainfall",
+        "nutrient_management"
+      ],
+      "karnataka_suitability": "KARNATAKA_RELEVANT",
+      "primary_districts": [
+        "Belagavi",
+        "Davangere",
+        "Haveri",
+        "Bagalkot",
+        "Ballari",
+        "Chitradurga"
+      ],
+      "source_institutions": [
+        "ICAR-Indian Institute of Maize Research (IIMR)",
+        "ICAR-NBAIR Bengaluru",
+        "UAS Dharwad"
+      ],
+      "agro_climatic_details": {
+        "soil_requirements": "Well-drained fertile loamy to red sandy loam soil.",
+        "rainfall_range_mm": "500-800 mm",
+        "temperature_range_c": "18-32°C",
+        "suitability_notes_kn": "ಕರ್ನಾಟಕದ ಪ್ರಮುಖ ವಾಣಿಜ್ಯ ಮತ್ತು ಪಶು ಆಹಾರ ಧಾನ್ಯ ಬೆಳೆ."
+      },
       "tested": true
     },
     "jowar": {
       "canonical_name": "jowar",
       "category": "cereal",
-      "english_names": ["jowar", "sorghum", "great millet"],
-      "kannada_names": ["ಜೋಳ"],
-      "aliases": ["jowar", "sorghum", "great millet", "jola", "sorghum bicolor", "ಜೋಳ", "ಜೋಳದ", "ಜೋಳಕ್ಕೆ", "ಜೋಳಬೆಳೆ", "ಜೋಳದಲ್ಲಿ"],
+      "english_names": [
+        "jowar",
+        "sorghum",
+        "great millet"
+      ],
+      "kannada_names": [
+        "ಜೋಳ"
+      ],
+      "aliases": [
+        "jowar",
+        "sorghum",
+        "great millet",
+        "jola",
+        "sorghum bicolor",
+        "ಜೋಳದ",
+        "ಜೋಳಕ್ಕೆ",
+        "ಜೋಳಬೆಳೆ",
+        "ಜೋಳದಲ್ಲಿ",
+        "ಬಿಳಿಜೋಳ",
+        "ಜೋಳ"
+      ],
       "support_status": "supported",
       "rag_supported": true,
-      "document_count": 2,
-      "topics": ["pest_management", "disease_management"],
-      "karnataka_relevance": "karnataka_specific",
-      "primary_districts": ["Vijayapura", "Bagalkot", "Dharwad", "Kalaburagi", "Belagavi", "Raichur", "Koppal"],
-      "source_institutions": ["ICAR-Indian Institute of Millets Research (IIMR)", "UAS Dharwad"],
+      "document_count": 1,
+      "topics": [
+        "pest_management",
+        "drought_management"
+      ],
+      "karnataka_suitability": "KARNATAKA_RELEVANT",
+      "primary_districts": [
+        "Vijayapura",
+        "Dharwad",
+        "Kalaburagi",
+        "Raichur",
+        "Bagalkot",
+        "Gadag"
+      ],
+      "source_institutions": [
+        "ICAR-Indian Institute of Millets Research (IIMR)",
+        "UAS Dharwad",
+        "UAS Raichur"
+      ],
+      "agro_climatic_details": {
+        "soil_requirements": "Deep black cotton soils (Rabi) and medium black/red loams (Kharif).",
+        "rainfall_range_mm": "400-750 mm",
+        "temperature_range_c": "25-35°C",
+        "suitability_notes_kn": "ಉತ್ತರ ಕರ್ನಾಟಕದ ಪ್ರಮುಖ ಖಾರಿಫ್ ಮತ್ತು ಹಿಂಗಾರು ಒಣಭೂಮಿ ಆಹಾರ ಬೆಳೆ."
+      },
       "tested": true
     },
     "bajra": {
       "canonical_name": "bajra",
-      "category": "millet",
-      "english_names": ["bajra", "pearl millet", "spiked millet"],
-      "kannada_names": ["ಸಜ್ಜೆ"],
-      "aliases": ["bajra", "pearl millet", "spiked millet", "sajje", "pennisetum glaucum", "ಸಜ್ಜೆ", "ಸಜ್ಜೆಯ", "ಸಜ್ಜೆಗೆ", "ಸಜ್ಜೆಬೆಳೆ", "ಸಜ್ಜೆಯಲ್ಲಿ"],
-      "support_status": "supported",
-      "rag_supported": true,
-      "document_count": 2,
-      "topics": ["disease_management", "crop_management"],
-      "karnataka_relevance": "karnataka_specific",
-      "primary_districts": ["Koppal", "Ballari", "Raichur", "Bagalkot", "Vijayapura", "Gadag"],
-      "source_institutions": ["ICAR-AICRP on Pearl Millet", "UAS Raichur"],
-      "tested": true
-    },
-    "red_gram": {
-      "canonical_name": "red_gram",
-      "category": "pulse",
-      "english_names": ["red gram", "pigeon pea", "tur", "arhar"],
-      "kannada_names": ["ತೊಗರಿ"],
-      "aliases": ["red gram", "redgram", "pigeon pea", "pigeonpea", "tur", "arhar", "togari", "cajanus cajan", "ತೊಗರಿ", "ತೊಗರಿಯ", "ತೊಗರಿಗೆ", "ತೊಗರಿಬೆಳೆ", "ತೊಗರಿಯಲ್ಲಿ", "ತೊಗರಿ ಕಾಳು"],
-      "support_status": "supported",
-      "rag_supported": true,
-      "document_count": 2,
-      "topics": ["pest_management", "disease_management"],
-      "karnataka_relevance": "karnataka_specific",
-      "primary_districts": ["Kalaburagi", "Bidar", "Yadgir", "Vijayapura", "Raichur"],
-      "source_institutions": ["ICAR-Indian Institute of Pulses Research (IIPR)", "UAS Raichur (Kalaburagi ZARS)"],
-      "tested": true
-    },
-    "bengal_gram": {
-      "canonical_name": "bengal_gram",
-      "category": "pulse",
-      "english_names": ["bengal gram", "chickpea", "gram", "chana"],
-      "kannada_names": ["ಕಡಲೆ"],
-      "aliases": ["bengal gram", "bengalgram", "chickpea", "chana", "kadale", "cicer arietinum", "ಕಡಲೆ", "ಕಡಲೆಯ", "ಕಡಲೆಗೆ", "ಕಡಲೆಬೆಳೆ", "ಕಡಲೆಯಲ್ಲಿ", "ಕಡಲೆ ಕಾಳು"],
-      "support_status": "supported",
-      "rag_supported": true,
-      "document_count": 2,
-      "topics": ["disease_management", "pest_management"],
-      "karnataka_relevance": "karnataka_specific",
-      "primary_districts": ["Dharwad", "Gadag", "Vijayapura", "Kalaburagi", "Bidar", "Belagavi"],
-      "source_institutions": ["ICAR-Indian Institute of Pulses Research (IIPR)", "UAS Dharwad"],
-      "tested": true
-    },
-    "green_gram": {
-      "canonical_name": "green_gram",
-      "category": "pulse",
-      "english_names": ["green gram", "moong", "mung bean"],
-      "kannada_names": ["ಹೆಸರು"],
-      "aliases": ["green gram", "greengram", "moong", "mung", "mung bean", "hesaru", "vigna radiata", "ಹೆಸರು", "ಹೆಸರಿನ", "ಹೆಸರಿಗೆ", "ಹೆಸರುಬೆಳೆ", "ಹೆಸರಲ್ಲಿ", "ಹೆಸರು ಕಾಳು"],
+      "category": "cereal",
+      "english_names": [
+        "bajra",
+        "pearl millet"
+      ],
+      "kannada_names": [
+        "ಸಜ್ಜೆ"
+      ],
+      "aliases": [
+        "bajra",
+        "pearl millet",
+        "sajjey",
+        "sajje",
+        "pennisetum glaucum",
+        "ಸಜ್ಜೆಯ",
+        "ಸಜ್ಜೆಗೆ",
+        "ಸಜ್ಜೆಬೆಳೆ",
+        "ಸಜ್ಜೆಯಲ್ಲಿ",
+        "ಸಜ್ಜೆ"
+      ],
       "support_status": "supported",
       "rag_supported": true,
       "document_count": 1,
-      "topics": ["disease_management"],
-      "karnataka_relevance": "karnataka_specific",
-      "primary_districts": ["Gadag", "Dharwad", "Bagalkot", "Belagavi", "Koppal", "Yadgir"],
-      "source_institutions": ["University of Agricultural Sciences (UAS), Dharwad"],
-      "tested": true
-    },
-    "black_gram": {
-      "canonical_name": "black_gram",
-      "category": "pulse",
-      "english_names": ["black gram", "urad", "mash"],
-      "kannada_names": ["ಉದ್ದು"],
-      "aliases": ["black gram", "blackgram", "urad", "uddu", "vigna mungo", "ಉದ್ದು", "ಉದ್ದಿನ", "ಉದ್ದಿಗೆ", "ಉದ್ದುಬೆಳೆ", "ಉದ್ದಿನಲ್ಲಿ", "ಉದ್ದು ಕಾಳು"],
-      "support_status": "supported",
-      "rag_supported": true,
-      "document_count": 1,
-      "topics": ["disease_management"],
-      "karnataka_relevance": "karnataka_specific",
-      "primary_districts": ["Bidar", "Kalaburagi", "Mysuru", "Chamarajanagar", "Hassan"],
-      "source_institutions": ["University of Agricultural Sciences (UAS), Bangalore"],
-      "tested": true
-    },
-    "groundnut": {
-      "canonical_name": "groundnut",
-      "category": "oilseed",
-      "english_names": ["groundnut", "peanut"],
-      "kannada_names": ["ಕಡಲೆಕಾಯಿ", "ಶೇಂಗಾ"],
-      "aliases": ["groundnut", "peanut", "kadlekai", "shenga", "arachis hypogaea", "ಕಡಲೆಕಾಯಿ", "ಕಡಲೆ ಕಾಯಿ", "ಕಡಲೆಕಾಯಿಯ", "ಕಡಲೆಕಾಯಿಗೆ", "ಕಡಲೆಕಾಯಿಬೆಳೆ", "ಶೇಂಗಾ", "ಶೇಂಗಾದ", "ಶೇಂಗಾಗೆ", "ಶೇಂಗಾಬೆಳೆ"],
-      "support_status": "supported",
-      "rag_supported": true,
-      "document_count": 2,
-      "topics": ["disease_management", "pest_management"],
-      "karnataka_relevance": "karnataka_specific",
-      "primary_districts": ["Tumakuru", "Chitradurga", "Ballari", "Chikkaballapura", "Kolar", "Dharwad"],
-      "source_institutions": ["ICAR-Directorate of Groundnut Research (DGR)", "UAS Dharwad"],
-      "tested": true
-    },
-    "sunflower": {
-      "canonical_name": "sunflower",
-      "category": "oilseed",
-      "english_names": ["sunflower"],
-      "kannada_names": ["ಸೂರ್ಯಕಾಂತಿ"],
-      "aliases": ["sunflower", "suryakanti", "helianthus annuus", "ಸೂರ್ಯಕಾಂತಿ", "ಸೂರ್ಯಕಾಂತಿಯ", "ಸೂರ್ಯಕಾಂತಿಗೆ", "ಸೂರ್ಯಕಾಂತಿಬೆಳೆ", "ಸೂರ್ಯಕಾಂತಿಯಲ್ಲಿ"],
-      "support_status": "supported",
-      "rag_supported": true,
-      "document_count": 1,
-      "topics": ["disease_management"],
-      "karnataka_relevance": "karnataka_specific",
-      "primary_districts": ["Raichur", "Koppal", "Ballari", "Bagalkot", "Vijayapura", "Gadag"],
-      "source_institutions": ["ICAR-Indian Institute of Oilseeds Research (IIOR)", "UAS Raichur"],
-      "tested": true
-    },
-    "soybean": {
-      "canonical_name": "soybean",
-      "category": "oilseed",
-      "english_names": ["soybean", "soya bean", "soya"],
-      "kannada_names": ["ಸೋಯಾಬೀನ್"],
-      "aliases": ["soybean", "soya bean", "soya", "soyabean", "glycine max", "ಸೋಯಾಬೀನ್", "ಸೋಯಾ ಬೀನ್", "ಸೋಯಾಬೀನಿನ", "ಸೋಯಾಬೀನ್ಗೆ", "ಸೋಯಾಬೀನ್ಬೆಳೆ"],
-      "support_status": "supported",
-      "rag_supported": true,
-      "document_count": 1,
-      "topics": ["pest_management"],
-      "karnataka_relevance": "karnataka_specific",
-      "primary_districts": ["Belagavi", "Bidar", "Dharwad", "Haveri", "Bagalkot"],
-      "source_institutions": ["ICAR-Indian Institute of Soybean Research (IISR)", "UAS Dharwad"],
-      "tested": true
-    },
-    "sugarcane": {
-      "canonical_name": "sugarcane",
-      "category": "commercial",
-      "english_names": ["sugarcane", "sugar cane", "cane"],
-      "kannada_names": ["ಕಬ್ಬು"],
-      "aliases": ["sugarcane", "sugar cane", "cane", "kabbu", "saccharum officinarum", "ಕಬ್ಬು", "ಕಬ್ಬಿನ", "ಕಬ್ಬಿಗೆ", "ಕಬ್ಬುಬೆಳೆ", "ಕಬ್ಬಿನಲ್ಲಿ"],
-      "support_status": "supported",
-      "rag_supported": true,
-      "document_count": 2,
-      "topics": ["pest_management", "disease_management"],
-      "karnataka_relevance": "karnataka_specific",
-      "primary_districts": ["Belagavi", "Mandya", "Bagalkot", "Vijayapura", "Mysuru", "Bidar"],
-      "source_institutions": ["ICAR-Sugarcane Breeding Institute (SBI)", "UAS Dharwad"],
-      "tested": true
-    },
-    "cotton": {
-      "canonical_name": "cotton",
-      "category": "commercial",
-      "english_names": ["cotton", "kapas"],
-      "kannada_names": ["ಹತ್ತಿ"],
-      "aliases": ["cotton", "kapas", "hatti", "gossypium", "ಹತ್ತಿ", "ಹತ್ತಿಯ", "ಹತ್ತಿಗೆ", "ಹತ್ತಿಬೆಳೆ", "ಹತ್ತಿಯಲ್ಲಿ"],
-      "support_status": "supported",
-      "rag_supported": true,
-      "document_count": 2,
-      "topics": ["pest_management", "excess_rainfall"],
-      "karnataka_relevance": "karnataka_specific",
-      "primary_districts": ["Haveri", "Dharwad", "Belagavi", "Ballari", "Raichur", "Kalaburagi", "Mysuru"],
-      "source_institutions": ["ICAR-Central Institute for Cotton Research (CICR)", "UAS Dharwad"],
-      "tested": true
-    },
-    "tobacco": {
-      "canonical_name": "tobacco",
-      "category": "commercial",
-      "english_names": ["tobacco", "fcv tobacco"],
-      "kannada_names": ["ತಂಬಾಕು"],
-      "aliases": ["tobacco", "fcv tobacco", "tambaku", "nicotiana tabacum", "ತಂಬಾಕು", "ತಂಬಾಕಿನ", "ತಂಬಾಕಿಗೆ", "ತಂಬಾಕುಬೆಳೆ", "ತಂಬಾಕಿನಲ್ಲಿ"],
-      "support_status": "supported",
-      "rag_supported": true,
-      "document_count": 1,
-      "topics": ["disease_management"],
-      "karnataka_relevance": "karnataka_specific",
-      "primary_districts": ["Mysuru", "Hassan", "Shivamogga", "Chikkamagaluru"],
-      "source_institutions": ["ICAR-Central Tobacco Research Institute (CTRI) Research Station Hunsur"],
-      "tested": true
-    },
-    "chilli": {
-      "canonical_name": "chilli",
-      "category": "spice",
-      "english_names": ["chilli", "chili", "green chilli", "red chilli", "capsicum"],
-      "kannada_names": ["ಮೆಣಸಿನಕಾಯಿ"],
-      "aliases": ["chilli", "chili", "green chilli", "red chilli", "mirchi", "menasinakai", "menasinakayi", "capsicum", "ಮೆಣಸಿನಕಾಯಿ", "ಮೆಣಸಿನ ಕಾಯಿ", "ಮೆಣಸಿನಕಾಯಿಯ", "ಮೆಣಸಿನಕಾಯಿಗೆ", "ಮೆಣಸಿನಗಿಡ", "ಮೆಣಸಿನಕಾಯಿಬೆಳೆ", "ಬ್ಯಾಡಗಿ ಮೆಣಸಿನಕಾಯಿ"],
-      "support_status": "supported",
-      "rag_supported": true,
-      "document_count": 2,
-      "topics": ["pest_management", "disease_management"],
-      "karnataka_relevance": "karnataka_specific",
-      "primary_districts": ["Haveri", "Dharwad", "Ballari", "Raichur", "Belagavi", "Chitradurga"],
-      "source_institutions": ["ICAR-Indian Institute of Horticultural Research (IIHR) Bengaluru", "UAS Dharwad"],
-      "tested": true
-    },
-    "turmeric": {
-      "canonical_name": "turmeric",
-      "category": "spice",
-      "english_names": ["turmeric", "haldi"],
-      "kannada_names": ["ಅರಿಶಿನ"],
-      "aliases": ["turmeric", "haldi", "arishina", "curcuma longa", "ಅರಿಶಿನ", "ಅರಿಷಿನ", "ಅರಿಶಿನದ", "ಅರಿಶಿನಕ್ಕೆ", "ಅರಿಶಿನಬೆಳೆ", "ಅರಿಶಿನದಲ್ಲಿ"],
-      "support_status": "supported",
-      "rag_supported": true,
-      "document_count": 1,
-      "topics": ["disease_management"],
-      "karnataka_relevance": "karnataka_specific",
-      "primary_districts": ["Chamarajanagar", "Bagalkot", "Belagavi", "Mysuru"],
-      "source_institutions": ["ICAR-Indian Institute of Spices Research (IISR)", "UAS Bangalore"],
-      "tested": true
-    },
-    "ginger": {
-      "canonical_name": "ginger",
-      "category": "spice",
-      "english_names": ["ginger", "adrak"],
-      "kannada_names": ["ಶುಂಠಿ"],
-      "aliases": ["ginger", "adrak", "shunti", "zingiber officinale", "ಶುಂಠಿ", "ಶುಂಠಿಯ", "ಶುಂಠಿಗೆ", "ಶುಂಠಿಬೆಳೆ", "ಶುಂಠಿಯಲ್ಲಿ"],
-      "support_status": "supported",
-      "rag_supported": true,
-      "document_count": 1,
-      "topics": ["disease_management"],
-      "karnataka_relevance": "karnataka_specific",
-      "primary_districts": ["Shivamogga", "Hassan", "Kodagu", "Chikkamagaluru", "Uttara Kannada"],
-      "source_institutions": ["ICAR-Indian Institute of Spices Research (IISR)", "UHS Bagalkot"],
-      "tested": true
-    },
-    "black_pepper": {
-      "canonical_name": "black_pepper",
-      "category": "spice",
-      "english_names": ["black pepper", "pepper", "black gold"],
-      "kannada_names": ["ಕರಿಮೆಣಸು"],
-      "aliases": ["black pepper", "pepper", "karimenasu", "piper nigrum", "ಕರಿಮೆಣಸು", "ಕರಿ ಮೆಣಸು", "ಕರಿಮೆಣಸಿನ", "ಕರಿಮೆಣಸಿಗೆ", "ಕಾಳುಮೆಣಸು", "ಕಾಳು ಮೆಣಸು", "ಮೆಣಸು"],
-      "support_status": "supported",
-      "rag_supported": true,
-      "document_count": 1,
-      "topics": ["disease_management"],
-      "karnataka_relevance": "karnataka_specific",
-      "primary_districts": ["Kodagu", "Chikkamagaluru", "Hassan", "Uttara Kannada", "Dakshina Kannada", "Shivamogga"],
-      "source_institutions": ["ICAR-Indian Institute of Spices Research (IISR) Appangala"],
-      "tested": true
-    },
-    "cardamom": {
-      "canonical_name": "cardamom",
-      "category": "spice",
-      "english_names": ["cardamom", "small cardamom", "green cardamom"],
-      "kannada_names": ["ಏಲಕ್ಕಿ"],
-      "aliases": ["cardamom", "small cardamom", "elakki", "elettaria cardamomum", "ಏಲಕ್ಕಿ", "ಏಲಕ್ಕಿಯ", "ಏಲಕ್ಕಿಗೆ", "ಏಲಕ್ಕಿಬೆಳೆ", "ಏಲಕ್ಕಿಯಲ್ಲಿ"],
-      "support_status": "supported",
-      "rag_supported": true,
-      "document_count": 1,
-      "topics": ["disease_management"],
-      "karnataka_relevance": "karnataka_specific",
-      "primary_districts": ["Kodagu", "Hassan", "Chikkamagaluru", "Uttara Kannada"],
-      "source_institutions": ["ICAR-Indian Institute of Spices Research (IISR) Appangala"],
-      "tested": true
-    },
-    "onion": {
-      "canonical_name": "onion",
-      "category": "vegetable",
-      "english_names": ["onion"],
-      "kannada_names": ["ಈರುಳ್ಳಿ"],
-      "aliases": ["onion", "eerulli", "pyaz", "allium cepa", "ಈರುಳ್ಳಿ", "ಈರುಳ್ಳಿಯ", "ಈರುಳ್ಳಿಗೆ", "ಈರುಳ್ಳಿಬೆಳೆ", "ಈರುಳ್ಳಿಯಲ್ಲಿ"],
-      "support_status": "supported",
-      "rag_supported": true,
-      "document_count": 2,
-      "topics": ["excess_rainfall", "pest_management"],
-      "karnataka_relevance": "karnataka_specific",
-      "primary_districts": ["Chitradurga", "Dharwad", "Gadag", "Bagalkot", "Vijayapura", "Davangere"],
-      "source_institutions": ["ICAR-Directorate of Onion and Garlic Research (DOGR)", "UAS Dharwad"],
-      "tested": true
-    },
-    "potato": {
-      "canonical_name": "potato",
-      "category": "tuber",
-      "english_names": ["potato", "aloo"],
-      "kannada_names": ["ಆಲೂಗಡ್ಡೆ"],
-      "aliases": ["potato", "aalugadde", "aloo", "solanum tuberosum", "ಆಲೂಗಡ್ಡೆ", "ಆಲೂಗೆಡ್ಡೆ", "ಆಲೂಗಡ್ಡೆಯ", "ಆಲೂಗಡ್ಡೆಗೆ", "ಆಲೂಗಡ್ಡೆಬೆಳೆ", "ಆಲೂಗಡ್ಡೆಯಲ್ಲಿ"],
-      "support_status": "supported",
-      "rag_supported": true,
-      "document_count": 2,
-      "topics": ["disease_management", "crop_management"],
-      "karnataka_relevance": "karnataka_specific",
-      "primary_districts": ["Hassan", "Kolar", "Chikkaballapura", "Belagavi"],
-      "source_institutions": ["ICAR-Central Potato Research Institute (CPRI)", "UAS Bangalore"],
-      "tested": true
-    },
-    "tomato": {
-      "canonical_name": "tomato",
-      "category": "vegetable",
-      "english_names": ["tomato", "tamatar"],
-      "kannada_names": ["ಟೊಮ್ಯಾಟೊ"],
-      "aliases": ["tomato", "tamota", "tamatar", "tometo", "solanum lycopersicum", "ಟೊಮ್ಯಾಟೊ", "ಟೊಮೆಟೊ", "ಟೊಮೇಟೊ", "ಟೊಮ್ಯಾಟೊದ", "ಟೊಮ್ಯಾಟೊಗೆ", "ಟೊಮ್ಯಾಟೊಬೆಳೆ"],
-      "support_status": "supported",
-      "rag_supported": true,
-      "document_count": 1,
-      "topics": ["disease_management"],
-      "karnataka_relevance": "karnataka_specific",
-      "primary_districts": ["Kolar", "Chikkaballapura", "Bengaluru Rural", "Belagavi", "Haveri"],
-      "source_institutions": ["ICAR-Indian Institute of Horticultural Research (IIHR) Bengaluru"],
-      "tested": true
-    },
-    "brinjal": {
-      "canonical_name": "brinjal",
-      "category": "vegetable",
-      "english_names": ["brinjal", "eggplant", "aubergine"],
-      "kannada_names": ["ಬದನೆಕಾಯಿ"],
-      "aliases": ["brinjal", "eggplant", "aubergine", "badanekai", "solanum melongena", "ಬದನೆಕಾಯಿ", "ಬದನೆ ಕಾಯಿ", "ಬದನೆ", "ಬದನೆಯ", "ಬದನೆಗೆ", "ಬದನೆಕಾಯಿಯ", "ಬದನೆಕಾಯಿಗೆ", "ಬದನೆಬೆಳೆ"],
-      "support_status": "supported",
-      "rag_supported": true,
-      "document_count": 1,
-      "topics": ["pest_management"],
-      "karnataka_relevance": "karnataka_specific",
-      "primary_districts": ["Belagavi", "Dharwad", "Mysuru", "Kolar", "Hassan", "Mandya"],
-      "source_institutions": ["ICAR-Indian Institute of Horticultural Research (IIHR) Bengaluru"],
-      "tested": true
-    },
-    "cabbage": {
-      "canonical_name": "cabbage",
-      "category": "vegetable",
-      "english_names": ["cabbage"],
-      "kannada_names": ["ಎಲೆಕೋಸು"],
-      "aliases": ["cabbage", "elekosu", "brassica oleracea", "ಎಲೆಕೋಸು", "ಎಲೆ ಕೋಸು", "ಎಲೆಕೋಸಿನ", "ಎಲೆಕೋಸಿಗೆ", "ಕೋಸು"],
-      "support_status": "supported",
-      "rag_supported": true,
-      "document_count": 1,
-      "topics": ["pest_management"],
-      "karnataka_relevance": "karnataka_specific",
-      "primary_districts": ["Belagavi", "Kolar", "Hassan", "Chikkaballapura"],
-      "source_institutions": ["ICAR-Indian Institute of Horticultural Research (IIHR) Bengaluru"],
-      "tested": true
-    },
-    "bhendi": {
-      "canonical_name": "bhendi",
-      "category": "vegetable",
-      "english_names": ["bhendi", "okra", "ladyfinger", "lady finger"],
-      "kannada_names": ["ಬೆಂಡೆಕಾಯಿ"],
-      "aliases": ["bhendi", "okra", "ladyfinger", "lady finger", "bendekai", "abelmoschus esculentus", "ಬೆಂಡೆಕಾಯಿ", "ಬೆಂಡೆ ಕಾಯಿ", "ಬೆಂಡೆ", "ಬೆಂಡೆಯ", "ಬೆಂಡೆಗೆ", "ಬೆಂಡೆಕಾಯಿಯ", "ಬೆಂಡೆಕಾಯಿಗೆ", "ಬೆಂಡೆಬೆಳೆ"],
-      "support_status": "supported",
-      "rag_supported": true,
-      "document_count": 1,
-      "topics": ["pest_management"],
-      "karnataka_relevance": "karnataka_specific",
-      "primary_districts": ["Belagavi", "Kolar", "Bagalkot", "Haveri", "Mandya"],
-      "source_institutions": ["ICAR-Indian Institute of Horticultural Research (IIHR) Bengaluru"],
-      "tested": true
-    },
-    "banana": {
-      "canonical_name": "banana",
-      "category": "fruit",
-      "english_names": ["banana", "plantain"],
-      "kannada_names": ["ಬಾಳೆ"],
-      "aliases": ["banana", "plantain", "baale", "bale", "musa", "ಬಾಳೆ", "ಬಾಳೆಯ", "ಬಾಳೆಗೆ", "ಬಾಳೆಗಿಡ", "ಬಾಳೆಹಣ್ಣು", "ಬಾಳೆಬೆಳೆ", "ಬಾಳೆಯಲ್ಲಿ"],
-      "support_status": "supported",
-      "rag_supported": true,
-      "document_count": 2,
-      "topics": ["nutrient_deficiency", "disease_management"],
-      "karnataka_relevance": "karnataka_specific",
-      "primary_districts": ["Mandya", "Mysuru", "Chamarajanagar", "Davangere", "Shivamogga", "Tumakuru"],
-      "source_institutions": ["ICAR-National Research Centre for Banana (NRCB)", "UAS Bangalore"],
-      "tested": true
-    },
-    "mango": {
-      "canonical_name": "mango",
-      "category": "fruit",
-      "english_names": ["mango"],
-      "kannada_names": ["ಮಾವು"],
-      "aliases": ["mango", "maavu", "mavu", "mangifera indica", "ಮಾವು", "ಮಾವಿನ", "ಮಾವಿಗೆ", "ಮಾವಿನಮರ", "ಮಾವಿನಹಣ್ಣು", "ಮಾವುಬೆಳೆ", "ಮಾವಿನಲ್ಲಿ"],
-      "support_status": "supported",
-      "rag_supported": true,
-      "document_count": 1,
-      "topics": ["pest_management"],
-      "karnataka_relevance": "karnataka_specific",
-      "primary_districts": ["Kolar", "Chikkaballapura", "Ramanagara", "Dharwad", "Belagavi", "Tumakuru"],
-      "source_institutions": ["ICAR-Indian Institute of Horticultural Research (IIHR) Bengaluru"],
-      "tested": true
-    },
-    "pomegranate": {
-      "canonical_name": "pomegranate",
-      "category": "fruit",
-      "english_names": ["pomegranate"],
-      "kannada_names": ["ದಾಳಿಂಬೆ"],
-      "aliases": ["pomegranate", "dalimbe", "punica granatum", "ದಾಳಿಂಬೆ", "ದಾಳಿಂಬೆಯ", "ದಾಳಿಂಬೆಗೆ", "ದಾಳಿಂಬೆಗಿಡ", "ದಾಳಿಂಬೆಬೆಳೆ", "ದಾಳಿಂಬೆಯಲ್ಲಿ"],
-      "support_status": "supported",
-      "rag_supported": true,
-      "document_count": 1,
-      "topics": ["disease_management"],
-      "karnataka_relevance": "karnataka_specific",
-      "primary_districts": ["Koppal", "Vijayapura", "Bagalkot", "Chitradurga", "Ballari", "Tumakuru"],
-      "source_institutions": ["ICAR-National Research Centre on Pomegranate (NRCP)", "UAS Raichur"],
-      "tested": true
-    },
-    "grapes": {
-      "canonical_name": "grapes",
-      "category": "fruit",
-      "english_names": ["grapes", "grape"],
-      "kannada_names": ["ದ್ರಾಕ್ಷಿ"],
-      "aliases": ["grapes", "grape", "drakshi", "vitis vinifera", "ದ್ರಾಕ್ಷಿ", "ದ್ರಾಕ್ಷಿಯ", "ದ್ರಾಕ್ಷಿಗೆ", "ದ್ರಾಕ್ಷಿಬೆಳೆ", "ದ್ರಾಕ್ಷಿಹಣ್ಣು", "ದ್ರಾಕ್ಷಿಯಲ್ಲಿ"],
-      "support_status": "supported",
-      "rag_supported": true,
-      "document_count": 1,
-      "topics": ["disease_management"],
-      "karnataka_relevance": "karnataka_specific",
-      "primary_districts": ["Vijayapura", "Bengaluru Rural", "Chikkaballapura", "Bagalkot", "Kolar"],
-      "source_institutions": ["ICAR-National Research Centre for Grapes (NRCG)", "ICAR-IIHR Bengaluru"],
-      "tested": true
-    },
-    "papaya": {
-      "canonical_name": "papaya",
-      "category": "fruit",
-      "english_names": ["papaya", "pawpaw"],
-      "kannada_names": ["ಪಪ್ಪಾಯಿ"],
-      "aliases": ["papaya", "pawpaw", "pappayi", "carica papaya", "ಪಪ್ಪಾಯಿ", "ಪಪ್ಪಾಯಿಯ", "ಪಪ್ಪಾಯಿಗೆ", "ಪರಂಗಿ", "ಪರಂಗಿಹಣ್ಣು", "ಪಪ್ಪಾಯಿಬೆಳೆ"],
-      "support_status": "supported",
-      "rag_supported": true,
-      "document_count": 1,
-      "topics": ["disease_management"],
-      "karnataka_relevance": "karnataka_specific",
-      "primary_districts": ["Kolar", "Chitradurga", "Ballari", "Belagavi", "Tumakuru"],
-      "source_institutions": ["ICAR-Indian Institute of Horticultural Research (IIHR) Bengaluru"],
-      "tested": true
-    },
-    "lime": {
-      "canonical_name": "lime",
-      "category": "fruit",
-      "english_names": ["lime", "lemon", "acid lime", "sweet lime"],
-      "kannada_names": ["ನಿಂಬೆ"],
-      "aliases": ["lime", "lemon", "acid lime", "nimbe", "citrus aurantifolia", "ನಿಂಬೆ", "ನಿಂಬೆಯ", "ನಿಂಬೆಗೆ", "ನಿಂಬೆಗಿಡ", "ನಿಂಬೆಹಣ್ಣು", "ಲಿಂಬೆ", "ಲಿಂಬೆಹಣ್ಣು", "ನಿಂಬೆಬೆಳೆ"],
-      "support_status": "supported",
-      "rag_supported": true,
-      "document_count": 1,
-      "topics": ["disease_management"],
-      "karnataka_relevance": "karnataka_specific",
-      "primary_districts": ["Vijayapura", "Bagalkot", "Kalaburagi", "Raichur"],
-      "source_institutions": ["University of Horticultural Sciences (UHS), Bagalkot", "ICAR-CCRI"],
-      "tested": true
-    },
-    "arecanut": {
-      "canonical_name": "arecanut",
-      "category": "plantation",
-      "english_names": ["arecanut", "betel nut", "areca nut", "supari"],
-      "kannada_names": ["ಅಡಿಕೆ"],
-      "aliases": ["arecanut", "betel nut", "areca nut", "adike", "supari", "areca catechu", "ಅಡಿಕೆ", "ಅಡಿಕೆಯ", "ಅಡಿಕೆಗೆ", "ಅಡಿಕೆಮರ", "ಅಡಿಕೆತೋಟ", "ಅಡಿಕೆಬೆಳೆ", "ಅಡಿಕೆಯಲ್ಲಿ"],
-      "support_status": "supported",
-      "rag_supported": true,
-      "document_count": 2,
-      "topics": ["disease_management", "pest_management"],
-      "karnataka_relevance": "karnataka_specific",
-      "primary_districts": ["Shivamogga", "Chikkamagaluru", "Dakshina Kannada", "Uttara Kannada", "Tumakuru", "Davanagere"],
-      "source_institutions": ["ICAR-Central Plantation Crops Research Institute (CPCRI) Vittal", "UAS Bangalore"],
-      "tested": true
-    },
-    "coconut": {
-      "canonical_name": "coconut",
-      "category": "plantation",
-      "english_names": ["coconut", "coconut palm"],
-      "kannada_names": ["ತೆಂಗು"],
-      "aliases": ["coconut", "coconut palm", "tengu", "cocos nucifera", "ತೆಂಗು", "ತೆಂಗಿನ", "ತೆಂಗಿಗೆ", "ತೆಂಗಿನಮರ", "ತೆಂಗಿನತೋಟ", "ತೆಂಗುಬೆಳೆ", "ತೆಂಗಿನಲ್ಲಿ", "ಎಳನೀರು"],
-      "support_status": "supported",
-      "rag_supported": true,
-      "document_count": 1,
-      "topics": ["pest_management"],
-      "karnataka_relevance": "karnataka_specific",
-      "primary_districts": ["Tumakuru", "Hassan", "Mandya", "Mysuru", "Udupi", "Dakshina Kannada", "Chikmagalur"],
-      "source_institutions": ["ICAR-Central Plantation Crops Research Institute (CPCRI)", "UAS Bangalore"],
-      "tested": true
-    },
-    "coffee": {
-      "canonical_name": "coffee",
-      "category": "plantation",
-      "english_names": ["coffee", "arabica coffee", "robusta coffee"],
-      "kannada_names": ["ಕಾಫಿ"],
-      "aliases": ["coffee", "kaafi", "coffea", "ಕಾಫಿ", "ಕಾಫಿಯ", "ಕಾಫಿಗೆ", "ಕಾಫಿತೋಟ", "ಕಾಫಿಬೆಳೆ", "ಕಾಫಿಯಲ್ಲಿ"],
-      "support_status": "supported",
-      "rag_supported": true,
-      "document_count": 1,
-      "topics": ["disease_management"],
-      "karnataka_relevance": "karnataka_specific",
-      "primary_districts": ["Kodagu", "Chikkamagaluru", "Hassan"],
-      "source_institutions": ["Central Coffee Research Institute (CCRI), Coffee Board of India, Balehonnur"],
-      "tested": true
-    },
-    "cashew": {
-      "canonical_name": "cashew",
-      "category": "plantation",
-      "english_names": ["cashew", "cashewnut"],
-      "kannada_names": ["ಗೋಡಂಬಿ", "ಗೇರು"],
-      "aliases": ["cashew", "cashewnut", "godambi", "geru", "anacardium occidentale", "ಗೋಡಂಬಿ", "ಗೇರು", "ಗೇರುಮರ", "ಗೇರುಬೆಳೆ", "ಗೋಡಂಬಿಬೆಳೆ", "ಗೇರಿನ"],
-      "support_status": "supported",
-      "rag_supported": true,
-      "document_count": 1,
-      "topics": ["pest_management"],
-      "karnataka_relevance": "karnataka_specific",
-      "primary_districts": ["Dakshina Kannada", "Udupi", "Uttara Kannada", "Belagavi"],
-      "source_institutions": ["ICAR-Directorate of Cashew Research (DCR) Puttur"],
-      "tested": true
-    },
-    "jasmine": {
-      "canonical_name": "jasmine",
-      "category": "floriculture",
-      "english_names": ["jasmine", "mysore mallige", "udupi mallige"],
-      "kannada_names": ["ಮಲ್ಲಿಗೆ"],
-      "aliases": ["jasmine", "mallige", "jasminum", "ಮಲ್ಲಿಗೆ", "ಮಲ್ಲಿಗೆಯ", "ಮಲ್ಲಿಗೆಗೆ", "ಮಲ್ಲಿಗೆಗಿಡ", "ಮಲ್ಲಿಗೆಬೆಳೆ", "ಉಡುಪಿ ಮಲ್ಲಿಗೆ", "ಮೈಸೂರು ಮಲ್ಲಿಗೆ"],
-      "support_status": "supported",
-      "rag_supported": true,
-      "document_count": 1,
-      "topics": ["pest_management"],
-      "karnataka_relevance": "karnataka_specific",
-      "primary_districts": ["Mysuru", "Udupi", "Dakshina Kannada", "Mandya", "Bengaluru Rural"],
-      "source_institutions": ["ICAR-Indian Institute of Horticultural Research (IIHR) Bengaluru", "Department of Horticulture, Karnataka"],
-      "tested": true
-    },
-    "marigold": {
-      "canonical_name": "marigold",
-      "category": "floriculture",
-      "english_names": ["marigold", "african marigold"],
-      "kannada_names": ["ಚೆಂಡುಹೂ"],
-      "aliases": ["marigold", "chendu hoovu", "tagetes", "ಚೆಂಡುಹೂ", "ಚೆಂಡು ಹೂ", "ಚೆಂಡುಹೂವಿನ", "ಚೆಂಡುಹೂವಿಗೆ", "ಚೆಂಡುಹೂಬೆಳೆ"],
-      "support_status": "supported",
-      "rag_supported": true,
-      "document_count": 1,
-      "topics": ["disease_management"],
-      "karnataka_relevance": "karnataka_specific",
-      "primary_districts": ["Haveri", "Davanagere", "Belagavi", "Kolar", "Mysuru"],
-      "source_institutions": ["ICAR-Indian Institute of Horticultural Research (IIHR) Bengaluru"],
-      "tested": true
-    },
-    "vanilla": {
-      "canonical_name": "vanilla",
-      "category": "spice",
-      "english_names": ["vanilla"],
-      "kannada_names": ["ವೆನಿಲ್ಲಾ"],
-      "aliases": ["vanilla", "vanilla planifolia", "ವೆನಿಲ್ಲಾ", "ವ್ಯಾನಿಲ್ಲಾ", "ವೆನಿಲ್ಲಾದ", "ವೆನಿಲ್ಲಾಗೆ", "ವೆನಿಲ್ಲಾಬೆಳೆ"],
-      "support_status": "recognized_not_supported",
-      "rag_supported": false,
-      "document_count": 0,
-      "topics": [],
-      "karnataka_relevance": "region_specific",
-      "primary_districts": ["Shivamogga", "Uttara Kannada", "Dakshina Kannada"],
-      "source_institutions": [],
-      "tested": true
-    },
-    "saffron": {
-      "canonical_name": "saffron",
-      "category": "medicinal",
-      "english_names": ["saffron", "kesar"],
-      "kannada_names": ["ಕೇಸರಿ"],
-      "aliases": ["saffron", "kesar", "crocus sativus", "ಕೇಸರಿ", "ಕೇಸರಿಯ", "ಕೇಸರಿಗೆ", "ಕುಂಕುಮಕೇಸರಿ"],
-      "support_status": "recognized_not_supported",
-      "rag_supported": false,
-      "document_count": 0,
-      "topics": [],
-      "karnataka_relevance": "non_native",
-      "primary_districts": [],
-      "source_institutions": [],
+      "topics": [
+        "disease_management",
+        "drought_resistance"
+      ],
+      "karnataka_suitability": "KARNATAKA_RELEVANT",
+      "primary_districts": [
+        "Koppal",
+        "Raichur",
+        "Vijayapura",
+        "Bagalkot",
+        "Ballari"
+      ],
+      "source_institutions": [
+        "ICAR-AICRP on Pearl Millet",
+        "UAS Raichur"
+      ],
+      "agro_climatic_details": {
+        "soil_requirements": "Light textured sandy loam and shallow red/black soils.",
+        "rainfall_range_mm": "350-600 mm",
+        "temperature_range_c": "28-38°C",
+        "suitability_notes_kn": "ಕಡಿಮೆ ಮಳೆಯಾಗುವ ಉತ್ತರ ಒಣವಲಯಕ್ಕೆ ಅತ್ಯಂತ ಸೂಕ್ತವಾದ ಧಾನ್ಯ ಬೆಳೆ."
+      },
       "tested": true
     },
     "wheat": {
       "canonical_name": "wheat",
       "category": "cereal",
-      "english_names": ["wheat"],
-      "kannada_names": ["ಗೋಧಿ"],
-      "aliases": ["wheat", "godhi", "triticum", "ಗೋಧಿ", "ಗೋಧಿಯ", "ಗೋಧಿಗೆ", "ಗೋಧಿಬೆಳೆ"],
+      "english_names": [
+        "wheat"
+      ],
+      "kannada_names": [
+        "ಗೋಧಿ"
+      ],
+      "aliases": [
+        "wheat",
+        "godhi",
+        "triticum aestivum",
+        "triticum durum",
+        "ಗೋಧಿಯ",
+        "ಗೋಧಿಗೆ",
+        "ಗೋಧಿಬೆಳೆ",
+        "ಗೋಧಿಯಲ್ಲಿ",
+        "ಗೋಧಿ"
+      ],
       "support_status": "recognized_not_supported",
       "rag_supported": false,
       "document_count": 0,
       "topics": [],
-      "karnataka_relevance": "karnataka_specific",
-      "primary_districts": ["Belagavi", "Dharwad", "Vijayapura", "Bagalkot"],
-      "source_institutions": [],
+      "karnataka_suitability": "KARNATAKA_CONDITIONALLY_SUITABLE",
+      "primary_districts": [
+        "Dharwad",
+        "Belagavi",
+        "Bagalkot",
+        "Vijayapura",
+        "Gadag"
+      ],
+      "source_institutions": [
+        "UAS Dharwad Wheat Research Scheme",
+        "ICAR-IIWBR Karnal"
+      ],
+      "agro_climatic_details": {
+        "soil_requirements": "Deep black soils with high moisture retention.",
+        "temperature_range_c": "15-25°C during Rabi",
+        "suitability_notes_kn": "ಉತ್ತರ ಕರ್ನಾಟಕದಲ್ಲಿ ಹಿಂಗಾರು ಹಂಗಾಮಿನಲ್ಲಿ ಡಿಕೊಕ್ಕಂ ಮತ್ತು ಡ್ಯೂರಾಮ್ ಗೋಧಿ ಸೀಮಿತವಾಗಿ ಬೆಳೆಯಲಾಗುತ್ತದೆ."
+      },
+      "tested": true
+    },
+    "barley": {
+      "canonical_name": "barley",
+      "category": "cereal",
+      "english_names": [
+        "barley"
+      ],
+      "kannada_names": [
+        "ಬಾರ್ಲಿ"
+      ],
+      "aliases": [
+        "barley",
+        "hordeum vulgare",
+        "ಬಾರ್ಲಿಯ",
+        "ಬಾರ್ಲಿಗೆ",
+        "ಬಾರ್ಲಿ"
+      ],
+      "support_status": "recognized_not_supported",
+      "rag_supported": false,
+      "document_count": 0,
+      "topics": [],
+      "karnataka_suitability": "KARNATAKA_LIMITED",
+      "primary_districts": [
+        "Dharwad",
+        "Belagavi"
+      ],
+      "source_institutions": [
+        "ICAR-IIWBR"
+      ],
+      "agro_climatic_details": {
+        "suitability_notes_kn": "ಕರ್ನಾಟಕದಲ್ಲಿ ಅತ್ಯಂತ ಸೀಮಿತ ಪ್ರಮಾಣದಲ್ಲಿ ಪ್ರಾಯೋಗಿಕವಾಗಿ ಬೆಳೆಯಲಾಗುತ್ತದೆ."
+      },
+      "tested": true
+    },
+    "oats": {
+      "canonical_name": "oats",
+      "category": "cereal",
+      "english_names": [
+        "oats"
+      ],
+      "kannada_names": [
+        "ಓಟ್ಸ್"
+      ],
+      "aliases": [
+        "oats",
+        "oat",
+        "avena sativa",
+        "ಓಟ್ಸ್ ಬೆಳೆ",
+        "ಓಟ್ಸ್"
+      ],
+      "support_status": "recognized_not_supported",
+      "rag_supported": false,
+      "document_count": 0,
+      "topics": [],
+      "karnataka_suitability": "KARNATAKA_LIMITED",
+      "primary_districts": [
+        "Bengaluru Rural",
+        "Kolar"
+      ],
+      "source_institutions": [
+        "ICAR-IGFRI"
+      ],
+      "agro_climatic_details": {
+        "suitability_notes_kn": "ಕರ್ನಾಟಕದಲ್ಲಿ ಪ್ರಮುಖವಾಗಿ ಹಸಿರು ಮೇವಿನ ಬೆಳೆಯಾಗಿ ಸೀಮಿತವಾಗಿ ಬೆಳೆಯಲಾಗುತ್ತದೆ."
+      },
+      "tested": true
+    },
+    "ragi": {
+      "canonical_name": "ragi",
+      "category": "millet",
+      "english_names": [
+        "ragi",
+        "finger millet",
+        "fingermillet"
+      ],
+      "kannada_names": [
+        "ರಾಗಿ"
+      ],
+      "aliases": [
+        "ragi",
+        "finger millet",
+        "fingermillet",
+        "mandua",
+        "eleusine coracana",
+        "ರಾಗಿಯ",
+        "ರಾಗಿಗೆ",
+        "ರಾಗಿಬೆಳೆ",
+        "ರಾಗಿಯಲ್ಲಿನ",
+        "ರಾಗಿಯಲ್ಲಿ",
+        "ರಾಗಿ"
+      ],
+      "support_status": "supported",
+      "rag_supported": true,
+      "document_count": 4,
+      "topics": [
+        "water_stress",
+        "disease_management",
+        "nutrient_management"
+      ],
+      "karnataka_suitability": "KARNATAKA_RELEVANT",
+      "primary_districts": [
+        "Mandya",
+        "Mysuru",
+        "Tumakuru",
+        "Hassan",
+        "Kolar",
+        "Chikkaballapura",
+        "Ramanagara",
+        "Bengaluru Rural"
+      ],
+      "source_institutions": [
+        "University of Agricultural Sciences (UAS), Bangalore",
+        "ICAR-AICRP on Small Millets Bengaluru"
+      ],
+      "agro_climatic_details": {
+        "soil_requirements": "Red sandy loam, lateritic and light black soils.",
+        "rainfall_range_mm": "500-900 mm",
+        "temperature_range_c": "20-32°C",
+        "suitability_notes_kn": "ದಕ್ಷಿಣ ಕರ್ನಾಟಕದ ಮುಖ್ಯ ಸಾಂಪ್ರದಾಯಿಕ ಪೌಷ್ಟಿಕ ಆಹಾರ ಬೆಳೆ."
+      },
       "tested": true
     },
     "foxtail_millet": {
       "canonical_name": "foxtail_millet",
       "category": "millet",
-      "english_names": ["foxtail millet", "italian millet", "navane"],
-      "kannada_names": ["ನವಣೆ"],
-      "aliases": ["foxtail millet", "navane", "setaria italica", "ನವಣೆ", "ನವಣೆಯ", "ನವಣೆಗೆ", "ನವಣೆಬೆಳೆ"],
+      "english_names": [
+        "foxtail millet",
+        "italian millet"
+      ],
+      "kannada_names": [
+        "ನವಣೆ"
+      ],
+      "aliases": [
+        "foxtail millet",
+        "italian millet",
+        "navane",
+        "navani",
+        "setaria italica",
+        "ನವಣೆಯ",
+        "ನವಣೆಗೆ",
+        "ನವಣೆಬೆಳೆ",
+        "ನವಣೆಯಲ್ಲಿ",
+        "ನವಣೆ",
+        "foxtail_millet"
+      ],
       "support_status": "recognized_not_supported",
       "rag_supported": false,
       "document_count": 0,
       "topics": [],
-      "karnataka_relevance": "karnataka_specific",
-      "primary_districts": ["Ballari", "Koppal", "Raichur", "Chitradurga"],
-      "source_institutions": [],
+      "karnataka_suitability": "KARNATAKA_RELEVANT",
+      "primary_districts": [
+        "Ballari",
+        "Koppal",
+        "Raichur",
+        "Chitradurga",
+        "Haveri"
+      ],
+      "source_institutions": [
+        "UAS Raichur",
+        "ICAR-IIMR"
+      ],
+      "agro_climatic_details": {
+        "suitability_notes_kn": "ಕರ್ನಾಟಕದ ಒಣವಲಯಗಳಲ್ಲಿ ಜನಪ್ರಿಯ ಕಿರುಧಾನ್ಯ ಬೆಳೆ."
+      },
       "tested": true
     },
     "little_millet": {
       "canonical_name": "little_millet",
       "category": "millet",
-      "english_names": ["little millet", "same"],
-      "kannada_names": ["ಸಾಮೆ"],
-      "aliases": ["little millet", "same", "panicum sumatrense", "ಸಾಮೆ", "ಸಾಮೆಯ", "ಸಾಮೆಗೆ", "ಸಾಮೆಬೆಳೆ"],
+      "english_names": [
+        "little millet"
+      ],
+      "kannada_names": [
+        "ಸಾಮೆ"
+      ],
+      "aliases": [
+        "little millet",
+        "saame",
+        "same",
+        "panicum sumatrense",
+        "ಸಾಮೆಯ",
+        "ಸಾಮೆಗೆ",
+        "ಸಾಮೆಬೆಳೆ",
+        "ಸಾಮೆಯಲ್ಲಿ",
+        "ಸಾಮೆ",
+        "little_millet"
+      ],
       "support_status": "recognized_not_supported",
       "rag_supported": false,
       "document_count": 0,
       "topics": [],
-      "karnataka_relevance": "karnataka_specific",
-      "primary_districts": ["Chitradurga", "Haveri", "Tumakuru"],
-      "source_institutions": [],
+      "karnataka_suitability": "KARNATAKA_RELEVANT",
+      "primary_districts": [
+        "Haveri",
+        "Shivamogga",
+        "Tumakuru",
+        "Chitradurga"
+      ],
+      "source_institutions": [
+        "UAS Dharwad",
+        "UAS Bangalore"
+      ],
+      "agro_climatic_details": {
+        "suitability_notes_kn": "ಮಳೆಯಾಶ್ರಿತ ಹಗುರ ಮಣ್ಣಿನಲ್ಲಿ ಉತ್ತಮ ಇಳುವರಿ ನೀಡುವ ಸಿರಿಧಾನ್ಯ."
+      },
       "tested": true
     },
     "kodo_millet": {
       "canonical_name": "kodo_millet",
       "category": "millet",
-      "english_names": ["kodo millet", "haraka"],
-      "kannada_names": ["ಹಾರಕ"],
-      "aliases": ["kodo millet", "haraka", "paspalum scrobiculatum", "ಹಾರಕ", "ಹಾರಕದ", "ಹಾರಕಕ್ಕೆ", "ಹಾರಕಬೆಳೆ"],
+      "english_names": [
+        "kodo millet"
+      ],
+      "kannada_names": [
+        "ಹಾರಕ"
+      ],
+      "aliases": [
+        "kodo millet",
+        "haaraka",
+        "haraka",
+        "paspalum scrobiculatum",
+        "ಹಾರಕದ",
+        "ಹಾರಕಕ್ಕೆ",
+        "ಹಾರಕಬೆಳೆ",
+        "ಹಾರಕ",
+        "kodo_millet"
+      ],
       "support_status": "recognized_not_supported",
       "rag_supported": false,
       "document_count": 0,
       "topics": [],
-      "karnataka_relevance": "karnataka_specific",
-      "primary_districts": ["Chitradurga", "Tumakuru"],
-      "source_institutions": [],
+      "karnataka_suitability": "KARNATAKA_RELEVANT",
+      "primary_districts": [
+        "Chitradurga",
+        "Tumakuru",
+        "Ballari",
+        "Hassan"
+      ],
+      "source_institutions": [
+        "UAS Bangalore",
+        "ICAR-IIMR"
+      ],
+      "agro_climatic_details": {
+        "suitability_notes_kn": "ಬರ ನಿರೋಧಕ ಶಕ್ತಿಯುಳ್ಳ ಸಾಂಪ್ರದಾಯಿಕ ಸಿರಿಧಾನ್ಯ ಬೆಳೆ."
+      },
+      "tested": true
+    },
+    "barnyard_millet": {
+      "canonical_name": "barnyard_millet",
+      "category": "millet",
+      "english_names": [
+        "barnyard millet"
+      ],
+      "kannada_names": [
+        "ಊದಲು"
+      ],
+      "aliases": [
+        "barnyard millet",
+        "oodalu",
+        "udalu",
+        "echinochloa frumentacea",
+        "ಊದಲಿನ",
+        "ಊದಲಿಗೆ",
+        "ಊದಲುಬೆಳೆ",
+        "ಊದಲು",
+        "barnyard_millet"
+      ],
+      "support_status": "recognized_not_supported",
+      "rag_supported": false,
+      "document_count": 0,
+      "topics": [],
+      "karnataka_suitability": "KARNATAKA_RELEVANT",
+      "primary_districts": [
+        "Shivamogga",
+        "Chikmagalur",
+        "Hassan"
+      ],
+      "source_institutions": [
+        "UAS Bangalore",
+        "UAS Dharwad"
+      ],
+      "agro_climatic_details": {
+        "suitability_notes_kn": "ಅತಿ ವೇಗವಾಗಿ ಬೆಳೆಯುವ ಸಿರಿಧಾನ್ಯ ಬೆಳೆ."
+      },
+      "tested": true
+    },
+    "proso_millet": {
+      "canonical_name": "proso_millet",
+      "category": "millet",
+      "english_names": [
+        "proso millet",
+        "common millet"
+      ],
+      "kannada_names": [
+        "ಬರಗು"
+      ],
+      "aliases": [
+        "proso millet",
+        "common millet",
+        "baragu",
+        "panicum miliaceum",
+        "ಬರಗಿನ",
+        "ಬರಗಿಗೆ",
+        "ಬರಗುಬೆಳೆ",
+        "ಬರಗು",
+        "proso_millet"
+      ],
+      "support_status": "recognized_not_supported",
+      "rag_supported": false,
+      "document_count": 0,
+      "topics": [],
+      "karnataka_suitability": "KARNATAKA_RELEVANT",
+      "primary_districts": [
+        "Ballari",
+        "Koppal",
+        "Raichur"
+      ],
+      "source_institutions": [
+        "UAS Raichur"
+      ],
+      "agro_climatic_details": {
+        "suitability_notes_kn": "ಅಲ್ಪಾವಧಿ ಒಣಭೂಮಿ ಧಾನ್ಯ ಬೆಳೆ."
+      },
+      "tested": true
+    },
+    "browntop_millet": {
+      "canonical_name": "browntop_millet",
+      "category": "millet",
+      "english_names": [
+        "browntop millet"
+      ],
+      "kannada_names": [
+        "ಕೊರಲೆ"
+      ],
+      "aliases": [
+        "browntop millet",
+        "korale",
+        "brachiaria ramosa",
+        "ಕೊರಲೆಯ",
+        "ಕೊರಲೆಗೆ",
+        "ಕೊರಲೆಬೆಳೆ",
+        "ಕೊರಲೆ",
+        "browntop_millet"
+      ],
+      "support_status": "recognized_not_supported",
+      "rag_supported": false,
+      "document_count": 0,
+      "topics": [],
+      "karnataka_suitability": "KARNATAKA_RELEVANT",
+      "primary_districts": [
+        "Tumakuru",
+        "Chitradurga",
+        "Chikkaballapura"
+      ],
+      "source_institutions": [
+        "UAS Bangalore"
+      ],
+      "agro_climatic_details": {
+        "suitability_notes_kn": "ತುಮಕೂರು ಮತ್ತು ಚಿತ್ರದುರ್ಗ ಭಾಗಗಳಲ್ಲಿ ಜನಪ್ರಿಯವಾಗಿರುವ ಅಪರೂಪದ ಸಿರಿಧಾನ್ಯ."
+      },
+      "tested": true
+    },
+    "red_gram": {
+      "canonical_name": "red_gram",
+      "category": "pulse",
+      "english_names": [
+        "red gram",
+        "pigeon pea",
+        "pigeonpea",
+        "tur",
+        "arhar"
+      ],
+      "kannada_names": [
+        "ತೊಗರಿ",
+        "ತೊಗರಿಕಾಳು"
+      ],
+      "aliases": [
+        "red gram",
+        "pigeon pea",
+        "pigeonpea",
+        "tur",
+        "arhar",
+        "togari",
+        "cajanus cajan",
+        "ತೊಗರಿಯ",
+        "ತೊಗರಿಗೆ",
+        "ತೊಗರಿಬೆಳೆ",
+        "ತೊಗರಿ ಬೆಳೆಯಲ್ಲಿ",
+        "ತೊಗರಿಕಾಳು",
+        "ತೊಗರಿ",
+        "red_gram"
+      ],
+      "support_status": "supported",
+      "rag_supported": true,
+      "document_count": 2,
+      "topics": [
+        "pest_management",
+        "wilt_disease"
+      ],
+      "karnataka_suitability": "KARNATAKA_RELEVANT",
+      "primary_districts": [
+        "Kalaburagi",
+        "Bidar",
+        "Yadgir",
+        "Raichur",
+        "Vijayapura"
+      ],
+      "source_institutions": [
+        "ICAR-Indian Institute of Pulses Research (IIPR)",
+        "UAS Raichur (Kalaburagi ZARS)"
+      ],
+      "agro_climatic_details": {
+        "soil_requirements": "Deep well-drained black clay soils and medium loams.",
+        "rainfall_range_mm": "600-900 mm",
+        "temperature_range_c": "20-35°C",
+        "suitability_notes_kn": "ಕಲಬುರಗಿಯು ಕರ್ನಾಟಕದ 'ತೊಗರಿ ಕಣಜ' ಎಂದೇ ಪ್ರಸಿದ್ಧವಾಗಿದೆ (GI Tag)."
+      },
+      "tested": true
+    },
+    "bengal_gram": {
+      "canonical_name": "bengal_gram",
+      "category": "pulse",
+      "english_names": [
+        "bengal gram",
+        "chickpea",
+        "gram",
+        "chana"
+      ],
+      "kannada_names": [
+        "ಕಡಲೆ"
+      ],
+      "aliases": [
+        "bengal gram",
+        "chickpea",
+        "chana",
+        "kadale",
+        "cicer arietinum",
+        "ಕಡಲೆಯ",
+        "ಕಡಲೆಗೆ",
+        "ಕಡಲೆಬೆಳೆ",
+        "ಕಡಲೆಯಲ್ಲಿ",
+        "gram",
+        "ಕಡಲೆ",
+        "bengal_gram"
+      ],
+      "support_status": "supported",
+      "rag_supported": true,
+      "document_count": 1,
+      "topics": [
+        "wilt_management",
+        "pod_borer"
+      ],
+      "karnataka_suitability": "KARNATAKA_RELEVANT",
+      "primary_districts": [
+        "Vijayapura",
+        "Dharwad",
+        "Gadag",
+        "Kalaburagi",
+        "Bagalkot"
+      ],
+      "source_institutions": [
+        "UAS Dharwad",
+        "ICAR-IIPR Kanpur"
+      ],
+      "agro_climatic_details": {
+        "soil_requirements": "Deep black soils with good moisture holding capacity during Rabi.",
+        "rainfall_range_mm": "Residual soil moisture / 400-600 mm",
+        "temperature_range_c": "15-28°C",
+        "suitability_notes_kn": "ಉತ್ತರ ಕರ್ನಾಟಕದ ಪ್ರಮುಖ ಹಿಂಗಾರು ದ್ವಿದಳ ಧಾನ್ಯ ಬೆಳೆ."
+      },
+      "tested": true
+    },
+    "green_gram": {
+      "canonical_name": "green_gram",
+      "category": "pulse",
+      "english_names": [
+        "green gram",
+        "moong",
+        "mung bean"
+      ],
+      "kannada_names": [
+        "ಹೆಸರು",
+        "ಹೆಸರುಕಾಳು"
+      ],
+      "aliases": [
+        "green gram",
+        "moong",
+        "mung bean",
+        "hesaru",
+        "vigna radiata",
+        "ಹೆಸರಿನ",
+        "ಹೆಸರಿಗೆ",
+        "ಹೆಸರುಬೆಳೆ",
+        "ಹೆಸರುಕಾಳು",
+        "ಹೆಸರು",
+        "green_gram"
+      ],
+      "support_status": "supported",
+      "rag_supported": true,
+      "document_count": 1,
+      "topics": [
+        "disease_management",
+        "pest_management"
+      ],
+      "karnataka_suitability": "KARNATAKA_RELEVANT",
+      "primary_districts": [
+        "Gadag",
+        "Dharwad",
+        "Belagavi",
+        "Haveri",
+        "Kalaburagi"
+      ],
+      "source_institutions": [
+        "UAS Dharwad",
+        "KSDA"
+      ],
+      "agro_climatic_details": {
+        "soil_requirements": "Well-drained medium black and red sandy loams.",
+        "rainfall_range_mm": "500-750 mm",
+        "temperature_range_c": "25-35°C",
+        "suitability_notes_kn": "ಮುಂಗಾರು ಹಂಗಾಮಿನ ಅಲ್ಪಾವಧಿ ದ್ವಿದಳ ಧಾನ್ಯ ಬೆಳೆ."
+      },
+      "tested": true
+    },
+    "black_gram": {
+      "canonical_name": "black_gram",
+      "category": "pulse",
+      "english_names": [
+        "black gram",
+        "urad",
+        "urad bean"
+      ],
+      "kannada_names": [
+        "ಉದ್ದು",
+        "ಉದ್ದಿನಕಾಳು"
+      ],
+      "aliases": [
+        "black gram",
+        "urad",
+        "urad bean",
+        "uddu",
+        "vigna mungo",
+        "ಉದ್ದಿನ",
+        "ಉದ್ದಿಗೆ",
+        "ಉದ್ದುಬೆಳೆ",
+        "ಉದ್ದಿನಕಾಳು",
+        "ಉದ್ದು",
+        "black_gram"
+      ],
+      "support_status": "supported",
+      "rag_supported": true,
+      "document_count": 1,
+      "topics": [
+        "yellow_mosaic",
+        "pest_management"
+      ],
+      "karnataka_suitability": "KARNATAKA_RELEVANT",
+      "primary_districts": [
+        "Bidar",
+        "Kalaburagi",
+        "Mysuru",
+        "Chamarajanagar"
+      ],
+      "source_institutions": [
+        "ICAR-IIPR",
+        "UAS Raichur"
+      ],
+      "agro_climatic_details": {
+        "soil_requirements": "Medium black soils and fertile red loams.",
+        "rainfall_range_mm": "600-800 mm",
+        "temperature_range_c": "25-35°C",
+        "suitability_notes_kn": "ಬೀದರ್ ಮತ್ತು ಕಲ್ಯಾಣ ಕರ್ನಾಟಕದಲ್ಲಿ ಪ್ರಮುಖ ದ್ವಿದಳ ಬೆಳೆ."
+      },
       "tested": true
     },
     "cowpea": {
       "canonical_name": "cowpea",
       "category": "pulse",
-      "english_names": ["cowpea", "black eyed pea", "lobia"],
-      "kannada_names": ["ಅಲಸಂದೆ"],
-      "aliases": ["cowpea", "black eyed pea", "lobia", "alasande", "vigna unguiculata", "ಅಲಸಂದೆ", "ಅಲಸಂದೆಯ", "ಅಲಸಂದೆಗೆ", "ಅಲಸಂದಿ"],
+      "english_names": [
+        "cowpea",
+        "black-eyed pea",
+        "lobia"
+      ],
+      "kannada_names": [
+        "ಅಲಸಂದೆ",
+        "ತಡಗಣಿ"
+      ],
+      "aliases": [
+        "cowpea",
+        "black-eyed pea",
+        "lobia",
+        "alasande",
+        "vigna unguiculata",
+        "ಅಲಸಂದೆಯ",
+        "ಅಲಸಂದೆಗೆ",
+        "ಅಲಸಂದೆಬೆಳೆ",
+        "ಅಲಸಂದೆ",
+        "ತಡಗಣಿ"
+      ],
       "support_status": "recognized_not_supported",
       "rag_supported": false,
       "document_count": 0,
       "topics": [],
-      "karnataka_relevance": "karnataka_specific",
-      "primary_districts": ["Mandya", "Mysuru", "Hassan", "Tumakuru"],
-      "source_institutions": [],
+      "karnataka_suitability": "KARNATAKA_RELEVANT",
+      "primary_districts": [
+        "Mandya",
+        "Mysuru",
+        "Hassan",
+        "Tumakuru"
+      ],
+      "source_institutions": [
+        "UAS Bangalore"
+      ],
+      "agro_climatic_details": {
+        "suitability_notes_kn": "ದಕ್ಷಿಣ ಕರ್ನಾಟಕದಲ್ಲಿ ಆಹಾರ ಮತ್ತು ಹಸಿರೆಲೆ ಗೊಬ್ಬರ ಬೆಳೆಯಾಗಿ ವ್ಯಾಪಕವಾಗಿ ಬೆಳೆಯಲಾಗುತ್ತದೆ."
+      },
       "tested": true
     },
     "field_bean": {
       "canonical_name": "field_bean",
       "category": "pulse",
-      "english_names": ["field bean", "hyacinth bean", "avare"],
-      "kannada_names": ["ಅವರೆ"],
-      "aliases": ["field bean", "hyacinth bean", "avare", "avarekalu", "lablab purpureus", "ಅವರೆ", "ಅವರೆಯ", "ಅವರೆಗೆ", "ಅವರೇಕಾಳು", "ಅವರೆ ಕಾಳು", "ಅವರೆಬೆಳೆ"],
+      "english_names": [
+        "field bean",
+        "hyacinth bean",
+        "lablab"
+      ],
+      "kannada_names": [
+        "ಅವರೆ",
+        "ಅವರೆಕಾಳು"
+      ],
+      "aliases": [
+        "field bean",
+        "hyacinth bean",
+        "lablab",
+        "avare",
+        "avarekalu",
+        "lablab purpureus",
+        "ಅವರೆಯ",
+        "ಅವರೆಗೆ",
+        "ಅವರೆಬೆಳೆ",
+        "ಅವರೆಕಾಳು",
+        "ಅವರೆ",
+        "field_bean"
+      ],
       "support_status": "recognized_not_supported",
       "rag_supported": false,
       "document_count": 0,
       "topics": [],
-      "karnataka_relevance": "karnataka_specific",
-      "primary_districts": ["Bengaluru Rural", "Ramanagara", "Kolar", "Chikkaballapura", "Tumakuru"],
-      "source_institutions": [],
+      "karnataka_suitability": "KARNATAKA_RELEVANT",
+      "primary_districts": [
+        "Kolar",
+        "Chikkaballapura",
+        "Bengaluru Rural",
+        "Ramanagara",
+        "Tumakuru"
+      ],
+      "source_institutions": [
+        "UAS Bangalore"
+      ],
+      "agro_climatic_details": {
+        "suitability_notes_kn": "ದಕ್ಷಿಣ ಕರ್ನಾಟಕದ ಅತ್ಯಂತ ಜನಪ್ರಿಯ ಸಾಂಪ್ರದಾಯಿಕ ಹಿಂಗಾರು ದ್ವಿದಳ ಬೆಳೆ."
+      },
       "tested": true
     },
     "horse_gram": {
       "canonical_name": "horse_gram",
       "category": "pulse",
-      "english_names": ["horse gram", "kulthi"],
-      "kannada_names": ["ಹುರಳಿ"],
-      "aliases": ["horse gram", "horsegram", "kulthi", "hurali", "macrotyloma uniflorum", "ಹುರಳಿ", "ಹುರಳಿಯ", "ಹುರಳಿಗೆ", "ಹುರುಳಿ", "ಹುರಳಿ ಕಾಳು"],
+      "english_names": [
+        "horse gram",
+        "kulthi"
+      ],
+      "kannada_names": [
+        "ಹುರಳಿ",
+        "ಹುರುಳಿ"
+      ],
+      "aliases": [
+        "horse gram",
+        "kulthi",
+        "hurali",
+        "huruli",
+        "macrotyloma uniflorum",
+        "ಹುರಳಿಯ",
+        "ಹುರುಳಿಯ",
+        "ಹುರಳಿಗೆ",
+        "ಹುರಳಿಬೆಳೆ",
+        "ಹುರಳಿ",
+        "ಹುರುಳಿ",
+        "horse_gram"
+      ],
       "support_status": "recognized_not_supported",
       "rag_supported": false,
       "document_count": 0,
       "topics": [],
-      "karnataka_relevance": "karnataka_specific",
-      "primary_districts": ["Tumakuru", "Mandya", "Mysuru", "Hassan", "Chamarajanagar"],
-      "source_institutions": [],
+      "karnataka_suitability": "KARNATAKA_RELEVANT",
+      "primary_districts": [
+        "Tumakuru",
+        "Mandya",
+        "Mysuru",
+        "Chitradurga",
+        "Kolar"
+      ],
+      "source_institutions": [
+        "UAS Bangalore"
+      ],
+      "agro_climatic_details": {
+        "suitability_notes_kn": "ತೀವ್ರ ಮಳೆ ಕೊರತೆಯ ಸಂದರ್ಭದಲ್ಲಿ ಹಿಂಗಾರಿನಲ್ಲಿ ಬೆಳೆಯುವ ಅತ್ಯುತ್ತಮ ಬರ ನಿರೋಧಕ ಬೆಳೆ."
+      },
+      "tested": true
+    },
+    "peas": {
+      "canonical_name": "peas",
+      "category": "pulse",
+      "english_names": [
+        "peas",
+        "garden pea",
+        "dry pea"
+      ],
+      "kannada_names": [
+        "ಬಟಾಣಿ"
+      ],
+      "aliases": [
+        "peas",
+        "garden pea",
+        "dry pea",
+        "batani",
+        "pisum sativum",
+        "ಬಟಾಣಿಯ",
+        "ಬಟಾಣಿಗೆ",
+        "ಬಟಾಣಿಬೆಳೆ",
+        "ಬಟಾಣಿ"
+      ],
+      "support_status": "recognized_not_supported",
+      "rag_supported": false,
+      "document_count": 0,
+      "topics": [],
+      "karnataka_suitability": "KARNATAKA_CONDITIONALLY_SUITABLE",
+      "primary_districts": [
+        "Chikkamagaluru",
+        "Hassan",
+        "Belagavi",
+        "Kolar"
+      ],
+      "source_institutions": [
+        "ICAR-IIHR",
+        "UAS Bangalore"
+      ],
+      "agro_climatic_details": {
+        "suitability_notes_kn": "ಚಳಿಗಾಲದಲ್ಲಿ ತಂಪಾದ ವಾತಾವರಣವಿರುವ ಪ್ರದೇಶಗಳಲ್ಲಿ ಯಶಸ್ವಿಯಾಗಿ ಬೆಳೆಯಬಹುದು."
+      },
+      "tested": true
+    },
+    "lentil": {
+      "canonical_name": "lentil",
+      "category": "pulse",
+      "english_names": [
+        "lentil",
+        "masoor"
+      ],
+      "kannada_names": [
+        "ಮಸೂರ್",
+        "ಮಸೂರ"
+      ],
+      "aliases": [
+        "lentil",
+        "masoor",
+        "masur",
+        "lens culinaris",
+        "ಮಸೂರ ಬೇಳೆ",
+        "ಮಸೂರ್",
+        "ಮಸೂರ"
+      ],
+      "support_status": "recognized_not_supported",
+      "rag_supported": false,
+      "document_count": 0,
+      "topics": [],
+      "karnataka_suitability": "KARNATAKA_LIMITED",
+      "primary_districts": [
+        "Bidar",
+        "Kalaburagi"
+      ],
+      "source_institutions": [
+        "ICAR-IIPR"
+      ],
+      "agro_climatic_details": {
+        "suitability_notes_kn": "ಕರ್ನಾಟಕದಲ್ಲಿ ಪ್ರಮುಖ ಬೆಳೆಯಲ್ಲ; ಉತ್ತರ ಕರ್ನಾಟಕದ ಸೀಮಿತ ಭಾಗಗಳಲ್ಲಿ ಮಾತ್ರ ಕಂಡುಬರುತ್ತದೆ."
+      },
+      "tested": true
+    },
+    "moth_bean": {
+      "canonical_name": "moth_bean",
+      "category": "pulse",
+      "english_names": [
+        "moth bean",
+        "mat bean"
+      ],
+      "kannada_names": [
+        "ಮಡಿಕೆ ಕಾಳು"
+      ],
+      "aliases": [
+        "moth bean",
+        "mat bean",
+        "madike kalu",
+        "vigna aconitifolia",
+        "ಮಡಿಕೆ ಕಾಳು",
+        "moth_bean"
+      ],
+      "support_status": "recognized_not_supported",
+      "rag_supported": false,
+      "document_count": 0,
+      "topics": [],
+      "karnataka_suitability": "KARNATAKA_LIMITED",
+      "primary_districts": [
+        "Vijayapura",
+        "Bagalkot"
+      ],
+      "source_institutions": [
+        "UAS Dharwad"
+      ],
+      "agro_climatic_details": {
+        "suitability_notes_kn": "ಅತ್ಯಂತ ಒಣ ಪ್ರದೇಶಗಳಲ್ಲಿ ಸೀಮಿತವಾಗಿ ಬೆಳೆಯಲಾಗುತ್ತದೆ."
+      },
+      "tested": true
+    },
+    "soybean": {
+      "canonical_name": "soybean",
+      "category": "pulse",
+      "english_names": [
+        "soybean",
+        "soya bean",
+        "soya"
+      ],
+      "kannada_names": [
+        "ಸೋಯಾಬೀನ್",
+        "ಸೋಯಾ"
+      ],
+      "aliases": [
+        "soybean",
+        "soya bean",
+        "soya",
+        "soy",
+        "glycine max",
+        "ಸೋಯಾದ",
+        "ಸೋಯಾಬೀನಿಗೆ",
+        "ಸೋಯಾಬೀನ್ ಬೆಳೆ",
+        "ಸೋಯಾಬೀನ್",
+        "ಸೋಯಾ"
+      ],
+      "support_status": "supported",
+      "rag_supported": true,
+      "document_count": 1,
+      "topics": [
+        "rust_management",
+        "stem_fly"
+      ],
+      "karnataka_suitability": "KARNATAKA_RELEVANT",
+      "primary_districts": [
+        "Belagavi",
+        "Bidar",
+        "Dharwad",
+        "Haveri",
+        "Bagalkot"
+      ],
+      "source_institutions": [
+        "ICAR-Indian Institute of Soybean Research (IISR)",
+        "UAS Dharwad"
+      ],
+      "agro_climatic_details": {
+        "soil_requirements": "Well-drained fertile black clay loams.",
+        "rainfall_range_mm": "650-900 mm",
+        "temperature_range_c": "22-32°C",
+        "suitability_notes_kn": "ಬೆಳಗಾವಿ ಮತ್ತು ಬೀದರ್ ಜಿಲ್ಲೆಗಳಲ್ಲಿ ಅತ್ಯಂತ ಯಶಸ್ವಿ ವಾಣಿಜ್ಯ ದ್ವಿದಳ/ಎಣ್ಣೆಕಾಳು ಬೆಳೆ."
+      },
+      "tested": true
+    },
+    "groundnut": {
+      "canonical_name": "groundnut",
+      "category": "oilseed",
+      "english_names": [
+        "groundnut",
+        "peanut"
+      ],
+      "kannada_names": [
+        "ಕಡಲೆಕಾಯಿ",
+        "ಶೇಂಗಾ"
+      ],
+      "aliases": [
+        "groundnut",
+        "peanut",
+        "kadlekayi",
+        "shenga",
+        "arachis hypogaea",
+        "ಕಡಲೆಕಾಯಿಯ",
+        "ಕಡಲೆಕಾಯಿಗೆ",
+        "ಕಡಲೆಕಾಯಿಬೆಳೆ",
+        "ಕಡಲೆಕಾಯಿ ಬೆಳೆಯಲ್ಲಿ",
+        "ಶೇಂಗಾದ",
+        "ಶೇಂಗಾಬೆಳೆ",
+        "ಕಡಲೆಕಾಯಿ",
+        "ಶೇಂಗಾ"
+      ],
+      "support_status": "supported",
+      "rag_supported": true,
+      "document_count": 2,
+      "topics": [
+        "disease_management",
+        "water_management",
+        "aflatoxin_control"
+      ],
+      "karnataka_suitability": "KARNATAKA_RELEVANT",
+      "primary_districts": [
+        "Tumakuru",
+        "Chitradurga",
+        "Kolar",
+        "Ballari",
+        "Gadag",
+        "Chikkaballapura"
+      ],
+      "source_institutions": [
+        "ICAR-Directorate of Groundnut Research (DGR)",
+        "UAS Bangalore",
+        "UAS Dharwad"
+      ],
+      "agro_climatic_details": {
+        "soil_requirements": "Well-drained sandy loam, red sandy soil and light loams.",
+        "rainfall_range_mm": "500-750 mm",
+        "temperature_range_c": "22-32°C",
+        "suitability_notes_kn": "ಕರ್ನಾಟಕದ ಪ್ರಮುಖ ಎಣ್ಣೆಕಾಳು ಬೆಳೆಗಳಲ್ಲಿ ಒಂದಾಗಿದೆ."
+      },
+      "tested": true
+    },
+    "sunflower": {
+      "canonical_name": "sunflower",
+      "category": "oilseed",
+      "english_names": [
+        "sunflower"
+      ],
+      "kannada_names": [
+        "ಸೂರ್ಯಕಾಂತಿ"
+      ],
+      "aliases": [
+        "sunflower",
+        "suryakanthi",
+        "helianthus annuus",
+        "ಸೂರ್ಯಕಾಂತಿಯ",
+        "ಸೂರ್ಯಕಾಂತಿಗೆ",
+        "ಸೂರ್ಯಕಾಂತಿಬೆಳೆ",
+        "ಸೂರ್ಯಕಾಂತಿಯಲ್ಲಿ",
+        "ಸೂರ್ಯಕಾಂತಿ"
+      ],
+      "support_status": "supported",
+      "rag_supported": true,
+      "document_count": 1,
+      "topics": [
+        "necrosis_management",
+        "head_rot"
+      ],
+      "karnataka_suitability": "KARNATAKA_RELEVANT",
+      "primary_districts": [
+        "Ballari",
+        "Koppal",
+        "Raichur",
+        "Bagalkot",
+        "Chitradurga",
+        "Gadag"
+      ],
+      "source_institutions": [
+        "ICAR-Indian Institute of Oilseeds Research (IIOR)",
+        "UAS Raichur",
+        "UAS Dharwad"
+      ],
+      "agro_climatic_details": {
+        "soil_requirements": "Medium to deep black soils and fertile red loams.",
+        "rainfall_range_mm": "500-700 mm",
+        "temperature_range_c": "20-30°C",
+        "suitability_notes_kn": "ಉತ್ತರ ಕರ್ನಾಟಕದಲ್ಲಿ ಮುಂಗಾರು ಮತ್ತು ಹಿಂಗಾರಿನಲ್ಲಿ ಪ್ರಮುಖ ಎಣ್ಣೆಕಾಳು ಬೆಳೆ."
+      },
       "tested": true
     },
     "sesame": {
       "canonical_name": "sesame",
       "category": "oilseed",
-      "english_names": ["sesame", "gingelly", "til"],
-      "kannada_names": ["ಎಳ್ಳು"],
-      "aliases": ["sesame", "gingelly", "til", "ellu", "sesamum indicum", "ಎಳ್ಳು", "ಎಳ್ಳಿನ", "ಎಳ್ಳಿಗೆ", "ಎಳ್ಳುಬೆಳೆ"],
+      "english_names": [
+        "sesame",
+        "gingelly",
+        "til"
+      ],
+      "kannada_names": [
+        "ಎಳ್ಳು"
+      ],
+      "aliases": [
+        "sesame",
+        "gingelly",
+        "til",
+        "ellu",
+        "sesamum indicum",
+        "ಎಳ್ಳಿನ",
+        "ಎಳ್ಳಿಗೆ",
+        "ಎಳ್ಳುಬೆಳೆ",
+        "ಎಳ್ಳು"
+      ],
       "support_status": "recognized_not_supported",
       "rag_supported": false,
       "document_count": 0,
       "topics": [],
-      "karnataka_relevance": "karnataka_specific",
-      "primary_districts": ["Chitradurga", "Ballari", "Tumakuru", "Raichur"],
-      "source_institutions": [],
+      "karnataka_suitability": "KARNATAKA_RELEVANT",
+      "primary_districts": [
+        "Mysuru",
+        "Mandya",
+        "Hassan",
+        "Bidar",
+        "Raichur"
+      ],
+      "source_institutions": [
+        "UAS Bangalore",
+        "ICAR-IIOR"
+      ],
+      "agro_climatic_details": {
+        "suitability_notes_kn": "ಬೇಸಿಗೆ ಮತ್ತು ಮುಂಗಾರು ಹಂಗಾಮಿಗೆ ಸೂಕ್ತವಾದ ಎಣ್ಣೆಕಾಳು ಬೆಳೆ."
+      },
       "tested": true
     },
     "safflower": {
       "canonical_name": "safflower",
       "category": "oilseed",
-      "english_names": ["safflower", "kardi"],
-      "kannada_names": ["ಕುಸುಮೆ"],
-      "aliases": ["safflower", "kardi", "kusume", "carthamus tinctorius", "ಕುಸುಮೆ", "ಕುಸುಮೆಯ", "ಕುಸುಮೆಗೆ", "ಕುಸುಂಬೆ"],
+      "english_names": [
+        "safflower",
+        "kardi"
+      ],
+      "kannada_names": [
+        "ಕುಸುಮೆ"
+      ],
+      "aliases": [
+        "safflower",
+        "kardi",
+        "kusume",
+        "carthamus tinctorius",
+        "ಕುಸುಮೆಯ",
+        "ಕುಸುಮೆಗೆ",
+        "ಕುಸುಮೆಬೆಳೆ",
+        "ಕುಸುಮೆ"
+      ],
       "support_status": "recognized_not_supported",
       "rag_supported": false,
       "document_count": 0,
       "topics": [],
-      "karnataka_relevance": "karnataka_specific",
-      "primary_districts": ["Vijayapura", "Bagalkot", "Dharwad", "Gadag", "Belagavi"],
-      "source_institutions": [],
-      "tested": true
-    },
-    "castor": {
-      "canonical_name": "castor",
-      "category": "oilseed",
-      "english_names": ["castor", "castor bean"],
-      "kannada_names": ["ಹರಳು"],
-      "aliases": ["castor", "haralu", "ricinus communis", "ಹರಳು", "ಹರಳಿನ", "ಹರಳಿಗೆ", "ಔಡಲ"],
-      "support_status": "recognized_not_supported",
-      "rag_supported": false,
-      "document_count": 0,
-      "topics": [],
-      "karnataka_relevance": "karnataka_specific",
-      "primary_districts": ["Tumakuru", "Chitradurga", "Kolar", "Chikkaballapura"],
-      "source_institutions": [],
+      "karnataka_suitability": "KARNATAKA_RELEVANT",
+      "primary_districts": [
+        "Vijayapura",
+        "Bagalkot",
+        "Dharwad",
+        "Gadag",
+        "Kalaburagi"
+      ],
+      "source_institutions": [
+        "UAS Dharwad",
+        "ICAR-IIOR"
+      ],
+      "agro_climatic_details": {
+        "suitability_notes_kn": "ಉತ್ತರ ಕರ್ನಾಟಕದ ಆಳವಾದ ಕಪ್ಪು ಮಣ್ಣಿನಲ್ಲಿ ಜನಪ್ರಿಯ ಹಿಂಗಾರು ಬೆಳೆ."
+      },
       "tested": true
     },
     "mustard": {
       "canonical_name": "mustard",
       "category": "oilseed",
-      "english_names": ["mustard", "sarson"],
-      "kannada_names": ["ಸಾಸಿವೆ"],
-      "aliases": ["mustard", "sarson", "sasive", "brassica juncea", "ಸಾಸಿವೆ", "ಸಾಸಿವೆಯ", "ಸಾಸಿವೆಗೆ"],
+      "english_names": [
+        "mustard",
+        "rapeseed"
+      ],
+      "kannada_names": [
+        "ಸಾಸಿವೆ"
+      ],
+      "aliases": [
+        "mustard",
+        "rapeseed",
+        "sasive",
+        "brassica juncea",
+        "ಸಾಸಿವೆಯ",
+        "ಸಾಸಿವೆಗೆ",
+        "ಸಾಸಿವೆಬೆಳೆ",
+        "ಸಾಸಿವೆ"
+      ],
       "support_status": "recognized_not_supported",
       "rag_supported": false,
       "document_count": 0,
       "topics": [],
-      "karnataka_relevance": "karnataka_specific",
-      "primary_districts": ["Bidar", "Kalaburagi"],
-      "source_institutions": [],
+      "karnataka_suitability": "KARNATAKA_CONDITIONALLY_SUITABLE",
+      "primary_districts": [
+        "Belagavi",
+        "Dharwad",
+        "Bagalkot"
+      ],
+      "source_institutions": [
+        "ICAR-DRMR Bharatpur",
+        "UAS Dharwad"
+      ],
+      "agro_climatic_details": {
+        "suitability_notes_kn": "ಹಿಂಗಾರು ಹಂಗಾಮಿನಲ್ಲಿ ಮಿಶ್ರ ಬೆಳೆಯಾಗಿ ಸೀಮಿತವಾಗಿ ಬೆಳೆಯಲಾಗುತ್ತದೆ."
+      },
+      "tested": true
+    },
+    "castor": {
+      "canonical_name": "castor",
+      "category": "oilseed",
+      "english_names": [
+        "castor",
+        "castor bean"
+      ],
+      "kannada_names": [
+        "ಹರಳು",
+        "ಔಡಲ"
+      ],
+      "aliases": [
+        "castor",
+        "castor bean",
+        "haralu",
+        "audala",
+        "ricinus communis",
+        "ಹರಳಿನ",
+        "ಹರಳಿಗೆ",
+        "ಹರಳುಬೆಳೆ",
+        "ಹರಳು",
+        "ಔಡಲ"
+      ],
+      "support_status": "recognized_not_supported",
+      "rag_supported": false,
+      "document_count": 0,
+      "topics": [],
+      "karnataka_suitability": "KARNATAKA_RELEVANT",
+      "primary_districts": [
+        "Tumakuru",
+        "Chitradurga",
+        "Chikkaballapura",
+        "Kolar"
+      ],
+      "source_institutions": [
+        "ICAR-IIOR",
+        "UAS Bangalore"
+      ],
+      "agro_climatic_details": {
+        "suitability_notes_kn": "ಒಣಭೂಮಿ ಮತ್ತು ಬದುಗಳ ಮೇಲೆ ವ್ಯಾಪಕವಾಗಿ ಬೆಳೆಯುವ ವಾಣಿಜ್ಯ ಎಣ್ಣೆಕಾಳು."
+      },
+      "tested": true
+    },
+    "niger": {
+      "canonical_name": "niger",
+      "category": "oilseed",
+      "english_names": [
+        "niger",
+        "niger seed"
+      ],
+      "kannada_names": [
+        "ಹುಚ್ಚೆಳ್ಳು"
+      ],
+      "aliases": [
+        "niger",
+        "niger seed",
+        "huchellu",
+        "guizotia abyssinica",
+        "ಹುಚ್ಚೆಳ್ಳಿನ",
+        "ಹುಚ್ಚೆಳ್ಳಿಗೆ",
+        "ಹುಚ್ಚೆಳ್ಳು"
+      ],
+      "support_status": "recognized_not_supported",
+      "rag_supported": false,
+      "document_count": 0,
+      "topics": [],
+      "karnataka_suitability": "KARNATAKA_RELEVANT",
+      "primary_districts": [
+        "Belagavi",
+        "Dharwad",
+        "Mysuru"
+      ],
+      "source_institutions": [
+        "UAS Dharwad"
+      ],
+      "agro_climatic_details": {
+        "suitability_notes_kn": "ಹಗುರ ಮಣ್ಣಿನಲ್ಲಿ ಮುಂಗಾರು ಕಡೆಯಲ್ಲಿ ಬೆಳೆಯುವ ಎಣ್ಣೆಕಾಳು ಬೆಳೆ."
+      },
+      "tested": true
+    },
+    "linseed": {
+      "canonical_name": "linseed",
+      "category": "oilseed",
+      "english_names": [
+        "linseed",
+        "flax seed"
+      ],
+      "kannada_names": [
+        "ಅಗಸೆ"
+      ],
+      "aliases": [
+        "linseed",
+        "flax seed",
+        "agase",
+        "linum usitatissimum",
+        "ಅಗಸೆಯ",
+        "ಅಗಸೆಗೆ",
+        "ಅಗಸೆ"
+      ],
+      "support_status": "recognized_not_supported",
+      "rag_supported": false,
+      "document_count": 0,
+      "topics": [],
+      "karnataka_suitability": "KARNATAKA_CONDITIONALLY_SUITABLE",
+      "primary_districts": [
+        "Bidar",
+        "Kalaburagi",
+        "Dharwad"
+      ],
+      "source_institutions": [
+        "UAS Raichur"
+      ],
+      "agro_climatic_details": {
+        "suitability_notes_kn": "ಹಿಂಗಾರಿನಲ್ಲಿ ಉತ್ತರ ಕರ್ನಾಟಕದ ಕಪ್ಪು ಮಣ್ಣಿನಲ್ಲಿ ಬೆಳೆಯಲಾಗುತ್ತದೆ."
+      },
+      "tested": true
+    },
+    "chilli": {
+      "canonical_name": "chilli",
+      "category": "spice",
+      "english_names": [
+        "chilli",
+        "chili",
+        "hot pepper",
+        "red chilli",
+        "green chilli"
+      ],
+      "kannada_names": [
+        "ಮೆಣಸಿನಕಾಯಿ",
+        "ಹಸಿಮೆಣಸಿನಕಾಯಿ"
+      ],
+      "aliases": [
+        "chilli",
+        "chili",
+        "hot pepper",
+        "red chilli",
+        "green chilli",
+        "byadagi chilli",
+        "menasinakayi",
+        "capsicum annuum",
+        "ಮೆಣಸಿನಕಾಯಿಯ",
+        "ಮೆಣಸಿನಕಾಯಿಗೆ",
+        "ಮೆಣಸಿನಕಾಯಿಬೆಳೆ",
+        "ಮೆಣಸಿನಕಾಯಿ ಬೆಳೆಯಲ್ಲಿ",
+        "ಹಸಿಮೆಣಸಿನಕಾಯಿ",
+        "ಬ್ಯಾಡಗಿ ಮೆಣಸಿನಕಾಯಿ",
+        "ಹಸಿ ಮೆಣಸು",
+        "ಮೆಣಸಿನಕಾಯಿ"
+      ],
+      "support_status": "supported",
+      "rag_supported": true,
+      "document_count": 2,
+      "topics": [
+        "pest_management",
+        "disease_management",
+        "virus_control"
+      ],
+      "karnataka_suitability": "KARNATAKA_RELEVANT",
+      "primary_districts": [
+        "Haveri",
+        "Ballari",
+        "Dharwad",
+        "Raichur",
+        "Belagavi",
+        "Kolar"
+      ],
+      "source_institutions": [
+        "ICAR-Indian Institute of Horticultural Research (IIHR)",
+        "UAS Dharwad",
+        "UHS Bagalkot"
+      ],
+      "agro_climatic_details": {
+        "soil_requirements": "Well-drained black clay soils (Byadagi rainfed) or fertile red sandy loams with drip irrigation.",
+        "rainfall_range_mm": "600-1000 mm",
+        "temperature_range_c": "20-35°C",
+        "suitability_notes_kn": "ಬ್ಯಾಡಗಿ ಮೆಣಸಿನಕಾಯಿ ಕರ್ನಾಟಕದ ಪ್ರಸಿದ್ಧ ಭೌಗೋಳಿಕ ಸೂಚ್ಯಂಕ (GI) ಹೊಂದಿದ ವಾಣಿಜ್ಯ ಬೆಳೆ."
+      },
+      "tested": true
+    },
+    "turmeric": {
+      "canonical_name": "turmeric",
+      "category": "spice",
+      "english_names": [
+        "turmeric"
+      ],
+      "kannada_names": [
+        "ಅರಿಶಿನ",
+        "ಅರಿಷಿಣ"
+      ],
+      "aliases": [
+        "turmeric",
+        "arishina",
+        "arashina",
+        "curcuma longa",
+        "ಅರಿಶಿನದ",
+        "ಅರಿಶಿನಕ್ಕೆ",
+        "ಅರಿಶಿನಬೆಳೆ",
+        "ಅರಿಶಿನದಲ್ಲಿ",
+        "ಅರಿಷಿಣ",
+        "ಅರಿಶಿನ"
+      ],
+      "support_status": "supported",
+      "rag_supported": true,
+      "document_count": 1,
+      "topics": [
+        "rhizome_rot",
+        "leaf_spot"
+      ],
+      "karnataka_suitability": "KARNATAKA_RELEVANT",
+      "primary_districts": [
+        "Chamarajanagar",
+        "Belagavi",
+        "Bagalkot",
+        "Shivamogga",
+        "Mysuru"
+      ],
+      "source_institutions": [
+        "ICAR-Indian Institute of Spices Research (IISR)",
+        "UAS Bangalore",
+        "UHS Bagalkot"
+      ],
+      "agro_climatic_details": {
+        "soil_requirements": "Rich loamy or alluvial soils with excellent drainage and organic matter.",
+        "rainfall_range_mm": "1000-1500 mm or assured irrigation",
+        "temperature_range_c": "20-35°C",
+        "suitability_notes_kn": "ಚಾಮರಾಜನಗರ ಮತ್ತು ಬೆಳಗಾವಿ ಜಿಲ್ಲೆಗಳಲ್ಲಿ ಪ್ರಮುಖ ವಾಣಿಜ್ಯ ಸಂಬಾರ ಬೆಳೆ."
+      },
+      "tested": true
+    },
+    "ginger": {
+      "canonical_name": "ginger",
+      "category": "spice",
+      "english_names": [
+        "ginger"
+      ],
+      "kannada_names": [
+        "ಶುಂಠಿ"
+      ],
+      "aliases": [
+        "ginger",
+        "shunti",
+        "shunthi",
+        "zingiber officinale",
+        "ಶುಂಠಿಯ",
+        "ಶುಂಠಿಗೆ",
+        "ಶುಂಠಿಬೆಳೆ",
+        "ಶುಂಠಿಯಲ್ಲಿ",
+        "ಶುಂಠಿ"
+      ],
+      "support_status": "supported",
+      "rag_supported": true,
+      "document_count": 1,
+      "topics": [
+        "rhizome_rot",
+        "bacterial_wilt"
+      ],
+      "karnataka_suitability": "KARNATAKA_RELEVANT",
+      "primary_districts": [
+        "Hassan",
+        "Shivamogga",
+        "Kodagu",
+        "Uttara Kannada",
+        "Chikkamagaluru"
+      ],
+      "source_institutions": [
+        "ICAR-IISR Kozhikode",
+        "UHS Bagalkot",
+        "UAS Bangalore"
+      ],
+      "agro_climatic_details": {
+        "soil_requirements": "Deep sandy loam or clay loam rich in humus with high drainage capacity.",
+        "rainfall_range_mm": "1500-2500 mm",
+        "temperature_range_c": "19-32°C",
+        "suitability_notes_kn": "ಮಲೆನಾಡು ಮತ್ತು ಅರೆಮಲೆನಾಡು ಭಾಗಗಳಲ್ಲಿ ಪ್ರಮುಖ ವಾಣಿಜ್ಯ ಬೆಳೆ."
+      },
+      "tested": true
+    },
+    "black_pepper": {
+      "canonical_name": "black_pepper",
+      "category": "spice",
+      "english_names": [
+        "black pepper",
+        "pepper",
+        "black gold"
+      ],
+      "kannada_names": [
+        "ಕರಿಮೆಣಸು",
+        "ಕಾಳುಮೆಣಸು"
+      ],
+      "aliases": [
+        "black pepper",
+        "pepper",
+        "black gold",
+        "karimenasu",
+        "kalumenasu",
+        "piper nigrum",
+        "ಕರಿಮೆಣಸಿನ",
+        "ಕರಿಮೆಣಸಿಗೆ",
+        "ಕಾಳುಮೆಣಸಿನ",
+        "ಕಾಳುಮೆಣಸಿಗೆ",
+        "ಕಪ್ಪು ಮೆಣಸು",
+        "ಕರಿಮೆಣಸು",
+        "ಕಾಳುಮೆಣಸು",
+        "black_pepper"
+      ],
+      "support_status": "supported",
+      "rag_supported": true,
+      "document_count": 1,
+      "topics": [
+        "quick_wilt",
+        "pollu_beetle"
+      ],
+      "karnataka_suitability": "KARNATAKA_RELEVANT",
+      "primary_districts": [
+        "Kodagu",
+        "Chikkamagaluru",
+        "Uttara Kannada",
+        "Hassan",
+        "Dakshina Kannada",
+        "Shivamogga"
+      ],
+      "source_institutions": [
+        "ICAR-IISR Regional Station Appangala (Kodagu)",
+        "UHS Bagalkot"
+      ],
+      "agro_climatic_details": {
+        "soil_requirements": "Humus-rich red lateritic soils with high drainage.",
+        "rainfall_range_mm": "2000-3500 mm",
+        "temperature_range_c": "15-38°C",
+        "elevation_m": "0-1500 m",
+        "suitability_notes_kn": "ಅಡಿಕೆ ಮತ್ತು ಕಾಫಿ ತೋಟಗಳಲ್ಲಿ ಪ್ರಮುಖ ಅಂತರ್ ಬೆಳೆ."
+      },
+      "tested": true
+    },
+    "cardamom": {
+      "canonical_name": "cardamom",
+      "category": "spice",
+      "english_names": [
+        "cardamom",
+        "small cardamom",
+        "green cardamom"
+      ],
+      "kannada_names": [
+        "ಏಲಕ್ಕಿ"
+      ],
+      "aliases": [
+        "cardamom",
+        "small cardamom",
+        "green cardamom",
+        "elakki",
+        "elettaria cardamomum",
+        "ಏಲಕ್ಕಿಯ",
+        "ಏಲಕ್ಕಿಗೆ",
+        "ಏಲಕ್ಕಿಬೆಳೆ",
+        "ಏಲಕ್ಕಿಯಲ್ಲಿ",
+        "ಏಲಕ್ಕಿ"
+      ],
+      "support_status": "supported",
+      "rag_supported": true,
+      "document_count": 1,
+      "topics": [
+        "thrips_management",
+        "rhizome_rot",
+        "azhukal"
+      ],
+      "karnataka_suitability": "KARNATAKA_RELEVANT",
+      "primary_districts": [
+        "Kodagu",
+        "Hassan",
+        "Chikkamagaluru",
+        "Shivamogga"
+      ],
+      "source_institutions": [
+        "ICAR-IISR Regional Station Appangala (Kodagu)",
+        "Spices Board of India"
+      ],
+      "agro_climatic_details": {
+        "soil_requirements": "Forest loams rich in organic matter under evergreen canopy.",
+        "rainfall_range_mm": "1500-3500 mm",
+        "temperature_range_c": "10-35°C",
+        "elevation_m": "600-1200 m",
+        "suitability_notes_kn": "ಪಶ್ಚಿಮ ಘಟ್ಟಗಳ ಮಲೆನಾಡು ಭಾಗಗಳಲ್ಲಿ ಪ್ರಮುಖ ಸಾಂಬಾರ ರಾಣಿ ಬೆಳೆ."
+      },
       "tested": true
     },
     "coriander": {
       "canonical_name": "coriander",
       "category": "spice",
-      "english_names": ["coriander", "cilantro", "dhania"],
-      "kannada_names": ["ಕೊತ್ತಂಬರಿ"],
-      "aliases": ["coriander", "cilantro", "dhania", "kottambari", "coriandrum sativum", "ಕೊತ್ತಂಬರಿ", "ಕೊತ್ತಂಬರಿಯ", "ಕೊತ್ತಂಬರಿಗೆ", "ಕೊತ್ತಂಬರಿ ಸೊಪ್ಪು"],
+      "english_names": [
+        "coriander",
+        "cilantro"
+      ],
+      "kannada_names": [
+        "ಕೊತ್ತಂಬರಿ"
+      ],
+      "aliases": [
+        "coriander",
+        "cilantro",
+        "kothambari",
+        "coriandrum sativum",
+        "ಕೊತ್ತಂಬರಿಯ",
+        "ಕೊತ್ತಂಬರಿಗೆ",
+        "ಕೊತ್ತಂಬರಿಬೆಳೆ",
+        "ಕೊತ್ತಂಬರಿ"
+      ],
       "support_status": "recognized_not_supported",
       "rag_supported": false,
       "document_count": 0,
       "topics": [],
-      "karnataka_relevance": "karnataka_specific",
-      "primary_districts": ["Dharwad", "Gadag", "Haveri", "Mysuru"],
-      "source_institutions": [],
+      "karnataka_suitability": "KARNATAKA_RELEVANT",
+      "primary_districts": [
+        "Dharwad",
+        "Belagavi",
+        "Haveri",
+        "Gadag",
+        "Kolar"
+      ],
+      "source_institutions": [
+        "UAS Dharwad",
+        "ICAR-NRCSS Ajmer"
+      ],
+      "agro_climatic_details": {
+        "suitability_notes_kn": "ಸೊಪ್ಪು ಮತ್ತು ಬೀಜಕ್ಕಾಗಿ ಕರ್ನಾಟಕದಾದ್ಯಂತ ವ್ಯಾಪಕವಾಗಿ ಬೆಳೆಯಲಾಗುತ್ತದೆ."
+      },
       "tested": true
     },
     "cumin": {
       "canonical_name": "cumin",
       "category": "spice",
-      "english_names": ["cumin", "jeera"],
-      "kannada_names": ["ಜೀರಿಗೆ"],
-      "aliases": ["cumin", "jeera", "jirige", "cuminum cyminum", "ಜೀರಿಗೆ", "ಜೀರಿಗೆಯ", "ಜೀರಿಗೆಗೆ"],
+      "english_names": [
+        "cumin",
+        "jeera"
+      ],
+      "kannada_names": [
+        "ಜೀರಿಗೆ"
+      ],
+      "aliases": [
+        "cumin",
+        "jeera",
+        "jirige",
+        "cuminum cyminum",
+        "ಜೀರಿಗೆಯ",
+        "ಜೀರಿಗೆಗೆ",
+        "ಜೀರಿಗೆ"
+      ],
       "support_status": "recognized_not_supported",
       "rag_supported": false,
       "document_count": 0,
       "topics": [],
-      "karnataka_relevance": "india_general",
+      "karnataka_suitability": "KARNATAKA_NOT_RECOMMENDED",
       "primary_districts": [],
-      "source_institutions": [],
+      "source_institutions": [
+        "ICAR-NRCSS Ajmer"
+      ],
+      "agro_climatic_details": {
+        "suitability_notes_kn": "ಜೀರಿಗೆಗೆ ಅತ್ಯಂತ ಒಣ ಹಾಗೂ ತಂಪಾದ ಹವಾಮಾನ ಬೇಕು (ಗುಜರಾತ್/ರಾಜಸ್ಥಾನ ಸೂಕ್ತ). ಕರ್ನಾಟಕದ ತೇವಾಂಶಭರಿತ ವಾತಾವರಣ ಇದಕ್ಕೆ ಸೂಕ್ತವಲ್ಲ."
+      },
+      "tested": true
+    },
+    "fenugreek": {
+      "canonical_name": "fenugreek",
+      "category": "spice",
+      "english_names": [
+        "fenugreek",
+        "methi"
+      ],
+      "kannada_names": [
+        "ಮೆಂತ್ಯ"
+      ],
+      "aliases": [
+        "fenugreek",
+        "methi",
+        "menthya",
+        "trigonella foenum-graecum",
+        "ಮೆಂತ್ಯದ",
+        "ಮೆಂತ್ಯಕ್ಕೆ",
+        "ಮೆಂತ್ಯಬೆಳೆ",
+        "ಮೆಂತ್ಯ"
+      ],
+      "support_status": "recognized_not_supported",
+      "rag_supported": false,
+      "document_count": 0,
+      "topics": [],
+      "karnataka_suitability": "KARNATAKA_RELEVANT",
+      "primary_districts": [
+        "Belagavi",
+        "Dharwad",
+        "Bagalkot",
+        "Kolar"
+      ],
+      "source_institutions": [
+        "UAS Dharwad",
+        "UHS Bagalkot"
+      ],
+      "agro_climatic_details": {
+        "suitability_notes_kn": "ತರಕಾರಿ ಸೊಪ್ಪು ಮತ್ತು ಕಾಳಿಗಾಗಿ ಬೆಳೆಯಲಾಗುತ್ತದೆ."
+      },
       "tested": true
     },
     "garlic": {
       "canonical_name": "garlic",
       "category": "spice",
-      "english_names": ["garlic", "lehsun"],
-      "kannada_names": ["ಬೆಳ್ಳುಳ್ಳಿ"],
-      "aliases": ["garlic", "lehsun", "bellulli", "allium sativum", "ಬೆಳ್ಳುಳ್ಳಿ", "ಬೆಳ್ಳುಳ್ಳಿಯ", "ಬೆಳ್ಳುಳ್ಳಿಗೆ"],
+      "english_names": [
+        "garlic"
+      ],
+      "kannada_names": [
+        "ಬೆಳ್ಳುಳ್ಳಿ"
+      ],
+      "aliases": [
+        "garlic",
+        "bellulli",
+        "allium sativum",
+        "ಬೆಳ್ಳುಳ್ಳಿಯ",
+        "ಬೆಳ್ಳುಳ್ಳಿಗೆ",
+        "ಬೆಳ್ಳುಳ್ಳಿಬೆಳೆ",
+        "ಬೆಳ್ಳುಳ್ಳಿ"
+      ],
       "support_status": "recognized_not_supported",
       "rag_supported": false,
       "document_count": 0,
       "topics": [],
-      "karnataka_relevance": "karnataka_specific",
-      "primary_districts": ["Belagavi", "Haveri", "Dharwad", "Chitradurga"],
-      "source_institutions": [],
+      "karnataka_suitability": "KARNATAKA_RELEVANT",
+      "primary_districts": [
+        "Dharwad",
+        "Belagavi",
+        "Haveri",
+        "Gadag",
+        "Chikkaballapura"
+      ],
+      "source_institutions": [
+        "ICAR-DOGR Pune",
+        "UAS Dharwad"
+      ],
+      "agro_climatic_details": {
+        "suitability_notes_kn": "ಉತ್ತರ ಕರ್ನಾಟಕ ಮತ್ತು ಬಯಲುಸೀಮೆ ಭಾಗಗಳಲ್ಲಿ ಹಿಂಗಾರು ಸಾಂಬಾರ ಬೆಳೆಯಾಗಿ ಬೆಳೆಯಲಾಗುತ್ತದೆ."
+      },
       "tested": true
     },
-    "guava": {
-      "canonical_name": "guava",
-      "category": "fruit",
-      "english_names": ["guava", "amrud"],
-      "kannada_names": ["ಸೀಬೆ", "ಪೇರಲ"],
-      "aliases": ["guava", "amrud", "seebe", "perala", "psidium guajava", "ಸೀಬೆ", "ಸೀಬೆಯ", "ಸೀಬೆಗಿಡ", "ಸೀಬೆಹಣ್ಣು", "ಪೇರಲ", "ಪೇರಲಹಣ್ಣು"],
+    "clove": {
+      "canonical_name": "clove",
+      "category": "spice",
+      "english_names": [
+        "clove"
+      ],
+      "kannada_names": [
+        "ಲವಂಗ"
+      ],
+      "aliases": [
+        "clove",
+        "lavanga",
+        "syzygium aromaticum",
+        "ಲವಂಗದ",
+        "ಲವಂಗಕ್ಕೆ",
+        "ಲವಂಗ"
+      ],
       "support_status": "recognized_not_supported",
       "rag_supported": false,
       "document_count": 0,
       "topics": [],
-      "karnataka_relevance": "karnataka_specific",
-      "primary_districts": ["Bengaluru Rural", "Kolar", "Dharwad", "Tumakuru"],
-      "source_institutions": [],
+      "karnataka_suitability": "KARNATAKA_CONDITIONALLY_SUITABLE",
+      "primary_districts": [
+        "Kodagu",
+        "Dakshina Kannada",
+        "Uttara Kannada"
+      ],
+      "source_institutions": [
+        "ICAR-IISR",
+        "UHS Bagalkot"
+      ],
+      "agro_climatic_details": {
+        "suitability_notes_kn": "ಕರಾವಳಿ ಮತ್ತು ಮಲೆನಾಡಿನ ತೋಟಗಳಲ್ಲಿ ಮಿಶ್ರ ಬೆಳೆಯಾಗಿ ಬೆಳೆಯಲಾಗುತ್ತದೆ."
+      },
       "tested": true
     },
-    "sapota": {
-      "canonical_name": "sapota",
-      "category": "fruit",
-      "english_names": ["sapota", "chikoo", "sapodilla"],
-      "kannada_names": ["ಚಿಕ್ಕು", "ಸಪೋಟ"],
-      "aliases": ["sapota", "chikoo", "chiku", "sapodilla", "manilkara zapota", "ಚಿಕ್ಕು", "ಚಿಕ್ಕುವಿನ", "ಸಪೋಟ", "ಸಪೋಟಹಣ್ಣು"],
+    "cinnamon": {
+      "canonical_name": "cinnamon",
+      "category": "spice",
+      "english_names": [
+        "cinnamon"
+      ],
+      "kannada_names": [
+        "ದಾಲ್ಚಿನ್ನಿ",
+        "ಲವಂಗಪತ್ರೆ"
+      ],
+      "aliases": [
+        "cinnamon",
+        "dalchinni",
+        "cinnamomum verum",
+        "ದಾಲ್ಚಿನ್ನಿಯ",
+        "ದಾಲ್ಚಿನ್ನಿ",
+        "ಲವಂಗಪತ್ರೆ"
+      ],
       "support_status": "recognized_not_supported",
       "rag_supported": false,
       "document_count": 0,
       "topics": [],
-      "karnataka_relevance": "karnataka_specific",
-      "primary_districts": ["Belagavi", "Dharwad", "Bagalkot"],
-      "source_institutions": [],
+      "karnataka_suitability": "KARNATAKA_CONDITIONALLY_SUITABLE",
+      "primary_districts": [
+        "Dakshina Kannada",
+        "Uttara Kannada",
+        "Kodagu"
+      ],
+      "source_institutions": [
+        "ICAR-IISR",
+        "UHS Bagalkot"
+      ],
+      "agro_climatic_details": {
+        "suitability_notes_kn": "ಕರಾವಳಿ ಪ್ರದೇಶಗಳಲ್ಲಿ ಯಶಸ್ವಿಯಾಗಿ ಬೆಳೆಯಬಹುದು."
+      },
+      "tested": true
+    },
+    "nutmeg": {
+      "canonical_name": "nutmeg",
+      "category": "spice",
+      "english_names": [
+        "nutmeg",
+        "mace"
+      ],
+      "kannada_names": [
+        "ಜಾಯಿಕಾಯಿ"
+      ],
+      "aliases": [
+        "nutmeg",
+        "mace",
+        "jayikayi",
+        "myristica fragrans",
+        "ಜಾಯಿಕಾಯಿಯ",
+        "ಜಾಯಿಕಾಯಿ"
+      ],
+      "support_status": "recognized_not_supported",
+      "rag_supported": false,
+      "document_count": 0,
+      "topics": [],
+      "karnataka_suitability": "KARNATAKA_CONDITIONALLY_SUITABLE",
+      "primary_districts": [
+        "Dakshina Kannada",
+        "Udupi",
+        "Uttara Kannada"
+      ],
+      "source_institutions": [
+        "ICAR-IISR",
+        "UHS Bagalkot"
+      ],
+      "agro_climatic_details": {
+        "suitability_notes_kn": "ಅಡಿಕೆ ತೋಟಗಳಲ್ಲಿ ಲಾಭದಾಯಕ ಅಂತರ್ ಬೆಳೆ."
+      },
+      "tested": true
+    },
+    "tamarind": {
+      "canonical_name": "tamarind",
+      "category": "spice",
+      "english_names": [
+        "tamarind"
+      ],
+      "kannada_names": [
+        "ಹುಣಸೆ",
+        "ಹುಣಸೆಹಣ್ಣು"
+      ],
+      "aliases": [
+        "tamarind",
+        "hunase",
+        "hunasehannu",
+        "tamarindus indica",
+        "ಹುಣಸೆಯ",
+        "ಹುಣಸೆಗೆ",
+        "ಹುಣಸೆ",
+        "ಹುಣಸೆಹಣ್ಣು"
+      ],
+      "support_status": "recognized_not_supported",
+      "rag_supported": false,
+      "document_count": 0,
+      "topics": [],
+      "karnataka_suitability": "KARNATAKA_RELEVANT",
+      "primary_districts": [
+        "Tumakuru",
+        "Kolar",
+        "Chikkaballapura",
+        "Mandya",
+        "Chitradurga"
+      ],
+      "source_institutions": [
+        "UAS Bangalore"
+      ],
+      "agro_climatic_details": {
+        "suitability_notes_kn": "ಒಣಭೂಮಿಗೆ ಅತ್ಯಂತ ಸೂಕ್ತವಾದ ದೀರ್ಘಕಾಲಿಕ ಮರ ಬೆಳೆ."
+      },
+      "tested": true
+    },
+    "vanilla": {
+      "canonical_name": "vanilla",
+      "category": "spice",
+      "english_names": [
+        "vanilla"
+      ],
+      "kannada_names": [
+        "ವೆನಿಲ್ಲಾ"
+      ],
+      "aliases": [
+        "vanilla",
+        "vanila",
+        "vyanilla",
+        "vanilla planifolia",
+        "ವೆನಿಲ್ಲಾದ",
+        "ವೆನಿಲ್ಲಾಕ್ಕೆ",
+        "ವನಿಲಾ",
+        "ವ್ಯಾನಿಲ್ಲಾ",
+        "ವೆನಿಲ್ಲಾ"
+      ],
+      "support_status": "recognized_not_supported",
+      "rag_supported": false,
+      "document_count": 0,
+      "topics": [],
+      "karnataka_suitability": "KARNATAKA_CONDITIONALLY_SUITABLE",
+      "primary_districts": [
+        "Kodagu",
+        "Dakshina Kannada",
+        "Uttara Kannada",
+        "Shivamogga",
+        "Chikkamagaluru"
+      ],
+      "source_institutions": [
+        "ICAR-IISR Appangala",
+        "Spices Board of India",
+        "UHS Bagalkot"
+      ],
+      "agro_climatic_details": {
+        "soil_requirements": "Humus rich forest loams with good drainage.",
+        "rainfall_range_mm": "2000-3000 mm with high atmospheric humidity",
+        "temperature_range_c": "21-32°C",
+        "elevation_m": "600-1100 m",
+        "suitability_notes_kn": "ಪಶ್ಚಿಮ ಘಟ್ಟಗಳ ಮಲೆನಾಡು ಮತ್ತು ಕರಾವಳಿಯ ಅಡಿಕೆ/ಕಾಫಿ ತೋಟಗಳಲ್ಲಿ ಶೇ 70-80 ನೆರಳಿನಲ್ಲಿ ಅಂತರ್ ಬೆಳೆಯಾಗಿ ಮಾತ್ರ ಸೂಕ್ತವಾಗಿದೆ. ಬಯಲುಸೀಮೆ ಬಯಲು ಜಮೀನಿಗೆ ಸೂಕ್ತವಲ್ಲ."
+      },
+      "tested": true
+    },
+    "tomato": {
+      "canonical_name": "tomato",
+      "category": "vegetable",
+      "english_names": [
+        "tomato"
+      ],
+      "kannada_names": [
+        "ಟೊಮ್ಯಾಟೊ",
+        "ಟೊಮೇಟೊ"
+      ],
+      "aliases": [
+        "tomato",
+        "tamata",
+        "tamatar",
+        "solanum lycopersicum",
+        "ಟೊಮ್ಯಾಟೊದ",
+        "ಟೊಮ್ಯಾಟೊಗೆ",
+        "ಟೊಮ್ಯಾಟೊಬೆಳೆ",
+        "ಟೊಮ್ಯಾಟೊದಲ್ಲಿ",
+        "ಟೊಮೇಟೊ",
+        "ಟೊಮ್ಯಾಟೊ"
+      ],
+      "support_status": "supported",
+      "rag_supported": true,
+      "document_count": 2,
+      "topics": [
+        "pest_management",
+        "disease_management",
+        "leaf_curl"
+      ],
+      "karnataka_suitability": "KARNATAKA_RELEVANT",
+      "primary_districts": [
+        "Kolar",
+        "Chikkaballapura",
+        "Belagavi",
+        "Haveri",
+        "Bengaluru Rural"
+      ],
+      "source_institutions": [
+        "ICAR-Indian Institute of Horticultural Research (IIHR)",
+        "UHS Bagalkot"
+      ],
+      "agro_climatic_details": {
+        "soil_requirements": "Well-drained red sandy loam and fertile clay loams.",
+        "rainfall_range_mm": "600-800 mm with irrigation",
+        "temperature_range_c": "18-30°C",
+        "suitability_notes_kn": "ಕೋಲಾರ ಮತ್ತು ಚಿಕ್ಕಬಳ್ಳಾಪುರ ಏಷ್ಯಾದಲ್ಲೇ ಪ್ರಮುಖ ಟೊಮ್ಯಾಟೊ ಮಾರುಕಟ್ಟೆ ಕೇಂದ್ರಗಳಾಗಿವೆ."
+      },
+      "tested": true
+    },
+    "onion": {
+      "canonical_name": "onion",
+      "category": "vegetable",
+      "english_names": [
+        "onion"
+      ],
+      "kannada_names": [
+        "ಈರುಳ್ಳಿ"
+      ],
+      "aliases": [
+        "onion",
+        "eerulli",
+        "irulli",
+        "pyaz",
+        "allium cepa",
+        "ಈರುಳ್ಳಿಯ",
+        "ಈರುಳ್ಳಿಗೆ",
+        "ಈರುಳ್ಳಿಬೆಳೆ",
+        "ಈರುಳ್ಳಿಯಲ್ಲಿ",
+        "ಈರುಳ್ಳಿ"
+      ],
+      "support_status": "supported",
+      "rag_supported": true,
+      "document_count": 2,
+      "topics": [
+        "excess_rainfall",
+        "disease_management",
+        "thrips_control"
+      ],
+      "karnataka_suitability": "KARNATAKA_RELEVANT",
+      "primary_districts": [
+        "Chitradurga",
+        "Gadag",
+        "Bagalkot",
+        "Dharwad",
+        "Vijayapura",
+        "Ballari"
+      ],
+      "source_institutions": [
+        "ICAR-Directorate of Onion and Garlic Research (DOGR)",
+        "UHS Bagalkot",
+        "UAS Dharwad"
+      ],
+      "agro_climatic_details": {
+        "soil_requirements": "Well-drained sandy loam, light black soil and silt loams.",
+        "rainfall_range_mm": "500-750 mm",
+        "temperature_range_c": "15-30°C",
+        "suitability_notes_kn": "ಚಿತ್ರದುರ್ಗ ಮತ್ತು ಗದಗ ಕರ್ನಾಟಕದ ಪ್ರಮುಖ ಈರುಳ್ಳಿ ಬೆಳೆಯುವ ಜಿಲ್ಲೆಗಳು."
+      },
+      "tested": true
+    },
+    "potato": {
+      "canonical_name": "potato",
+      "category": "vegetable",
+      "english_names": [
+        "potato"
+      ],
+      "kannada_names": [
+        "ಆಲೂಗಡ್ಡೆ",
+        "ಆಲೂಗೆಡ್ಡೆ"
+      ],
+      "aliases": [
+        "potato",
+        "aloo",
+        "aalugadde",
+        "solanum tuberosum",
+        "ಆಲೂಗಡ್ಡೆಯ",
+        "ಆಲೂಗಡ್ಡೆಗೆ",
+        "ಆಲೂಗಡ್ಡೆಬೆಳೆ",
+        "ಆಲೂಗಡ್ಡೆಯಲ್ಲಿ",
+        "ಆಲೂಗೆಡ್ಡೆ",
+        "ಆಲೂಗಡ್ಡೆ"
+      ],
+      "support_status": "supported",
+      "rag_supported": true,
+      "document_count": 2,
+      "topics": [
+        "late_blight",
+        "bacterial_wilt",
+        "nutrient_management"
+      ],
+      "karnataka_suitability": "KARNATAKA_RELEVANT",
+      "primary_districts": [
+        "Hassan",
+        "Chikkaballapura",
+        "Kolar",
+        "Belagavi"
+      ],
+      "source_institutions": [
+        "ICAR-Central Potato Research Institute (CPRI)",
+        "UHS Bagalkot"
+      ],
+      "agro_climatic_details": {
+        "soil_requirements": "Well-aerated fertile sandy loam soils rich in organic matter.",
+        "rainfall_range_mm": "500-700 mm",
+        "temperature_range_c": "15-25°C",
+        "suitability_notes_kn": "ಹಾಸನ ಜಿಲ್ಲೆಯು ಮುಂಗಾರು ಹಂಗಾಮಿನ ಆಲೂಗಡ್ಡೆ ಬೆಳೆಗೆ ಹೆಸರುವಾಸಿಯಾಗಿದೆ."
+      },
+      "tested": true
+    },
+    "brinjal": {
+      "canonical_name": "brinjal",
+      "category": "vegetable",
+      "english_names": [
+        "brinjal",
+        "eggplant",
+        "aubergine"
+      ],
+      "kannada_names": [
+        "ಬದನೆಕಾಯಿ",
+        "ಬದನೆ"
+      ],
+      "aliases": [
+        "brinjal",
+        "eggplant",
+        "aubergine",
+        "badanekayi",
+        "solanum melongena",
+        "ಬದನೆಕಾಯಿಯ",
+        "ಬದನೆಕಾಯಿಗೆ",
+        "ಬದನೆಕಾಯಿಬೆಳೆ",
+        "ಬದನೆಕಾಯಿಯಲ್ಲಿ",
+        "ಬದನೆ",
+        "ಬದನೆಕಾಯಿ"
+      ],
+      "support_status": "supported",
+      "rag_supported": true,
+      "document_count": 1,
+      "topics": [
+        "shoot_fruit_borer",
+        "phomopsis_blight"
+      ],
+      "karnataka_suitability": "KARNATAKA_RELEVANT",
+      "primary_districts": [
+        "Belagavi",
+        "Mysuru",
+        "Dharwad",
+        "Haveri",
+        "Kolar"
+      ],
+      "source_institutions": [
+        "ICAR-IIHR Bengaluru",
+        "UHS Bagalkot"
+      ],
+      "agro_climatic_details": {
+        "soil_requirements": "Fertile well-drained loam and silt loam soils.",
+        "rainfall_range_mm": "600-800 mm",
+        "temperature_range_c": "21-32°C",
+        "suitability_notes_kn": "ಕರ್ನಾಟಕದಾದ್ಯಂತ ವರ್ಷವಿಡೀ ಬೆಳೆಯಬಹುದಾದ ತರಕಾರಿ ಬೆಳೆ."
+      },
+      "tested": true
+    },
+    "cabbage": {
+      "canonical_name": "cabbage",
+      "category": "vegetable",
+      "english_names": [
+        "cabbage"
+      ],
+      "kannada_names": [
+        "ಎಲೆಕೋಸು"
+      ],
+      "aliases": [
+        "cabbage",
+        "elekosu",
+        "brassica oleracea var capitata",
+        "ಎಲೆಕೋಸಿನ",
+        "ಎಲೆಕೋಸಿಗೆ",
+        "ಎಲೆಕೋಸುಬೆಳೆ",
+        "ಎಲೆಕೋಸು"
+      ],
+      "support_status": "supported",
+      "rag_supported": true,
+      "document_count": 1,
+      "topics": [
+        "diamond_back_moth",
+        "black_rot"
+      ],
+      "karnataka_suitability": "KARNATAKA_RELEVANT",
+      "primary_districts": [
+        "Belagavi",
+        "Hassan",
+        "Kolar",
+        "Bengaluru Rural",
+        "Chikkaballapura"
+      ],
+      "source_institutions": [
+        "ICAR-IIHR Bengaluru",
+        "UHS Bagalkot"
+      ],
+      "agro_climatic_details": {
+        "soil_requirements": "Well-drained sandy loam to heavy soils rich in organic matter.",
+        "rainfall_range_mm": "500-750 mm with irrigation",
+        "temperature_range_c": "15-24°C",
+        "suitability_notes_kn": "ಬೆಳಗಾವಿ ಮತ್ತು ಬಯಲುಸೀಮೆಯಲ್ಲಿ ವ್ಯಾಪಕವಾಗಿ ಬೆಳೆಯುವ ಚಳಿಗಾಲದ ತರಕಾರಿ."
+      },
+      "tested": true
+    },
+    "cauliflower": {
+      "canonical_name": "cauliflower",
+      "category": "vegetable",
+      "english_names": [
+        "cauliflower"
+      ],
+      "kannada_names": [
+        "ಹೂಕೋಸು"
+      ],
+      "aliases": [
+        "cauliflower",
+        "hookosu",
+        "brassica oleracea var botrytis",
+        "ಹೂಕೋಸಿನ",
+        "ಹೂಕೋಸಿಗೆ",
+        "ಹೂಕೋಸುಬೆಳೆ",
+        "ಹೂಕೋಸು"
+      ],
+      "support_status": "recognized_not_supported",
+      "rag_supported": false,
+      "document_count": 0,
+      "topics": [],
+      "karnataka_suitability": "KARNATAKA_RELEVANT",
+      "primary_districts": [
+        "Belagavi",
+        "Kolar",
+        "Chikkaballapura",
+        "Hassan"
+      ],
+      "source_institutions": [
+        "ICAR-IIHR",
+        "UHS Bagalkot"
+      ],
+      "agro_climatic_details": {
+        "suitability_notes_kn": "ಕರ್ನಾಟಕದ ತಂಪಾದ ಪ್ರದೇಶಗಳಲ್ಲಿ ಚಳಿಗಾಲದಲ್ಲಿ ವ್ಯಾಪಕವಾಗಿ ಬೆಳೆಯಲಾಗುತ್ತದೆ."
+      },
+      "tested": true
+    },
+    "capsicum": {
+      "canonical_name": "capsicum",
+      "category": "vegetable",
+      "english_names": [
+        "capsicum",
+        "bell pepper",
+        "sweet pepper"
+      ],
+      "kannada_names": [
+        "ದಪ್ಪ ಮೆಣಸಿನಕಾಯಿ",
+        "ಕ್ಯಾಪ್ಸಿಕಂ"
+      ],
+      "aliases": [
+        "capsicum",
+        "bell pepper",
+        "sweet pepper",
+        "dappa menasinakayi",
+        "ಕ್ಯಾಪ್ಸಿಕಂನ",
+        "ದಪ್ಪ ಮೆಣಸಿನಕಾಯಿಯ",
+        "ದಪ್ಪ ಮೆಣಸಿನಕಾಯಿ",
+        "ಕ್ಯಾಪ್ಸಿಕಂ"
+      ],
+      "support_status": "recognized_not_supported",
+      "rag_supported": false,
+      "document_count": 0,
+      "topics": [],
+      "karnataka_suitability": "KARNATAKA_RELEVANT",
+      "primary_districts": [
+        "Kolar",
+        "Chikkaballapura",
+        "Bengaluru Rural",
+        "Belagavi"
+      ],
+      "source_institutions": [
+        "ICAR-IIHR",
+        "UHS Bagalkot"
+      ],
+      "agro_climatic_details": {
+        "suitability_notes_kn": "ಪಾಲಿಹೌಸ್ ಮತ್ತು ತೆರೆದ ಜಮೀನಿನಲ್ಲಿ ಯಶಸ್ವಿಯಾಗಿ ಬೆಳೆಯಲಾಗುತ್ತದೆ."
+      },
+      "tested": true
+    },
+    "bhendi": {
+      "canonical_name": "bhendi",
+      "category": "vegetable",
+      "english_names": [
+        "bhendi",
+        "okra",
+        "ladies finger",
+        "lady's finger"
+      ],
+      "kannada_names": [
+        "ಬೆಂಡೆಕಾಯಿ",
+        "ಬೆಂಡೆ"
+      ],
+      "aliases": [
+        "bhendi",
+        "okra",
+        "ladies finger",
+        "lady's finger",
+        "bendekayi",
+        "abelmoschus esculentus",
+        "ಬೆಂಡೆಕಾಯಿಯ",
+        "ಬೆಂಡೆಕಾಯಿಗೆ",
+        "ಬೆಂಡೆಕಾಯಿಬೆಳೆ",
+        "ಬೆಂಡೆ",
+        "ಬೆಂಡೆಕಾಯಿ"
+      ],
+      "support_status": "supported",
+      "rag_supported": true,
+      "document_count": 1,
+      "topics": [
+        "yellow_vein_mosaic",
+        "fruit_borer"
+      ],
+      "karnataka_suitability": "KARNATAKA_RELEVANT",
+      "primary_districts": [
+        "Haveri",
+        "Belagavi",
+        "Dharwad",
+        "Kolar",
+        "Mandya"
+      ],
+      "source_institutions": [
+        "ICAR-IIHR Bengaluru",
+        "UHS Bagalkot"
+      ],
+      "agro_climatic_details": {
+        "soil_requirements": "Sandy loam to clay loam with good drainage.",
+        "rainfall_range_mm": "500-800 mm",
+        "temperature_range_c": "22-35°C",
+        "suitability_notes_kn": "ಕರ್ನಾಟಕದ ಹವಾಮಾನಕ್ಕೆ ವರ್ಷಪೂರ್ತಿ ಸೂಕ್ತವಾದ ತರಕಾರಿ ಬೆಳೆ."
+      },
+      "tested": true
+    },
+    "beans": {
+      "canonical_name": "beans",
+      "category": "vegetable",
+      "english_names": [
+        "beans",
+        "french beans",
+        "string beans"
+      ],
+      "kannada_names": [
+        "ಹುರುಳಿಕಾಯಿ",
+        "ಬೀನ್ಸ್"
+      ],
+      "aliases": [
+        "beans",
+        "french beans",
+        "string beans",
+        "hurulikayi",
+        "phaseolus vulgaris",
+        "ಬೀನ್ಸ್ ನ",
+        "ಹುರುಳಿಕಾಯಿಯ",
+        "ಹುರುಳಿಕಾಯಿ",
+        "ಬೀನ್ಸ್"
+      ],
+      "support_status": "recognized_not_supported",
+      "rag_supported": false,
+      "document_count": 0,
+      "topics": [],
+      "karnataka_suitability": "KARNATAKA_RELEVANT",
+      "primary_districts": [
+        "Kolar",
+        "Chikkaballapura",
+        "Hassan",
+        "Belagavi"
+      ],
+      "source_institutions": [
+        "ICAR-IIHR"
+      ],
+      "agro_climatic_details": {
+        "suitability_notes_kn": "ದಕ್ಷಿಣ ಕರ್ನಾಟಕದಲ್ಲಿ ವಾಣಿಜ್ಯ ತರಕಾರಿಯಾಗಿ ವ್ಯಾಪಕ ಬೆಳೆ."
+      },
+      "tested": true
+    },
+    "cucumber": {
+      "canonical_name": "cucumber",
+      "category": "vegetable",
+      "english_names": [
+        "cucumber",
+        "gherkin"
+      ],
+      "kannada_names": [
+        "ಸೌತೆಕಾಯಿ",
+        "ಸೌತೆ"
+      ],
+      "aliases": [
+        "cucumber",
+        "gherkin",
+        "sauthekayi",
+        "sowthe",
+        "cucumis sativus",
+        "ಸೌತೆಕಾಯಿಯ",
+        "ಸೌತೆಕಾಯಿಗೆ",
+        "ಸೌತೆಕಾಯಿ",
+        "ಸೌತೆ"
+      ],
+      "support_status": "recognized_not_supported",
+      "rag_supported": false,
+      "document_count": 0,
+      "topics": [],
+      "karnataka_suitability": "KARNATAKA_RELEVANT",
+      "primary_districts": [
+        "Tumakuru",
+        "Hassan",
+        "Haveri",
+        "Kolar",
+        "Belagavi"
+      ],
+      "source_institutions": [
+        "ICAR-IIHR",
+        "UHS Bagalkot"
+      ],
+      "agro_climatic_details": {
+        "suitability_notes_kn": "ಕರ್ನಾಟಕದಲ್ಲಿ ಗರ್ಕಿನ್ ಮತ್ತು ಸೌತೆಕಾಯಿ ರಫ್ತು ಕೃಷಿ ಜನಪ್ರಿಯವಾಗಿದೆ."
+      },
+      "tested": true
+    },
+    "carrot": {
+      "canonical_name": "carrot",
+      "category": "vegetable",
+      "english_names": [
+        "carrot"
+      ],
+      "kannada_names": [
+        "ಕ್ಯಾರೆಟ್",
+        "ಗಜ್ಜರಿ"
+      ],
+      "aliases": [
+        "carrot",
+        "kyaret",
+        "gajjari",
+        "daucus carota",
+        "ಕ್ಯಾರೆಟ್ ನ",
+        "ಗಜ್ಜರಿಯ",
+        "ಕ್ಯಾರೆಟ್",
+        "ಗಜ್ಜರಿ"
+      ],
+      "support_status": "recognized_not_supported",
+      "rag_supported": false,
+      "document_count": 0,
+      "topics": [],
+      "karnataka_suitability": "KARNATAKA_RELEVANT",
+      "primary_districts": [
+        "Chikkaballapura",
+        "Kolar",
+        "Belagavi",
+        "Hassan"
+      ],
+      "source_institutions": [
+        "ICAR-IIHR",
+        "UHS Bagalkot"
+      ],
+      "agro_climatic_details": {
+        "suitability_notes_kn": "ಬಯಲುಸೀಮೆ ಹಾಗೂ ಮಲೆನಾಡು ಭಾಗಗಳಲ್ಲಿ ಚಳಿಗಾಲದ ಬೆಳೆಯಾಗಿ ಯಶಸ್ವಿ."
+      },
+      "tested": true
+    },
+    "radish": {
+      "canonical_name": "radish",
+      "category": "vegetable",
+      "english_names": [
+        "radish"
+      ],
+      "kannada_names": [
+        "ಮೂಲಂಗಿ"
+      ],
+      "aliases": [
+        "radish",
+        "moolangi",
+        "raphanus sativus",
+        "ಮೂಲಂಗಿಯ",
+        "ಮೂಲಂಗಿಗೆ",
+        "ಮೂಲಂಗಿ"
+      ],
+      "support_status": "recognized_not_supported",
+      "rag_supported": false,
+      "document_count": 0,
+      "topics": [],
+      "karnataka_suitability": "KARNATAKA_RELEVANT",
+      "primary_districts": [
+        "Kolar",
+        "Chikkaballapura",
+        "Belagavi",
+        "Mandya"
+      ],
+      "source_institutions": [
+        "ICAR-IIHR"
+      ],
+      "agro_climatic_details": {
+        "suitability_notes_kn": "ಅಲ್ಪಾವಧಿಯ ಜನಪ್ರಿಯ ತರಕಾರಿ ಬೆಳೆ."
+      },
+      "tested": true
+    },
+    "beetroot": {
+      "canonical_name": "beetroot",
+      "category": "vegetable",
+      "english_names": [
+        "beetroot",
+        "beet"
+      ],
+      "kannada_names": [
+        "ಬೀಟ್‌ರೂಟ್",
+        "ಬೀಟ್ರೂಟ್"
+      ],
+      "aliases": [
+        "beetroot",
+        "beet",
+        "beet root",
+        "beta vulgaris",
+        "ಬೀಟ್‌ರೂಟ್‌ನ",
+        "ಬೀಟ್‌ರೂಟ್",
+        "ಬೀಟ್ರೂಟ್"
+      ],
+      "support_status": "recognized_not_supported",
+      "rag_supported": false,
+      "document_count": 0,
+      "topics": [],
+      "karnataka_suitability": "KARNATAKA_RELEVANT",
+      "primary_districts": [
+        "Chikkaballapura",
+        "Kolar",
+        "Belagavi"
+      ],
+      "source_institutions": [
+        "ICAR-IIHR"
+      ],
+      "agro_climatic_details": {
+        "suitability_notes_kn": "ಚಳಿಗಾಲದಲ್ಲಿ ಬಯಲುಸೀಮೆಯಲ್ಲಿ ಉತ್ತಮ ಇಳುವರಿ ನೀಡುತ್ತದೆ."
+      },
+      "tested": true
+    },
+    "pumpkin": {
+      "canonical_name": "pumpkin",
+      "category": "vegetable",
+      "english_names": [
+        "pumpkin"
+      ],
+      "kannada_names": [
+        "ಕುಂಬಳಕಾಯಿ",
+        "ಸಿಹಿಕುಂಬಳ"
+      ],
+      "aliases": [
+        "pumpkin",
+        "kumbalakayi",
+        "cucurbita moschata",
+        "ಕುಂಬಳಕಾಯಿಯ",
+        "ಕುಂಬಳಕಾಯಿ",
+        "ಸಿಹಿಕುಂಬಳ"
+      ],
+      "support_status": "recognized_not_supported",
+      "rag_supported": false,
+      "document_count": 0,
+      "topics": [],
+      "karnataka_suitability": "KARNATAKA_RELEVANT",
+      "primary_districts": [
+        "Mandya",
+        "Mysuru",
+        "Hassan",
+        "Belagavi"
+      ],
+      "source_institutions": [
+        "UHS Bagalkot"
+      ],
+      "agro_climatic_details": {
+        "suitability_notes_kn": "ಕರ್ನಾಟಕದಾದ್ಯಂತ ವ್ಯಾಪಕವಾಗಿ ಬೆಳೆಯಲಾಗುತ್ತದೆ."
+      },
+      "tested": true
+    },
+    "bottle_gourd": {
+      "canonical_name": "bottle_gourd",
+      "category": "vegetable",
+      "english_names": [
+        "bottle gourd",
+        "calabash"
+      ],
+      "kannada_names": [
+        "ಸೋರೆಕಾಯಿ",
+        "ಸೋರೆ"
+      ],
+      "aliases": [
+        "bottle gourd",
+        "calabash",
+        "sorekayi",
+        "lagenaria siceraria",
+        "ಸೋರೆಕಾಯಿಯ",
+        "ಸೋರೆಕಾಯಿ",
+        "ಸೋರೆ",
+        "bottle_gourd"
+      ],
+      "support_status": "recognized_not_supported",
+      "rag_supported": false,
+      "document_count": 0,
+      "topics": [],
+      "karnataka_suitability": "KARNATAKA_RELEVANT",
+      "primary_districts": [
+        "Mandya",
+        "Mysuru",
+        "Kolar",
+        "Belagavi"
+      ],
+      "source_institutions": [
+        "ICAR-IIHR"
+      ],
+      "agro_climatic_details": {
+        "suitability_notes_kn": "ವರ್ಷವಿಡೀ ಬೆಳೆಯಬಹುದಾದ ಬಳ್ಳಿ ತರಕಾರಿ."
+      },
+      "tested": true
+    },
+    "bitter_gourd": {
+      "canonical_name": "bitter_gourd",
+      "category": "vegetable",
+      "english_names": [
+        "bitter gourd",
+        "bitter melon"
+      ],
+      "kannada_names": [
+        "ಹಾಗಲಕಾಯಿ"
+      ],
+      "aliases": [
+        "bitter gourd",
+        "bitter melon",
+        "hagalakayi",
+        "momordica charantia",
+        "ಹಾಗಲಕಾಯಿಯ",
+        "ಹಾಗಲಕಾಯಿ",
+        "bitter_gourd"
+      ],
+      "support_status": "recognized_not_supported",
+      "rag_supported": false,
+      "document_count": 0,
+      "topics": [],
+      "karnataka_suitability": "KARNATAKA_RELEVANT",
+      "primary_districts": [
+        "Belagavi",
+        "Kolar",
+        "Chikkaballapura",
+        "Mandya"
+      ],
+      "source_institutions": [
+        "ICAR-IIHR"
+      ],
+      "agro_climatic_details": {
+        "suitability_notes_kn": "ಔಷಧೀಯ ಗುಣವುಳ್ಳ ಪ್ರಮುಖ ವಾಣಿಜ್ಯ ತರಕಾರಿ ಬೆಳೆ."
+      },
+      "tested": true
+    },
+    "ridge_gourd": {
+      "canonical_name": "ridge_gourd",
+      "category": "vegetable",
+      "english_names": [
+        "ridge gourd",
+        "luffa"
+      ],
+      "kannada_names": [
+        "ಹೀರೆಕಾಯಿ"
+      ],
+      "aliases": [
+        "ridge gourd",
+        "luffa",
+        "heerekayi",
+        "luffa acutangula",
+        "ಹೀರೆಕಾಯಿಯ",
+        "ಹೀರೆಕಾಯಿ",
+        "ridge_gourd"
+      ],
+      "support_status": "recognized_not_supported",
+      "rag_supported": false,
+      "document_count": 0,
+      "topics": [],
+      "karnataka_suitability": "KARNATAKA_RELEVANT",
+      "primary_districts": [
+        "Belagavi",
+        "Dharwad",
+        "Haveri",
+        "Kolar"
+      ],
+      "source_institutions": [
+        "ICAR-IIHR"
+      ],
+      "agro_climatic_details": {
+        "suitability_notes_kn": "ಕರ್ನಾಟಕದಲ್ಲಿ ಹೆಚ್ಚು ಬೇಡಿಕೆಯಿರುವ ಬಳ್ಳಿ ತರಕಾರಿ."
+      },
+      "tested": true
+    },
+    "snake_gourd": {
+      "canonical_name": "snake_gourd",
+      "category": "vegetable",
+      "english_names": [
+        "snake gourd"
+      ],
+      "kannada_names": [
+        "ಪಡುವಲಕಾಯಿ"
+      ],
+      "aliases": [
+        "snake gourd",
+        "paduvalakayi",
+        "trichosanthes cucumerina",
+        "ಪಡುವಲಕಾಯಿಯ",
+        "ಪಡುವಲಕಾಯಿ",
+        "snake_gourd"
+      ],
+      "support_status": "recognized_not_supported",
+      "rag_supported": false,
+      "document_count": 0,
+      "topics": [],
+      "karnataka_suitability": "KARNATAKA_RELEVANT",
+      "primary_districts": [
+        "Udupi",
+        "Dakshina Kannada",
+        "Shivamogga"
+      ],
+      "source_institutions": [
+        "UHS Bagalkot"
+      ],
+      "agro_climatic_details": {
+        "suitability_notes_kn": "ಕರಾವಳಿ ಮತ್ತು ಮಲೆನಾಡು ಭಾಗಗಳಲ್ಲಿ ಹೆಚ್ಚು ಜನಪ್ರಿಯ."
+      },
+      "tested": true
+    },
+    "ash_gourd": {
+      "canonical_name": "ash_gourd",
+      "category": "vegetable",
+      "english_names": [
+        "ash gourd",
+        "wax gourd",
+        "winter melon"
+      ],
+      "kannada_names": [
+        "ಬೂದುಕುಂಬಳಕಾಯಿ",
+        "ಬೂದು ಕುಂಬಳ"
+      ],
+      "aliases": [
+        "ash gourd",
+        "wax gourd",
+        "winter melon",
+        "budukumbalakayi",
+        "benincasa hispida",
+        "ಬೂದುಕುಂಬಳಕಾಯಿಯ",
+        "ಬೂದುಕುಂಬಳಕಾಯಿ",
+        "ಬೂದು ಕುಂಬಳ",
+        "ash_gourd"
+      ],
+      "support_status": "recognized_not_supported",
+      "rag_supported": false,
+      "document_count": 0,
+      "topics": [],
+      "karnataka_suitability": "KARNATAKA_RELEVANT",
+      "primary_districts": [
+        "Mysuru",
+        "Mandya",
+        "Hassan",
+        "Belagavi"
+      ],
+      "source_institutions": [
+        "ICAR-IIHR"
+      ],
+      "agro_climatic_details": {
+        "suitability_notes_kn": "ದೀರ್ಘಕಾಲ ಶೇಖರಿಸಿಡಬಹುದಾದ ತರಕಾರಿ ಬೆಳೆ."
+      },
+      "tested": true
+    },
+    "drumstick": {
+      "canonical_name": "drumstick",
+      "category": "vegetable",
+      "english_names": [
+        "drumstick",
+        "moringa"
+      ],
+      "kannada_names": [
+        "ನುಗ್ಗೆಕಾಯಿ",
+        "ನುಗ್ಗೆ"
+      ],
+      "aliases": [
+        "drumstick",
+        "moringa",
+        "nuggekayi",
+        "moringa oleifera",
+        "ನುಗ್ಗೆಕಾಯಿಯ",
+        "ನುಗ್ಗೆಮರ",
+        "ನುಗ್ಗೆಕಾಯಿ",
+        "ನುಗ್ಗೆ"
+      ],
+      "support_status": "recognized_not_supported",
+      "rag_supported": false,
+      "document_count": 0,
+      "topics": [],
+      "karnataka_suitability": "KARNATAKA_RELEVANT",
+      "primary_districts": [
+        "Bagalkot",
+        "Vijayapura",
+        "Koppal",
+        "Tumakuru"
+      ],
+      "source_institutions": [
+        "UHS Bagalkot",
+        "ICAR-IIHR"
+      ],
+      "agro_climatic_details": {
+        "suitability_notes_kn": "ಬರ ನಿರೋಧಕ ಶಕ್ತಿಯುಳ್ಳ ವರ್ಷವಿಡೀ ಕಾಯಿ ಕೊಡುವ ಬಹುವಾರ್ಷಿಕ ತರಕಾರಿ ಬೆಳೆ."
+      },
+      "tested": true
+    },
+    "green_peas": {
+      "canonical_name": "green_peas",
+      "category": "vegetable",
+      "english_names": [
+        "green peas",
+        "fresh peas"
+      ],
+      "kannada_names": [
+        "ಹಸಿ ಬಟಾಣಿ"
+      ],
+      "aliases": [
+        "green peas",
+        "fresh peas",
+        "hasi batani",
+        "ಹಸಿ ಬಟಾಣಿಯ",
+        "ಹಸಿ ಬಟಾಣಿ",
+        "green_peas"
+      ],
+      "support_status": "recognized_not_supported",
+      "rag_supported": false,
+      "document_count": 0,
+      "topics": [],
+      "karnataka_suitability": "KARNATAKA_CONDITIONALLY_SUITABLE",
+      "primary_districts": [
+        "Chikkamagaluru",
+        "Hassan",
+        "Belagavi"
+      ],
+      "source_institutions": [
+        "ICAR-IIHR"
+      ],
+      "agro_climatic_details": {
+        "suitability_notes_kn": "ಚಳಿಗಾಲದಲ್ಲಿ ತಂಪಾದ ಪ್ರದೇಶಗಳಲ್ಲಿ ಬೆಳೆಯಲಾಗುತ್ತದೆ."
+      },
+      "tested": true
+    },
+    "sweet_corn": {
+      "canonical_name": "sweet_corn",
+      "category": "vegetable",
+      "english_names": [
+        "sweet corn"
+      ],
+      "kannada_names": [
+        "ಸ್ವೀಟ್ ಕಾರ್ನ್"
+      ],
+      "aliases": [
+        "sweet corn",
+        "sweetcorn",
+        "ಸ್ವೀಟ್ ಕಾರ್ನ್ ಬೆಳೆ",
+        "ಸ್ವೀಟ್ ಕಾರ್ನ್",
+        "sweet_corn"
+      ],
+      "support_status": "recognized_not_supported",
+      "rag_supported": false,
+      "document_count": 0,
+      "topics": [],
+      "karnataka_suitability": "KARNATAKA_RELEVANT",
+      "primary_districts": [
+        "Bengaluru Rural",
+        "Kolar",
+        "Belagavi"
+      ],
+      "source_institutions": [
+        "UAS Bangalore",
+        "ICAR-IIMR"
+      ],
+      "agro_climatic_details": {
+        "suitability_notes_kn": "ನಗರ ಪ್ರದೇಶಗಳ ಸಮೀಪದಲ್ಲಿ ಹೆಚ್ಚು ಬೇಡಿಕೆಯಿರುವ ತರಕಾರಿ ಬೆಳೆ."
+      },
+      "tested": true
+    },
+    "broccoli": {
+      "canonical_name": "broccoli",
+      "category": "vegetable",
+      "english_names": [
+        "broccoli"
+      ],
+      "kannada_names": [
+        "ಬ್ರೊಕೋಲಿ"
+      ],
+      "aliases": [
+        "broccoli",
+        "brokoli",
+        "brassica oleracea var italica",
+        "ಬ್ರೊಕೋಲಿಯ",
+        "ಬ್ರೊಕೋಲಿ"
+      ],
+      "support_status": "recognized_not_supported",
+      "rag_supported": false,
+      "document_count": 0,
+      "topics": [],
+      "karnataka_suitability": "KARNATAKA_CONDITIONALLY_SUITABLE",
+      "primary_districts": [
+        "Bengaluru Rural",
+        "Chikkaballapura",
+        "Belagavi"
+      ],
+      "source_institutions": [
+        "ICAR-IIHR"
+      ],
+      "agro_climatic_details": {
+        "suitability_notes_kn": "ತಂಪಾದ ಹವಾಮಾನ ಮತ್ತು ಪಾಲಿಹೌಸ್ ಕೃಷಿಗೆ ಸೂಕ್ತವಾದ ವಿದೇಶಿ ತರಕಾರಿ."
+      },
+      "tested": true
+    },
+    "spinach": {
+      "canonical_name": "spinach",
+      "category": "vegetable",
+      "english_names": [
+        "spinach",
+        "palak"
+      ],
+      "kannada_names": [
+        "ಪಾಲಕ್"
+      ],
+      "aliases": [
+        "spinach",
+        "palak",
+        "spinacia oleracea",
+        "ಪಾಲಕ್ ಸೊಪ್ಪು",
+        "ಪಾಲಕ್"
+      ],
+      "support_status": "recognized_not_supported",
+      "rag_supported": false,
+      "document_count": 0,
+      "topics": [],
+      "karnataka_suitability": "KARNATAKA_RELEVANT",
+      "primary_districts": [
+        "Kolar",
+        "Bengaluru Rural",
+        "Belagavi",
+        "Mysuru"
+      ],
+      "source_institutions": [
+        "ICAR-IIHR"
+      ],
+      "agro_climatic_details": {
+        "suitability_notes_kn": "ಅಲ್ಪಾವಧಿಯ ಪೌಷ್ಟಿಕ ಸೊಪ್ಪು ಬೆಳೆ."
+      },
+      "tested": true
+    },
+    "amaranth": {
+      "canonical_name": "amaranth",
+      "category": "vegetable",
+      "english_names": [
+        "amaranth",
+        "chinese spinach"
+      ],
+      "kannada_names": [
+        "ದಂಟು",
+        "ದಂಟಿನ ಸೊಪ್ಪು",
+        "ರಾಜಗೀರೆ"
+      ],
+      "aliases": [
+        "amaranth",
+        "dantu",
+        "dantina soppu",
+        "rajgira",
+        "ದಂಟಿನ",
+        "ದಂಟು ಸೊಪ್ಪು",
+        "chinese spinach",
+        "ದಂಟು",
+        "ದಂಟಿನ ಸೊಪ್ಪು",
+        "ರಾಜಗೀರೆ"
+      ],
+      "support_status": "recognized_not_supported",
+      "rag_supported": false,
+      "document_count": 0,
+      "topics": [],
+      "karnataka_suitability": "KARNATAKA_RELEVANT",
+      "primary_districts": [
+        "Mysuru",
+        "Mandya",
+        "Tumakuru",
+        "Kolar"
+      ],
+      "source_institutions": [
+        "UAS Bangalore"
+      ],
+      "agro_climatic_details": {
+        "suitability_notes_kn": "ಕರ್ನಾಟಕದ ಸಾಂಪ್ರದಾಯಿಕ ಸೊಪ್ಪು ಬೆಳೆ."
+      },
+      "tested": true
+    },
+    "lettuce": {
+      "canonical_name": "lettuce",
+      "category": "vegetable",
+      "english_names": [
+        "lettuce"
+      ],
+      "kannada_names": [
+        "ಲೆಟಿಸ್"
+      ],
+      "aliases": [
+        "lettuce",
+        "lactuca sativa",
+        "ಲೆಟಿಸ್ ಸೊಪ್ಪು",
+        "ಲೆಟಿಸ್"
+      ],
+      "support_status": "recognized_not_supported",
+      "rag_supported": false,
+      "document_count": 0,
+      "topics": [],
+      "karnataka_suitability": "KARNATAKA_CONDITIONALLY_SUITABLE",
+      "primary_districts": [
+        "Bengaluru Rural",
+        "Chikkaballapura"
+      ],
+      "source_institutions": [
+        "ICAR-IIHR"
+      ],
+      "agro_climatic_details": {
+        "suitability_notes_kn": "ಪಾಲಿಹೌಸ್ ಅಥವಾ ಹೈಡ್ರೋಪೋನಿಕ್ಸ್ ನಲ್ಲಿ ನಗರ ಬೇಡಿಕೆಗಾಗಿ ಬೆಳೆಯಲಾಗುತ್ತದೆ."
+      },
+      "tested": true
+    },
+    "sweet_potato": {
+      "canonical_name": "sweet_potato",
+      "category": "tuber",
+      "english_names": [
+        "sweet potato"
+      ],
+      "kannada_names": [
+        "ಗೆಣಸು",
+        "ಸಿಹಿ ಗೆಣಸು"
+      ],
+      "aliases": [
+        "sweet potato",
+        "genasu",
+        "sihi genasu",
+        "ipomoea batatas",
+        "ಗೆಣಸಿನ",
+        "ಗೆಣಸಿಗೆ",
+        "ಗೆಣಸು",
+        "ಸಿಹಿ ಗೆಣಸು",
+        "sweet_potato"
+      ],
+      "support_status": "recognized_not_supported",
+      "rag_supported": false,
+      "document_count": 0,
+      "topics": [],
+      "karnataka_suitability": "KARNATAKA_RELEVANT",
+      "primary_districts": [
+        "Belagavi",
+        "Uttara Kannada",
+        "Dakshina Kannada",
+        "Shivamogga"
+      ],
+      "source_institutions": [
+        "ICAR-CTCRI Thiruvananthapuram",
+        "UHS Bagalkot"
+      ],
+      "agro_climatic_details": {
+        "suitability_notes_kn": "ಕರಾವಳಿ ಮತ್ತು ಮಲೆನಾಡು ಭಾಗಗಳಲ್ಲಿ ಸಾಂಪ್ರದಾಯಿಕ ಗೆಡ್ಡೆ ಬೆಳೆ."
+      },
+      "tested": true
+    },
+    "tapioca": {
+      "canonical_name": "tapioca",
+      "category": "tuber",
+      "english_names": [
+        "tapioca",
+        "cassava"
+      ],
+      "kannada_names": [
+        "ಮರಗೆಣಸು",
+        "ಸಾಬುದಾನ ಗೆಣಸು"
+      ],
+      "aliases": [
+        "tapioca",
+        "cassava",
+        "maragenasu",
+        "manihot esculenta",
+        "ಮರಗೆಣಸಿನ",
+        "ಮರಗೆಣಸು",
+        "ಸಾಬುದಾನ ಗೆಣಸು"
+      ],
+      "support_status": "recognized_not_supported",
+      "rag_supported": false,
+      "document_count": 0,
+      "topics": [],
+      "karnataka_suitability": "KARNATAKA_RELEVANT",
+      "primary_districts": [
+        "Dakshina Kannada",
+        "Udupi",
+        "Uttara Kannada"
+      ],
+      "source_institutions": [
+        "ICAR-CTCRI"
+      ],
+      "agro_climatic_details": {
+        "suitability_notes_kn": "ಕರಾವಳಿ ಜಿಲ್ಲೆಗಳಲ್ಲಿ ಮಳೆಯಾಶ್ರಿತವಾಗಿ ಬೆಳೆಯಲಾಗುತ್ತದೆ."
+      },
+      "tested": true
+    },
+    "yam": {
+      "canonical_name": "yam",
+      "category": "tuber",
+      "english_names": [
+        "yam"
+      ],
+      "kannada_names": [
+        "ಸುವರ್ಣಗೆಡ್ಡೆ",
+        "ಕಾಚುಗೆಣಸು"
+      ],
+      "aliases": [
+        "yam",
+        "suvarnagedde",
+        "dioscorea",
+        "ಸುವರ್ಣಗೆಡ್ಡೆಯ",
+        "ಸುವರ್ಣಗೆಡ್ಡೆ",
+        "ಕಾಚುಗೆಣಸು"
+      ],
+      "support_status": "recognized_not_supported",
+      "rag_supported": false,
+      "document_count": 0,
+      "topics": [],
+      "karnataka_suitability": "KARNATAKA_RELEVANT",
+      "primary_districts": [
+        "Dakshina Kannada",
+        "Uttara Kannada",
+        "Shivamogga"
+      ],
+      "source_institutions": [
+        "ICAR-CTCRI"
+      ],
+      "agro_climatic_details": {
+        "suitability_notes_kn": "ತೋಟಗಳಲ್ಲಿ ಅಂತರ್ ಬೆಳೆಯಾಗಿ ಬೆಳೆಯಲಾಗುತ್ತದೆ."
+      },
+      "tested": true
+    },
+    "taro": {
+      "canonical_name": "taro",
+      "category": "tuber",
+      "english_names": [
+        "taro",
+        "colocasia"
+      ],
+      "kannada_names": [
+        "ಸಾವೆ ಸೊಪ್ಪು",
+        "ಕೆಸವಿನ ಗೆಡ್ಡೆ",
+        "ಕೆಸವು"
+      ],
+      "aliases": [
+        "taro",
+        "colocasia",
+        "kesavina gedde",
+        "kesavu",
+        "colocasia esculenta",
+        "ಕೆಸವಿನ",
+        "ಸಾವೆ ಸೊಪ್ಪು",
+        "ಕೆಸವಿನ ಗೆಡ್ಡೆ",
+        "ಕೆಸವು"
+      ],
+      "support_status": "recognized_not_supported",
+      "rag_supported": false,
+      "document_count": 0,
+      "topics": [],
+      "karnataka_suitability": "KARNATAKA_RELEVANT",
+      "primary_districts": [
+        "Dakshina Kannada",
+        "Udupi",
+        "Uttara Kannada",
+        "Shivamogga"
+      ],
+      "source_institutions": [
+        "ICAR-CTCRI"
+      ],
+      "agro_climatic_details": {
+        "suitability_notes_kn": "ಮಲೆನಾಡು ಮತ್ತು ಕರಾವಳಿಯಲ್ಲಿ ತೇವಾಂಶವಿರುವ ಸ್ಥಳಗಳಲ್ಲಿ ಸಾಂಪ್ರದಾಯಿಕ ಬೆಳೆ."
+      },
+      "tested": true
+    },
+    "elephant_foot_yam": {
+      "canonical_name": "elephant_foot_yam",
+      "category": "tuber",
+      "english_names": [
+        "elephant foot yam",
+        "jimikand"
+      ],
+      "kannada_names": [
+        "ಸುವರ್ಣ ಗಡ್ಡೆ",
+        "ಜಮೀನ್‌ಕಂದ್"
+      ],
+      "aliases": [
+        "elephant foot yam",
+        "jimikand",
+        "amorphophallus paeoniifolius",
+        "ಸುವರ್ಣ ಗಡ್ಡೆ",
+        "ಜಮೀನ್‌ಕಂದ್",
+        "elephant_foot_yam"
+      ],
+      "support_status": "recognized_not_supported",
+      "rag_supported": false,
+      "document_count": 0,
+      "topics": [],
+      "karnataka_suitability": "KARNATAKA_RELEVANT",
+      "primary_districts": [
+        "Mysuru",
+        "Chamarajanagar",
+        "Dakshina Kannada"
+      ],
+      "source_institutions": [
+        "ICAR-CTCRI"
+      ],
+      "agro_climatic_details": {
+        "suitability_notes_kn": "ತೋಟದ ನೆರಳಿನಲ್ಲಿ ಹೆಚ್ಚು ಇಳುವರಿ ನೀಡುವ ಗೆಡ್ಡೆ ಬೆಳೆ."
+      },
+      "tested": true
+    },
+    "banana": {
+      "canonical_name": "banana",
+      "category": "fruit",
+      "english_names": [
+        "banana",
+        "plantain"
+      ],
+      "kannada_names": [
+        "ಬಾಳೆ",
+        "ಬಾಳೆಹಣ್ಣು"
+      ],
+      "aliases": [
+        "banana",
+        "plantain",
+        "bale",
+        "balehannu",
+        "musa acuminata",
+        "ಬಾಳೆಯ",
+        "ಬಾಳೆಗೆ",
+        "ಬಾಳೆಗಿಡ",
+        "ಬಾಳೆಬೆಳೆ",
+        "ಬಾಳೆಯಲ್ಲಿ",
+        "ಬಾಳೆಹಣ್ಣಿನ",
+        "ಬಾಳೆ ತೋಟ",
+        "ಬಾಳೆ",
+        "ಬಾಳೆಹಣ್ಣು"
+      ],
+      "support_status": "supported",
+      "rag_supported": true,
+      "document_count": 2,
+      "topics": [
+        "nutrient_deficiency",
+        "panama_wilt",
+        "sigatoka_leaf_spot"
+      ],
+      "karnataka_suitability": "KARNATAKA_RELEVANT",
+      "primary_districts": [
+        "Mysuru",
+        "Mandya",
+        "Ramanagara",
+        "Davangere",
+        "Chamarajanagar",
+        "Shivamogga"
+      ],
+      "source_institutions": [
+        "ICAR-National Research Centre for Banana (NRCB)",
+        "UHS Bagalkot",
+        "UAS Bangalore"
+      ],
+      "agro_climatic_details": {
+        "soil_requirements": "Deep fertile rich loamy and alluvial soils with adequate moisture.",
+        "rainfall_range_mm": "1000-1500 mm or assured drip irrigation",
+        "temperature_range_c": "20-35°C",
+        "suitability_notes_kn": "ಮೈಸೂರು (ನಂಜನಗೂಡು ರಸಬಾಳೆ - GI Tag) ಮತ್ತು ಕಾವೇರಿ ಕಣಿವೆಯಲ್ಲಿ ಪ್ರಮುಖ ಹಣ್ಣಿನ ಬೆಳೆ."
+      },
+      "tested": true
+    },
+    "mango": {
+      "canonical_name": "mango",
+      "category": "fruit",
+      "english_names": [
+        "mango"
+      ],
+      "kannada_names": [
+        "ಮಾವು",
+        "ಮಾವಿನಹಣ್ಣು"
+      ],
+      "aliases": [
+        "mango",
+        "mavu",
+        "mavina mara",
+        "mangifera indica",
+        "ಮಾವಿನ",
+        "ಮಾವಿಗೆ",
+        "ಮಾವುಬೆಳೆ",
+        "ಮಾವಿನಲ್ಲಿ",
+        "ಮಾವಿನಹಣ್ಣಿನ",
+        "ಮಾವಿನ ತೋಟ",
+        "ಮಾವು",
+        "ಮಾವಿನಹಣ್ಣು"
+      ],
+      "support_status": "supported",
+      "rag_supported": true,
+      "document_count": 1,
+      "topics": [
+        "powdery_mildew",
+        "anthracnose",
+        "hopper_pest"
+      ],
+      "karnataka_suitability": "KARNATAKA_RELEVANT",
+      "primary_districts": [
+        "Kolar",
+        "Chikkaballapura",
+        "Ramanagara",
+        "Dharwad",
+        "Belagavi",
+        "Tumakuru"
+      ],
+      "source_institutions": [
+        "ICAR-Indian Institute of Horticultural Research (IIHR)",
+        "UHS Bagalkot",
+        "Karnataka State Mango Board"
+      ],
+      "agro_climatic_details": {
+        "soil_requirements": "Deep well-drained red loamy and alluvial soils with pH 5.5-7.5.",
+        "rainfall_range_mm": "500-1000 mm",
+        "temperature_range_c": "24-38°C",
+        "suitability_notes_kn": "ಕೋಲಾರ, ಚಿಕ್ಕಬಳ್ಳಾಪುರ ಮತ್ತು ರಾಮನಗರ ಕರ್ನಾಟಕದ ಪ್ರಮುಖ ಮಾವು ಉತ್ಪಾದನಾ ಜಿಲ್ಲೆಗಳು."
+      },
+      "tested": true
+    },
+    "pomegranate": {
+      "canonical_name": "pomegranate",
+      "category": "fruit",
+      "english_names": [
+        "pomegranate"
+      ],
+      "kannada_names": [
+        "ದಾಳಿಂಬೆ"
+      ],
+      "aliases": [
+        "pomegranate",
+        "dalimbe",
+        "anar",
+        "punica granatum",
+        "ದಾಳಿಂಬೆಯ",
+        "ದಾಳಿಂಬೆಗೆ",
+        "ದಾಳಿಂಬೆಬೆಳೆ",
+        "ದಾಳಿಂಬೆಯಲ್ಲಿ",
+        "ದಾಳಿಂಬೆ ತೋಟ",
+        "ದಾಳಿಂಬೆ"
+      ],
+      "support_status": "supported",
+      "rag_supported": true,
+      "document_count": 1,
+      "topics": [
+        "bacterial_blight",
+        "wilt_disease",
+        "fruit_borer"
+      ],
+      "karnataka_suitability": "KARNATAKA_RELEVANT",
+      "primary_districts": [
+        "Bagalkot",
+        "Vijayapura",
+        "Koppal",
+        "Ballari",
+        "Chitradurga",
+        "Kalaburagi"
+      ],
+      "source_institutions": [
+        "ICAR-National Research Centre on Pomegranate (NRCP) Solapur",
+        "UHS Bagalkot"
+      ],
+      "agro_climatic_details": {
+        "soil_requirements": "Deep loamy and light black soils with excellent drainage.",
+        "rainfall_range_mm": "500-700 mm with drip irrigation",
+        "temperature_range_c": "25-38°C (Semi-arid dry climate)",
+        "suitability_notes_kn": "ಉತ್ತರ ಒಣವಲಯದಲ್ಲಿ ಭಗವಾ ತಳಿಯ ದಾಳಿಂಬೆ ಹೆಚ್ಚು ಜನಪ್ರಿಯ ರಫ್ತು ಬೆಳೆಯಾಗಿದೆ."
+      },
+      "tested": true
+    },
+    "grapes": {
+      "canonical_name": "grapes",
+      "category": "fruit",
+      "english_names": [
+        "grapes",
+        "grape"
+      ],
+      "kannada_names": [
+        "ದ್ರಾಕ್ಷಿ"
+      ],
+      "aliases": [
+        "grapes",
+        "grape",
+        "drakshi",
+        "vitis vinifera",
+        "ದ್ರಾಕ್ಷಿಯ",
+        "ದ್ರಾಕ್ಷಿಗೆ",
+        "ದ್ರಾಕ್ಷಿಬೆಳೆ",
+        "ದ್ರಾಕ್ಷಿಯಲ್ಲಿ",
+        "ದ್ರಾಕ್ಷಿ ತೋಟ",
+        "ದ್ರಾಕ್ಷಿ"
+      ],
+      "support_status": "supported",
+      "rag_supported": true,
+      "document_count": 1,
+      "topics": [
+        "downy_mildew",
+        "powdery_mildew",
+        "berry_cracking"
+      ],
+      "karnataka_suitability": "KARNATAKA_RELEVANT",
+      "primary_districts": [
+        "Vijayapura",
+        "Bengaluru Rural",
+        "Chikkaballapura",
+        "Bagalkot",
+        "Belagavi"
+      ],
+      "source_institutions": [
+        "ICAR-National Research Centre for Grapes (NRCG)",
+        "UHS Bagalkot"
+      ],
+      "agro_climatic_details": {
+        "soil_requirements": "Well-drained sandy loam and red loam with good drainage.",
+        "rainfall_range_mm": "500-700 mm (Dry weather during flowering/harvest essential)",
+        "temperature_range_c": "15-35°C",
+        "suitability_notes_kn": "ವಿಜಯಪುರ (ಒಣದ್ರಾಕ್ಷಿ) ಮತ್ತು ಬೆಂಗಳೂರು ಬ್ಲೂ (GI Tag) ಕರ್ನಾಟಕದ ಪ್ರಮುಖ ದ್ರಾಕ್ಷಿ ತಳಿಗಳು."
+      },
+      "tested": true
+    },
+    "papaya": {
+      "canonical_name": "papaya",
+      "category": "fruit",
+      "english_names": [
+        "papaya",
+        "pawpaw"
+      ],
+      "kannada_names": [
+        "ಪರಂಗಿ",
+        "ಪಪ್ಪಾಯಿ"
+      ],
+      "aliases": [
+        "papaya",
+        "pawpaw",
+        "parangi",
+        "pappayi",
+        "carica papaya",
+        "ಪರಂಗಿಯ",
+        "ಪಪ್ಪಾಯಿಯ",
+        "ಪರಂಗಿಹಣ್ಣು",
+        "ಪಪ್ಪಾಯಿ ಗಿಡ",
+        "ಪರಂಗಿ",
+        "ಪಪ್ಪಾಯಿ"
+      ],
+      "support_status": "supported",
+      "rag_supported": true,
+      "document_count": 1,
+      "topics": [
+        "ring_spot_virus",
+        "damping_off",
+        "fruit_rot"
+      ],
+      "karnataka_suitability": "KARNATAKA_RELEVANT",
+      "primary_districts": [
+        "Ballari",
+        "Raichur",
+        "Mandya",
+        "Mysuru",
+        "Kolar",
+        "Bagalkot"
+      ],
+      "source_institutions": [
+        "ICAR-Indian Institute of Horticultural Research (IIHR) Bengaluru",
+        "UHS Bagalkot"
+      ],
+      "agro_climatic_details": {
+        "soil_requirements": "Well-drained rich sandy loam; strictly no stagnant water logging.",
+        "rainfall_range_mm": "800-1200 mm with drip irrigation",
+        "temperature_range_c": "22-35°C",
+        "suitability_notes_kn": "ರೆಡ್ ಲೇಡಿ ತಳಿಯ ಪರಂಗಿ ಕರ್ನಾಟಕದಲ್ಲಿ ಅತಿ ಹೆಚ್ಚು ಲಾಭದಾಯಕ ಹಣ್ಣಿನ ಬೆಳೆಯಾಗಿದೆ."
+      },
+      "tested": true
+    },
+    "lime": {
+      "canonical_name": "lime",
+      "category": "fruit",
+      "english_names": [
+        "lime",
+        "acid lime",
+        "lemon"
+      ],
+      "kannada_names": [
+        "ನಿಂಬೆ",
+        "ನಿಂಬೆಹಣ್ಣು",
+        "ಲಿಂಬೆ"
+      ],
+      "aliases": [
+        "lime",
+        "acid lime",
+        "lemon",
+        "nimbe",
+        "citrus aurantiifolia",
+        "ನಿಂಬೆಯ",
+        "ನಿಂಬೆಗೆ",
+        "ನಿಂಬೆಗಿಡ",
+        "ನಿಂಬೆಬೆಳೆ",
+        "ನಿಂಬೆಹಣ್ಣಿನ",
+        "ಲಿಂಬೆ",
+        "ನಿಂಬೆ",
+        "ನಿಂಬೆಹಣ್ಣು"
+      ],
+      "support_status": "supported",
+      "rag_supported": true,
+      "document_count": 1,
+      "topics": [
+        "citrus_canker",
+        "dieback",
+        "leaf_miner"
+      ],
+      "karnataka_suitability": "KARNATAKA_RELEVANT",
+      "primary_districts": [
+        "Vijayapura",
+        "Bagalkot",
+        "Kalaburagi",
+        "Raichur",
+        "Koppal"
+      ],
+      "source_institutions": [
+        "ICAR-Central Citrus Research Institute (CCRI)",
+        "UHS Bagalkot",
+        "UAS Raichur"
+      ],
+      "agro_climatic_details": {
+        "soil_requirements": "Well-drained medium black soils and red loams with low water table.",
+        "rainfall_range_mm": "500-750 mm with drip irrigation",
+        "temperature_range_c": "20-38°C",
+        "suitability_notes_kn": "ವಿಜಯಪುರದ ಇಂಡಿ ಕಾಗಜಿ ನಿಂಬೆ (GI Tag) ಕರ್ನಾಟಕದ ಅತ್ಯಂತ ಪ್ರಸಿದ್ಧ ಲಿಂಬೆ ಬೆಳೆಯಾಗಿದೆ."
+      },
       "tested": true
     },
     "watermelon": {
       "canonical_name": "watermelon",
       "category": "fruit",
-      "english_names": ["watermelon"],
-      "kannada_names": ["ಕಲ್ಲಂಗಡಿ"],
-      "aliases": ["watermelon", "kallangadi", "citrullus lanatus", "ಕಲ್ಲಂಗಡಿ", "ಕಲ್ಲಂಗಡಿಯ", "ಕಲ್ಲಂಗಡಿಗೆ", "ಕಲ್ಲಂಗಡಿಹಣ್ಣು"],
+      "english_names": [
+        "watermelon"
+      ],
+      "kannada_names": [
+        "ಕಲ್ಲಂಗಡಿ",
+        "ಕಲ್ಲಂಗಡಿಹಣ್ಣು"
+      ],
+      "aliases": [
+        "watermelon",
+        "kallangadi",
+        "kallangadihannu",
+        "tarbooz",
+        "citrullus lanatus",
+        "ಕಲ್ಲಂಗಡಿಯ",
+        "ಕಲ್ಲಂಗಡಿಗೆ",
+        "ಕಲ್ಲಂಗಡಿಬೆಳೆ",
+        "ಕಲ್ಲಂಗಡಿಯಲ್ಲಿ",
+        "ಕಲ್ಲಂಗಡಿ ಹಣ್ಣು",
+        "ಕಲ್ಲಂಗಡಿ",
+        "ಕಲ್ಲಂಗಡಿಹಣ್ಣು"
+      ],
+      "support_status": "supported",
+      "rag_supported": true,
+      "document_count": 2,
+      "topics": [
+        "excess_rainfall_drainage",
+        "downy_mildew",
+        "gummy_stem_blight",
+        "fruit_rot"
+      ],
+      "karnataka_suitability": "KARNATAKA_RELEVANT",
+      "primary_districts": [
+        "Bagalkot",
+        "Koppal",
+        "Ballari",
+        "Tumakuru",
+        "Chitradurga",
+        "Chikkaballapura",
+        "Raichur"
+      ],
+      "source_institutions": [
+        "University of Horticultural Sciences (UHS), Bagalkot",
+        "ICAR-IIHR Bengaluru"
+      ],
+      "agro_climatic_details": {
+        "soil_requirements": "Well-drained sandy loam, alluvial and red loamy soils with pH 6.0-7.0.",
+        "rainfall_range_mm": "400-600 mm (Dry, warm sunny climate with drip irrigation essential)",
+        "temperature_range_c": "24-35°C",
+        "suitability_notes_kn": "ಬೇಸಿಗೆ ಹಂಗಾಮಿನಲ್ಲಿ ಬಾಗಲಕೋಟೆ, ಕೊಪ್ಪಳ, ಬಳ್ಳಾರಿ ಮತ್ತು ಬಯಲುಸೀಮೆಯಲ್ಲಿ ಅತಿ ಹೆಚ್ಚು ವಾಣಿಜ್ಯ ಲಾಭ ತರುವ ಬೆಳೆ. ಅತಿಯಾದ ಮಳೆ ಮತ್ತು ನಿಂತ ನೀರು ಬಳ್ಳಿ ಕೊಳೆ ರೋಗಕ್ಕೆ ಕಾರಣವಾಗುವುದರಿಂದ ಬಸಿಗಾಲುವೆ ನಿರ್ವಹಣೆ ಕಡ್ಡಾಯ."
+      },
+      "tested": true
+    },
+    "guava": {
+      "canonical_name": "guava",
+      "category": "fruit",
+      "english_names": [
+        "guava"
+      ],
+      "kannada_names": [
+        "ಸೀಬೆಹಣ್ಣು",
+        "ಪೇರಲ",
+        "ಸೀಬೆ"
+      ],
+      "aliases": [
+        "guava",
+        "seebe",
+        "seebehannu",
+        "perala",
+        "psidium guajava",
+        "ಸೀಬೆಹಣ್ಣಿನ",
+        "ಸೀಬೆಮರ",
+        "ಸೀಬೆಹಣ್ಣು",
+        "ಪೇರಲ",
+        "ಸೀಬೆ"
+      ],
       "support_status": "recognized_not_supported",
       "rag_supported": false,
       "document_count": 0,
       "topics": [],
-      "karnataka_relevance": "karnataka_specific",
-      "primary_districts": ["Koppal", "Ballari", "Bagalkot", "Chitradurga"],
-      "source_institutions": [],
+      "karnataka_suitability": "KARNATAKA_RELEVANT",
+      "primary_districts": [
+        "Bengaluru Rural",
+        "Ramanagara",
+        "Dharwad",
+        "Kolar"
+      ],
+      "source_institutions": [
+        "ICAR-CISH Lucknow",
+        "ICAR-IIHR"
+      ],
+      "agro_climatic_details": {
+        "suitability_notes_kn": "ಕರ್ನಾಟಕದಾದ್ಯಂತ ಎಲ್ಲಾ ಮಣ್ಣುಗಳಲ್ಲಿ ಯಶಸ್ವಿಯಾಗಿ ಬೆಳೆಯಬಹುದು."
+      },
+      "tested": true
+    },
+    "sapota": {
+      "canonical_name": "sapota",
+      "category": "fruit",
+      "english_names": [
+        "sapota",
+        "chikoo",
+        "chiku",
+        "sapodilla"
+      ],
+      "kannada_names": [
+        "ಚಿಕ್ಕು",
+        "ಸಪೋಟ"
+      ],
+      "aliases": [
+        "sapota",
+        "chikoo",
+        "chiku",
+        "sapodilla",
+        "chikku",
+        "manilkara zapota",
+        "ಚಿಕ್ಕುವಿನ",
+        "ಸಪೋಟದ",
+        "ಚಿಕ್ಕು",
+        "ಸಪೋಟ"
+      ],
+      "support_status": "recognized_not_supported",
+      "rag_supported": false,
+      "document_count": 0,
+      "topics": [],
+      "karnataka_suitability": "KARNATAKA_RELEVANT",
+      "primary_districts": [
+        "Belagavi",
+        "Dharwad",
+        "Bengaluru Rural",
+        "Bagalkot"
+      ],
+      "source_institutions": [
+        "UHS Bagalkot",
+        "ICAR-IIHR"
+      ],
+      "agro_climatic_details": {
+        "suitability_notes_kn": "ಕ್ರಿಕೆಟ್ ಬಾಲ್ ಮತ್ತು ಕಾಲಿಪಟ್ಟಿ ತಳಿಗಳು ಕರ್ನಾಟಕದಲ್ಲಿ ಹೆಚ್ಚು ಜನಪ್ರಿಯ."
+      },
+      "tested": true
+    },
+    "lemon": {
+      "canonical_name": "lemon",
+      "category": "fruit",
+      "english_names": [
+        "lemon",
+        "gajanimbe"
+      ],
+      "kannada_names": [
+        "ದೊಡ್ಡ ನಿಂಬೆ",
+        "ಗಜನಿಂಬೆ"
+      ],
+      "aliases": [
+        "lemon",
+        "gajanimbe",
+        "citrus limon",
+        "ಗಜನಿಂಬೆಯ",
+        "ದೊಡ್ಡ ನಿಂಬೆ",
+        "ಗಜನಿಂಬೆ"
+      ],
+      "support_status": "recognized_not_supported",
+      "rag_supported": false,
+      "document_count": 0,
+      "topics": [],
+      "karnataka_suitability": "KARNATAKA_RELEVANT",
+      "primary_districts": [
+        "Shivamogga",
+        "Uttara Kannada",
+        "Dakshina Kannada"
+      ],
+      "source_institutions": [
+        "UHS Bagalkot"
+      ],
+      "agro_climatic_details": {
+        "suitability_notes_kn": "ಮಲೆನಾಡು ಮತ್ತು ಕರಾವಳಿಯಲ್ಲಿ ಮನೆಯಂಗಳ ಹಾಗೂ ತೋಟಗಳಲ್ಲಿ ಬೆಳೆಯಲಾಗುತ್ತದೆ."
+      },
+      "tested": true
+    },
+    "muskmelon": {
+      "canonical_name": "muskmelon",
+      "category": "fruit",
+      "english_names": [
+        "muskmelon",
+        "cantaloupe",
+        "kharbooja"
+      ],
+      "kannada_names": [
+        "ಕರಬೂಜ"
+      ],
+      "aliases": [
+        "muskmelon",
+        "cantaloupe",
+        "kharbooja",
+        "karbuja",
+        "cucumis melo",
+        "ಕರಬೂಜದ",
+        "ಕರಬೂಜ ಹಣ್ಣು",
+        "ಕರಬೂಜ"
+      ],
+      "support_status": "recognized_not_supported",
+      "rag_supported": false,
+      "document_count": 0,
+      "topics": [],
+      "karnataka_suitability": "KARNATAKA_RELEVANT",
+      "primary_districts": [
+        "Bagalkot",
+        "Vijayapura",
+        "Koppal",
+        "Chitradurga"
+      ],
+      "source_institutions": [
+        "UHS Bagalkot",
+        "ICAR-IIHR"
+      ],
+      "agro_climatic_details": {
+        "suitability_notes_kn": "ಬೇಸಿಗೆಯಲ್ಲಿ ಒಣಭೂಮಿ ಜಿಲ್ಲೆಗಳಲ್ಲಿ ನೀರಾವರಿ ಆಶ್ರಯದಲ್ಲಿ ಬೆಳೆಯಲಾಗುತ್ತದೆ."
+      },
+      "tested": true
+    },
+    "pineapple": {
+      "canonical_name": "pineapple",
+      "category": "fruit",
+      "english_names": [
+        "pineapple"
+      ],
+      "kannada_names": [
+        "ಅನಾನಸ್",
+        "ಅನಾನಸು"
+      ],
+      "aliases": [
+        "pineapple",
+        "ananas",
+        "ananasu",
+        "ananas comosus",
+        "ಅನಾನಸಿನ",
+        "ಅನಾನಸ್",
+        "ಅನಾನಸು"
+      ],
+      "support_status": "recognized_not_supported",
+      "rag_supported": false,
+      "document_count": 0,
+      "topics": [],
+      "karnataka_suitability": "KARNATAKA_RELEVANT",
+      "primary_districts": [
+        "Shivamogga",
+        "Uttara Kannada",
+        "Udupi",
+        "Dakshina Kannada"
+      ],
+      "source_institutions": [
+        "UHS Bagalkot"
+      ],
+      "agro_climatic_details": {
+        "suitability_notes_kn": "ಕರಾವಳಿ ಮತ್ತು ಮಲೆನಾಡು ಭಾಗಗಳಲ್ಲಿ ಪ್ರಮುಖ ಹಣ್ಣಿನ ಬೆಳೆ."
+      },
+      "tested": true
+    },
+    "jackfruit": {
+      "canonical_name": "jackfruit",
+      "category": "fruit",
+      "english_names": [
+        "jackfruit"
+      ],
+      "kannada_names": [
+        "ಹಲಸು",
+        "ಹಲಸಿನಹಣ್ಣು"
+      ],
+      "aliases": [
+        "jackfruit",
+        "halasu",
+        "halasina hannu",
+        "artocarpus heterophyllus",
+        "ಹಲಸಿನ",
+        "ಹಲಸಿನಮರ",
+        "ಹಲಸು",
+        "ಹಲಸಿನಹಣ್ಣು"
+      ],
+      "support_status": "recognized_not_supported",
+      "rag_supported": false,
+      "document_count": 0,
+      "topics": [],
+      "karnataka_suitability": "KARNATAKA_RELEVANT",
+      "primary_districts": [
+        "Tumakuru",
+        "Bengaluru Rural",
+        "Dakshina Kannada",
+        "Uttara Kannada",
+        "Shivamogga"
+      ],
+      "source_institutions": [
+        "UAS Bangalore",
+        "ICAR-IIHR"
+      ],
+      "agro_climatic_details": {
+        "suitability_notes_kn": "ತುಮಕೂರಿನ ಸಿದ್ದಲಿಂಗಪುರ ಹಲಸು (ಟ್ಯೂಬ್ ರೋಸ್ ಫ್ಲೇವರ್) ಅತ್ಯಂತ ಜನಪ್ರಿಯ."
+      },
+      "tested": true
+    },
+    "custard_apple": {
+      "canonical_name": "custard_apple",
+      "category": "fruit",
+      "english_names": [
+        "custard apple",
+        "sugar apple",
+        "sitaphal"
+      ],
+      "kannada_names": [
+        "ಸೀತಾಫಲ"
+      ],
+      "aliases": [
+        "custard apple",
+        "sugar apple",
+        "sitaphal",
+        "seethaphala",
+        "annona squamosa",
+        "ಸೀತಾಫಲದ",
+        "ಸೀತಾಫಲ ಹಣ್ಣು",
+        "ಸೀತಾಫಲ",
+        "custard_apple"
+      ],
+      "support_status": "recognized_not_supported",
+      "rag_supported": false,
+      "document_count": 0,
+      "topics": [],
+      "karnataka_suitability": "KARNATAKA_RELEVANT",
+      "primary_districts": [
+        "Kalaburagi",
+        "Raichur",
+        "Koppal",
+        "Chitradurga",
+        "Ballari"
+      ],
+      "source_institutions": [
+        "UAS Raichur",
+        "UHS Bagalkot"
+      ],
+      "agro_climatic_details": {
+        "suitability_notes_kn": "ಒಣಭೂಮಿಯಲ್ಲಿ ಅತಿ ಕಡಿಮೆ ನೀರಿನಲ್ಲಿ ಬೆಳೆಯಬಹುದಾದ ಜನಪ್ರಿಯ ಹಣ್ಣು."
+      },
+      "tested": true
+    },
+    "amla": {
+      "canonical_name": "amla",
+      "category": "fruit",
+      "english_names": [
+        "amla",
+        "indian gooseberry"
+      ],
+      "kannada_names": [
+        "ನೆಲ್ಲಿಕಾಯಿ",
+        "ಬೆಟ್ಟದ ನೆಲ್ಲಿಕಾಯಿ"
+      ],
+      "aliases": [
+        "amla",
+        "indian gooseberry",
+        "nellikayi",
+        "bettada nellikayi",
+        "phyllanthus emblica",
+        "ನೆಲ್ಲಿಕಾಯಿಯ",
+        "ನೆಲ್ಲಿಕಾಯಿ",
+        "ಬೆಟ್ಟದ ನೆಲ್ಲಿಕಾಯಿ"
+      ],
+      "support_status": "recognized_not_supported",
+      "rag_supported": false,
+      "document_count": 0,
+      "topics": [],
+      "karnataka_suitability": "KARNATAKA_RELEVANT",
+      "primary_districts": [
+        "Tumakuru",
+        "Chitradurga",
+        "Chamarajanagar"
+      ],
+      "source_institutions": [
+        "UAS Bangalore",
+        "ICAR-CISH"
+      ],
+      "agro_climatic_details": {
+        "suitability_notes_kn": "ಒಣಭೂಮಿ ಪ್ರದೇಶಗಳಲ್ಲಿ ಉತ್ತಮ ಔಷಧೀಯ ಹಣ್ಣಿನ ಬೆಳೆ."
+      },
+      "tested": true
+    },
+    "fig": {
+      "canonical_name": "fig",
+      "category": "fruit",
+      "english_names": [
+        "fig",
+        "anjeer"
+      ],
+      "kannada_names": [
+        "ಅಂಜೂರ"
+      ],
+      "aliases": [
+        "fig",
+        "anjeer",
+        "anjoora",
+        "ficus carica",
+        "ಅಂಜೂರದ",
+        "ಅಂಜೂರ ಹಣ್ಣು",
+        "ಅಂಜೂರ"
+      ],
+      "support_status": "recognized_not_supported",
+      "rag_supported": false,
+      "document_count": 0,
+      "topics": [],
+      "karnataka_suitability": "KARNATAKA_RELEVANT",
+      "primary_districts": [
+        "Ballari",
+        "Koppal",
+        "Raichur",
+        "Chitradurga"
+      ],
+      "source_institutions": [
+        "UAS Raichur",
+        "UHS Bagalkot"
+      ],
+      "agro_climatic_details": {
+        "suitability_notes_kn": "ಬಳ್ಳಾರಿ ಭಾಗದಲ್ಲಿ ಅಂಜೂರ ಕೃಷಿ ಅತ್ಯಂತ ಯಶಸ್ವಿಯಾಗಿದೆ."
+      },
+      "tested": true
+    },
+    "dragon_fruit": {
+      "canonical_name": "dragon_fruit",
+      "category": "fruit",
+      "english_names": [
+        "dragon fruit",
+        "pitaya"
+      ],
+      "kannada_names": [
+        "ಡ್ರ್ಯಾಗನ್ ಫ್ರೂಟ್",
+        "ಡ್ರ್ಯಾಗನ್ ಹಣ್ಣು"
+      ],
+      "aliases": [
+        "dragon fruit",
+        "pitaya",
+        "dragon fruit hannu",
+        "hylocereus undatus",
+        "ಡ್ರ್ಯಾಗನ್ ಫ್ರೂಟ್ ನ",
+        "ಡ್ರ್ಯಾಗನ್ ಫ್ರೂಟ್",
+        "ಡ್ರ್ಯಾಗನ್ ಹಣ್ಣು",
+        "dragon_fruit"
+      ],
+      "support_status": "recognized_not_supported",
+      "rag_supported": false,
+      "document_count": 0,
+      "topics": [],
+      "karnataka_suitability": "KARNATAKA_CONDITIONALLY_SUITABLE",
+      "primary_districts": [
+        "Tumakuru",
+        "Chitradurga",
+        "Kolar",
+        "Bagalkot"
+      ],
+      "source_institutions": [
+        "ICAR-IIHR",
+        "UHS Bagalkot"
+      ],
+      "agro_climatic_details": {
+        "suitability_notes_kn": "ಕಡಿಮೆ ನೀರಿನಲ್ಲಿ ಕಂಬಗಳ ಆಧಾರದ ಮೇಲೆ ಬೆಳೆಯುವ ಆಧುನಿಕ ಹಣ್ಣಿನ ಬೆಳೆ."
+      },
+      "tested": true
+    },
+    "strawberry": {
+      "canonical_name": "strawberry",
+      "category": "fruit",
+      "english_names": [
+        "strawberry"
+      ],
+      "kannada_names": [
+        "ಸ್ಟ್ರಾಬೆರಿ"
+      ],
+      "aliases": [
+        "strawberry",
+        "straw berry",
+        "fragaria ananassa",
+        "ಸ್ಟ್ರಾಬೆರಿಯ",
+        "ಸ್ಟ್ರಾಬೆರಿ"
+      ],
+      "support_status": "recognized_not_supported",
+      "rag_supported": false,
+      "document_count": 0,
+      "topics": [],
+      "karnataka_suitability": "KARNATAKA_CONDITIONALLY_SUITABLE",
+      "primary_districts": [
+        "Bengaluru Rural",
+        "Chikkaballapura",
+        "Belagavi",
+        "Kodagu"
+      ],
+      "source_institutions": [
+        "ICAR-IIHR"
+      ],
+      "agro_climatic_details": {
+        "suitability_notes_kn": "ಪಾಲಿಹೌಸ್ ಅಥವಾ ಚಳಿಗಾಲದಲ್ಲಿ ತಂಪಾದ ಪ್ರದೇಶಗಳಲ್ಲಿ ಬೆಳೆಯಲಾಗುತ್ತದೆ."
+      },
+      "tested": true
+    },
+    "avocado": {
+      "canonical_name": "avocado",
+      "category": "fruit",
+      "english_names": [
+        "avocado",
+        "butter fruit"
+      ],
+      "kannada_names": [
+        "ಬೆಣ್ಣೆಹಣ್ಣು",
+        "ಆವಕಾಡೊ"
+      ],
+      "aliases": [
+        "avocado",
+        "butter fruit",
+        "bennehannu",
+        "persea americana",
+        "ಬೆಣ್ಣೆಹಣ್ಣಿನ",
+        "ಬೆಣ್ಣೆಹಣ್ಣು",
+        "ಆವಕಾಡೊ"
+      ],
+      "support_status": "recognized_not_supported",
+      "rag_supported": false,
+      "document_count": 0,
+      "topics": [],
+      "karnataka_suitability": "KARNATAKA_CONDITIONALLY_SUITABLE",
+      "primary_districts": [
+        "Kodagu",
+        "Chikkamagaluru",
+        "Hassan"
+      ],
+      "source_institutions": [
+        "ICAR-IIHR Chettalli (Kodagu)"
+      ],
+      "agro_climatic_details": {
+        "suitability_notes_kn": "ಕಾಫಿ ತೋಟಗಳಲ್ಲಿ ನೆರಳಿನ ಮರವಾಗಿ ಕೊಡಗು ಮತ್ತು ಚಿಕ್ಕಮಗಳೂರಿನಲ್ಲಿ ಅತ್ಯುತ್ತಮವಾಗಿ ಬೆಳೆಯುತ್ತದೆ."
+      },
+      "tested": true
+    },
+    "passion_fruit": {
+      "canonical_name": "passion_fruit",
+      "category": "fruit",
+      "english_names": [
+        "passion fruit"
+      ],
+      "kannada_names": [
+        "ಪ್ಯಾಶನ್ ಫ್ರೂಟ್"
+      ],
+      "aliases": [
+        "passion fruit",
+        "passiflora edulis",
+        "ಪ್ಯಾಶನ್ ಹಣ್ಣು",
+        "ಪ್ಯಾಶನ್ ಫ್ರೂಟ್",
+        "passion_fruit"
+      ],
+      "support_status": "recognized_not_supported",
+      "rag_supported": false,
+      "document_count": 0,
+      "topics": [],
+      "karnataka_suitability": "KARNATAKA_CONDITIONALLY_SUITABLE",
+      "primary_districts": [
+        "Kodagu",
+        "Chikkamagaluru",
+        "Shivamogga"
+      ],
+      "source_institutions": [
+        "ICAR-IIHR Chettalli"
+      ],
+      "agro_climatic_details": {
+        "suitability_notes_kn": "ಮಲೆನಾಡಿನ ತೋಟದ ಬೇಲಿಗಳ ಮೇಲೆ ಬೆಳೆಯಲಾಗುತ್ತದೆ."
+      },
+      "tested": true
+    },
+    "kiwi": {
+      "canonical_name": "kiwi",
+      "category": "fruit",
+      "english_names": [
+        "kiwi",
+        "kiwifruit"
+      ],
+      "kannada_names": [
+        "ಕಿವಿ ಹಣ್ಣು",
+        "ಕಿವಿ"
+      ],
+      "aliases": [
+        "kiwi",
+        "kiwifruit",
+        "actinidia deliciosa",
+        "ಕಿವಿ ಹಣ್ಣಿನ",
+        "ಕಿವಿ ಹಣ್ಣು",
+        "ಕಿವಿ"
+      ],
+      "support_status": "recognized_not_supported",
+      "rag_supported": false,
+      "document_count": 0,
+      "topics": [],
+      "karnataka_suitability": "KARNATAKA_LIMITED",
+      "primary_districts": [
+        "Kodagu"
+      ],
+      "source_institutions": [
+        "ICAR-CITH"
+      ],
+      "agro_climatic_details": {
+        "suitability_notes_kn": "ಹೆಚ್ಚು ಚಳಿ ಬಯಸುವ ಸಮಶೀತೋಷ್ಣ ಬೆಳೆ; ಕರ್ನಾಟಕದ ಉಷ್ಣವಲಯದ ಬಯಲು ಪ್ರದೇಶಗಳಿಗೆ ಸೂಕ್ತವಲ್ಲ."
+      },
+      "tested": true
+    },
+    "apple": {
+      "canonical_name": "apple",
+      "category": "fruit",
+      "english_names": [
+        "apple"
+      ],
+      "kannada_names": [
+        "ಸೇಬು",
+        "ಸೇಬುಹಣ್ಣು"
+      ],
+      "aliases": [
+        "apple",
+        "sebu",
+        "sebuhannu",
+        "malus domestica",
+        "ಸೇಬಿನ",
+        "ಸೇಬಿಗೆ",
+        "ಸೇಬುಬೆಳೆ",
+        "ಸೇಬುಹಣ್ಣಿನ",
+        "ಸೇಬು ಹಣ್ಣು",
+        "ಸೇಬಿನ ಮರ",
+        "ಸೇಬು",
+        "ಸೇಬುಹಣ್ಣು"
+      ],
+      "support_status": "recognized_not_supported",
+      "rag_supported": false,
+      "document_count": 0,
+      "topics": [],
+      "karnataka_suitability": "KARNATAKA_NOT_RECOMMENDED",
+      "primary_districts": [
+        "Kodagu",
+        "Chikkamagaluru"
+      ],
+      "source_institutions": [
+        "ICAR-Central Institute of Temperate Horticulture (CITH) Srinagar",
+        "UHS Bagalkot"
+      ],
+      "agro_climatic_details": {
+        "soil_requirements": "Deep, well-drained loamy soils rich in organic matter (pH 5.5-6.5).",
+        "temperature_range_c": "Temperate climate with 800-1200 hours of winter chilling below 7°C (Conventional varieties).",
+        "elevation_m": "1500-2700 m (High altitude temperate zone)",
+        "chilling_hours_required": "800-1200 hours < 7°C (Conventional varieties); Low-chill varieties (HRMN-99, Anna) claim 100-300 hours.",
+        "suitability_notes_kn": "ಸೇಬು ಮೂಲತಃ ಹಿಮಾಲಯನ್ ಸಮಶೀತೋಷ್ಣ (Temperate) ವಲಯದ ಬೆಳೆಯಾಗಿದ್ದು, ಹೂವು ಬಿಡಲು 800-1200 ಗಂಟೆಗಳ ಕಾಲ 7°C ಗಿಂತ ಕಡಿಮೆ ಚಳಿಯ ವಾತಾವರಣ (Chilling hours) ಅತ್ಯಗತ್ಯ. ಆದ್ದರಿಂದ ಕರ್ನಾಟಕದ ಉಷ್ಣವಲಯದ ಬಯಲು ಪ್ರದೇಶಗಳಲ್ಲಿ ವಾಣಿಜ್ಯ ಸೇಬು ಕೃಷಿ ಸೂಕ್ತವಲ್ಲ. ಇತ್ತೀಚೆಗೆ ಕಡಿಮೆ ಚಳಿ ಬಯಸುವ 'HRMN-99', 'ಅನ್ನಾ' ತಳಿಗಳನ್ನು ಕೊಡಗು ಅಥವಾ ಚಿಕ್ಕಮಗಳೂರಿನ ಎತ್ತರದ ಗಿರಿಧಾಮಗಳಲ್ಲಿ ಪ್ರಾಯೋಗಿಕವಾಗಿ ಬೆಳೆಯಲಾಗುತ್ತಿದೆಯಾದರೂ, ವಾಣಿಜ್ಯ ಮಟ್ಟದ ತೆರೆದ ಕೃಷಿ ಶಿಫಾರಸು ಮಾಡುವುದಿಲ್ಲ.",
+        "suitability_notes_en": "Apples are temperate fruits requiring 800-1200 chilling hours below 7°C to break dormancy and set fruit. Commercial apple cultivation is NOT RECOMMENDED in Karnataka's tropical plains. Experimental low-chill varieties like HRMN-99 and Anna are grown on a limited scale in high-elevation pockets of Kodagu and Chikkamagaluru, but large-scale open commercial farming remains unviable."
+      },
+      "tested": true
+    },
+    "pear": {
+      "canonical_name": "pear",
+      "category": "fruit",
+      "english_names": [
+        "pear"
+      ],
+      "kannada_names": [
+        "ಪೇರಳೆ ಹಣ್ಣು",
+        "ಪಿಯರ್ಸ್"
+      ],
+      "aliases": [
+        "pear",
+        "pears",
+        "pyrus communis",
+        "ಪಿಯರ್ಸ್ ಹಣ್ಣು",
+        "ಪೇರಳೆ ಹಣ್ಣು",
+        "ಪಿಯರ್ಸ್"
+      ],
+      "support_status": "recognized_not_supported",
+      "rag_supported": false,
+      "document_count": 0,
+      "topics": [],
+      "karnataka_suitability": "KARNATAKA_LIMITED",
+      "primary_districts": [
+        "Kodagu",
+        "Chikkamagaluru"
+      ],
+      "source_institutions": [
+        "ICAR-CITH"
+      ],
+      "agro_climatic_details": {
+        "suitability_notes_kn": "ಸಮಶೀತೋಷ್ಣ ಬೆಳೆಯಾಗಿದ್ದು ಎತ್ತರದ ತಂಪಾದ ಗಿರಿಧಾಮಗಳಲ್ಲಿ ಮಾತ್ರ ಸೀಮಿತವಾಗಿ ಬೆಳೆಯಬಹುದು."
+      },
+      "tested": true
+    },
+    "peach": {
+      "canonical_name": "peach",
+      "category": "fruit",
+      "english_names": [
+        "peach"
+      ],
+      "kannada_names": [
+        "ಪೀಚ್"
+      ],
+      "aliases": [
+        "peach",
+        "prunus persica",
+        "ಪೀಚ್ ಹಣ್ಣು",
+        "ಪೀಚ್"
+      ],
+      "support_status": "recognized_not_supported",
+      "rag_supported": false,
+      "document_count": 0,
+      "topics": [],
+      "karnataka_suitability": "KARNATAKA_LIMITED",
+      "primary_districts": [
+        "Kodagu"
+      ],
+      "source_institutions": [
+        "ICAR-CITH"
+      ],
+      "agro_climatic_details": {
+        "suitability_notes_kn": "ಕರ್ನಾಟಕದ ಬಯಲು ಪ್ರದೇಶಗಳಿಗೆ ಸೂಕ್ತವಲ್ಲ."
+      },
+      "tested": true
+    },
+    "plum": {
+      "canonical_name": "plum",
+      "category": "fruit",
+      "english_names": [
+        "plum"
+      ],
+      "kannada_names": [
+        "ಪ್ಲಮ್"
+      ],
+      "aliases": [
+        "plum",
+        "prunus domestica",
+        "ಪ್ಲಮ್ ಹಣ್ಣು",
+        "ಪ್ಲಮ್"
+      ],
+      "support_status": "recognized_not_supported",
+      "rag_supported": false,
+      "document_count": 0,
+      "topics": [],
+      "karnataka_suitability": "KARNATAKA_LIMITED",
+      "primary_districts": [
+        "Kodagu"
+      ],
+      "source_institutions": [
+        "ICAR-CITH"
+      ],
+      "agro_climatic_details": {
+        "suitability_notes_kn": "ಕರ್ನಾಟಕದ ಬಯಲು ಪ್ರದೇಶಗಳಿಗೆ ಸೂಕ್ತವಲ್ಲ."
+      },
+      "tested": true
+    },
+    "cherry": {
+      "canonical_name": "cherry",
+      "category": "fruit",
+      "english_names": [
+        "cherry",
+        "sweet cherry"
+      ],
+      "kannada_names": [
+        "ಚೆರ್ರಿ"
+      ],
+      "aliases": [
+        "cherry",
+        "sweet cherry",
+        "prunus avium",
+        "ಚೆರ್ರಿ ಹಣ್ಣು",
+        "ಚೆರ್ರಿ"
+      ],
+      "support_status": "recognized_not_supported",
+      "rag_supported": false,
+      "document_count": 0,
+      "topics": [],
+      "karnataka_suitability": "KARNATAKA_NOT_RECOMMENDED",
+      "primary_districts": [],
+      "source_institutions": [
+        "ICAR-CITH"
+      ],
+      "agro_climatic_details": {
+        "suitability_notes_kn": "ತೀವ್ರ ಚಳಿ ಬಯಸುವ ಹಿಮಾಲಯನ್ ಬೆಳೆ; ಕರ್ನಾಟಕದ ಹವಾಮಾನಕ್ಕೆ ಸೂಕ್ತವಲ್ಲ."
+      },
+      "tested": true
+    },
+    "orange": {
+      "canonical_name": "orange",
+      "category": "fruit",
+      "english_names": [
+        "orange",
+        "mandarin",
+        "coorg orange"
+      ],
+      "kannada_names": [
+        "ಕಿತ್ತಳೆ",
+        "ಕಿತ್ತಳೆಹಣ್ಣು"
+      ],
+      "aliases": [
+        "orange",
+        "mandarin",
+        "coorg orange",
+        "kittale",
+        "citrus reticulata",
+        "ಕಿತ್ತಳೆಯ",
+        "ಕಿತ್ತಳೆಗೆ",
+        "ಕೊಡಗು ಕಿತ್ತಳೆ",
+        "ಕಿತ್ತಳೆ ಹಣ್ಣು",
+        "ಕಿತ್ತಳೆ",
+        "ಕಿತ್ತಳೆಹಣ್ಣು"
+      ],
+      "support_status": "recognized_not_supported",
+      "rag_supported": false,
+      "document_count": 0,
+      "topics": [],
+      "karnataka_suitability": "KARNATAKA_RELEVANT",
+      "primary_districts": [
+        "Kodagu",
+        "Chikkamagaluru",
+        "Hassan"
+      ],
+      "source_institutions": [
+        "ICAR-CCRI",
+        "ICAR-IIHR Chettalli"
+      ],
+      "agro_climatic_details": {
+        "suitability_notes_kn": "ಕೊಡಗು ಕಿತ್ತಳೆ (GI Tag) ಕಾಫಿ ತೋಟಗಳಲ್ಲಿ ಪ್ರಮುಖ ಸಾಂಪ್ರದಾಯಿಕ ಬೆಳೆಯಾಗಿದೆ."
+      },
+      "tested": true
+    },
+    "sweet_orange": {
+      "canonical_name": "sweet_orange",
+      "category": "fruit",
+      "english_names": [
+        "sweet orange",
+        "mosambi",
+        "mousambi"
+      ],
+      "kannada_names": [
+        "ಮೋಸಂಬಿ",
+        "ಮೂಸಂಬಿ"
+      ],
+      "aliases": [
+        "sweet orange",
+        "mosambi",
+        "mousambi",
+        "musambi",
+        "citrus limetta",
+        "ಮೋಸಂಬಿಯ",
+        "ಮೋಸಂಬಿ",
+        "ಮೂಸಂಬಿ",
+        "sweet_orange"
+      ],
+      "support_status": "recognized_not_supported",
+      "rag_supported": false,
+      "document_count": 0,
+      "topics": [],
+      "karnataka_suitability": "KARNATAKA_RELEVANT",
+      "primary_districts": [
+        "Vijayapura",
+        "Bagalkot",
+        "Kalaburagi",
+        "Koppal"
+      ],
+      "source_institutions": [
+        "UHS Bagalkot",
+        "ICAR-CCRI"
+      ],
+      "agro_climatic_details": {
+        "suitability_notes_kn": "ಉತ್ತರ ಕರ್ನಾಟಕದಲ್ಲಿ ನೀರಾವರಿ ಆಶ್ರಯದಲ್ಲಿ ಬೆಳೆಯಲಾಗುತ್ತದೆ."
+      },
+      "tested": true
+    },
+    "arecanut": {
+      "canonical_name": "arecanut",
+      "category": "plantation",
+      "english_names": [
+        "arecanut",
+        "betel nut",
+        "areca nut",
+        "supari"
+      ],
+      "kannada_names": [
+        "ಅಡಿಕೆ",
+        "ಅಡಕೆ"
+      ],
+      "aliases": [
+        "arecanut",
+        "betel nut",
+        "areca nut",
+        "supari",
+        "adike",
+        "areca catechu",
+        "ಅಡಿಕೆಯ",
+        "ಅಡಿಕೆಗೆ",
+        "ಅಡಿಕೆಮರ",
+        "ಅಡಿಕೆಬೆಳೆ",
+        "ಅಡಿಕೆಯಲ್ಲಿ",
+        "ಅಡಿಕೆ ತೋಟ",
+        "ಅಡಕೆ",
+        "ಅಡಿಕೆ"
+      ],
+      "support_status": "supported",
+      "rag_supported": true,
+      "document_count": 1,
+      "topics": [
+        "kole_roga",
+        "fruit_rot",
+        "yellow_leaf_disease"
+      ],
+      "karnataka_suitability": "KARNATAKA_RELEVANT",
+      "primary_districts": [
+        "Shivamogga",
+        "Chikkamagaluru",
+        "Dakshina Kannada",
+        "Uttara Kannada",
+        "Davangere",
+        "Tumakuru"
+      ],
+      "source_institutions": [
+        "ICAR-Central Plantation Crops Research Institute (CPCRI) Regional Station Vittal",
+        "UHS Bagalkot"
+      ],
+      "agro_climatic_details": {
+        "soil_requirements": "Deep lateritic soils, clay loam and red gravelly soils with good drainage.",
+        "rainfall_range_mm": "1500-4000 mm or assured borewell/river irrigation",
+        "temperature_range_c": "15-35°C",
+        "suitability_notes_kn": "ಕರ್ನಾಟಕವು ಭಾರತದಲ್ಲೇ ಅತಿ ಹೆಚ್ಚು ಅಡಿಕೆ ಬೆಳೆಯುವ ರಾಜ್ಯವಾಗಿದೆ."
+      },
+      "tested": true
+    },
+    "coconut": {
+      "canonical_name": "coconut",
+      "category": "plantation",
+      "english_names": [
+        "coconut",
+        "cocoa nut"
+      ],
+      "kannada_names": [
+        "ತೆಂಗು",
+        "ತೆಂಗಿನಕಾಯಿ"
+      ],
+      "aliases": [
+        "coconut",
+        "tengu",
+        "tenginamara",
+        "tenginakayi",
+        "cocos nucifera",
+        "ತೆಂಗಿನ",
+        "ತೆಂಗಿಗೆ",
+        "ತೆಂಗಿನಮರ",
+        "ತೆಂಗುಬೆಳೆ",
+        "ತೆಂಗಿನಲ್ಲಿ",
+        "ತೆಂಗಿನ ತೋಟ",
+        "cocoa nut",
+        "ತೆಂಗು",
+        "ತೆಂಗಿನಕಾಯಿ"
+      ],
+      "support_status": "supported",
+      "rag_supported": true,
+      "document_count": 1,
+      "topics": [
+        "rhinocerous_beetle",
+        "root_wilt",
+        "bud_rot"
+      ],
+      "karnataka_suitability": "KARNATAKA_RELEVANT",
+      "primary_districts": [
+        "Tumakuru",
+        "Hassan",
+        "Mandya",
+        "Mysuru",
+        "Udupi",
+        "Dakshina Kannada",
+        "Chikmagalur"
+      ],
+      "source_institutions": [
+        "ICAR-Central Plantation Crops Research Institute (CPCRI) Kasaragod",
+        "UHS Bagalkot",
+        "Coconut Development Board"
+      ],
+      "agro_climatic_details": {
+        "soil_requirements": "Deep sandy loams, coastal alluvium and red loamy soils.",
+        "rainfall_range_mm": "1000-2500 mm",
+        "temperature_range_c": "20-34°C",
+        "suitability_notes_kn": "ತುಮಕೂರು ಮತ್ತು ಹಾಸನ ಕರ್ನಾಟಕದ ಪ್ರಮುಖ ಕಲ್ಪವೃಕ್ಷ ತೆಂಗಿನ ಬೆಳೆಯ ಕೇಂದ್ರಗಳು."
+      },
+      "tested": true
+    },
+    "coffee": {
+      "canonical_name": "coffee",
+      "category": "plantation",
+      "english_names": [
+        "coffee",
+        "arabica coffee",
+        "robusta coffee"
+      ],
+      "kannada_names": [
+        "ಕಾಫಿ"
+      ],
+      "aliases": [
+        "coffee",
+        "arabica coffee",
+        "robusta coffee",
+        "kaapi",
+        "coffea arabica",
+        "coffea canephora",
+        "ಕಾಫಿಯ",
+        "ಕಾಫಿಗೆ",
+        "ಕಾಫಿಗಿಡ",
+        "ಕಾಫಿಬೆಳೆ",
+        "ಕಾಫಿಯಲ್ಲಿ",
+        "ಕಾಫಿ ತೋಟ",
+        "ಕಾಫಿ"
+      ],
+      "support_status": "supported",
+      "rag_supported": true,
+      "document_count": 1,
+      "topics": [
+        "leaf_rust",
+        "white_stem_borer",
+        "berry_borer"
+      ],
+      "karnataka_suitability": "KARNATAKA_RELEVANT",
+      "primary_districts": [
+        "Kodagu",
+        "Chikkamagaluru",
+        "Hassan"
+      ],
+      "source_institutions": [
+        "Central Coffee Research Institute (CCRI), Coffee Board of India, Balehonnur",
+        "UAS Bangalore"
+      ],
+      "agro_climatic_details": {
+        "soil_requirements": "Deep, fertile volcanic and forest loam rich in organic matter under shade.",
+        "rainfall_range_mm": "1500-2500 mm",
+        "temperature_range_c": "15-28°C (Arabica); 18-32°C (Robusta)",
+        "elevation_m": "600-1500 m",
+        "suitability_notes_kn": "ಭಾರತದ ಶೇ 70 ರಷ್ಟು ಕಾಫಿ ಕರ್ನಾಟಕದ ಕೊಡಗು, ಚಿಕ್ಕಮಗಳೂರು ಮತ್ತು ಹಾಸನದಲ್ಲಿ ಬೆಳೆಯಲಾಗುತ್ತದೆ."
+      },
+      "tested": true
+    },
+    "cashew": {
+      "canonical_name": "cashew",
+      "category": "plantation",
+      "english_names": [
+        "cashew",
+        "cashewnut"
+      ],
+      "kannada_names": [
+        "ಗೋಡಂಬಿ",
+        "ಗೇರು"
+      ],
+      "aliases": [
+        "cashew",
+        "cashewnut",
+        "godambi",
+        "geru",
+        "anacardium occidentale",
+        "ಗೋಡಂಬಿಯ",
+        "ಗೋಡಂಬಿಗೆ",
+        "ಗೋಡಂಬಿಮರ",
+        "ಗೋಡಂಬಿಬೆಳೆ",
+        "ಗೇರುಬೆಳೆ",
+        "ಗೋಡಂಬಿ",
+        "ಗೇರು"
+      ],
+      "support_status": "supported",
+      "rag_supported": true,
+      "document_count": 1,
+      "topics": [
+        "tea_mosquito_bug",
+        "stem_borer"
+      ],
+      "karnataka_suitability": "KARNATAKA_RELEVANT",
+      "primary_districts": [
+        "Dakshina Kannada",
+        "Uttara Kannada",
+        "Udupi",
+        "Belagavi",
+        "Kolar"
+      ],
+      "source_institutions": [
+        "ICAR-Directorate of Cashew Research (DCR) Puttur",
+        "UHS Bagalkot"
+      ],
+      "agro_climatic_details": {
+        "soil_requirements": "Red sandy loam, lateritic soils and coastal sands.",
+        "rainfall_range_mm": "1000-3000 mm",
+        "temperature_range_c": "20-36°C",
+        "suitability_notes_kn": "ಕರಾವಳಿ ಕರ್ನಾಟಕದ ಪ್ರಮುಖ ವಾಣಿಜ್ಯ ತೋಟದ ಬೆಳೆಯಾಗಿದೆ."
+      },
       "tested": true
     },
     "tea": {
       "canonical_name": "tea",
       "category": "plantation",
-      "english_names": ["tea"],
-      "kannada_names": ["ಚಹಾ"],
-      "aliases": ["tea", "chaha", "chai", "camellia sinensis", "ಚಹಾ", "ಚಹಾದ", "ಟೀ", "ಟೀಗಿಡ"],
+      "english_names": [
+        "tea"
+      ],
+      "kannada_names": [
+        "ಚಹಾ",
+        "ಟೀ"
+      ],
+      "aliases": [
+        "tea",
+        "chaha",
+        "camellia sinensis",
+        "ಚಹಾದ",
+        "ಟೀ ಗಿಡ",
+        "ಚಹಾ",
+        "ಟೀ"
+      ],
       "support_status": "recognized_not_supported",
       "rag_supported": false,
       "document_count": 0,
       "topics": [],
-      "karnataka_relevance": "region_specific",
-      "primary_districts": ["Chikkamagaluru", "Kodagu", "Hassan"],
-      "source_institutions": [],
+      "karnataka_suitability": "KARNATAKA_LIMITED",
+      "primary_districts": [
+        "Chikkamagaluru",
+        "Kodagu",
+        "Hassan"
+      ],
+      "source_institutions": [
+        "UPASI Tea Research Institute",
+        "Tea Board of India"
+      ],
+      "agro_climatic_details": {
+        "suitability_notes_kn": "ಕುದುರೆಮುಖ, ಬಾಬಾಬುಡನ್‌ಗಿರಿ ಮುಂತಾದ ಎತ್ತರದ ಗಿರಿಧಾಮಗಳಲ್ಲಿ ಸೀಮಿತ ಪ್ರಮಾಣದಲ್ಲಿ ಬೆಳೆಯಲಾಗುತ್ತದೆ."
+      },
       "tested": true
     },
     "rubber": {
       "canonical_name": "rubber",
       "category": "plantation",
-      "english_names": ["rubber", "natural rubber"],
-      "kannada_names": ["ರಬ್ಬರ್"],
-      "aliases": ["rubber", "hevea brasiliensis", "ರಬ್ಬರ್", "ರಬ್ಬರಿನ", "ರಬ್ಬರ್ತೋಟ", "ರಬ್ಬರ್ಮರ"],
+      "english_names": [
+        "rubber",
+        "natural rubber"
+      ],
+      "kannada_names": [
+        "ರಬ್ಬರ್"
+      ],
+      "aliases": [
+        "rubber",
+        "natural rubber",
+        "hevea brasiliensis",
+        "ರಬ್ಬರ್ ಮರ",
+        "ರಬ್ಬರ್ ತೋಟ",
+        "ರಬ್ಬರ್"
+      ],
       "support_status": "recognized_not_supported",
       "rag_supported": false,
       "document_count": 0,
       "topics": [],
-      "karnataka_relevance": "region_specific",
-      "primary_districts": ["Dakshina Kannada", "Udupi", "Kodagu", "Uttara Kannada"],
-      "source_institutions": [],
+      "karnataka_suitability": "KARNATAKA_CONDITIONALLY_SUITABLE",
+      "primary_districts": [
+        "Dakshina Kannada",
+        "Udupi",
+        "Uttara Kannada",
+        "Kodagu"
+      ],
+      "source_institutions": [
+        "Rubber Board of India"
+      ],
+      "agro_climatic_details": {
+        "suitability_notes_kn": "ಕರಾವಳಿ ಮತ್ತು ಮಲೆನಾಡಿನ ತಪ್ಪಲು ಭಾಗಗಳಲ್ಲಿ ಯಶಸ್ವಿಯಾಗಿ ಬೆಳೆಯಲಾಗುತ್ತದೆ."
+      },
       "tested": true
     },
     "cocoa": {
       "canonical_name": "cocoa",
       "category": "plantation",
-      "english_names": ["cocoa", "cacao"],
-      "kannada_names": ["ಕೋಕೋ"],
-      "aliases": ["cocoa", "cacao", "theobroma cacao", "ಕೋಕೋ", "ಕೋಕೋವಿನ", "ಕೋಕೋಬೆಳೆ", "ಕೋಕೋಟ್ರೀ"],
+      "english_names": [
+        "cocoa",
+        "cacao"
+      ],
+      "kannada_names": [
+        "ಕೋಕೋ"
+      ],
+      "aliases": [
+        "cocoa",
+        "cacao",
+        "theobroma cacao",
+        "ಕೋಕೋ ಗಿಡ",
+        "ಕೋಕೋ ಬೆಳೆ",
+        "ಕೋಕೋ"
+      ],
       "support_status": "recognized_not_supported",
       "rag_supported": false,
       "document_count": 0,
       "topics": [],
-      "karnataka_relevance": "region_specific",
-      "primary_districts": ["Dakshina Kannada", "Udupi", "Shivamogga"],
-      "source_institutions": [],
+      "karnataka_suitability": "KARNATAKA_CONDITIONALLY_SUITABLE",
+      "primary_districts": [
+        "Dakshina Kannada",
+        "Udupi",
+        "Uttara Kannada",
+        "Shivamogga",
+        "Tumakuru"
+      ],
+      "source_institutions": [
+        "ICAR-CPCRI",
+        "CAMPCO"
+      ],
+      "agro_climatic_details": {
+        "suitability_notes_kn": "ಅಡಿಕೆ ಮತ್ತು ತೆಂಗಿನ ತೋಟಗಳಲ್ಲಿ ಪ್ರಮುಖ ಲಾಭದಾಯಕ ಅಂತರ್ ಬೆಳೆ."
+      },
+      "tested": true
+    },
+    "oil_palm": {
+      "canonical_name": "oil_palm",
+      "category": "plantation",
+      "english_names": [
+        "oil palm"
+      ],
+      "kannada_names": [
+        "ಎಣ್ಣೆ ತಾಳೆ",
+        "ಆಯಿಲ್ ಪಾಮ್"
+      ],
+      "aliases": [
+        "oil palm",
+        "enne tale",
+        "elaeis guineensis",
+        "ಆಯಿಲ್ ಪಾಮ್ ಬೆಳೆ",
+        "ಎಣ್ಣೆ ತಾಳೆ",
+        "ಆಯಿಲ್ ಪಾಮ್",
+        "oil_palm"
+      ],
+      "support_status": "recognized_not_supported",
+      "rag_supported": false,
+      "document_count": 0,
+      "topics": [],
+      "karnataka_suitability": "KARNATAKA_CONDITIONALLY_SUITABLE",
+      "primary_districts": [
+        "Shivamogga",
+        "Bhadravathi",
+        "Mysuru",
+        "Mandya",
+        "Dakshina Kannada"
+      ],
+      "source_institutions": [
+        "ICAR-IIOPR Pedavegi"
+      ],
+      "agro_climatic_details": {
+        "suitability_notes_kn": "ಕಾಲುವೆ ನೀರಾವರಿ ಇರುವ ಪ್ರದೇಶಗಳಲ್ಲಿ ವಾಣಿಜ್ಯ ಎಣ್ಣೆ ಬೆಳೆಯಾಗಿ ಉತ್ತೇಜಿಸಲಾಗುತ್ತಿದೆ."
+      },
+      "tested": true
+    },
+    "sugarcane": {
+      "canonical_name": "sugarcane",
+      "category": "commercial",
+      "english_names": [
+        "sugarcane",
+        "cane"
+      ],
+      "kannada_names": [
+        "ಕಬ್ಬು"
+      ],
+      "aliases": [
+        "sugarcane",
+        "cane",
+        "kabbu",
+        "saccharum officinarum",
+        "ಕಬ್ಬಿನ",
+        "ಕಬ್ಬಿಗೆ",
+        "ಕಬ್ಬುಬೆಳೆ",
+        "ಕಬ್ಬಿನಲ್ಲಿ",
+        "ಕಬ್ಬಿನ ತೋಟ",
+        "ಕಬ್ಬು"
+      ],
+      "support_status": "supported",
+      "rag_supported": true,
+      "document_count": 2,
+      "topics": [
+        "early_shoot_borer",
+        "red_rot",
+        "water_management"
+      ],
+      "karnataka_suitability": "KARNATAKA_RELEVANT",
+      "primary_districts": [
+        "Mandya",
+        "Belagavi",
+        "Bagalkot",
+        "Mysuru",
+        "Vijayapura",
+        "Ballari"
+      ],
+      "source_institutions": [
+        "ICAR-Sugarcane Breeding Institute (SBI) Coimbatore",
+        "UAS Dharwad",
+        "S. Nijalingappa Sugar Institute Belagavi"
+      ],
+      "agro_climatic_details": {
+        "soil_requirements": "Deep fertile rich loamy, clayey loam and alluvial soils with canal/well irrigation.",
+        "rainfall_range_mm": "1500-2500 mm (Water intensive crop)",
+        "temperature_range_c": "20-35°C",
+        "suitability_notes_kn": "ಬೆಳಗಾವಿ ಮತ್ತು ಮಂಡ್ಯ ಕರ್ನಾಟಕದ ಸಕ್ಕರೆ ಕಣಜಗಳಾಗಿವೆ."
+      },
+      "tested": true
+    },
+    "cotton": {
+      "canonical_name": "cotton",
+      "category": "commercial",
+      "english_names": [
+        "cotton",
+        "bt cotton"
+      ],
+      "kannada_names": [
+        "ಹತ್ತಿ"
+      ],
+      "aliases": [
+        "cotton",
+        "bt cotton",
+        "hatti",
+        "gossypium hirsutum",
+        "ಹತ್ತಿಯ",
+        "ಹತ್ತಿಗೆ",
+        "ಹತ್ತಿಬೆಳೆ",
+        "ಹತ್ತಿಯಲ್ಲಿ",
+        "ಹತ್ತಿ"
+      ],
+      "support_status": "supported",
+      "rag_supported": true,
+      "document_count": 2,
+      "topics": [
+        "pink_bollworm",
+        "waterlogging_yellowing",
+        "sucking_pests"
+      ],
+      "karnataka_suitability": "KARNATAKA_RELEVANT",
+      "primary_districts": [
+        "Haveri",
+        "Dharwad",
+        "Ballari",
+        "Mysuru",
+        "Raichur",
+        "Belagavi",
+        "Gadag"
+      ],
+      "source_institutions": [
+        "ICAR-Central Institute for Cotton Research (CICR)",
+        "UAS Dharwad",
+        "UAS Raichur"
+      ],
+      "agro_climatic_details": {
+        "soil_requirements": "Deep black cotton soils (Vertisols) and fertile sandy loams.",
+        "rainfall_range_mm": "500-800 mm",
+        "temperature_range_c": "21-35°C",
+        "suitability_notes_kn": "ಉತ್ತರ ಮತ್ತು ಮಧ್ಯ ಕರ್ನಾಟಕದ ಪ್ರಮುಖ ನಾರು/ವಾಣಿಜ್ಯ ಬೆಳೆ."
+      },
+      "tested": true
+    },
+    "tobacco": {
+      "canonical_name": "tobacco",
+      "category": "commercial",
+      "english_names": [
+        "tobacco",
+        "fcv tobacco"
+      ],
+      "kannada_names": [
+        "ತಂಬಾಕು",
+        "ಹೊಗೆಸೊಪ್ಪು"
+      ],
+      "aliases": [
+        "tobacco",
+        "fcv tobacco",
+        "tambaku",
+        "hogesoppu",
+        "nicotiana tabacum",
+        "ತಂಬಾಕಿನ",
+        "ತಂಬಾಕಿಗೆ",
+        "ತಂಬಾಕುಬೆಳೆ",
+        "ತಂಬಾಕಿನಲ್ಲಿ",
+        "ಹೊಗೆಸೊಪ್ಪಿನ",
+        "ತಂಬಾಕು",
+        "ಹೊಗೆಸೊಪ್ಪು"
+      ],
+      "support_status": "supported",
+      "rag_supported": true,
+      "document_count": 1,
+      "topics": [
+        "damping_off",
+        "root_knot_nematode",
+        "black_shank"
+      ],
+      "karnataka_suitability": "KARNATAKA_RELEVANT",
+      "primary_districts": [
+        "Mysuru",
+        "Hassan"
+      ],
+      "source_institutions": [
+        "ICAR-Central Tobacco Research Institute (CTRI) Regional Station Hunsur",
+        "Tobacco Board of India"
+      ],
+      "agro_climatic_details": {
+        "soil_requirements": "Light sandy loams and red loamy soils with low chloride content.",
+        "rainfall_range_mm": "600-800 mm (Monsoon rainfed crop)",
+        "temperature_range_c": "20-32°C",
+        "suitability_notes_kn": "ಹುಣಸೂರು ಮತ್ತು ಪಿರಿಯಾಪಟ್ಟಣ ಭಾಗಗಳಲ್ಲಿ ಎಫ್‌ಸಿವಿ ತಂಬಾಕು ರಫ್ತಿಗಾಗಿ ಬೆಳೆಯಲಾಗುತ್ತದೆ."
+      },
+      "tested": true
+    },
+    "jute": {
+      "canonical_name": "jute",
+      "category": "commercial",
+      "english_names": [
+        "jute"
+      ],
+      "kannada_names": [
+        "ಸೆಣಬು"
+      ],
+      "aliases": [
+        "jute",
+        "senabu",
+        "corchorus olitorius",
+        "ಸೆಣಬಿನ",
+        "ಸೆಣಬು"
+      ],
+      "support_status": "recognized_not_supported",
+      "rag_supported": false,
+      "document_count": 0,
+      "topics": [],
+      "karnataka_suitability": "KARNATAKA_LIMITED",
+      "primary_districts": [
+        "Belagavi",
+        "Shivamogga"
+      ],
+      "source_institutions": [
+        "ICAR-CRIJAF"
+      ],
+      "agro_climatic_details": {
+        "suitability_notes_kn": "ಹಸಿರೆಲೆ ಗೊಬ್ಬರ ಮತ್ತು ನಾರಿಗಾಗಿ ಸೀಮಿತವಾಗಿ ಬೆಳೆಯಲಾಗುತ್ತದೆ."
+      },
+      "tested": true
+    },
+    "mesta": {
+      "canonical_name": "mesta",
+      "category": "commercial",
+      "english_names": [
+        "mesta",
+        "roselle",
+        "kenaf"
+      ],
+      "kannada_names": [
+        "ಪುಂಡಿ",
+        "ಮೆಸ್ಟಾ"
+      ],
+      "aliases": [
+        "mesta",
+        "roselle",
+        "kenaf",
+        "pundi",
+        "hibiscus cannabinus",
+        "ಪುಂಡಿ ಸೊಪ್ಪು",
+        "ಪುಂಡಿಯ",
+        "ಪುಂಡಿ",
+        "ಮೆಸ್ಟಾ"
+      ],
+      "support_status": "recognized_not_supported",
+      "rag_supported": false,
+      "document_count": 0,
+      "topics": [],
+      "karnataka_suitability": "KARNATAKA_RELEVANT",
+      "primary_districts": [
+        "Kalaburagi",
+        "Bidar",
+        "Raichur",
+        "Ballari"
+      ],
+      "source_institutions": [
+        "UAS Raichur"
+      ],
+      "agro_climatic_details": {
+        "suitability_notes_kn": "ಉತ್ತರ ಕರ್ನಾಟಕದಲ್ಲಿ ಆಹಾರ ಸೊಪ್ಪು ಮತ್ತು ನಾರಿಗಾಗಿ ಸಾಂಪ್ರದಾಯಿಕ ಬೆಳೆ."
+      },
+      "tested": true
+    },
+    "flax": {
+      "canonical_name": "flax",
+      "category": "commercial",
+      "english_names": [
+        "flax",
+        "linen"
+      ],
+      "kannada_names": [
+        "ಅಗಸೆ ನಾರು"
+      ],
+      "aliases": [
+        "flax",
+        "linen",
+        "agase naaru",
+        "ಅಗಸೆ ನಾರು"
+      ],
+      "support_status": "recognized_not_supported",
+      "rag_supported": false,
+      "document_count": 0,
+      "topics": [],
+      "karnataka_suitability": "KARNATAKA_LIMITED",
+      "primary_districts": [
+        "Bidar"
+      ],
+      "source_institutions": [
+        "UAS Raichur"
+      ],
+      "agro_climatic_details": {
+        "suitability_notes_kn": "ಕರ್ನಾಟಕದಲ್ಲಿ ಅತ್ಯಂತ ಸೀಮಿತ ಬೆಳೆ."
+      },
+      "tested": true
+    },
+    "jasmine": {
+      "canonical_name": "jasmine",
+      "category": "floriculture",
+      "english_names": [
+        "jasmine",
+        "mysore mallige",
+        "arabian jasmine"
+      ],
+      "kannada_names": [
+        "ಮಲ್ಲಿಗೆ",
+        "ಮೈಸೂರು ಮಲ್ಲಿಗೆ"
+      ],
+      "aliases": [
+        "jasmine",
+        "mysore mallige",
+        "arabian jasmine",
+        "mallige",
+        "jasminum sambac",
+        "ಮಲ್ಲಿಗೆಯ",
+        "ಮಲ್ಲಿಗೆಗೆ",
+        "ಮಲ್ಲಿಗೆಗಿಡ",
+        "ಮಲ್ಲಿಗೆಬೆಳೆ",
+        "ಮಲ್ಲಿಗೆಯಲ್ಲಿ",
+        "ಮೈಸೂರು ಮಲ್ಲಿಗೆಯ",
+        "ಮಲ್ಲಿಗೆ",
+        "ಮೈಸೂರು ಮಲ್ಲಿಗೆ"
+      ],
+      "support_status": "supported",
+      "rag_supported": true,
+      "document_count": 1,
+      "topics": [
+        "bud_borer",
+        "leaf_blight",
+        "pruning"
+      ],
+      "karnataka_suitability": "KARNATAKA_RELEVANT",
+      "primary_districts": [
+        "Mysuru",
+        "Mandya",
+        "Udupi",
+        "Shivamogga",
+        "Dakshina Kannada",
+        "Ballari"
+      ],
+      "source_institutions": [
+        "University of Horticultural Sciences (UHS), Bagalkot",
+        "KSDA Department of Horticulture",
+        "ICAR-IIHR"
+      ],
+      "agro_climatic_details": {
+        "soil_requirements": "Well-drained rich red sandy loam and loamy soils with organic manure.",
+        "rainfall_range_mm": "800-1200 mm with irrigation",
+        "temperature_range_c": "20-35°C",
+        "suitability_notes_kn": "ಮೈಸೂರು ಮಲ್ಲಿಗೆ (Mysore Mallige), ಹಡಗಲಿ ಮಲ್ಲಿಗೆ ಮತ್ತು ಉಡುಪಿ ಮಲ್ಲಿಗೆ ಪ್ರಸಿದ್ಧ GI Tag ಹೊಂದಿವೆ."
+      },
+      "tested": true
+    },
+    "marigold": {
+      "canonical_name": "marigold",
+      "category": "floriculture",
+      "english_names": [
+        "marigold"
+      ],
+      "kannada_names": [
+        "ಚೆಂಡುಹೂ",
+        "ಚೆಂಡು ಹೂವು"
+      ],
+      "aliases": [
+        "marigold",
+        "chenduhoo",
+        "chendu hoovu",
+        "tagetes erecta",
+        "ಚೆಂಡುಹೂವಿನ",
+        "ಚೆಂಡುಹೂವಿಗೆ",
+        "ಚೆಂಡುಹೂಬೆಳೆ",
+        "ಚೆಂಡುಹೂವಿನಲ್ಲಿ",
+        "ಚೆಂಡುಹೂ",
+        "ಚೆಂಡು ಹೂವು"
+      ],
+      "support_status": "supported",
+      "rag_supported": true,
+      "document_count": 1,
+      "topics": [
+        "leaf_spot",
+        "collar_rot",
+        "nematode_trapping"
+      ],
+      "karnataka_suitability": "KARNATAKA_RELEVANT",
+      "primary_districts": [
+        "Davangere",
+        "Haveri",
+        "Chitradurga",
+        "Mysuru",
+        "Chamarajanagar",
+        "Kolar"
+      ],
+      "source_institutions": [
+        "ICAR-Indian Institute of Horticultural Research (IIHR) Bengaluru",
+        "UHS Bagalkot"
+      ],
+      "agro_climatic_details": {
+        "soil_requirements": "Well-drained sandy loam to clayey loam with pH 6.5-7.5.",
+        "rainfall_range_mm": "500-750 mm",
+        "temperature_range_c": "15-30°C",
+        "suitability_notes_kn": "ಹಬ್ಬಗಳ ಹೂವಿನ ಮಾರುಕಟ್ಟೆ ಮತ್ತು ಸಾರ ತೆಗೆಯಲು ಕರ್ನಾಟಕದಾದ್ಯಂತ ಜನಪ್ರಿಯ ವಾಣಿಜ್ಯ ಹೂವಿನ ಬೆಳೆ."
+      },
       "tested": true
     },
     "rose": {
       "canonical_name": "rose",
       "category": "floriculture",
-      "english_names": ["rose", "dutch rose"],
-      "kannada_names": ["ಗುಲಾಬಿ"],
-      "aliases": ["rose", "gulabi", "rosa", "ಗುಲಾಬಿ", "ಗುಲಾಬಿಯ", "ಗುಲಾಬಿಗೆ", "ಗುಲಾಬಿಗಿಡ", "ಗುಲಾಬಿಹೂ"],
+      "english_names": [
+        "rose",
+        "dutch rose"
+      ],
+      "kannada_names": [
+        "ಗುಲಾಬಿ",
+        "ಗುಲಾಬಿ ಹೂವು"
+      ],
+      "aliases": [
+        "rose",
+        "dutch rose",
+        "gulabi",
+        "rosa",
+        "ಗುಲಾಬಿಯ",
+        "ಗುಲಾಬಿಗೆ",
+        "ಗುಲಾಬಿ ಗಿಡ",
+        "ಗುಲಾಬಿ",
+        "ಗುಲಾಬಿ ಹೂವು"
+      ],
       "support_status": "recognized_not_supported",
       "rag_supported": false,
       "document_count": 0,
       "topics": [],
-      "karnataka_relevance": "karnataka_specific",
-      "primary_districts": ["Bengaluru Rural", "Ramanagara", "Kolar", "Belagavi"],
-      "source_institutions": [],
+      "karnataka_suitability": "KARNATAKA_RELEVANT",
+      "primary_districts": [
+        "Bengaluru Urban",
+        "Bengaluru Rural",
+        "Kolar",
+        "Chikkaballapura"
+      ],
+      "source_institutions": [
+        "ICAR-IIHR",
+        "UHS Bagalkot"
+      ],
+      "agro_climatic_details": {
+        "suitability_notes_kn": "ಬೆಂಗಳೂರು ಮತ್ತು ಸುತ್ತಮುತ್ತಲಿನ ಜಿಲ್ಲೆಗಳಲ್ಲಿ ಪಾಲಿಹೌಸ್ ರಫ್ತು ಗುಲಾಬಿ ಕೃಷಿ ಅತ್ಯಂತ ಪ್ರಸಿದ್ಧ."
+      },
       "tested": true
     },
     "chrysanthemum": {
       "canonical_name": "chrysanthemum",
       "category": "floriculture",
-      "english_names": ["chrysanthemum", "sevanthige"],
-      "kannada_names": ["ಸೇವಂತಿಗೆ"],
-      "aliases": ["chrysanthemum", "sevanthige", "chrysanthemum morifolium", "ಸೇವಂತಿಗೆ", "ಸೇವಂತಿಗೆಯ", "ಸೇವಂತಿಗೆಗೆ", "ಸೇವಂತಿ"],
+      "english_names": [
+        "chrysanthemum",
+        "sevanthi"
+      ],
+      "kannada_names": [
+        "ಸೇವಂತಿಗೆ",
+        "ಶೇವಂತಿಗೆ"
+      ],
+      "aliases": [
+        "chrysanthemum",
+        "sevanthi",
+        "shevanthige",
+        "chrysanthemum indicum",
+        "ಸೇವಂತಿಗೆಯ",
+        "ಸೇವಂತಿಗೆ ಹೂ",
+        "ಸೇವಂತಿಗೆ",
+        "ಶೇವಂತಿಗೆ"
+      ],
       "support_status": "recognized_not_supported",
       "rag_supported": false,
       "document_count": 0,
       "topics": [],
-      "karnataka_relevance": "karnataka_specific",
-      "primary_districts": ["Tumakuru", "Kolar", "Haveri", "Belagavi"],
-      "source_institutions": [],
+      "karnataka_suitability": "KARNATAKA_RELEVANT",
+      "primary_districts": [
+        "Kolar",
+        "Chikkaballapura",
+        "Tumakuru",
+        "Haveri",
+        "Belagavi"
+      ],
+      "source_institutions": [
+        "ICAR-IIHR",
+        "UHS Bagalkot"
+      ],
+      "agro_climatic_details": {
+        "suitability_notes_kn": "ಕರ್ನಾಟಕದಲ್ಲಿ ಹಬ್ಬ-ಹರಿದಿನಗಳಿಗಾಗಿ ವ್ಯಾಪಕವಾಗಿ ಬೆಳೆಯುವ ಜನಪ್ರಿಯ ಹೂವು."
+      },
+      "tested": true
+    },
+    "tuberose": {
+      "canonical_name": "tuberose",
+      "category": "floriculture",
+      "english_names": [
+        "tuberose"
+      ],
+      "kannada_names": [
+        "ಸುಗಂಧರಾಜ"
+      ],
+      "aliases": [
+        "tuberose",
+        "sugandharaja",
+        "polianthes tuberosa",
+        "ಸುಗಂಧರಾಜನ",
+        "ಸುಗಂಧರಾಜ"
+      ],
+      "support_status": "recognized_not_supported",
+      "rag_supported": false,
+      "document_count": 0,
+      "topics": [],
+      "karnataka_suitability": "KARNATAKA_RELEVANT",
+      "primary_districts": [
+        "Kolar",
+        "Chikkaballapura",
+        "Tumakuru",
+        "Mandya"
+      ],
+      "source_institutions": [
+        "ICAR-IIHR",
+        "UHS Bagalkot"
+      ],
+      "agro_climatic_details": {
+        "suitability_notes_kn": "ಸುಗಂಧಭರಿತ ಮಾಲೆಗಳಿಗಾಗಿ ವರ್ಷಪೂರ್ತಿ ಬೆಳೆಯುವ ವಾಣಿಜ್ಯ ಹೂವಿನ ಬೆಳೆ."
+      },
+      "tested": true
+    },
+    "gerbera": {
+      "canonical_name": "gerbera",
+      "category": "floriculture",
+      "english_names": [
+        "gerbera"
+      ],
+      "kannada_names": [
+        "ಜರ್ಬೆರಾ"
+      ],
+      "aliases": [
+        "gerbera",
+        "gerbera jamesonii",
+        "ಜರ್ಬೆರಾ ಹೂ",
+        "ಜರ್ಬೆರಾ"
+      ],
+      "support_status": "recognized_not_supported",
+      "rag_supported": false,
+      "document_count": 0,
+      "topics": [],
+      "karnataka_suitability": "KARNATAKA_CONDITIONALLY_SUITABLE",
+      "primary_districts": [
+        "Bengaluru Rural",
+        "Chikkaballapura",
+        "Belagavi"
+      ],
+      "source_institutions": [
+        "ICAR-IIHR"
+      ],
+      "agro_climatic_details": {
+        "suitability_notes_kn": "ಪಾಲಿಹೌಸ್‌ನಲ್ಲಿ ಕಟ್ ಫ್ಲವರ್ ಆಗಿ ಬೆಳೆಯಲಾಗುತ್ತದೆ."
+      },
+      "tested": true
+    },
+    "carnation": {
+      "canonical_name": "carnation",
+      "category": "floriculture",
+      "english_names": [
+        "carnation"
+      ],
+      "kannada_names": [
+        "ಕಾರ್ನೇಶನ್"
+      ],
+      "aliases": [
+        "carnation",
+        "dianthus caryophyllus",
+        "ಕಾರ್ನೇಶನ್"
+      ],
+      "support_status": "recognized_not_supported",
+      "rag_supported": false,
+      "document_count": 0,
+      "topics": [],
+      "karnataka_suitability": "KARNATAKA_CONDITIONALLY_SUITABLE",
+      "primary_districts": [
+        "Bengaluru Rural",
+        "Kodagu"
+      ],
+      "source_institutions": [
+        "ICAR-IIHR"
+      ],
+      "agro_climatic_details": {
+        "suitability_notes_kn": "ಹವಾಮಾನ ನಿಯಂತ್ರಿತ ಪಾಲಿಹೌಸ್‌ಗಳಲ್ಲಿ ರಫ್ತಿಗಾಗಿ ಬೆಳೆಯಲಾಗುತ್ತದೆ."
+      },
+      "tested": true
+    },
+    "orchid": {
+      "canonical_name": "orchid",
+      "category": "floriculture",
+      "english_names": [
+        "orchid"
+      ],
+      "kannada_names": [
+        "ಆರ್ಕಿಡ್"
+      ],
+      "aliases": [
+        "orchid",
+        "dendrobium",
+        "vanda",
+        "ಆರ್ಕಿಡ್ ಹೂ",
+        "ಆರ್ಕಿಡ್"
+      ],
+      "support_status": "recognized_not_supported",
+      "rag_supported": false,
+      "document_count": 0,
+      "topics": [],
+      "karnataka_suitability": "KARNATAKA_CONDITIONALLY_SUITABLE",
+      "primary_districts": [
+        "Kodagu",
+        "Dakshina Kannada",
+        "Uttara Kannada"
+      ],
+      "source_institutions": [
+        "ICAR-IIHR Chettalli"
+      ],
+      "agro_climatic_details": {
+        "suitability_notes_kn": "ತೇವಾಂಶವುಳ್ಳ ನೆರಳು ಮನೆಗಳಲ್ಲಿ ಬೆಳೆಯಲಾಗುತ್ತದೆ."
+      },
+      "tested": true
+    },
+    "lily": {
+      "canonical_name": "lily",
+      "category": "floriculture",
+      "english_names": [
+        "lily",
+        "asiatic lily"
+      ],
+      "kannada_names": [
+        "ಲಿಲ್ಲಿ"
+      ],
+      "aliases": [
+        "lily",
+        "lilium",
+        "ಲಿಲ್ಲಿ ಹೂ",
+        "asiatic lily",
+        "ಲಿಲ್ಲಿ"
+      ],
+      "support_status": "recognized_not_supported",
+      "rag_supported": false,
+      "document_count": 0,
+      "topics": [],
+      "karnataka_suitability": "KARNATAKA_CONDITIONALLY_SUITABLE",
+      "primary_districts": [
+        "Bengaluru Rural",
+        "Chikkaballapura"
+      ],
+      "source_institutions": [
+        "ICAR-IIHR"
+      ],
+      "agro_climatic_details": {
+        "suitability_notes_kn": "ಪಾಲಿಹೌಸ್‌ನಲ್ಲಿ ಬೆಳೆಯುವ ಕಟ್ ಫ್ಲವರ್."
+      },
+      "tested": true
+    },
+    "gladiolus": {
+      "canonical_name": "gladiolus",
+      "category": "floriculture",
+      "english_names": [
+        "gladiolus",
+        "sword lily"
+      ],
+      "kannada_names": [
+        "ಗ್ಲಾಡಿಯೋಲಸ್"
+      ],
+      "aliases": [
+        "gladiolus",
+        "sword lily",
+        "gladiolus grandiflorus",
+        "ಗ್ಲಾಡಿಯೋಲಸ್ ಹೂ",
+        "ಗ್ಲಾಡಿಯೋಲಸ್"
+      ],
+      "support_status": "recognized_not_supported",
+      "rag_supported": false,
+      "document_count": 0,
+      "topics": [],
+      "karnataka_suitability": "KARNATAKA_CONDITIONALLY_SUITABLE",
+      "primary_districts": [
+        "Bengaluru Rural",
+        "Belagavi",
+        "Kolar"
+      ],
+      "source_institutions": [
+        "ICAR-IIHR"
+      ],
+      "agro_climatic_details": {
+        "suitability_notes_kn": "ಚಳಿಗಾಲದಲ್ಲಿ ಕಟ್ ಫ್ಲವರ್ ಬೆಳೆಯಾಗಿ ಬೆಳೆಯಲಾಗುತ್ತದೆ."
+      },
       "tested": true
     },
     "ashwagandha": {
       "canonical_name": "ashwagandha",
       "category": "medicinal",
-      "english_names": ["ashwagandha", "indian ginseng"],
-      "kannada_names": ["ಅಶ್ವಗಂಧ"],
-      "aliases": ["ashwagandha", "withania somnifera", "ಅಶ್ವಗಂಧ", "ಅಶ್ವಗಂಧದ", "ಅಶ್ವಗಂಧಗಿಡ"],
+      "english_names": [
+        "ashwagandha",
+        "indian ginseng"
+      ],
+      "kannada_names": [
+        "ಅಶ್ವಗಂಧ"
+      ],
+      "aliases": [
+        "ashwagandha",
+        "indian ginseng",
+        "withania somnifera",
+        "ಅಶ್ವಗಂಧದ",
+        "ಅಶ್ವಗಂಧ ಬೆಳೆ",
+        "ಅಶ್ವಗಂಧ"
+      ],
       "support_status": "recognized_not_supported",
       "rag_supported": false,
       "document_count": 0,
       "topics": [],
-      "karnataka_relevance": "karnataka_specific",
-      "primary_districts": ["Vijayapura", "Bagalkot", "Chitradurga"],
-      "source_institutions": [],
+      "karnataka_suitability": "KARNATAKA_RELEVANT",
+      "primary_districts": [
+        "Chitradurga",
+        "Tumakuru",
+        "Ballari",
+        "Bagalkot"
+      ],
+      "source_institutions": [
+        "ICAR-DMAPR Anand",
+        "UAS Bangalore",
+        "CSIR-CIMAP Bengaluru"
+      ],
+      "agro_climatic_details": {
+        "suitability_notes_kn": "ಒಣಭೂಮಿ ಮತ್ತು ಬಯಲುಸೀಮೆಯಲ್ಲಿ ಬೆಳೆಯಬಹುದಾದ ಅತ್ಯುತ್ತಮ ಔಷಧೀಯ ಬೆಳೆ."
+      },
       "tested": true
     },
     "aloe_vera": {
       "canonical_name": "aloe_vera",
       "category": "medicinal",
-      "english_names": ["aloe vera", "aloe"],
-      "kannada_names": ["ಲೋಳೆಸರ"],
-      "aliases": ["aloe vera", "aloe", "lolesara", "aloe barbadensis", "ಲೋಳೆಸರ", "ಲೋಳೆಸರದ", "ಲೋಳೆಸರಗಿಡ"],
+      "english_names": [
+        "aloe vera",
+        "aloe"
+      ],
+      "kannada_names": [
+        "ಲೋಳೆಸರ",
+        "ಅಲೋವೆರಾ"
+      ],
+      "aliases": [
+        "aloe vera",
+        "aloe",
+        "lolesara",
+        "aloe barbadensis",
+        "ಲೋಳೆಸರದ",
+        "ಅಲೋವೆರಾ ಗಿಡ",
+        "ಲೋಳೆಸರ",
+        "ಅಲೋವೆರಾ",
+        "aloe_vera"
+      ],
       "support_status": "recognized_not_supported",
       "rag_supported": false,
       "document_count": 0,
       "topics": [],
-      "karnataka_relevance": "karnataka_specific",
-      "primary_districts": ["Koppal", "Gadag", "Vijayapura"],
-      "source_institutions": [],
+      "karnataka_suitability": "KARNATAKA_RELEVANT",
+      "primary_districts": [
+        "Tumakuru",
+        "Chitradurga",
+        "Kolar",
+        "Bagalkot",
+        "Vijayapura"
+      ],
+      "source_institutions": [
+        "CSIR-CIMAP Bengaluru",
+        "UAS Bangalore"
+      ],
+      "agro_climatic_details": {
+        "suitability_notes_kn": "ಅತಿ ಕಡಿಮೆ ನೀರಿನಲ್ಲಿ ಬೆಳೆಯುವ ಜನಪ್ರಿಯ ಔಷಧೀಯ ಬೆಳೆ."
+      },
+      "tested": true
+    },
+    "saffron": {
+      "canonical_name": "saffron",
+      "category": "medicinal",
+      "english_names": [
+        "saffron",
+        "kesar"
+      ],
+      "kannada_names": [
+        "ಕೇಸರಿ",
+        "ಕುಂಕುಮ ಕೇಸರಿ"
+      ],
+      "aliases": [
+        "saffron",
+        "kesar",
+        "kesari",
+        "kunkuma kesari",
+        "crocus sativus",
+        "ಕೇಸರಿಯ",
+        "ಕೇಸರಿಗೆ",
+        "ಕೇಸರಿಬೆಳೆ",
+        "ಕುಂಕುಮ ಕೇಸರಿ",
+        "ಕೇಸರಿ"
+      ],
+      "support_status": "recognized_not_supported",
+      "rag_supported": false,
+      "document_count": 0,
+      "topics": [],
+      "karnataka_suitability": "KARNATAKA_NOT_RECOMMENDED",
+      "primary_districts": [],
+      "source_institutions": [
+        "ICAR-Central Institute of Temperate Horticulture (CITH) Srinagar",
+        "SKUAST Kashmir"
+      ],
+      "agro_climatic_details": {
+        "soil_requirements": "Well-drained, highly friable clayey loam to sandy loam soils (Karewa soils of Kashmir).",
+        "temperature_range_c": "Temperate Mediterranean climate; dry autumn with cool sunny days and sub-zero winter snowfall.",
+        "elevation_m": "1500-2000 m (Pampore plateau, Kashmir)",
+        "chilling_hours_required": "Severe winter chilling and dry autumn essential for corm dormancy break and floral induction.",
+        "suitability_notes_kn": "ಕೇಸರಿಯು (Saffron / Crocus sativus) ಕಾಶ್ಮೀರದ ಸಮಶೀತೋಷ್ಣ ಒಣ ಕಣಿವೆಗಳಲ್ಲಿ (Pampore Karewas) ಮಾತ್ರ ನೈಸರ್ಗಿಕವಾಗಿ ಬೆಳೆಯುವ ಬೆಳೆಯಾಗಿದೆ. ಇದಕ್ಕೆ ಹಿಮಪಾತ ಹಾಗೂ ಅತಿ ತಂಪಾದ ಹವಾಮಾನ ಅಗತ್ಯ. ಕರ್ನಾಟಕದ ಉಷ್ಣವಲಯದ ತೇವಾಂಶ ಮತ್ತು ಅಧಿಕ ಮಳೆಯ ವಾತಾವರಣವು ಕೇಸರಿ ಗಡ್ಡೆಗಳು ಕೊಳೆಯಲು ಕಾರಣವಾಗುವುದರಿಂದ, ಕರ್ನಾಟಕದ ಯಾವುದೇ ಜಿಲ್ಲೆಯಲ್ಲಿ ತೆರೆದ ಹೊಲದಲ್ಲಿ ವಾಣಿಜ್ಯ ಕೇಸರಿ ಕೃಷಿ ಸಾಧ್ಯವಿಲ್ಲ ಮತ್ತು ಶಿಫಾರಸು ಮಾಡುವುದಿಲ್ಲ. (ಅರಿಶಿನವನ್ನು ಕೇಸರಿ ಬಣ್ಣದ ಕಾರಣಕ್ಕೆ ಕೆಲವರು ಗೊಂದಲ ಮಾಡಿಕೊಳ್ಳುತ್ತಾರೆ, ಆದರೆ ಕೇಸರಿ ಬೇರೆ, ಅರಿಶಿನ ಬೇರೆ).",
+        "suitability_notes_en": "Saffron (Crocus sativus) is strictly a temperate, cold-arid perennial corm crop native to Kashmir's high-altitude Karewa plateaus. It requires freezing winters, sub-zero snow dormancy, and arid sunny autumns for flowering. Commercial outdoor saffron cultivation is NOT VIABLE and NOT RECOMMENDED anywhere in tropical Karnataka due to high humidity, rainfall, and lack of sub-zero chilling."
+      },
+      "tested": true
+    },
+    "lemongrass": {
+      "canonical_name": "lemongrass",
+      "category": "medicinal",
+      "english_names": [
+        "lemongrass",
+        "lemon grass"
+      ],
+      "kannada_names": [
+        "ಲಿಂಬೆಹುಲ್ಲು"
+      ],
+      "aliases": [
+        "lemongrass",
+        "lemon grass",
+        "limbe hullu",
+        "cymbopogon flexuosus",
+        "ಲಿಂಬೆ ಹುಲ್ಲು",
+        "ಲಿಂಬೆಹುಲ್ಲು"
+      ],
+      "support_status": "recognized_not_supported",
+      "rag_supported": false,
+      "document_count": 0,
+      "topics": [],
+      "karnataka_suitability": "KARNATAKA_RELEVANT",
+      "primary_districts": [
+        "Bengaluru Rural",
+        "Mysuru",
+        "Tumakuru"
+      ],
+      "source_institutions": [
+        "CSIR-CIMAP Bengaluru"
+      ],
+      "agro_climatic_details": {
+        "suitability_notes_kn": "ಸುಗಂಧ ತೈಲಕ್ಕಾಗಿ ಬೆಳೆಯುವ ಜನಪ್ರಿಯ ಹುಲ್ಲು ಬೆಳೆ."
+      },
+      "tested": true
+    },
+    "vetiver": {
+      "canonical_name": "vetiver",
+      "category": "medicinal",
+      "english_names": [
+        "vetiver",
+        "khus"
+      ],
+      "kannada_names": [
+        "ಲಾವಂಚ"
+      ],
+      "aliases": [
+        "vetiver",
+        "khus",
+        "lavancha",
+        "chrysopogon zizanioides",
+        "ಲಾವಂಚದ",
+        "ಲಾವಂಚ"
+      ],
+      "support_status": "recognized_not_supported",
+      "rag_supported": false,
+      "document_count": 0,
+      "topics": [],
+      "karnataka_suitability": "KARNATAKA_RELEVANT",
+      "primary_districts": [
+        "Dakshina Kannada",
+        "Uttara Kannada",
+        "Mysuru"
+      ],
+      "source_institutions": [
+        "CSIR-CIMAP"
+      ],
+      "agro_climatic_details": {
+        "suitability_notes_kn": "ಮಣ್ಣಿನ ಸವೆತ ತಡೆಗಟ್ಟಲು ಮತ್ತು ಬೇರಿನ ಸುಗಂಧ ತೈಲಕ್ಕಾಗಿ ಬೆಳೆಯಲಾಗುತ್ತದೆ."
+      },
+      "tested": true
+    },
+    "mint": {
+      "canonical_name": "mint",
+      "category": "medicinal",
+      "english_names": [
+        "mint",
+        "spearmint",
+        "pudina"
+      ],
+      "kannada_names": [
+        "ಪುದೀನಾ"
+      ],
+      "aliases": [
+        "mint",
+        "spearmint",
+        "pudina",
+        "mentha arvensis",
+        "ಪುದೀನಾದ",
+        "ಪುದೀನಾ"
+      ],
+      "support_status": "recognized_not_supported",
+      "rag_supported": false,
+      "document_count": 0,
+      "topics": [],
+      "karnataka_suitability": "KARNATAKA_RELEVANT",
+      "primary_districts": [
+        "Bengaluru Rural",
+        "Kolar",
+        "Belagavi"
+      ],
+      "source_institutions": [
+        "CSIR-CIMAP"
+      ],
+      "agro_climatic_details": {
+        "suitability_notes_kn": "ನೀರಾವರಿ ಆಶ್ರಯದಲ್ಲಿ ವರ್ಷಪೂರ್ತಿ ಬೆಳೆಯಬಹುದಾದ ಸುಗಂಧ ತರಕಾರಿ ಬೆಳೆ."
+      },
+      "tested": true
+    },
+    "stevia": {
+      "canonical_name": "stevia",
+      "category": "medicinal",
+      "english_names": [
+        "stevia",
+        "sweet leaf"
+      ],
+      "kannada_names": [
+        "ಸ್ಟೀವಿಯಾ",
+        "ಸಿಹಿ ತುಳಸಿ"
+      ],
+      "aliases": [
+        "stevia",
+        "sweet leaf",
+        "stevia rebaudiana",
+        "ಸಿಹಿ ತುಳಸಿಯ",
+        "ಸ್ಟೀವಿಯಾ",
+        "ಸಿಹಿ ತುಳಸಿ"
+      ],
+      "support_status": "recognized_not_supported",
+      "rag_supported": false,
+      "document_count": 0,
+      "topics": [],
+      "karnataka_suitability": "KARNATAKA_CONDITIONALLY_SUITABLE",
+      "primary_districts": [
+        "Bengaluru Rural",
+        "Kolar",
+        "Hassan"
+      ],
+      "source_institutions": [
+        "UAS Bangalore",
+        "CSIR-CIMAP"
+      ],
+      "agro_climatic_details": {
+        "suitability_notes_kn": "ನೈಸರ್ಗಿಕ ಸಿಹಿಕಾರಕ ಎಲೆಗಳಿಗಾಗಿ ಬೆಳೆಯಲಾಗುತ್ತದೆ."
+      },
+      "tested": true
+    },
+    "isabgol": {
+      "canonical_name": "isabgol",
+      "category": "medicinal",
+      "english_names": [
+        "isabgol",
+        "psyllium"
+      ],
+      "kannada_names": [
+        "ಇಸಬ್ಗೋಲ್"
+      ],
+      "aliases": [
+        "isabgol",
+        "psyllium",
+        "plantago ovata",
+        "ಇಸಬ್ಗೋಲ್"
+      ],
+      "support_status": "recognized_not_supported",
+      "rag_supported": false,
+      "document_count": 0,
+      "topics": [],
+      "karnataka_suitability": "KARNATAKA_LIMITED",
+      "primary_districts": [
+        "Vijayapura",
+        "Bagalkot"
+      ],
+      "source_institutions": [
+        "ICAR-DMAPR"
+      ],
+      "agro_climatic_details": {
+        "suitability_notes_kn": "ಒಣ ಹವೆಯಲ್ಲಿ ಹಿಂಗಾರಿನಲ್ಲಿ ಸೀಮಿತವಾಗಿ ಬೆಳೆಯಲಾಗುತ್ತದೆ."
+      },
+      "tested": true
+    },
+    "brahmi": {
+      "canonical_name": "brahmi",
+      "category": "medicinal",
+      "english_names": [
+        "brahmi",
+        "water hyssop",
+        "gotu kola"
+      ],
+      "kannada_names": [
+        "ಬ್ರಾಹ್ಮಿ",
+        "ಒಂದೆಲಗ",
+        "ತಿಮ್ಮರೆ"
+      ],
+      "aliases": [
+        "brahmi",
+        "water hyssop",
+        "gotu kola",
+        "ondelaga",
+        "thimmare",
+        "bacopa monnieri",
+        "centella asiatica",
+        "ಒಂದೆಲಗದ",
+        "ಬ್ರಾಹ್ಮಿ",
+        "ಒಂದೆಲಗ",
+        "ತಿಮ್ಮರೆ"
+      ],
+      "support_status": "recognized_not_supported",
+      "rag_supported": false,
+      "document_count": 0,
+      "topics": [],
+      "karnataka_suitability": "KARNATAKA_RELEVANT",
+      "primary_districts": [
+        "Udupi",
+        "Dakshina Kannada",
+        "Shivamogga",
+        "Uttara Kannada"
+      ],
+      "source_institutions": [
+        "CSIR-CIMAP",
+        "UAS Bangalore"
+      ],
+      "agro_climatic_details": {
+        "suitability_notes_kn": "ತೇವಾಂಶವುಳ್ಳ ನೆರಳು ಜಾಗದಲ್ಲಿ ಬೆಳೆಯುವ ನೆನಪಿನ ಶಕ್ತಿ ವರ್ಧಕ ಔಷಧೀಯ ಸಸ್ಯ."
+      },
+      "tested": true
+    },
+    "tulsi": {
+      "canonical_name": "tulsi",
+      "category": "medicinal",
+      "english_names": [
+        "tulsi",
+        "holy basil"
+      ],
+      "kannada_names": [
+        "ತುಳಸಿ"
+      ],
+      "aliases": [
+        "tulsi",
+        "holy basil",
+        "ocimum tenuiflorum",
+        "ocimum sanctum",
+        "ತುಳಸಿಯ",
+        "ತುಳಸಿಗಿಡ",
+        "ತುಳಸಿ"
+      ],
+      "support_status": "recognized_not_supported",
+      "rag_supported": false,
+      "document_count": 0,
+      "topics": [],
+      "karnataka_suitability": "KARNATAKA_RELEVANT",
+      "primary_districts": [
+        "Mandya",
+        "Mysuru",
+        "Tumakuru",
+        "Kolar",
+        "Gadag"
+      ],
+      "source_institutions": [
+        "CSIR-CIMAP",
+        "UAS Bangalore"
+      ],
+      "agro_climatic_details": {
+        "suitability_notes_kn": "ಕರ್ನಾಟಕದ ಎಲ್ಲಾ ಭಾಗಗಳಲ್ಲೂ ಸುಲಭವಾಗಿ ಬೆಳೆಯುವ ಪವಿತ್ರ ಹಾಗೂ ಔಷಧೀಯ ಸಸ್ಯ."
+      },
       "tested": true
     }
   }

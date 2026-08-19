@@ -331,6 +331,95 @@ class TestRepresentativeVoiceTranscriptQueries(unittest.TestCase):
         self.assertEqual(len(res["retrieved_documents"]), 0)
         self.assertIn("ಕೃಷಿ ಸಲಹಾ ವ್ಯವಸ್ಥೆಯಾಗಿದ್ದು", res["response"])
 
+    def test_16_apple_explicit_suitability_audit(self):
+        """
+        EXPLICIT AUDIT: Apple in Karnataka
+        1. Recognized as canonical crop 'apple'.
+        2. Status: 'recognized_not_supported'.
+        3. Karnataka Suitability: 'KARNATAKA_NOT_RECOMMENDED'.
+        4. Agro-climatic details explain 800-1200 winter chilling hours requirement.
+        5. Generated advisory provides authoritative temperate crop explanation in Kannada.
+        """
+        query = "ನಾನು ಕರ್ನಾಟಕದಲ್ಲಿ ಸೇಬು ಬೆಳೆಯಬಹುದೇ?"
+        self.assertEqual(normalize_crop_name("apple"), "apple")
+        self.assertEqual(normalize_crop_name("ಸೇಬು"), "apple")
+        self.assertEqual(get_crop_support_status("apple"), "recognized_not_supported")
+        self.assertEqual(get_crop_category("apple"), "fruit")
+        self.assertEqual(self.engine.crop_identifier_suitability("apple") if hasattr(self.engine, "crop_identifier_suitability") else get_crop_entry("apple")["karnataka_suitability"], "KARNATAKA_NOT_RECOMMENDED")
+
+        res = self.engine.generate_advisory(query=query, source_language="kn")
+        self.assertEqual(res["canonical_crop"], "apple")
+        self.assertEqual(res["crop_support_status"], "recognized_not_supported")
+        self.assertEqual(res["karnataka_suitability"], "KARNATAKA_NOT_RECOMMENDED")
+        self.assertIsNotNone(res["karnataka_suitability_details"])
+        self.assertIn("ಸೇಬು", res["response"])
+        self.assertIn("7°C", res["response"])
+
+    def test_17_watermelon_explicit_audit(self):
+        """
+        EXPLICIT AUDIT: Watermelon
+        1. Recognized as canonical crop 'watermelon'.
+        2. Status: 'supported' with RAG documents in agricultural_corpus.json.
+        3. Category: 'fruit'.
+        4. Karnataka Suitability: 'KARNATAKA_RELEVANT'.
+        5. Query on excess rain retrieves grounded drainage & disease management advice.
+        """
+        query = "ನನ್ನ ಕಲ್ಲಂಗಡಿ ಬೆಳೆಗೆ ಹೆಚ್ಚು ಮಳೆಯಾಗಿದೆ. ಏನು ಮಾಡಬೇಕು?"
+        self.assertEqual(normalize_crop_name("watermelon"), "watermelon")
+        self.assertEqual(normalize_crop_name("ಕಲ್ಲಂಗಡಿ"), "watermelon")
+        self.assertEqual(get_crop_support_status("watermelon"), "supported")
+        self.assertTrue(is_crop_supported("watermelon"))
+        self.assertEqual(get_crop_category("watermelon"), "fruit")
+
+        # Test RAG retrieval
+        docs = self.engine.retriever.retrieve(query="watermelon excess rain waterlogging drainage", crop="watermelon")
+        self.assertGreaterEqual(len(docs), 1)
+        self.assertEqual(docs[0]["crop"], "watermelon")
+
+        # Test full advisory generation
+        res = self.engine.generate_advisory(query=query, source_language="kn")
+        self.assertEqual(res["canonical_crop"], "watermelon")
+        self.assertEqual(res["crop_support_status"], "supported")
+        self.assertEqual(res["karnataka_suitability"], "KARNATAKA_RELEVANT")
+        self.assertGreater(len(res["retrieved_documents"]), 0)
+        self.assertEqual(res["retrieved_documents"][0]["crop"], "watermelon")
+        self.assertIn("ಕಲ್ಲಂಗಡಿ", res["response"])
+
+    def test_18_ambiguous_crop_queries_safety(self):
+        """
+        Ambiguous query safety test:
+        Bare terms like 'ಮೆಣಸು', 'ತರಕಾರಿ', 'ಹಣ್ಣು' must return clarification prompts
+        without blindly guessing or hallucinating crop identity.
+        """
+        ambiguous_queries = ["ಮೆಣಸು", "ತರಕಾರಿ", "ಹಣ್ಣು"]
+        for q in ambiguous_queries:
+            res = self.engine.generate_advisory(query=q, source_language="kn")
+            self.assertIn("ದಯವಿಟ್ಟು", res["response"])
+            self.assertIn("ತಿಳಿಸಿ", res["response"])
+
+    def test_19_agro_climatic_details_completeness(self):
+        """
+        Verify that all registered crops contain proper Karnataka suitability classifications.
+        """
+        registry = get_crop_registry()
+        valid_suitabilities = {
+            "KARNATAKA_RELEVANT",
+            "KARNATAKA_CONDITIONALLY_SUITABLE",
+            "KARNATAKA_LIMITED",
+            "KARNATAKA_NOT_RECOMMENDED",
+            "UNKNOWN"
+        }
+        for crop_id, data in registry["crops"].items():
+            suitability = data.get("karnataka_suitability")
+            self.assertIn(
+                suitability,
+                valid_suitabilities,
+                f"Crop {crop_id} has invalid suitability {suitability}"
+            )
+            details = data.get("agro_climatic_details", {})
+            self.assertIsInstance(details, dict, f"Crop {crop_id} details must be dict")
+
 
 if __name__ == "__main__":
     unittest.main()
+

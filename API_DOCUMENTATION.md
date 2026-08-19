@@ -41,7 +41,9 @@ By default, the server starts on `http://127.0.0.1:5000` (`http://localhost:5000
 | `GET` | `/api/v1/health` | Lightweight service health check (does NOT load heavy models) | No |
 | `GET` | `/api/v1/version` | Returns API version and commit hash | No |
 | `POST` | `/api/v1/advisory` | Primary agricultural advisory generation endpoint (JSON text query) | No |
-| `POST` | `/api/v1/advisory/audio` | Voice advisory generation endpoint (Multipart audio upload) | No |
+| `POST` | `/api/v1/advisory/audio` | Voice advisory generation endpoint (Multipart audio upload + optional TTS) | No |
+| `GET` | `/api/v1/advisory/audio/download` | Download generated spoken audio WAV file (`?file=<filename>`) | No |
+
 
 ---
 
@@ -206,6 +208,95 @@ Accept: application/json
 ```
 
 ---
+
+### `POST /api/v1/advisory/audio`
+Voice-enabled agricultural advisory generation endpoint.
+Accepts multipart form-data with an uploaded audio query (e.g. farmer speaking Kannada), transcribes it via Whisper Kannada ASR, retrieves grounding contexts, executes local Dhenu LLM inference, and optionally synthesizes the response into spoken Kannada audio via Neural TTS.
+
+* **HTTP Status:** `200 OK`
+* **Content-Type:** `multipart/form-data`
+* **Form Parameters:**
+
+| Parameter | Type | Required | Description |
+| :--- | :--- | :--- | :--- |
+| `audio` (or `file`) | Binary File | **Yes** | Audio recording (`.wav`, `.mp3`, `.ogg`, `.flac`, `.m4a`, max 5 MB). |
+| `district` | string | Optional | Karnataka district name (e.g. `Mandya`). |
+| `taluk` | string | Optional | Karnataka taluk name (e.g. `Pandavapura`). |
+| `village` | string | Optional | Karnataka village name (e.g. `Melukote`). |
+| `crop` | string | Optional | Explicit crop override (e.g. `ragi`). |
+| `language` | string | Optional | Target output language (`kn` default, or `en`). |
+| `synthesize_audio` | string / bool | Optional | Set to `"true"` or `"1"` to trigger spoken Kannada TTS audio generation. |
+
+* **Success Response Payload:**
+```json
+{
+  "success": true,
+  "language": "kn",
+  "canonical_crop": "ragi",
+  "answer": "1. ಪ್ರಸ್ತುತ ಒಣಗಿದ ಅವಧಿಯನ್ನು ಗಮನಿಸಿದರೆ ನಿಮಗೆ ತಕ್ಷಣದ ನೀರಾವರಿ ಬೆಂಬಲ ಬೇಕೇ ಇಲ್ಲವೇ ಎಂಬುದನ್ನು ನಿರ್ಣಯಿಸಿ...",
+  "asr": {
+    "transcript": "ನನ್ನ ರಾಗಿ ಬೆಳೆಗೆ ಮಳೆ ಸರಿಯಾಗಿ ಆಗದೆ ಒಣಗುತ್ತಿದೆ ಏನು ಮಾಡಬೇಕು",
+    "audio_duration_seconds": 6.62,
+    "asr_processing_time_seconds": 19.76,
+    "asr_model": "vasista22/whisper-kannada-small",
+    "asr_device": "cpu"
+  },
+  "audio": {
+    "available": true,
+    "audio_path": "/path/to/outputs/kannada_advisory_xyz.wav",
+    "duration_seconds": 34.63,
+    "sample_rate": 24000,
+    "format": "wav",
+    "voice": "kn-IN-GaganNeural",
+    "latency_seconds": 8.66
+  },
+  "location": {
+    "district": "Mandya",
+    "taluk": "Pandavapura",
+    "village": "Melukote",
+    "hierarchy_label": "Melukote, Pandavapura, Mandya, Karnataka"
+  },
+  "weather": {
+    "available": true,
+    "current": {
+      "temperature_c": 27.5,
+      "weather_condition": "Partly cloudy"
+    }
+  },
+  "soil": {
+    "available": true,
+    "soil_order": "Alfisols"
+  },
+  "schemes": [],
+  "market": null,
+  "metadata": {
+    "model": "KissanAI/Dhenu2-In-Llama3.2-1B-Instruct",
+    "backend": "dhenu",
+    "rag_enabled": true,
+    "voice_pipeline_total_time_seconds": 105.59
+  }
+}
+```
+
+---
+
+### `GET /api/v1/advisory/audio/download`
+Downloads or streams generated spoken Kannada WAV audio files.
+* **HTTP Status:** `200 OK`
+* **Content-Type:** `audio/wav`
+* **Query Parameters:**
+
+| Parameter | Type | Required | Description |
+| :--- | :--- | :--- | :--- |
+| `file` | string | **Yes** | Basename of audio file generated in `outputs/` (e.g. `kannada_advisory_xyz.wav`). |
+
+* **Example Request:**
+```bash
+curl -O "http://127.0.0.1:5000/api/v1/advisory/audio/download?file=raithamitra_kannada_advisory.wav"
+```
+
+---
+
 
 ## 5. Error Schema & HTTP Status Codes
 

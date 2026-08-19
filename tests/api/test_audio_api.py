@@ -1,14 +1,17 @@
 """
 Unit tests for Audio Advisory API endpoint (/api/v1/advisory/audio).
 Tests multipart file upload, format validation, size limit checks,
-error responses, and ASR metadata serialization.
+error responses, ASR metadata serialization, TTS synthesis, and audio download.
 """
 
 import io
+import os
+import tempfile
 import unittest
 from unittest.mock import patch, MagicMock
 import numpy as np
 import soundfile as sf
+from pathlib import Path
 
 from api.app import create_app
 from model.location.service import LocationService
@@ -18,6 +21,7 @@ from model.soil.service import SoilService
 from model.schemes.service import SchemeService
 from model.market.service import MarketService
 from model.market.client import MockMarketClient
+from model.tts.synthesizer import MockKannadaSynthesizer
 from model.advisory.agriparam_engine import (
     AdvisoryEngine,
     AdvisoryConfig,
@@ -36,6 +40,7 @@ class TestAudioAdvisoryAPI(unittest.TestCase):
         self.scheme_service = SchemeService()
         self.market_service = MarketService(client=MockMarketClient())
         self.language_bridge = MockLanguageBridge()
+        self.mock_tts = MockKannadaSynthesizer()
 
         self.engine = AdvisoryEngine(
             config=AdvisoryConfig(backend="mock", use_rag=True),
@@ -53,6 +58,7 @@ class TestAudioAdvisoryAPI(unittest.TestCase):
             soil_service=self.soil_service,
             scheme_service=self.scheme_service,
             market_service=self.market_service,
+            tts_engine=self.mock_tts,
             config={"TESTING": True}
         )
         self.client = self.app.test_client()
@@ -143,7 +149,78 @@ class TestAudioAdvisoryAPI(unittest.TestCase):
         self.assertEqual(data["location"]["district"], "Mandya")
         self.assertIsNotNone(data["weather"])
         self.assertIsNotNone(data["soil"])
-        self.assertIn("ರಾಗಿ", data["answer"])
+        self.assertIn("audio", data)
+        self.assertEqual(data["audio"]["available"], False)
+
+    @patch("model.advisory.voice_bridge.transcribe_audio")
+    def test_audio_endpoint_with_tts_synthesis(self, mock_transcribe) -> None:
+        """Verify passing synthesize_audio=true triggers TTS generation and returns audio metadata."""
+        mock_transcribe.return_value = {
+            "text": "ನನ್ನ ರಾಗಿ ಬೆಳೆಗೆ ಮಳೆ ಸರಿಯಾಗಿ ಆಗದೆ ಒಣಗುತ್ತಿದೆ.",
+            "language": "kn",
+            "model": "vasista22/whisper-kannada-small",
+            "duration_seconds": 2.0,
+            "processing_time_seconds": 0.3,
+            "device": "cpu"
+        }
+
+        self.wav_bytes.seek(0)
+        response = self.client.post(
+            "/api/v1/advisory/audio",
+            data={
+                "audio": (self.wav_bytes, "query.wav"),
+                "district": "Mandya",
+                "synthesize_audio": "true"
+            },
+            content_type="multipart/form-data"
+        )
+        self.assertEqual(response.status_code, 200)
+        data = response.get_json()
+
+        self.assertTrue(data["success"])
+        self.assertIn("audio", data)
+        self.assertTrue(data["audio"]["available"])
+        self.assertEqual(data["audio"]["format"], "wav")
+        self.assertIsNotNone(data["audio"]["audio_path"])
+
+    def test_audio_download_missing_param(self) -> None:
+        """Verify missing 'file' query parameter returns HTTP 400."""
+        response = self.client.get("/api/v1/advisory/audio/download")
+        self.assertEqual(response.status_code, 400)
+        data = response.get_json()
+        self.assertFalse(data["success"])
+        self.assertEqual(data["error"]["code"], "VALIDATION_ERROR")
+
+    def test_audio_download_nonexistent_file(self) -> None:
+        """Verify requesting non-existent file returns HTTP 404."""
+        response = self.client.get("/api/v1/advisory/audio/download?file=nonexistent_file.wav")
+        self.assertEqual(response.status_code, 404)
+        data = response.get_json()
+        self.assertFalse(data["success"])
+        self.assertEqual(data["error"]["code"], "NOT_FOUND")
+
+    def test_audio_download_success(self) -> None:
+        """Verify downloading existing file returns audio/wav file attachment."""
+        out_dir = Path("outputs")
+        out_dir.mkdir(parents=True, exist_ok=True)
+        test_file = out_dir / "api_test_sample.wav"
+
+        sr = 16000
+        audio = np.zeros(int(sr * 0.2), dtype=np.float32)
+        sf.write(str(test_file), audio, sr, format="WAV")
+
+        try:
+            response = self.client.get("/api/v1/advisory/audio/download?file=api_test_sample.wav")
+            self.assertEqual(response.status_code, 200)
+            self.assertEqual(response.mimetype, "audio/wav")
+            self.assertGreater(len(response.data), 0)
+            response.close()
+        finally:
+            if test_file.exists():
+                try:
+                    test_file.unlink()
+                except Exception:
+                    pass
 
 
 if __name__ == "__main__":

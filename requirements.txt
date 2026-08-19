@@ -12,3 +12,7 @@ jiwer>=3.0.0
 # Phase 5.1 - Backend API Adapter
 flask>=3.0.0
 flask-cors>=5.0.0
+
+# Phase 5.3 - Kannada TTS Stack
+edge-tts>=6.1.0
+

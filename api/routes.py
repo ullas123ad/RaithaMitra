@@ -209,6 +209,9 @@ def get_audio_advisory():
     village = form_data.get("village", "").strip() if form_data.get("village") else None
     crop = form_data.get("crop", "").strip() if form_data.get("crop") else None
     language = form_data.get("language", "kn").strip() if form_data.get("language") else "kn"
+    
+    synthesize_audio_param = form_data.get("synthesize_audio") or form_data.get("enable_audio")
+    enable_tts = synthesize_audio_param.lower() in ("1", "true", "yes") if synthesize_audio_param else False
 
     # 4. Save to secure temporary file
     temp_file = tempfile.NamedTemporaryFile(suffix=file_ext, delete=False)
@@ -228,6 +231,7 @@ def get_audio_advisory():
         engine = current_app.config.get("ADVISORY_ENGINE")
         location_service = current_app.config.get("LOCATION_SERVICE")
         weather_service = current_app.config.get("WEATHER_SERVICE")
+        tts_engine = current_app.config.get("TTS_ENGINE")
 
         if not engine:
             return _error_response("SERVICE_UNAVAILABLE", "Advisory engine service is currently unavailable.", 503)
@@ -241,7 +245,9 @@ def get_audio_advisory():
             taluk=taluk,
             village=village,
             crop=crop,
-            language=language
+            language=language,
+            tts_engine=tts_engine,
+            synthesize_audio=enable_tts
         )
 
         response_payload = {
@@ -250,6 +256,7 @@ def get_audio_advisory():
             "canonical_crop": result.get("canonical_crop"),
             "answer": result.get("response", ""),
             "asr": result.get("asr"),
+            "audio": result.get("audio"),
             "location": result.get("location"),
             "weather": result.get("weather"),
             "soil": result.get("soil"),
@@ -282,3 +289,31 @@ def get_audio_advisory():
                 os.remove(temp_path)
             except Exception:
                 pass
+
+
+@api_v1.route("/advisory/audio/download", methods=["GET"])
+def download_audio():
+    """
+    Download generated spoken audio WAV file.
+    Accepts query parameter: ?file=<filename>.
+    """
+    import os
+    from flask import send_file
+    from pathlib import Path
+
+    filename = request.args.get("file", "").strip()
+    if not filename:
+        return _error_response("VALIDATION_ERROR", "Query parameter 'file' is required.", 400)
+
+    # Sanitize filename
+    safe_name = os.path.basename(filename)
+    if not safe_name.endswith(".wav") and not safe_name.endswith(".mp3"):
+        return _error_response("VALIDATION_ERROR", "Only audio (.wav, .mp3) files can be downloaded.", 400)
+
+    out_dir = Path("outputs").resolve()
+    file_path = out_dir / safe_name
+    if not file_path.exists():
+        return _error_response("NOT_FOUND", f"Audio file '{safe_name}' not found.", 404)
+
+    return send_file(str(file_path), mimetype="audio/wav", as_attachment=True, download_name=safe_name)
+

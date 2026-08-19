@@ -1,10 +1,11 @@
 """
 Unit tests for Voice-to-Advisory Bridge (model/advisory/voice_bridge.py).
 Tests end-to-end voice processing flow, error handling on non-existent files,
-empty transcripts, and metadata serialization.
+empty transcripts, TTS integration, and metadata serialization.
 """
 
 import os
+import tempfile
 import unittest
 from unittest.mock import patch, MagicMock
 
@@ -16,6 +17,7 @@ from model.soil.service import SoilService
 from model.schemes.service import SchemeService
 from model.market.service import MarketService
 from model.market.client import MockMarketClient
+from model.tts.synthesizer import MockKannadaSynthesizer
 from model.advisory.agriparam_engine import (
     AdvisoryEngine,
     AdvisoryConfig,
@@ -34,6 +36,7 @@ class TestVoiceBridge(unittest.TestCase):
         self.scheme_service = SchemeService()
         self.market_service = MarketService(client=MockMarketClient())
         self.language_bridge = MockLanguageBridge()
+        self.mock_tts = MockKannadaSynthesizer()
 
         self.engine = AdvisoryEngine(
             config=AdvisoryConfig(backend="mock", use_rag=True),
@@ -44,6 +47,10 @@ class TestVoiceBridge(unittest.TestCase):
             market_service=self.market_service
         )
         self.dummy_audio_path = "dataset/samples/sample_kannada_query.wav"
+        self.temp_dir = tempfile.TemporaryDirectory()
+
+    def tearDown(self) -> None:
+        self.temp_dir.cleanup()
 
     def test_voice_bridge_missing_file_raises_error(self) -> None:
         """Verify missing audio file raises VoiceAdvisoryError."""
@@ -97,6 +104,58 @@ class TestVoiceBridge(unittest.TestCase):
         self.assertIn("voice_pipeline_total_time_seconds", result)
         self.assertIsNotNone(result["location"])
         self.assertEqual(result["location"]["district"], "Mandya")
+        self.assertEqual(result["audio"]["available"], False)
+
+    @patch("model.advisory.voice_bridge.transcribe_audio")
+    def test_voice_bridge_with_tts_synthesis(self, mock_transcribe) -> None:
+        """Verify voice bridge generates spoken audio when TTS is enabled."""
+        mock_transcribe.return_value = {
+            "text": "ರಾಗಿ ಬೆಳೆಗೆ ನೀರಿನ ನಿರ್ವಹಣೆ ಹೇಗೆ?",
+            "duration_seconds": 2.5,
+            "processing_time_seconds": 0.3,
+            "model": "vasista22/whisper-kannada-small",
+            "device": "cpu"
+        }
+        out_wav = os.path.join(self.temp_dir.name, "response_speech.wav")
+
+        result = process_voice_advisory(
+            audio_path=self.dummy_audio_path,
+            advisory_engine=self.engine,
+            tts_engine=self.mock_tts,
+            synthesize_audio=True,
+            output_audio_path=out_wav
+        )
+
+        self.assertIn("audio", result)
+        self.assertTrue(result["audio"]["available"])
+        self.assertEqual(result["audio"]["format"], "wav")
+        self.assertTrue(os.path.exists(out_wav))
+
+    @patch("model.advisory.voice_bridge.transcribe_audio")
+    def test_voice_bridge_tts_failure_graceful_recovery(self, mock_transcribe) -> None:
+        """Verify TTS failure does not crash the advisory or transcript response."""
+        mock_transcribe.return_value = {
+            "text": "ರಾಗಿ ಬೆಳೆಗೆ ನೀರಿನ ನಿರ್ವಹಣೆ ಹೇಗೆ?",
+            "duration_seconds": 2.5,
+            "processing_time_seconds": 0.3,
+            "model": "vasista22/whisper-kannada-small",
+            "device": "cpu"
+        }
+        failing_tts = MagicMock()
+        failing_tts.synthesize.side_effect = RuntimeError("Synthesis engine error")
+
+        result = process_voice_advisory(
+            audio_path=self.dummy_audio_path,
+            advisory_engine=self.engine,
+            tts_engine=failing_tts,
+            synthesize_audio=True
+        )
+
+        self.assertIn("response", result)
+        self.assertIn("asr", result)
+        self.assertIn("audio", result)
+        self.assertFalse(result["audio"]["available"])
+        self.assertIn("Audio synthesis unavailable", result["audio"]["error"])
 
 
 if __name__ == "__main__":

@@ -22,6 +22,7 @@ def create_app(
     soil_service: Optional[Any] = None,
     scheme_service: Optional[Any] = None,
     market_service: Optional[Any] = None,
+    tts_engine: Optional[Any] = None,
     config: Optional[Dict[str, Any]] = None
 ) -> Flask:
     """
@@ -34,6 +35,7 @@ def create_app(
         soil_service: Optional SoilService instance.
         scheme_service: Optional SchemeService instance.
         market_service: Optional MarketService instance.
+        tts_engine: Optional TTS synthesizer instance.
         config: Optional configuration dictionary.
 
     Returns:
@@ -97,6 +99,12 @@ def create_app(
             soil_service=app.config["SOIL_SERVICE"],
             market_service=app.config["MARKET_SERVICE"]
         )
+
+    if tts_engine is not None:
+        app.config["TTS_ENGINE"] = tts_engine
+    else:
+        from model.tts.synthesizer import get_tts_engine
+        app.config["TTS_ENGINE"] = get_tts_engine()
 
     # Register Blueprints
     app.register_blueprint(api_v1)

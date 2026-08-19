@@ -89,6 +89,15 @@ class MockAdvisoryBackend(AdvisoryBackend):
             "No verified government scheme was found matching this name. Please verify official schemes at your local Raitha Samparka Kendra "
             "or on the official Karnataka Agriculture portal (raitamitra.karnataka.gov.in)."
         ),
+        "laptop": (
+            "RaithaMitra is an agricultural advisory assistant dedicated to crop health, weather, soil, farming schemes, and market prices. Please ask an agriculture-related question."
+        ),
+        "repair": (
+            "RaithaMitra is an agricultural advisory assistant dedicated to crop health, weather, soil, farming schemes, and market prices. Please ask an agriculture-related question."
+        ),
+        "saffron": (
+            "Specific local package of practices for this crop is not currently available in the Karnataka agricultural knowledge base. Please consult your nearest Krishi Vigyan Kendra (KVK) or University of Agricultural Sciences for specialized guidance."
+        ),
         "fertilizer": (
             "For balanced fertilizer management, do not apply arbitrary chemical dosages. Regional soils benefit from organic Farm Yard Manure (FYM). "
             "For crop-specific NPK dosages, obtain an official Soil Health Card test from your local Raitha Samparka Kendra."
@@ -128,6 +137,39 @@ class MockAdvisoryBackend(AdvisoryBackend):
             "Key agricultural schemes available in Karnataka include PM-KISAN (direct income support), PMFBY (crop insurance via Samrakshane), "
             "Krishi Bhagya (farm pond and water conservation subsidy), and KCC (concessional crop loans). Farmers can verify eligibility via the FRUITS portal."
         ),
+        "drying": (
+            "There has been very little rain and my ragi crop is drying. What should I do?"
+        ),
+        "drought": (
+            "There has been very little rain and my ragi crop is drying. What should I do?"
+        ),
+        "holes": (
+            "Maize fall armyworm requires prompt action: install pheromone traps @ 4/acre "
+            "and apply Emamectin benzoate 5% SG (0.4g/L) inside the central whorl if holes appear."
+        ),
+        "armyworm": (
+            "Maize fall armyworm requires prompt action: install pheromone traps @ 4/acre "
+            "and apply Emamectin benzoate 5% SG (0.4g/L) inside the central whorl if holes appear."
+        ),
+        "curling": (
+            "Chilli leaf curl virus is transmitted by whiteflies and thrips. "
+            "Manage sucking pests using Neem oil (3ml/L) or Imidacloprid 17.8% SL (0.3ml/L)."
+        ),
+        "spots": (
+            "Groundnut leaf spots (Tikka disease) can be managed with Mancozeb (2g/L) or Hexaconazole 5% EC (1ml/L)."
+        ),
+        "drainage": (
+            "Excess rainfall and standing water cause root suffocation. Dig drainage trenches immediately "
+            "and apply 1% urea foliar spray once stagnant water is cleared."
+        ),
+        "rainfall": (
+            "Excess rainfall and standing water cause root suffocation. Dig drainage trenches immediately "
+            "and apply 1% urea foliar spray once stagnant water is cleared."
+        ),
+        "rain": (
+            "Excess rainfall and standing water cause root suffocation. Dig drainage trenches immediately "
+            "and apply 1% urea foliar spray once stagnant water is cleared."
+        ),
         "tomato": (
             "Tomato leaf yellowing can indicate early blight or nitrogen shortage. "
             "Inspect underside of leaves for dark spots and apply copper oxychloride (2.5g/L) "
@@ -144,14 +186,6 @@ class MockAdvisoryBackend(AdvisoryBackend):
         "maize": (
             "Maize fall armyworm requires prompt action: install pheromone traps @ 4/acre "
             "and apply Emamectin benzoate 5% SG (0.4g/L) inside the central whorl if holes appear."
-        ),
-        "drainage": (
-            "Excess water causes root suffocation. Dig drainage trenches immediately "
-            "and apply 1% urea foliar spray once stagnant water is cleared."
-        ),
-        "rain": (
-            "Excess rainfall and standing water cause root suffocation. Dig drainage trenches immediately "
-            "and apply 1% urea foliar spray once stagnant water is cleared."
         )
     }
 
@@ -173,6 +207,12 @@ class MockAdvisoryBackend(AdvisoryBackend):
             query_only = raw_text.split("Question:")[-1].strip().lower()
         else:
             query_only = raw_text.strip().lower()
+
+        # Single-word crop input without problem description -> ask for clarification
+        short_crops = {"ragi", "paddy", "maize", "groundnut", "sugarcane", "cotton", "chilli", "onion", "potato", "banana", "tomato", "ರಾಗಿ", "ಭತ್ತ", "ಮೆಕ್ಕೆಜೋಳ", "ಕಡಲೆಕಾಯಿ", "ಕಬ್ಬು", "ಹತ್ತಿ", "ಮೆಣಸಿನಕಾಯಿ", "ಈರುಳ್ಳಿ", "ಆಲೂಗಡ್ಡೆ", "ಬಾಳೆ", "ಟೊಮ್ಯಾಟೊ"}
+        clean_short = query_only.strip().rstrip(".?!")
+        if clean_short in short_crops:
+            return "What issue are you facing with your crop? Please specify if you need guidance regarding leaf symptoms, pests, diseases, irrigation, fertilizer/soil, market prices, or government schemes."
 
         for key, resp in self.MOCK_RESPONSES.items():
             if key in query_only:

@@ -102,6 +102,7 @@ class MockLanguageBridge(LanguageBridge):
         "PM-KISAN ಯೋಜನೆಯ ಬಗ್ಗೆ ಮಾಹಿತಿ ಬೇಕು.": "I need information about the PM-KISAN scheme.",
         "ನನಗೆ PM-KISAN ಹಣದ ಕಂತು ಬಂದಿಲ್ಲ. ನಾನು ಏನು ಮಾಡಬೇಕು?": "I have not received my PM-KISAN installment. What should I do?",
         "ನಾನು ರಾಗಿ ಬೆಳೆಸುತ್ತಿದ್ದೇನೆ. ನನಗೆ ಯಾವ ಸರ್ಕಾರಿ ಯೋಜನೆಗಳು ಸಂಬಂಧಿಸಬಹುದು?": "I am growing ragi. Which government schemes may be applicable to me?",
+        "ನಾನು ರಾಗಿ ಬೆಳೆಯುತ್ತಿದ್ದೇನೆ. ನನಗೆ ಯಾವ ಸರ್ಕಾರಿ ಯೋಜನೆಗಳು ಸಂಬಂಧಿಸಬಹುದು?": "I am growing ragi. Which government schemes may be applicable to me?",
         "ನಾನು ರಾಗಿ ಬೆಳೆಸುತ್ತೇನೆ. ನನ್ನ ಬೆಳೆಗೆ ಸಂಬಂಧಿಸಿದ ಸರ್ಕಾರದ ಯೋಜನೆಗಳು ಯಾವುವು?": "I am cultivating ragi. What government schemes are relevant to my crop?",
         "ನನ್ನ ಬೆಳೆ ಹಾನಿಯಾಗಿದೆ. ಬೆಳೆ ವಿಮೆ ಬಗ್ಗೆ ಮಾಹಿತಿ ಬೇಕು.": "My crop is damaged. I need information about crop insurance.",
         "ನನ್ನ ರಾಗಿ ಬೆಳೆ ಮಳೆಯಿಂದ ಹಾನಿಯಾಗಿದೆ. ಬೆಳೆ ವಿಮೆಯಿಂದ ಸಹಾಯ ಸಿಗುತ್ತದೆಯೇ?": "My ragi crop is damaged due to rain. Can I get help from crop insurance?",
@@ -127,6 +128,13 @@ class MockLanguageBridge(LanguageBridge):
         "ಕಳೆದ ಕೆಲವು ದಿನಗಳಲ್ಲಿ ರಾಗಿ ಬೆಲೆ ಹೇಗಿದೆ?": "How is the ragi price in recent days?",
         "ಇವತ್ತು ಮಾರುಕಟ್ಟೆ ಬೆಲೆ ಎಷ್ಟು?": "What is today's market price?",
         "ನನ್ನ ಲ್ಯಾಪ್ಟಾಪ್ ಬೆಲೆ ಎಷ್ಟು?": "What is the price of my laptop?",
+        "ನನ್ನ ಲ್ಯಾಪ್ಟಾಪ್ ಹೇಗೆ ಸರಿಪಡಿಸುವುದು?": "How to repair a laptop?",
+        "ನಾನು ಕೇಸರಿ ಬೆಳೆಯಲು ಬಯಸುತ್ತೇನೆ.": "I want to grow saffron.",
+        "ಉಡುಪಿಯಲ್ಲಿ ನನ್ನ ಭತ್ತದ ಗದ್ದೆಗೆ ಹೆಚ್ಚು ಮಳೆಯಾಗಿದೆ. ಏನು ಪರಿಶೀಲಿಸಬೇಕು?": "My paddy field in Udupi has received heavy rainfall. What should I check?",
+        "ಬೆಳಗಾವಿಯಲ್ಲಿ ನನ್ನ ಮೆಕ್ಕೆಜೋಳದ ಎಲೆಗಳಲ್ಲಿ ರಂಧ್ರಗಳಿವೆ. ಏನು ಮಾಡಬೇಕು?": "My maize crop leaves in Belagavi have holes. What should I do?",
+        "ರಾಗಿ": "ragi",
+        "ಭತ್ತ": "paddy",
+        "ಮೆಕ್ಕೆಜೋಳ": "maize",
         "My ragi price in Mandya today": "My ragi price in Mandya today"
     }
 
@@ -144,7 +152,13 @@ class MockLanguageBridge(LanguageBridge):
         "At Belagavi APMC, latest available reported Maize price is dated 2026-08-18 with a modal price of ₹2,350/quintal (Range: ₹2,100 - ₹2,450/quintal, Arrivals: 120 tonnes).": "ಬೆಳಗಾವಿ ಎಪಿಎಂಸಿಯಲ್ಲಿ ಲಭ್ಯವಿರುವ ಇತ್ತೀಚಿನ ಮೆಕ್ಕೆಜೋಳದ ಬೆಲೆ 2026-08-18 ರ ವರದಿಯಂತೆ ಮಾದರಿ ಬೆಲೆ ₹2,350/ಕ್ವಿಂಟಾಲ್ ಆಗಿದೆ (ದರ ಶ್ರೇಣಿ: ₹2,100 - ₹2,450/ಕ್ವಿಂಟಾಲ್, ಆವಕ: 120 ಟನ್).",
         "At Binny Mill (F&V) APMC in Bengaluru on 2026-08-19, reported Tomato prices ranged from ₹1,400 to ₹2,200 per quintal with a modal price of ₹1,800/quintal (Arrivals: 250 tonnes).": "2026-08-19 ರಂದು ಬೆಂಗಳೂರಿನ ಬಿನ್ನಿಮಿಲ್ ಎಪಿಎಂಸಿಯಲ್ಲಿ ಟೊಮ್ಯಾಟೊ ಬೆಲೆ ಕ್ವಿಂಟಾಲ್‌ಗೆ ₹1,400 ರಿಂದ ₹2,200 ಇದ್ದು, ಮಾದರಿ ಬೆಲೆ ₹1,800/ಕ್ವಿಂಟಾಲ್ ಆಗಿದೆ (ಆವಕ: 250 ಟನ್).",
         "Based on reported official APMC data for 2026-08-19, Yeshwanthpur Bengaluru reported a modal price of ₹2,500/quintal (Range: ₹2,000 - ₹2,800) and Hubballi APMC reported ₹2,300/quintal (Range: ₹1,800 - ₹2,600). Confirm current auction rates before transporting produce.": "2026-08-19 ರ ಎಪಿಎಂಸಿ ವರದಿಯ ಪ್ರಕಾರ, ಯಶವಂತಪುರ ಮಾರುಕಟ್ಟೆಯಲ್ಲಿ ಈರುಳ್ಳಿ ಮಾದರಿ ಬೆಲೆ ₹2,500/ಕ್ವಿಂಟಾಲ್ (ಶ್ರೇಣಿ: ₹2,000 - ₹2,800) ಮತ್ತು ಹುಬ್ಬಳ್ಳಿ ಮಾರುಕಟ್ಟೆಯಲ್ಲಿ ₹2,300/ಕ್ವಿಂಟಾಲ್ (ಶ್ರೇಣಿ: ₹1,800 - ₹2,600) ಆಗಿದೆ.",
-        "Official APMC market prices vary by district and daily trading session. Please specify your crop and nearby APMC market to check latest reported prices.": "ಅಧಿಕೃತ ಎಪಿಎಂಸಿ ಮಾರುಕಟ್ಟೆ ಬೆಲೆಗಳು ಜಿಲ್ಲೆ ಮತ್ತು ದಿನದ ವಹಿವಾಟಿಗೆ ಅನುಗುಣವಾಗಿ ಬದಲಾಗುತ್ತವೆ. ಇತ್ತೀಚಿನ ಬೆಲೆ ತಿಳಿಯಲು ನಿಮ್ಮ ಬೆಳೆ ಮತ್ತು ಸಮೀಪದ ಮಾರುಕಟ್ಟೆಯನ್ನು ನಿರ್ದಿಷ್ಟಪಡಿಸಿ."
+        "Official APMC market prices vary by district and daily trading session. Please specify your crop and nearby APMC market to check latest reported prices.": "ಅಧಿಕೃತ ಎಪಿಎಂಸಿ ಮಾರುಕಟ್ಟೆ ಬೆಲೆಗಳು ಜಿಲ್ಲೆ ಮತ್ತು ದಿನದ ವಹಿವಾಟಿಗೆ ಅನುಗುಣವಾಗಿ ಬದಲಾಗುತ್ತವೆ. ಇತ್ತೀಚಿನ ಬೆಲೆ ತಿಳಿಯಲು ನಿಮ್ಮ ಬೆಳೆ ಮತ್ತು ಸಮೀಪದ ಮಾರುಕಟ್ಟೆಯನ್ನು ನಿರ್ದಿಷ್ಟಪಡಿಸಿ.",
+        "RaithaMitra is an agricultural advisory assistant dedicated to crop health, weather, soil, farming schemes, and market prices. Please ask an agriculture-related question.": "ರೈತಮಿತ್ರ (RaithaMitra) ಕೃಷಿ ಸಲಹಾ ವ್ಯವಸ್ಥೆಯಾಗಿದ್ದು, ಬೆಳೆಗಳ ಆರೋಗ್ಯ, ಹವಾಮಾನ, ಮಣ್ಣು, ಕೃಷಿ ಯೋಜನೆಗಳು ಮತ್ತು ಮಾರುಕಟ್ಟೆ ಬೆಲೆಗಳ ಬಗ್ಗೆ ಮಾತ್ರ ಮಾಹಿತಿ ನೀಡಬಲ್ಲದು. ದಯವಿಟ್ಟು ಕೃಷಿ ಸಂಬಂಧಿತ ಪ್ರಶ್ನೆಗಳನ್ನು ಕೇಳಿ.",
+        "Specific local package of practices for this crop is not currently available in the Karnataka agricultural knowledge base. Please consult your nearest Krishi Vigyan Kendra (KVK) or University of Agricultural Sciences for specialized guidance.": "ಈ ಬೆಳೆಯ ಕುರಿತು ಕರ್ನಾಟಕ ಕೃಷಿ ಮಾಹಿತಿ ಕೋಶದಲ್ಲಿ ನಿರ್ದಿಷ್ಟ ಸ್ಥಳೀಯ ಮಾಹಿತಿ ಲಭ್ಯವಿಲ್ಲ. ಹೆಚ್ಚಿನ ಮಾಹಿತಿಗಾಗಿ ಹತ್ತಿರದ ಕೃಷಿ ವಿಜ್ಞಾನ ಕೇಂದ್ರ (KVK) ಅಥವಾ ಕೃಷಿ ವಿಶ್ವವಿದ್ಯಾಲಯವನ್ನು ಸಂಪರ್ಕಿಸಿ.",
+        "What issue are you facing with your crop? Please specify if you need guidance regarding leaf symptoms, pests, diseases, irrigation, fertilizer/soil, market prices, or government schemes.": "ನಿಮ್ಮ ಬೆಳೆಯಲ್ಲಿ ನಿಮಗೆ ಯಾವ ಸಮಸ್ಯೆ ಇದೆ? ಎಲೆಗಳ ಲಕ್ಷಣ, ಕೀಟ, ರೋಗ, ನೀರಾವರಿ, ಗೊಬ್ಬರ/ಮಣ್ಣು, ಮಾರುಕಟ್ಟೆ ಬೆಲೆ ಅಥವಾ ಸರ್ಕಾರಿ ಯೋಜನೆಗಳ ಬಗ್ಗೆ ಮಾಹಿತಿ ಬೇಕೇ ಎಂದು ದಯವಿಟ್ಟು ತಿಳಿಸಿ.",
+        "Excess rainfall and standing water cause root suffocation. Dig drainage trenches immediately and apply 1% urea foliar spray once stagnant water is cleared.": "ಅತಿಯಾದ ಮಳೆ ಮತ್ತು ನಿಂತ ನೀರು ಬೇರುಗಳ ಉಸಿರುಗಟ್ಟುವಿಕೆಗೆ ಕಾರಣವಾಗುತ್ತದೆ. ತಕ್ಷಣವೇ ಬಸಿಗಾಲುವೆಗಳನ್ನು ನಿರ್ಮಿಸಿ ನೀರನ್ನು ಹೊರಹಾಕಿ ಮತ್ತು ಶಿಲೀಂಧ್ರ ರೋಗಗಳ ಲಕ್ಷಣಗಳನ್ನು ಪರಿಶೀಲಿಸಿ.",
+        "Maize fall armyworm requires prompt action: install pheromone traps @ 4/acre and apply Emamectin benzoate 5% SG (0.4g/L) inside the central whorl if holes appear.": "ಮೆಕ್ಕೆಜೋಳದ ಸೈನಿಕ ಹುಳು ಬಾಧೆಗೆ ಎಕರೆಗೆ 4 ಮೋಹಕ ಬಲೆಗಳನ್ನು ಅಳವಡಿಸಿ. ಎಲೆಗಳಲ್ಲಿ ರಂಧ್ರಗಳಿದ್ದರೆ ಸುಳಿಯ ಒಳಗೆ ಎಮಾಮೆಕ್ಟಿನ್ ಬೆಂಜೊಯೇಟ್ 5% SG (0.4 ಗ್ರಾಂ/ಲೀಟರ್) ಸಿಂಪಡಿಸಿ.",
+        "Key agricultural schemes available in Karnataka include PM-KISAN (direct income support), PMFBY (crop insurance via Samrakshane), Krishi Bhagya (farm pond and water conservation subsidy), and KCC (concessional crop loans). Farmers can verify eligibility via the FRUITS portal.": "ಕರ್ನಾಟಕದಲ್ಲಿ ರೈತರಿಗೆ ಲಭ್ಯವಿರುವ ಪ್ರಮುಖ ಯೋಜನೆಗಳೆಂದರೆ ಪಿಎಂ-ಕಿಸಾನ್, ಪಿಎಂಎಫ್‌ಬಿವೈ (ಸಂರಕ್ಷಣೆ ಪೋರ್ಟಲ್ ಮೂಲಕ ಬೆಳೆ ವಿಮೆ), ಕೃಷಿ ಭಾಗ್ಯ ಮತ್ತು ಕಿಸಾನ್ ಕ್ರೆಡಿಟ್ ಕಾರ್ಡ್. ರೈತರು ಫ್ರೂಟ್ಸ್ (FRUITS) ಪೋರ್ಟಲ್ ಮೂಲಕ ತಮ್ಮ ಅರ್ಹತೆ ಪರಿಶೀಲಿಸಬಹುದು."
     }
 
     def translate_to_advisory_lang(

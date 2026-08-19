@@ -97,8 +97,11 @@ class MockLanguageBridge(LanguageBridge):
         "ನನ್ನ ಭತ್ತದ ಗದ್ದೆಯಲ್ಲಿ ಹೆಚ್ಚು ಮಳೆಯಾಗಿದೆ. ನಾನು ಏನು ಪರಿಶೀಲಿಸಬೇಕು?": "My rice paddy is raining too much. What should I check?",
         "ನನ್ನ ಮೆಕ್ಕೆಜೋಳದ ಬೆಳೆಯಲ್ಲಿ ಎಲೆಗಳಲ್ಲಿ ರಂಧ್ರಗಳು ಕಾಣಿಸುತ್ತಿವೆ. ಏನು ಮಾಡಬೇಕು?": "I am seeing holes in my maize crop leaves. What should I do?",
         "ನನ್ನ ಕಡಲೆಕಾಯಿ ಬೆಳೆಯ ಎಲೆಗಳಲ್ಲಿ ಕಲೆಗಳು ಕಾಣಿಸುತ್ತಿವೆ. ಏನು ಮಾಡಬೇಕು?": "My groundnut crop leaves are showing spots. What should I do?",
+        "ನನ್ನ ಕಡಲೆಕಾಯಿ ಬೆಳೆಯ ಎಲೆಗಳಲ್ಲಿ ಕಲೆಗಳು ಕಾಣಿಸುತ್ತಿವೆ.": "My groundnut crop leaves are showing spots. What should I do?",
+        "ಬಾಳೆ ಗಿಡದ ಎಲೆಗಳು ಹಳದಿಯಾಗುತ್ತಿವೆ.": "Banana leaves are turning yellow.",
         "ನನ್ನ ಹತ್ತಿ ಬೆಳೆಯಲ್ಲಿ ಕೀಟಗಳು ಕಾಣಿಸುತ್ತಿವೆ. ಏನು ಮಾಡಬೇಕು?": "There are insects attacking my cotton crop. What should I do?",
         "ನನ್ನ ಕಬ್ಬಿನ ಬೆಳೆಯ ಬೆಳವಣಿಗೆ ಸರಿಯಾಗಿ ಆಗುತ್ತಿಲ್ಲ. ಏನು ಮಾಡಬೇಕು?": "My sugarcane crop is not growing properly. What should I do?",
+        "ನನ್ನ ಕಬ್ಬಿನ ಬೆಳೆಯ ಬೆಳವಣಿಗೆ ಸರಿಯಾಗಿ ಆಗುತ್ತಿಲ್ಲ.": "My sugarcane crop is not growing properly. What should I do?",
         "ರೈತರಿಗೆ ಸರ್ಕಾರದ ಯೋಜನೆಗಳು ಯಾವುವು?": "What are the government schemes available for farmers?",
         "PM-KISAN ಯೋಜನೆಯ ಬಗ್ಗೆ ಮಾಹಿತಿ ಬೇಕು.": "I need information about the PM-KISAN scheme.",
         "ನನಗೆ PM-KISAN ಹಣದ ಕಂತು ಬಂದಿಲ್ಲ. ನಾನು ಏನು ಮಾಡಬೇಕು?": "I have not received my PM-KISAN installment. What should I do?",
@@ -131,11 +134,29 @@ class MockLanguageBridge(LanguageBridge):
         "ನನ್ನ ಲ್ಯಾಪ್ಟಾಪ್ ಬೆಲೆ ಎಷ್ಟು?": "What is the price of my laptop?",
         "ನನ್ನ ಲ್ಯಾಪ್ಟಾಪ್ ಹೇಗೆ ಸರಿಪಡಿಸುವುದು?": "How to repair a laptop?",
         "ನಾನು ಕೇಸರಿ ಬೆಳೆಯಲು ಬಯಸುತ್ತೇನೆ.": "I want to grow saffron.",
-        "ಉಡುಪಿಯಲ್ಲಿ ನನ್ನ ಭತ್ತದ ಗದ್ದೆಗೆ ಹೆಚ್ಚು ಮಳೆಯಾಗಿದೆ. ಏನು ಪರಿಶೀಲಿಸಬೇಕು?": "My paddy field in Udupi has received heavy rainfall. What should I check?",
+        "ನನ್ನ ವೆನಿಲ್ಲಾ ಬೆಳೆಗೆ ರೋಗ ಬಂದಿದೆ": "My vanilla crop has disease. What should I do?",
+        "ನನ್ನ ವೆನಿಲ್ಲಾ ಬೆಳೆಗೆ ರೋಗ ಬಂದಿದೆ. ಏನು ಮಾಡಬೇಕು?": "My vanilla crop has disease. What should I do?",
+        "ಮಂಡ್ಯದಲ್ಲಿ ನನ್ನ ರಾಗಿ ಬೆಳೆ ಒಣಗುತ್ತಿದೆ": "There has been very little rain in Mandya and my ragi crop is drying. What should I do?",
+        "ಉಡುಪಿಯಲ್ಲಿ ನನ್ನ ಭತ್ತದ ಗದ್ದೆಯಲ್ಲಿ ಹೆಚ್ಚು ಮಳೆಯಾಗಿದೆ. ನಾನು ಏನು ಪರಿಶೀಲಿಸಬೇಕು?": "My rice paddy in Udupi has received excess rain. What should I check?",
         "ಬೆಳಗಾವಿಯಲ್ಲಿ ನನ್ನ ಮೆಕ್ಕೆಜೋಳದ ಎಲೆಗಳಲ್ಲಿ ರಂಧ್ರಗಳಿವೆ. ಏನು ಮಾಡಬೇಕು?": "My maize crop leaves in Belagavi have holes. What should I do?",
+        "ಹಾವೇರಿಯಲ್ಲಿ ನನ್ನ ಮೆಣಸಿನಕಾಯಿ ಗಿಡದ ಎಲೆಗಳು ಮುದುರುತ್ತಿವೆ. ಏನು ಮಾಡಬೇಕು?": "My chilli plant leaves in Haveri are curling. What should I do?",
+        "ಚಿತ್ರದುರ್ಗದಲ್ಲಿ ನನ್ನ ಈರುಳ್ಳಿ ಬೆಳೆಗೆ ಹೆಚ್ಚು ಮಳೆಯಾಗಿದೆ. ಏನು ಮಾಡಬೇಕು?": "My onion crop in Chitradurga is getting too much rain. What should I do?",
+        "ಚಾಮರಾಜನಗರದಲ್ಲಿ ಅರಿಶಿನ ಗೆಡ್ಡೆ ಕೊಳೆ ರೋಗ ಬಂದಿದೆ.": "Turmeric crop in Chamarajanagar has rhizome rot disease.",
+        "ಮೈಸೂರಿನಲ್ಲಿ ಬಾಳೆ ಗಿಡದ ಎಲೆಗಳು ಹಳದಿಯಾಗುತ್ತಿವೆ.": "Banana leaves in Mysuru are turning yellow.",
+        "ಚಿಕ್ಕಮಗಳೂರಿನಲ್ಲಿ ಕಾಫಿ ತೋಟದಲ್ಲಿ ಎಲೆ ತುಕ್ಕು ರೋಗ ಬಂದಿದೆ.": "Coffee estate in Chikkamagaluru has leaf rust disease.",
+        "ಕಲಬುರಗಿಯಲ್ಲಿ ನನ್ನ ತೊಗರಿ ಬೆಳೆಗೆ ಕಾಯಿ ಕೊರಕ ಹುಳು ಬಂದಿದೆ.": "My red gram crop in Kalaburagi has pod borer caterpillar.",
+        "ತುಮಕೂರಿನಲ್ಲಿ ನನ್ನ ಕಡಲೆಕಾಯಿ ಬೆಳೆಯ ಎಲೆಗಳಲ್ಲಿ ಕಲೆಗಳು ಕಾಣಿಸುತ್ತಿವೆ.": "My groundnut crop leaves in Tumakuru are showing spots. What should I do?",
+        "ನನ್ನ ಜೋಳದ ಬೆಳೆಯಲ್ಲಿ ಸುಳಿ ನೊಣ ಬಂದಿದೆ.": "My jowar crop has shoot fly infestation.",
+        "ನನ್ನ ತೊಗರಿ ಬೆಳೆಗೆ ಕಾಯಿ ಕೊರಕ ಹುಳು ಬಂದಿದೆ.": "My red gram crop has pod borer caterpillar.",
+        "ಅರಿಶಿನ ಗೆಡ್ಡೆ ಕೊಳೆ ರೋಗ ಬಂದಿದೆ.": "Turmeric crop has rhizome rot disease.",
+        "ಅಡಿಕೆ ಮರಗಳಲ್ಲಿ ಕೊಳೆ ರೋಗ ಬಂದಿದೆ.": "Arecanut palms have koleroga fruit rot disease.",
+        "ನನ್ನ ಕಬ್ಬಿನ ಬೆಳೆಯಲ್ಲಿ ಒಣಗಿದ ಸುಳಿ ಮತ್ತು ಕೀಟ ಬಾಧೆ ಇದೆ.": "My sugarcane crop has shoot drying and borer pest.",
+        "ಮಲ್ಲಿಗೆ ಮೊಗ್ಗು ಕೊರಕ ಹುಳು ಬಾಧೆ ಇದೆ.": "Jasmine crop has bud borer pest.",
         "ರಾಗಿ": "ragi",
         "ಭತ್ತ": "paddy",
         "ಮೆಕ್ಕೆಜೋಳ": "maize",
+        "ವೆನಿಲ್ಲಾ": "vanilla",
+        "ಕೇಸರಿ": "saffron",
         "My ragi price in Mandya today": "My ragi price in Mandya today"
     }
 
@@ -213,7 +234,12 @@ class NLLBTranslationBridge(LanguageBridge):
         "ಈರುಳ್ಳಿ": "onion",
         "ಆಲೂಗಡ್ಡೆ": "potato",
         "ಬಾಳೆ": "banana",
-        "ಟೊಮೇಟೊ": "tomato"
+        "ಟೊಮೇಟೊ": "tomato",
+        "ಅಡಿಕೆ": "arecanut",
+        "ಕಾಫಿ": "coffee",
+        "ತೆಂಗು": "coconut",
+        "ತೊಗರಿ": "red gram",
+        "ಕಡಲೆ": "bengal gram"
     }
 
     def __init__(

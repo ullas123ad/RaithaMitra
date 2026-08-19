@@ -6,7 +6,8 @@
     "title": "Paddy Nitrogen and Zinc Deficiency Management",
     "content": "Yellowing of older lower leaves in paddy typically indicates nitrogen deficiency, whereas rusty brown spots or chlorosis on younger leaves indicates zinc deficiency (Khaira disease). Farmers should verify water levels, inspect root health for sulphide toxicity or root rot, and apply recommended top-dressing of urea in split doses or zinc sulphate (0.5% foliar spray with lime) if zinc deficiency is diagnosed.",
     "keywords": ["paddy", "rice", "yellow leaves", "yellowing", "nitrogen", "zinc", "khaira", "nutrient deficiency", "chlorosis"],
-    "source": "ICAR-Indian Institute of Rice Research (IIRR), Hyderabad & UAS Bangalore Package of Practices"
+    "source": "ICAR-Indian Institute of Rice Research (IIRR), Hyderabad & UAS Bangalore Package of Practices",
+    "karnataka_relevance": "karnataka_specific"
   },
   {
     "id": "paddy_pest_stem_borer_002",
@@ -15,7 +16,8 @@
     "title": "Paddy Yellow Stem Borer Management",
     "content": "Yellow Stem Borer larvae bore into the central tiller causing dead hearts during vegetative stage and white ears (white heads) at heading stage. Management includes clipping seedling leaf tips before transplanting, setting up pheromone traps @ 5/acre, conserving natural parasitoids like Trichogramma, and applying recommended threshold-based chemical granules like Cartap hydrochloride 4G or Chlorantraniliprole when pest pressure exceeds economic threshold.",
     "keywords": ["paddy", "rice", "stem borer", "dead heart", "white ear", "pest", "larva", "insect damage"],
-    "source": "ICAR-Indian Institute of Rice Research (IIRR) - Integrated Pest Management Guidelines"
+    "source": "ICAR-Indian Institute of Rice Research (IIRR) - Integrated Pest Management Guidelines",
+    "karnataka_relevance": "karnataka_specific"
   },
   {
     "id": "ragi_drought_water_stress_003",
@@ -24,7 +26,8 @@
     "title": "Ragi Moisture Stress and Drought Management",
     "content": "During prolonged dry spells or delayed rainfall, ragi (finger millet) crops exhibit leaf curling, premature drying, and wilting. Protective measures include providing protective life-saving irrigation at tillering or flowering stages if water is available, spraying 1% potassium chloride (KCl) or 2% urea to reduce transpiration shock, maintaining inter-cultivation soil mulching to conserve root zone moisture, and practicing clean weeding to eliminate moisture competition.",
     "keywords": ["ragi", "finger millet", "drought", "water stress", "dry spell", "drying", "rain deficit", "moisture conservation"],
-    "source": "University of Agricultural Sciences (UAS), Bangalore - Dryland Agriculture Technical Bulletin"
+    "source": "University of Agricultural Sciences (UAS), Bangalore - Dryland Agriculture Technical Bulletin",
+    "karnataka_relevance": "karnataka_specific"
   },
   {
     "id": "ragi_disease_blast_004",
@@ -33,7 +36,8 @@
     "title": "Ragi Blast Disease (Pyricularia grisea) Management",
     "content": "Ragi blast affects leaves (spindle-shaped lesions with grey centers), nodes (blackened rotting), and neck/fingers (grain sterility). Management involves using resistant cultivars (like GPU-28, ML-365), treating seeds with Carbendazim (2g/kg seed), avoiding excess nitrogen fertilization, and applying preventive sprays of Tricyclazole 75 WP (0.6g/L) or Mancozeb if weather is overcast with high humidity.",
     "keywords": ["ragi", "finger millet", "blast", "leaf blast", "neck blast", "finger blast", "fungal lesions", "pyricularia"],
-    "source": "All India Coordinated Research Project on Small Millets (AICRP-ICAR), Bengaluru"
+    "source": "All India Coordinated Research Project on Small Millets (AICRP-ICAR), Bengaluru",
+    "karnataka_relevance": "karnataka_specific"
   },
   {
     "id": "maize_pest_fall_armyworm_005",
@@ -42,7 +46,8 @@
     "title": "Maize Fall Armyworm (Spodoptera frugiperda) Management",
     "content": "Fall Armyworm causes characteristic ragged pinholes, windowing on leaves, and heavy fecal frass inside the central whorl. Management includes deep summer ploughing, installing pheromone traps @ 4/acre for monitoring, handpicking egg masses, applying Neem oil (Azadirachtin 1500 ppm @ 5ml/L) or Metarhizium anisopliae early, and whorl application of Emamectin benzoate 5% SG (0.4g/L) or Chlorantraniliprole 18.5% SC (0.4ml/L) during severe early-to-mid whorl stages.",
     "keywords": ["maize", "corn", "fall armyworm", "eating holes", "whorl damage", "leaf holes", "frass", "spodoptera", "pest"],
-    "source": "ICAR-Indian Institute of Maize Research (IIMR), Ludhiana & ICAR-NBAIR Bengaluru"
+    "source": "ICAR-Indian Institute of Maize Research (IIMR), Ludhiana & ICAR-NBAIR Bengaluru",
+    "karnataka_relevance": "karnataka_specific"
   },
   {
     "id": "maize_water_drainage_006",
@@ -51,7 +56,8 @@
     "title": "Maize Waterlogging and Excess Rainfall Management",
     "content": "Maize is highly sensitive to waterlogging, especially in seedling and knee-high stages. Prolonged standing water causes root asphyxiation, nutrient leaching, and stunting. Farmers must dig drainage furrows immediately to remove stagnant water, apply a foliar spray of 1-2% urea or DAP once field drains to stimulate root recovery, and inspect for secondary bacterial stalk rot infections.",
     "keywords": ["maize", "corn", "excess rainfall", "waterlogging", "standing water", "drainage", "yellowing", "stagnant water"],
-    "source": "ICAR-Indian Institute of Maize Research (IIMR) - Agronomy Advisory"
+    "source": "ICAR-Indian Institute of Maize Research (IIMR) - Agronomy Advisory",
+    "karnataka_relevance": "karnataka_specific"
   },
   {
     "id": "groundnut_disease_tikka_007",
@@ -60,7 +66,8 @@
     "title": "Groundnut Tikka Leaf Spot Management",
     "content": "Tikka leaf spot (Cercospora arachidicola / Cercosporidium personatum) produces dark brown-to-black circular spots with yellow halos on older leaves, leading to severe defoliation. Recommended practices include crop rotation, seed treatment with Trichoderma viride or Thiram (3g/kg), and foliar application of Mancozeb (2.5g/L) or Carbendazim (1g/L) or Hexaconazole (1ml/L) at the onset of spot appearance.",
     "keywords": ["groundnut", "peanut", "tikka", "leaf spots", "spots on leaves", "defoliation", "cercospora", "fungal disease"],
-    "source": "ICAR-Directorate of Groundnut Research (DGR), Junagadh"
+    "source": "ICAR-Directorate of Groundnut Research (DGR), Junagadh",
+    "karnataka_relevance": "karnataka_specific"
   },
   {
     "id": "groundnut_pest_white_grub_008",
@@ -69,7 +76,8 @@
     "title": "Groundnut White Grub Management",
     "content": "White grub (Holotrichia consanguinea) larvae feed on rootlets and pod pegs, causing patchy wilting and sudden drying of standing groundnut plants. Management involves light trap catches of adult beetles after monsoon showers, seed treatment with Imidacloprid 17.8 SL (2ml/kg), application of well-decomposed FYM (avoiding raw manure), and soil drenching with Chlorpyrifos 20 EC if grub attack is identified in active patches.",
     "keywords": ["groundnut", "peanut", "white grub", "wilting", "root damage", "grub", "pest", "drying plants"],
-    "source": "University of Agricultural Sciences (UAS), Dharwad - Oilseeds Advisory"
+    "source": "University of Agricultural Sciences (UAS), Dharwad - Oilseeds Advisory",
+    "karnataka_relevance": "karnataka_specific"
   },
   {
     "id": "sugarcane_pest_early_shoot_borer_009",
@@ -78,7 +86,8 @@
     "title": "Sugarcane Early Shoot Borer Management",
     "content": "Early Shoot Borer (Chilo infuscatellus) attacks 1-3 month old cane shoots producing central dead hearts that pull out easily with an unpleasant odour. Management involves trash mulching @ 3 tonnes/acre in cane rows, earthing-up operations at 45 days, releasing Trichogramma chilonis egg parasitoids, and soil application of Cartap hydrochloride 4G or Chlorantraniliprole 0.4% GR along the rows before irrigation.",
     "keywords": ["sugarcane", "cane", "early shoot borer", "dead heart", "pest", "borer", "shoot drying"],
-    "source": "ICAR-Sugarcane Breeding Institute (SBI), Coimbatore"
+    "source": "ICAR-Sugarcane Breeding Institute (SBI), Coimbatore",
+    "karnataka_relevance": "karnataka_specific"
   },
   {
     "id": "sugarcane_disease_red_rot_010",
@@ -87,7 +96,8 @@
     "title": "Sugarcane Red Rot Disease Prevention",
     "content": "Red rot (Colletotrichum falcatum) causes yellowing and drying of the third or fourth leaf from crown, longitudinal reddening of internal stalk tissues with crosswise white patches, and sour alcoholic smell. Control relies strictly on planting certified disease-free sets, practicing set treatment with Carbendazim (0.1%) hot water treatment, burning infected stubbles, maintaining crop rotation with rice, and avoiding flood irrigation from infected plots.",
     "keywords": ["sugarcane", "red rot", "stalk drying", "internal reddening", "sour smell", "fungal rot", "disease"],
-    "source": "ICAR-Sugarcane Breeding Institute (SBI), Coimbatore"
+    "source": "ICAR-Sugarcane Breeding Institute (SBI), Coimbatore",
+    "karnataka_relevance": "karnataka_specific"
   },
   {
     "id": "cotton_pest_bollworm_011",
@@ -96,7 +106,8 @@
     "title": "Cotton Pink Bollworm and Sucking Pest Management",
     "content": "Pink bollworm (Pectinophora gossypiella) damages squares and bolls, leading to rosetted flowers and stained lint. Sucking pests (thrips, aphids, jassids) cause leaf crinkling and curling. Integrated control includes pheromone trapping @ 8-10/acre, destruction of rosette flowers, conserving predatory ladybird beetles, installing yellow/blue sticky traps, and rotating insecticides (Neem formulations, Flonicamid 50 WG, or Spinetoram 11.7 SC) when thresholds are crossed.",
     "keywords": ["cotton", "kapas", "bollworm", "pink bollworm", "sucking pests", "insects damaging", "rosette flower", "pest"],
-    "source": "ICAR-Central Institute for Cotton Research (CICR), Nagpur"
+    "source": "ICAR-Central Institute for Cotton Research (CICR), Nagpur",
+    "karnataka_relevance": "karnataka_specific"
   },
   {
     "id": "cotton_excess_moisture_yellowing_012",
@@ -105,7 +116,8 @@
     "title": "Cotton Waterlogging Reddening and Foliar Nutrition",
     "content": "Excess rainfall and prolonged soil saturation cause cotton leaf yellowing, bronzing/reddening, and square shedding due to poor nitrogen and magnesium uptake. Immediate field drainage is necessary. After water recedes, spray 1% Magnesium Sulphate (MgSO4) + 1% Urea or 19:19:19 balanced fertilizer at 10-day intervals to restore chlorophyll synthesis and retain fruiting branches.",
     "keywords": ["cotton", "waterlogging", "red leaves", "yellowing", "leaf reddening", "excess rain", "square drop"],
-    "source": "ICAR-Central Institute for Cotton Research (CICR), Nagpur - Crop Advisory"
+    "source": "ICAR-Central Institute for Cotton Research (CICR), Nagpur - Crop Advisory",
+    "karnataka_relevance": "karnataka_specific"
   },
   {
     "id": "chilli_pest_thrips_leaf_curl_013",
@@ -114,7 +126,8 @@
     "title": "Chilli Leaf Curl and Thrips/Mites Management",
     "content": "Chilli leaf curling is predominantly caused by Thrips (leaves curl upwards with boat-shaped appearance) or Mites (leaves curl downwards with elongation). Control includes erecting blue sticky traps for thrips and yellow sticky traps for whiteflies @ 15/acre, spraying neem cake extract or Pongamia oil, and applying targeted acaricides/insecticides like Diafenthiuron 50 WP (1g/L), Spiromesifen 22.9 SC (1ml/L), or Fipronil 5 SC (1.5ml/L).",
     "keywords": ["chilli", "mirchi", "leaf curling", "curling leaves", "thrips", "mites", "leaf curl", "boat shaped leaves"],
-    "source": "ICAR-Indian Institute of Horticultural Research (IIHR), Bengaluru"
+    "source": "ICAR-Indian Institute of Horticultural Research (IIHR), Bengaluru",
+    "karnataka_relevance": "karnataka_specific"
   },
   {
     "id": "chilli_disease_anthracnose_014",
@@ -123,7 +136,8 @@
     "title": "Chilli Anthracnose and Die-Back Disease Management",
     "content": "Anthracnose (Colletotrichum capsici) causes tip die-back on twigs and circular sunken necrotic lesions on ripening fruits. Recommended management includes using disease-free treated seed, avoiding overhead sprinkler irrigation, prompt removal of infected fruit, and foliar spraying of Azoxystrobin 23 SC (1ml/L) or Copper oxychloride (2.5g/L) + Streptocycline during humid conditions.",
     "keywords": ["chilli", "anthracnose", "fruit rot", "die-back", "sunken lesions", "black spots on fruit", "disease"],
-    "source": "ICAR-Indian Institute of Horticultural Research (IIHR), Bengaluru"
+    "source": "ICAR-Indian Institute of Horticultural Research (IIHR), Bengaluru",
+    "karnataka_relevance": "karnataka_specific"
   },
   {
     "id": "onion_excess_rainfall_purple_blotch_015",
@@ -132,7 +146,8 @@
     "title": "Onion Excess Rain Drainage and Purple Blotch Control",
     "content": "Excessive rainfall in onion fields leads to root suffocation, bulb rotting, and outbreaks of Purple Blotch (Alternaria porri - water-soaked lesions that turn purplish-brown). Action steps: create immediate shallow exit drains to remove standing water, avoid applying additional nitrogen until soils dry, and spray Mancozeb 75 WP (2.5g/L) or Propiconazole 25 EC (1ml/L) combined with an agricultural sticker/spreader.",
     "keywords": ["onion", "excess rainfall", "heavy rain", "purple blotch", "bulb rot", "water management", "alternaria", "drainage"],
-    "source": "ICAR-Directorate of Onion and Garlic Research (DOGR), Pune"
+    "source": "ICAR-Directorate of Onion and Garlic Research (DOGR), Pune",
+    "karnataka_relevance": "karnataka_specific"
   },
   {
     "id": "onion_pest_thrips_016",
@@ -141,7 +156,8 @@
     "title": "Onion Thrips (Thrips tabaci) Management",
     "content": "Onion thrips lacerate leaf tissues causing silvery white blotches and distorted curly leaf tips. Severe infestation leads to leaf drying and undersized bulb development. Management includes installing blue sticky traps @ 20/acre, sprinkler irrigation to dislodge nymphs, and spraying Profenofos 50 EC (1ml/L) or Spinosad 45 SC (0.3ml/L) directed into the leaf sheaths.",
     "keywords": ["onion", "thrips", "silvery leaves", "white blotches", "curling", "pest", "bulb size"],
-    "source": "ICAR-Directorate of Onion and Garlic Research (DOGR), Pune"
+    "source": "ICAR-Directorate of Onion and Garlic Research (DOGR), Pune",
+    "karnataka_relevance": "karnataka_specific"
   },
   {
     "id": "potato_disease_late_blight_017",
@@ -150,7 +166,8 @@
     "title": "Potato Late Blight (Phytophthora infestans) Management",
     "content": "Late blight appears as water-soaked irregular dark brown lesions on leaf margins with white fuzzy fungal growth on leaf undersides in cold, humid weather. Rapid destruction of foliage can occur. Management requires using certified disease-free seed tubers, earthing-up to prevent tuber infection, and spraying preventive Mancozeb 75 WP (2.5g/L) followed by systemic Cymoxanil + Mancozeb (2.5g/L) or Dimethomorph (1g/L) if active lesions appear.",
     "keywords": ["potato", "late blight", "dark lesions", "dark spots", "phytophthora", "leaf lesions", "white mold", "disease"],
-    "source": "ICAR-Central Potato Research Institute (CPRI), Shimla"
+    "source": "ICAR-Central Potato Research Institute (CPRI), Shimla",
+    "karnataka_relevance": "karnataka_specific"
   },
   {
     "id": "potato_nutrient_tuber_management_018",
@@ -159,7 +176,8 @@
     "title": "Potato Tuber Bulking and Balanced Nutrition",
     "content": "Potato requires balanced nitrogen, phosphorus, and high potassium during the tuber bulking stage (45-70 days after planting). Excessive late nitrogen causes foliage overgrown at the expense of tuber formation. Adequate potassium (SOP/MOP) improves tuber size, starch content, and drought resistance. Ensure uniform light irrigations and avoid alternate wetting and severe drying cycles.",
     "keywords": ["potato", "tuber bulking", "fertilizer", "potassium", "potato nutrition", "crop management"],
-    "source": "ICAR-Central Potato Research Institute (CPRI), Shimla"
+    "source": "ICAR-Central Potato Research Institute (CPRI), Shimla",
+    "karnataka_relevance": "karnataka_specific"
   },
   {
     "id": "banana_nutrient_management_019",
@@ -168,7 +186,8 @@
     "title": "Banana Potassium Deficiency and Leaf Yellowing",
     "content": "Potassium deficiency in banana is characterized by rapid yellowing of older leaf tips and margins (orange-yellow chlorosis) that curls backward and rapidly dries, while the midrib stays green. Ensure application of recommended Muriate of Potash (MOP) in 3-4 split doses during vegetative and bunch development stages, and apply organic compost to enhance potassium uptake.",
     "keywords": ["banana", "yellow leaves", "leaf yellowing", "potassium deficiency", "chlorosis", "leaf drying", "nutrient"],
-    "source": "ICAR-National Research Centre for Banana (NRCB), Tiruchirappalli"
+    "source": "ICAR-National Research Centre for Banana (NRCB), Tiruchirappalli",
+    "karnataka_relevance": "karnataka_specific"
   },
   {
     "id": "banana_disease_panama_wilt_020",
@@ -177,7 +196,8 @@
     "title": "Banana Panama Wilt and Sigatoka Leaf Spot",
     "content": "Panama disease (Fusarium oxysporum f. sp. cubense) causes yellowing of lower leaves along margins, petiole buckling, and longitudinal splitting of the pseudostem base. Sigatoka leaf spot causes oval spindle-shaped dark brown spots with grey centers. Management includes using tissue-cultured suckers, soil application of Trichoderma viride with neem cake, eliminating infected plants, and foliar spray of Propiconazole (1ml/L) with sticker for Sigatoka control.",
     "keywords": ["banana", "panama wilt", "sigatoka", "yellowing", "leaf spot", "wilting", "fusarium", "pseudostem rot"],
-    "source": "ICAR-National Research Centre for Banana (NRCB), Tiruchirappalli"
+    "source": "ICAR-National Research Centre for Banana (NRCB), Tiruchirappalli",
+    "karnataka_relevance": "karnataka_specific"
   },
   {
     "id": "tomato_disease_blight_yellowing_021",
@@ -186,7 +206,328 @@
     "title": "Tomato Early Blight and Yellow Leaf Management",
     "content": "Yellowing of lower leaves in tomato with concentric target-board dark rings indicates Early Blight (Alternaria solani). General chlorosis without spots may indicate nitrogen shortage or root-knot nematode damage. Farmers should stake plants, practice bottom-leaf pruning to improve air circulation, avoid splash watering, and apply copper oxychloride (2.5g/L) or Mancozeb (2g/L) as protective spray.",
     "keywords": ["tomato", "yellow leaves", "early blight", "target spots", "leaf yellowing", "alternaria", "disease"],
-    "source": "ICAR-Indian Institute of Horticultural Research (IIHR), Bengaluru"
+    "source": "ICAR-Indian Institute of Horticultural Research (IIHR), Bengaluru",
+    "karnataka_relevance": "karnataka_specific"
+  },
+  {
+    "id": "jowar_pest_shoot_fly_023",
+    "crop": "jowar",
+    "topic": "pest_management",
+    "title": "Sorghum Shoot Fly (Atherigona soccata) Management",
+    "content": "Sorghum shoot fly attacks 1 to 4 week old seedlings causing drying of the central shoot (dead heart) that produces tiny side tillers. Management involves early sowing within 7-10 days of monsoon onset, seed treatment with Imidacloprid 70 WS (3g/kg seed) or Thiamethoxam 30 FS (10ml/kg), setting up fishmeal traps @ 10/ha to attract and kill adult flies, and foliar application of Chlorantraniliprole 18.5 SC (0.3ml/L) if dead hearts exceed 10% in young seedlings.",
+    "keywords": ["jowar", "sorghum", "jola", "shoot fly", "dead heart", "seedling drying", "pest", "atherigona"],
+    "source": "ICAR-Indian Institute of Millets Research (IIMR), Hyderabad & UAS Dharwad Package of Practices",
+    "karnataka_relevance": "karnataka_specific"
+  },
+  {
+    "id": "jowar_disease_charcoal_rot_024",
+    "crop": "jowar",
+    "topic": "disease_management",
+    "title": "Sorghum Charcoal Rot and Post-Flowering Drought Stress",
+    "content": "Charcoal rot (Macrophomina phaseolina) is severe in Rabi sorghum during post-flowering soil moisture stress. Symptoms include premature drying of lower leaves, soft lodging of stalks, and internal disintegration of pith with numerous black microsclerotia. Control relies on growing drought-tolerant cultivars (CSV-29R, M35-1), providing one protective irrigation during grain filling stage if possible, balanced potassium application, and avoiding excessive plant density in dry soils.",
+    "keywords": ["jowar", "sorghum", "charcoal rot", "stalk rot", "lodging", "macrophomina", "post-flowering drought", "wilting"],
+    "source": "University of Agricultural Sciences (UAS), Dharwad - Dryland Agriculture Technical Bulletin",
+    "karnataka_relevance": "karnataka_specific"
+  },
+  {
+    "id": "bajra_disease_downy_mildew_025",
+    "crop": "bajra",
+    "topic": "disease_management",
+    "title": "Pearl Millet Downy Mildew (Green Ear Disease) Management",
+    "content": "Downy mildew (Sclerospora graminicola) causes pale yellow chlorotic streaks on leaves and transforms floral heads into green leafy structures (green ear), causing total grain loss. Recommended management: plant resistant hybrids (GHB-538, ICTP-8203), treat seeds with Metalaxyl-M (Apron XL @ 2g/kg seed), rogue out and bury infected chlorotic plants before 30 days of sowing, and spray Metalaxyl 35 WS (2g/L) if systemic infection appears on young foliage.",
+    "keywords": ["bajra", "pearl millet", "sajje", "downy mildew", "green ear", "chlorosis", "fungal disease", "sclerospora"],
+    "source": "All India Coordinated Research Project on Pearl Millet (AICRP-ICAR) & UAS Raichur",
+    "karnataka_relevance": "karnataka_specific"
+  },
+  {
+    "id": "bajra_moisture_management_026",
+    "crop": "bajra",
+    "topic": "crop_management",
+    "title": "Pearl Millet Moisture Conservation and Inter-cropping in Drylands",
+    "content": "In northern dry zones of Karnataka with shallow red and black soils, pearl millet provides high drought tolerance. Recommended practices: sow in paired rows (30/60 cm) intercropped with red gram or cowpea (2:1 ratio) to maximize rainfall utilization, carry out inter-cultivation with blade harrows at 20 and 35 days after sowing to create a dust mulch, and apply 25 kg N + 25 kg P2O5/ha as basal with remaining N top-dressed after rain.",
+    "keywords": ["bajra", "pearl millet", "sajje", "dryland", "moisture conservation", "intercropping", "paired row", "drought"],
+    "source": "University of Agricultural Sciences (UAS), Raichur - Package of Practices for Dryland Agriculture",
+    "karnataka_relevance": "karnataka_specific"
+  },
+  {
+    "id": "red_gram_pest_pod_borer_027",
+    "crop": "red_gram",
+    "topic": "pest_management",
+    "title": "Red Gram Pod Borer (Helicoverpa armigera) Management",
+    "content": "Gram pod borer (Helicoverpa armigera) caterpillars feed on floral buds, flowers, and bore into developing pods creating circular holes and devouring seeds. Control: install pheromone traps @ 4/acre for monitoring, shake plants over plastic sheets to dislodge early larvae, spray HaNPV 250 LE/acre with jaggery (10g/L) at evening, and apply Chlorantraniliprole 18.5 SC (0.3ml/L) or Emamectin benzoate 5 SG (0.4g/L) at 50% flowering and early pod set.",
+    "keywords": ["red gram", "pigeon pea", "tur", "togari", "pod borer", "helicoverpa", "caterpillar", "eating pods", "holes in pods"],
+    "source": "ICAR-Indian Institute of Pulses Research (IIPR) & UAS Raichur (Kalaburagi Red Gram Research Station)",
+    "karnataka_relevance": "karnataka_specific"
+  },
+  {
+    "id": "red_gram_disease_fusarium_wilt_028",
+    "crop": "red_gram",
+    "topic": "disease_management",
+    "title": "Red Gram Fusarium Wilt and Sterility Mosaic Management",
+    "content": "Fusarium wilt (Fusarium udum) causes progressive drooping of leaves, interveinal chlorosis, and dark purple-black vascular browning inside split stems. Sterility mosaic causes bushy pale leaves with no pod setting. Management: grow wilt-resistant varieties (BSMR-736, GRG-811, TS-3R), treat seeds with Trichoderma viride (10g/kg) or Carbendazim (2g/kg), practice crop rotation with sorghum or maize, and spray Fenazaquin 10 EC (1ml/L) to control sterility mosaic mite vectors.",
+    "keywords": ["red gram", "pigeon pea", "tur", "togari", "fusarium wilt", "wilting", "sterility mosaic", "vascular browning", "drying plants"],
+    "source": "University of Agricultural Sciences (UAS), Raichur - Pulse Research Station Kalaburagi",
+    "karnataka_relevance": "karnataka_specific"
+  },
+  {
+    "id": "bengal_gram_disease_wilt_029",
+    "crop": "bengal_gram",
+    "topic": "disease_management",
+    "title": "Bengal Gram (Chickpea) Fusarium Wilt Management",
+    "content": "Chickpea wilt (Fusarium oxysporum f. sp. ciceris) causes drooping of petioles, greyish-green foliage fading to straw-yellow, and dark brown xylem discoloration in tap roots. Management: plant wilt-resistant cultivars (JG-11, JAKI-9218, BGD-103), treat seed with Trichoderma harzianum (4g/kg) + Carbendazim (1g/kg), perform deep summer ploughing to destroy pathogen inoculum, avoid sowing in poorly drained black soils, and follow 3-year crop rotation.",
+    "keywords": ["bengal gram", "chickpea", "kadale", "chana", "fusarium wilt", "wilting", "root rot", "yellowing", "drying"],
+    "source": "University of Agricultural Sciences (UAS), Dharwad - Pulses Advisory",
+    "karnataka_relevance": "karnataka_specific"
+  },
+  {
+    "id": "bengal_gram_pest_pod_borer_030",
+    "crop": "bengal_gram",
+    "topic": "pest_management",
+    "title": "Bengal Gram Pod Borer Management and Nipping",
+    "content": "Pod borer (Helicoverpa) larvae feed on foliage and bore into pods during pod filling stage. Cultural control: apical shoot nipping at 30-40 days after sowing stimulates profuse branching and removes early egg batches. Install bird perches (T-shaped @ 20/acre) and pheromone traps @ 5/acre. If larval count exceeds 1 per meter row, spray NSKE 5% followed by Indoxacarb 14.5 SC (0.5ml/L) or Flubendiamide 39.35 SC (0.2ml/L).",
+    "keywords": ["bengal gram", "chickpea", "kadale", "pod borer", "nipping", "caterpillar", "eating leaves", "holes in pods"],
+    "source": "ICAR-Indian Institute of Pulses Research (IIPR), Regional Station & UAS Dharwad",
+    "karnataka_relevance": "karnataka_specific"
+  },
+  {
+    "id": "green_gram_disease_mosaic_031",
+    "crop": "green_gram",
+    "topic": "disease_management",
+    "title": "Green Gram Yellow Mosaic Virus and Powdery Mildew Management",
+    "content": "Mungbean Yellow Mosaic Virus (MYMV) transmitted by whiteflies produces irregular bright yellow patches that coalesce into total leaf yellowing and pod distortion. Powdery mildew causes white talcum powder-like fungal coating on leaves. Management: use MYMV-tolerant cultivars (DGGV-2, BGS-9), seed treatment with Imidacloprid 70 WS (3ml/kg), install yellow sticky traps @ 10/acre, and spray Wettable Sulphur 80 WP (3g/L) or Hexaconazole 5 EC (1ml/L) for powdery mildew.",
+    "keywords": ["green gram", "moong", "hesaru", "yellow mosaic", "mymv", "whitefly", "powdery mildew", "yellow patches"],
+    "source": "University of Agricultural Sciences (UAS), Dharwad - Department of Plant Pathology",
+    "karnataka_relevance": "karnataka_specific"
+  },
+  {
+    "id": "black_gram_disease_mildew_032",
+    "crop": "black_gram",
+    "topic": "disease_management",
+    "title": "Black Gram Powdery Mildew and Leaf Crinkle Management",
+    "content": "Powdery mildew (Erysiphe polygoni) in black gram causes white floury patches on leaves and pods, reducing grain size and quality. Leaf crinkle virus causes crinkling, thickening, and dark green puckering of leaves. Management: sow certified resistant seeds (LBG-752, Rashmi), treat seeds with Thiamethoxam 30 FS (4ml/kg), and spray Propiconazole 25 EC (1ml/L) or Carbendazim (1g/L) at first symptom of white powdery patches.",
+    "keywords": ["black gram", "urad", "uddu", "powdery mildew", "leaf crinkle", "white patches", "crinkling leaves", "disease"],
+    "source": "University of Agricultural Sciences (UAS), Bangalore - Pulses Advisory Bulletin",
+    "karnataka_relevance": "karnataka_specific"
+  },
+  {
+    "id": "sunflower_disease_alternaria_033",
+    "crop": "sunflower",
+    "topic": "disease_management",
+    "title": "Sunflower Alternaria Leaf Blight and Head Rot Management",
+    "content": "Alternaria blight (Alternaria helianthi) causes dark brown circular spots with concentric rings on leaves and flower bracts. Rhizopus head rot causes soft rotting and shedding of mature seed heads following rains. Control measures: seed treatment with Thiram or Captan (3g/kg), maintain 60x30 cm spacing, and spray Mancozeb 75 WP (2g/L) or Zineb (2g/L) at 35, 50, and 65 days after sowing. Ensure good drainage to prevent head rot.",
+    "keywords": ["sunflower", "suryakanti", "alternaria", "leaf blight", "head rot", "dark spots", "rot on flower head"],
+    "source": "ICAR-Indian Institute of Oilseeds Research (IIOR) & UAS Raichur",
+    "karnataka_relevance": "karnataka_specific"
+  },
+  {
+    "id": "soybean_pest_disease_rust_034",
+    "crop": "soybean",
+    "topic": "pest_management",
+    "title": "Soybean Asian Rust and Stem Fly Management",
+    "content": "Soybean rust (Phakopsora pachyrhizi) produces tiny tan pustules on leaf undersides causing premature drying and defoliation during humid Kharif. Stem fly (Melanagromyza sojae) maggots mine into the stem causing wilting. Management: sow rust-tolerant varieties (DSb-21, JS-335), seed treatment with Thiamethoxam 30 FS (10ml/kg), and apply prophylactic spray of Hexaconazole 5 EC (1ml/L) or Tebuconazole 25.9 EC (1.25ml/L) upon overcast rain alerts.",
+    "keywords": ["soybean", "soyabean", "soya", "rust", "stem fly", "pustules on leaf", "wilting", "defoliation"],
+    "source": "ICAR-Indian Institute of Soybean Research (IISR) & UAS Dharwad",
+    "karnataka_relevance": "karnataka_specific"
+  },
+  {
+    "id": "turmeric_disease_rhizome_rot_035",
+    "crop": "turmeric",
+    "topic": "disease_management",
+    "title": "Turmeric Rhizome Rot and Leaf Blotch Management",
+    "content": "Rhizome rot (Pythium aphanidermatum) causes water-soaking at pseudo-stem collars, foul decaying smell, and leaf yellowing drying from tip downwards. Leaf blotch (Taphrina maculans) produces small rectangular yellow-brown spots. Management: use disease-free seed rhizomes, dip in Trichoderma viride (10g/L) + Mancozeb (2g/L) for 30 minutes before planting, ensure raised bed planting with drainage trenches, and drench soil with Metalaxyl-Mancozeb (2g/L) around affected clumps.",
+    "keywords": ["turmeric", "haldi", "arishina", "rhizome rot", "leaf blotch", "soft rot", "pseudostem rot", "yellowing"],
+    "source": "ICAR-Indian Institute of Spices Research (IISR), Kozhikode & UAS Bangalore",
+    "karnataka_relevance": "karnataka_specific"
+  },
+  {
+    "id": "ginger_disease_soft_rot_036",
+    "crop": "ginger",
+    "topic": "disease_management",
+    "title": "Ginger Soft Rot (Pythium) and Bacterial Wilt Management",
+    "content": "Soft rot (Pythium spp.) and Bacterial wilt (Ralstonia solanacearum) cause massive rotting of ginger rhizomes in Malnad and Coastal Karnataka. Symptoms include marginal leaf yellowing, water-soaked stem bases that pull out easily, and bacterial oozing. Control: strictly plant certified disease-free rhizomes, practice solarization of nursery beds, provide shade and raised-bed drainage, apply Trichoderma-enriched neem cake (500kg/acre), and soil drench with Copper oxychloride (3g/L) or Streptocycline (0.2g/L).",
+    "keywords": ["ginger", "shunti", "adrak", "soft rot", "bacterial wilt", "rhizome rotting", "yellowing", "stem rot"],
+    "source": "ICAR-Indian Institute of Spices Research (IISR) & UHS Bagalkot (KRC College of Horticulture, Arabhavi)",
+    "karnataka_relevance": "karnataka_specific"
+  },
+  {
+    "id": "black_pepper_disease_quick_wilt_037",
+    "crop": "black_pepper",
+    "topic": "disease_management",
+    "title": "Black Pepper Quick Wilt (Phytophthora Foot Rot) Management",
+    "content": "Quick wilt (Phytophthora capsici) infects roots and collar of black pepper vines causing sudden blackening and dropping of green leaves and total vine collapse within 2 weeks during monsoon in Kodagu and Chikkamagaluru. Control: clear weed growth around vine basins, paint Bordeaux paste on lower stem up to 1 meter, apply Trichoderma viride with FYM in May-June, and spray 1% Bordeaux mixture or Potassium phosphonate (3ml/L) pre-monsoon and post-monsoon.",
+    "keywords": ["black pepper", "pepper", "karimenasu", "quick wilt", "phytophthora", "foot rot", "leaf drop", "vine drying"],
+    "source": "ICAR-Indian Institute of Spices Research (IISR) Regional Station, Appangala, Kodagu",
+    "karnataka_relevance": "karnataka_specific"
+  },
+  {
+    "id": "cardamom_disease_katte_thrips_038",
+    "crop": "cardamom",
+    "topic": "disease_management",
+    "title": "Cardamom Katte Mosaic Disease and Thrips Management",
+    "content": "Katte mosaic virus transmitted by banana aphids produces discontinuous chlorotic stripes on young leaves, severe stunting, and poor flowering. Thrips (Sciothrips cardamomi) lacerate capsules causing scabby warty encrustations (chanka). Management: rogue out and incinerate Katte-infected clumps promptly, maintain uniform shade trees, spray Quinalphos 25 EC (2ml/L) or Spinosad 45 SC (0.3ml/L) on panicles during flowering to protect developing capsules.",
+    "keywords": ["cardamom", "elakki", "katte disease", "mosaic", "thrips", "warty capsules", "chanka", "pest"],
+    "source": "ICAR-Indian Institute of Spices Research (IISR) Research Centre, Appangala, Kodagu",
+    "karnataka_relevance": "karnataka_specific"
+  },
+  {
+    "id": "brinjal_pest_shoot_fruit_borer_039",
+    "crop": "brinjal",
+    "topic": "pest_management",
+    "title": "Brinjal Shoot and Fruit Borer (Leucinodes orbonalis) Management",
+    "content": "Shoot and fruit borer larvae bore into terminal shoots causing drooping and drying of tips, and bore into developing fruits leaving holes filled with frass. Management includes regular clipping and burning of wilted shoots with larvae inside, installing pheromone traps @ 12/acre (Lucin-lure), spraying Neem seed kernel extract (NSKE 5%), and applying Chlorantraniliprole 18.5 SC (0.4ml/L) or Emamectin benzoate 5 SG (0.4g/L) during active fruiting.",
+    "keywords": ["brinjal", "eggplant", "badanekai", "shoot and fruit borer", "drooping shoots", "fruit holes", "frass", "pest"],
+    "source": "ICAR-Indian Institute of Horticultural Research (IIHR), Hesaraghatta, Bengaluru",
+    "karnataka_relevance": "karnataka_specific"
+  },
+  {
+    "id": "cabbage_pest_dbm_black_rot_040",
+    "crop": "cabbage",
+    "topic": "pest_management",
+    "title": "Cabbage Diamondback Moth (DBM) and Black Rot Management",
+    "content": "Diamondback moth (Plutella xylostella) larvae feed on leaf undersides creating transparent window patches and head boreholes. Black rot (Xanthomonas) causes V-shaped yellow necrotic lesions along leaf margins. Integrated control: plant mustard trap crop (2 rows of mustard for every 25 rows of cabbage), spray Bacillus thuringiensis (Bt @ 1g/L) or Spinetoram (0.9ml/L) for DBM, and spray Streptocycline (0.1g/L) + Copper oxychloride (2g/L) for black rot.",
+    "keywords": ["cabbage", "elekosu", "diamondback moth", "dbm", "caterpillar", "black rot", "leaf holes", "pest"],
+    "source": "ICAR-Indian Institute of Horticultural Research (IIHR), Bengaluru",
+    "karnataka_relevance": "karnataka_specific"
+  },
+  {
+    "id": "bhendi_disease_yvmv_borer_041",
+    "crop": "bhendi",
+    "topic": "pest_management",
+    "title": "Bhendi Yellow Vein Mosaic Virus and Fruit Borer Management",
+    "content": "Yellow Vein Mosaic Virus (YVMV) transmitted by whiteflies causes bright yellow vein network clearing, leaf thickening, and stunted chlorotic fruit. Fruit borers (Earias spp.) bore into shoots and pods. Management: grow resistant varieties (Arka Anamika, Arka Abhay), install yellow sticky traps @ 10/acre, spray Neem oil (3ml/L) or Imidacloprid (0.3ml/L) for whitefly control, and spray Spinosad 45 SC (0.3ml/L) for fruit borer control.",
+    "keywords": ["bhendi", "okra", "bendekai", "yellow vein mosaic", "yvmv", "whitefly", "fruit borer", "yellow veins"],
+    "source": "ICAR-Indian Institute of Horticultural Research (IIHR), Bengaluru",
+    "karnataka_relevance": "karnataka_specific"
+  },
+  {
+    "id": "mango_pest_hopper_powdery_mildew_042",
+    "crop": "mango",
+    "topic": "pest_management",
+    "title": "Mango Hopper, Powdery Mildew, and Fruit Fly Management",
+    "content": "Mango hoppers (Idioscopus spp.) suck sap from flowering panicles causing blossom withering and sooty mold from honeydew secretions. Powdery mildew causes white powdery coating on flowers. Fruit flies lay eggs inside ripening fruits causing pulp decay. Control: spray Imidacloprid 17.8 SL (0.3ml/L) + Wettable Sulphur (2g/L) at bud burst stage, install Methyl eugenol pheromone traps @ 4/acre for male fruit flies, and collect and bury fallen fruits.",
+    "keywords": ["mango", "maavu", "mango hopper", "powdery mildew", "fruit fly", "blossom drying", "white powder", "pest"],
+    "source": "ICAR-Indian Institute of Horticultural Research (IIHR), Hesaraghatta, Bengaluru",
+    "karnataka_relevance": "karnataka_specific"
+  },
+  {
+    "id": "pomegranate_disease_bacterial_blight_043",
+    "crop": "pomegranate",
+    "topic": "disease_management",
+    "title": "Pomegranate Bacterial Blight (Telya / Xanthomonas) Management",
+    "content": "Bacterial blight (Xanthomonas axonopodis pv. punicae) causes dark brown water-soaked angular spots on leaves, stem cankers, and characteristic dark L- or Y-shaped cracking on developing fruits in northern Karnataka dry zones. Management involves orchard sanitation, pruning infected twigs in dry spell followed by Bordeaux paste application, and protective sprays of Copper hydroxide 53.8 DF (2g/L) + 2-Bromo-2-nitropropane-1,3-diol (Bacteromycin @ 0.5g/L) at 10-15 day intervals during monsoon.",
+    "keywords": ["pomegranate", "dalimbe", "bacterial blight", "telya", "fruit cracking", "dark spots on fruit", "canker", "disease"],
+    "source": "ICAR-National Research Centre on Pomegranate (NRCP), Solapur & UAS Raichur",
+    "karnataka_relevance": "karnataka_specific"
+  },
+  {
+    "id": "grapes_disease_downy_mildew_044",
+    "crop": "grapes",
+    "topic": "disease_management",
+    "title": "Grapes Downy Mildew and Powdery Mildew Management",
+    "content": "Downy mildew (Plasmopara viticola) causes yellowish oily spots on upper leaf surfaces and dense white downy cottony fungal growth underneath, leading to fruit cluster rot. Powdery mildew causes ash-grey powdery coating on berries resulting in berry cracking. Control: maintain canopy openness through shoot thinning, apply prophylactic sprays of 1% Bordeaux mixture or Mancozeb (2g/L), and spray Metalaxyl + Mancozeb (2.5g/L) or Azoxystrobin (1ml/L) upon downy mildew outbreak.",
+    "keywords": ["grapes", "drakshi", "downy mildew", "powdery mildew", "oil spots", "cottony growth", "berry cracking", "disease"],
+    "source": "ICAR-National Research Centre for Grapes (NRCG), Pune & ICAR-IIHR Bengaluru",
+    "karnataka_relevance": "karnataka_specific"
+  },
+  {
+    "id": "papaya_disease_ringspot_rot_045",
+    "crop": "papaya",
+    "topic": "disease_management",
+    "title": "Papaya Ringspot Virus (PRSV) and Fruit Rot Management",
+    "content": "Papaya Ringspot Virus (PRSV) transmitted by aphids causes leaf mottling, blistering, shoe-stringing, dark green water-soaked oily streaks on petioles, and concentric rings on fruits. Anthracnose causes sunken circular rotting spots on ripe fruits. Management: plant tolerant cultivars (Red Lady), plant 2-3 border rows of maize or sorghum to trap aphids, destroy severely virus-infected plants, and spray Carbendazim (1g/L) or Azoxystrobin (1ml/L) for fruit rot control.",
+    "keywords": ["papaya", "pappayi", "parangi", "ringspot virus", "prsv", "aphids", "fruit rot", "shoe-stringing leaves"],
+    "source": "ICAR-Indian Institute of Horticultural Research (IIHR), Bengaluru",
+    "karnataka_relevance": "karnataka_specific"
+  },
+  {
+    "id": "lime_disease_citrus_canker_046",
+    "crop": "lime",
+    "topic": "disease_management",
+    "title": "Acid Lime Citrus Canker and Gummosis Management",
+    "content": "Citrus canker (Xanthomonas citri) causes raised corky crater-like scabby brown lesions with yellow chlorotic halos on leaves, twigs, and fruits, leading to heavy fruit dropping (prevalent in Vijayapura lime belt). Gummosis (Phytophthora) causes trunk bark splitting and gum exudation. Control: prune canker-affected twigs before monsoon and spray Copper oxychloride (3g/L) + Streptocycline (0.1g/L) at 15-day intervals during new leaf flushes. Paint tree trunks with Bordeaux paste.",
+    "keywords": ["lime", "lemon", "nimbe", "citrus canker", "corky lesions", "scab on fruit", "gummosis", "disease"],
+    "source": "University of Horticultural Sciences (UHS), Bagalkot & ICAR-CCRI",
+    "karnataka_relevance": "karnataka_specific"
+  },
+  {
+    "id": "arecanut_disease_koleroga_047",
+    "crop": "arecanut",
+    "topic": "disease_management",
+    "title": "Arecanut Koleroga (Mahali / Fruit Rot) Management",
+    "content": "Koleroga or Mahali (Phytophthora meadii) causes dark green water-soaked lesions on nut bases, resulting in massive dropping of immature green nuts and rotting of fruit bunches during continuous heavy monsoon in Malnad and Coastal Karnataka. Control involves cleaning palm crowns before monsoon, covering developing nut bunches with 100-gauge polythene covers before heavy showers, and applying prophylactic spraying of 1% Bordeaux mixture before monsoon onset and a second spray 40 days later.",
+    "keywords": ["arecanut", "adike", "koleroga", "mahali", "fruit rot", "dropping green nuts", "phytophthora", "bordeaux mixture"],
+    "source": "ICAR-Central Plantation Crops Research Institute (CPCRI) Regional Station, Vittal, Dakshina Kannada",
+    "karnataka_relevance": "karnataka_specific"
+  },
+  {
+    "id": "arecanut_disease_yellow_leaf_048",
+    "crop": "arecanut",
+    "topic": "disease_management",
+    "title": "Arecanut Yellow Leaf Disease and Root Grub Management",
+    "content": "Yellow Leaf Disease (YLD) caused by phytoplasma causes progressive yellowing of inner leaflets starting from tips, kernel blackening, and gradual crown reduction. Root grubs feed on roots causing palm loosening and yellowing. Management: apply balanced NPK + magnesium sulphate (100g/palm), provide organic green manuring with Glyricidia, improve drainage in low-lying valleys, and drench soil with Chlorpyrifos 20 EC (5ml/L) for root grubs.",
+    "keywords": ["arecanut", "adike", "yellow leaf disease", "yld", "root grub", "yellowing leaflets", "crown reduction", "disease"],
+    "source": "ICAR-Central Plantation Crops Research Institute (CPCRI), Kasaragod & UAS Bangalore",
+    "karnataka_relevance": "karnataka_specific"
+  },
+  {
+    "id": "coconut_pest_rhinoceros_beetle_049",
+    "crop": "coconut",
+    "topic": "pest_management",
+    "title": "Coconut Rhinoceros Beetle, Red Palm Weevil, and Bud Rot Management",
+    "content": "Rhinoceros beetle (Oryctes rhinoceros) bores into unopened fronds causing characteristic V-shaped geometric cuts on leaves. Bud rot (Phytophthora) rots the central cabbage spindle. Control: hook out adult beetles from crowns, fill top leaf axils with sevidol or neem cake mixed with sand (1:2), install pheromone traps (Ferrolure+ / Rhinolure), and apply 1% Bordeaux paste to bud rot affected crown after cleaning rotted tissues.",
+    "keywords": ["coconut", "tengu", "rhinoceros beetle", "red palm weevil", "bud rot", "v shaped leaf cut", "crown rot", "pest"],
+    "source": "ICAR-Central Plantation Crops Research Institute (CPCRI), Kasaragod & UAS Bangalore",
+    "karnataka_relevance": "karnataka_specific"
+  },
+  {
+    "id": "coffee_disease_leaf_rust_050",
+    "crop": "coffee",
+    "topic": "disease_management",
+    "title": "Coffee Leaf Rust (Hemileia vastatrix) and White Stem Borer Management",
+    "content": "Coffee Leaf Rust causes circular orange-yellow powdery pustules on the lower leaf surface, resulting in severe defoliation and berry drop in Arabica coffee. White stem borer (Xylotrechus quadripes) larvae bore into main stems causing stem ridges, wilting, and palm death. Management: apply 0.5% Bordeaux mixture spray (pre-monsoon in May and post-monsoon in October), trace and uproot borer-infested bushes before flight periods, and maintain optimal two-tier shade.",
+    "keywords": ["coffee", "kaafi", "leaf rust", "orange pustules", "defoliation", "white stem borer", "stem ridges", "disease"],
+    "source": "Central Coffee Research Institute (CCRI), Coffee Board of India, Balehonnur, Chikkamagaluru",
+    "karnataka_relevance": "karnataka_specific"
+  },
+  {
+    "id": "cashew_pest_tea_mosquito_051",
+    "crop": "cashew",
+    "topic": "pest_management",
+    "title": "Cashew Tea Mosquito Bug and Stem Borer Management",
+    "content": "Tea Mosquito Bug (Helopeltis antonii) nymphs and adults suck sap from tender shoots, panicles, and developing nuts, causing dark necrotic lesions and blossom blight in coastal Karnataka. Cashew stem and root borer (CSRB) grubs tunnel into trunk bark with frass extrusion. Management: spray Lambda cyhalothrin 5 EC (0.6ml/L) or Acetamiprid 20 SP (0.5g/L) at flushing, flowering, and nut formation stages, and swab tree trunks with Chlorpyrifos 20 EC (2ml/L) for stem borers.",
+    "keywords": ["cashew", "godambi", "geru", "tea mosquito bug", "blossom blight", "stem borer", "black spots on shoot", "pest"],
+    "source": "ICAR-Directorate of Cashew Research (DCR), Puttur, Dakshina Kannada",
+    "karnataka_relevance": "karnataka_specific"
+  },
+  {
+    "id": "tobacco_disease_frog_eye_052",
+    "crop": "tobacco",
+    "topic": "disease_management",
+    "title": "FCV Tobacco Frog Eye Leaf Spot and Caterpillar Management",
+    "content": "Frog eye leaf spot (Cercospora nicotianae) produces small circular parchment-like spots with white centers and dark brown margins on mature tobacco leaves in Mysuru and Hunsur light soils. Tobacco caterpillar (Spodoptera litura) defoliates seedlings. Management: practice proper crop rotation, avoid excess nitrogen, remove lower sand leaves at harvest, spray Mancozeb 75 WP (2g/L) for leaf spots, and use pheromone traps for caterpillar monitoring.",
+    "keywords": ["tobacco", "tambaku", "frog eye leaf spot", "white center spots", "tobacco caterpillar", "cercospora", "disease"],
+    "source": "ICAR-Central Tobacco Research Institute (CTRI) Research Station, Hunsur, Mysuru",
+    "karnataka_relevance": "karnataka_specific"
+  },
+  {
+    "id": "jasmine_pest_bud_borer_053",
+    "crop": "jasmine",
+    "topic": "pest_management",
+    "title": "Jasmine Leaf Webworm, Bud Borer, and Blossom Blight Management",
+    "content": "Leaf webworm (Glyphodes pulverulentalis) webs leaves together and feeds inside, while Bud borer (Hendecasis duplifascialis) bores into floral buds making holes and discoloring petals in Mysore and Udupi Mallige. Blossom blight (Alternaria) rots flower buds during humid weather. Management: prune bushes in November-December, collect and burn webbed shoots, spray Novaluron 10 EC (1ml/L) or Spinosad (0.3ml/L) at bud initiation, and apply Mancozeb (2g/L) for blossom blight.",
+    "keywords": ["jasmine", "mallige", "udupi mallige", "mysore mallige", "bud borer", "leaf webworm", "flower rotting", "blossom blight", "pest"],
+    "source": "ICAR-Indian Institute of Horticultural Research (IIHR), Bengaluru & Department of Horticulture, Karnataka",
+    "karnataka_relevance": "karnataka_specific"
+  },
+  {
+    "id": "marigold_disease_alternaria_054",
+    "crop": "marigold",
+    "topic": "disease_management",
+    "title": "Marigold Alternaria Leaf Spot and Bud Borer Management",
+    "content": "Leaf spot and flower blight (Alternaria tagetica) cause brown circular necrotic spots on leaves and premature rotting of flower heads. Bud borer (Helicoverpa armigera) eats holes in opening flower buds. Management: treat seeds with Trichoderma (4g/kg), maintain adequate spacing (60x45 cm), spray Mancozeb (2g/L) or Iprodione (1.5g/L) at 10-day intervals upon spot emergence, and apply Emamectin benzoate (0.4g/L) for bud borer.",
+    "keywords": ["marigold", "chendu hoovu", "alternaria", "flower blight", "leaf spot", "bud borer", "rot on flowers", "disease"],
+    "source": "ICAR-Indian Institute of Horticultural Research (IIHR), Bengaluru",
+    "karnataka_relevance": "karnataka_specific"
   },
   {
     "id": "general_soil_waterlogging_remediation_022",
@@ -195,6 +536,7 @@
     "title": "General Field Drainage and Post-Flood Crop Care",
     "content": "Excess rainfall and prolonged standing water deplete soil oxygen, weaken root hairs, and promote root-rotting fungi (Pythium, Phytophthora). Essential remedial steps: 1) Open main and lateral drainage trenches immediately. 2) Avoid heavy machine entry on wet soil to prevent compaction. 3) Once soil reaches working moisture, aerate the surface by light hoeing. 4) Apply light foliar micronutrients and avoid heavy basal fertilizer until fresh roots emerge.",
     "keywords": ["general", "excess rainfall", "flooding", "waterlogging", "drainage", "root rot", "soil remediation"],
-    "source": "Karnataka State Department of Agriculture (KSDA) & ICAR Advisory"
+    "source": "Karnataka State Department of Agriculture (KSDA) & ICAR Advisory",
+    "karnataka_relevance": "karnataka_specific"
   }
 ]

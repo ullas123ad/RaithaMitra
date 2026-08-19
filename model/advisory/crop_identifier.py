@@ -1,144 +1,129 @@
 """
-RaithaMitra — Canonical Crop Identity Module
-=============================================
-Provides deterministic, lightweight canonical crop recognition and normalization
-for Karnataka agriculture. Ensures Kannada crop terms and English aliases are mapped
-to canonical crop identities, taking strict precedence over general translation variance.
+RaithaMitra — Canonical Crop Identity & Registry Module
+======================================================
+Provides deterministic, lightweight canonical crop recognition, categorization,
+and normalization for Karnataka agriculture based on a three-tier classification:
+  1. SUPPORTED: Validated agricultural package-of-practices in local RAG corpus.
+  2. RECOGNIZED BUT NOT SUPPORTED: Known crop identity with insufficient localized knowledge.
+  3. UNSUPPORTED: Unmapped / non-agricultural / out of scope.
 """
 
-from typing import Dict, List, Optional, Set, Tuple
+import json
+import os
 import re
+from pathlib import Path
+from typing import Dict, List, Optional, Set, Tuple, Any
 
-# Supported canonical crops in RaithaMitra
+# Path to the authoritative crop registry JSON
+REGISTRY_PATH = Path(__file__).parent / "crop_registry.json"
+
+
+def _load_crop_registry() -> Dict[str, Any]:
+    """Loads the authoritative machine-readable crop registry."""
+    if REGISTRY_PATH.exists():
+        with open(REGISTRY_PATH, "r", encoding="utf-8") as f:
+            return json.load(f)
+    return {"crops": {}, "categories": []}
+
+
+_REGISTRY_DATA = _load_crop_registry()
+_CROPS_DICT = _REGISTRY_DATA.get("crops", {})
+
+# Canonical list of crops with verified RAG agricultural knowledge
 SUPPORTED_CROPS: List[str] = [
-    "ragi",
-    "paddy",
-    "maize",
-    "groundnut",
-    "sugarcane",
-    "cotton",
-    "chilli",
-    "onion",
-    "potato",
-    "banana",
-    "tomato",
+    crop_id for crop_id, data in _CROPS_DICT.items()
+    if data.get("support_status") == "supported" and data.get("rag_supported", False)
 ]
 
-# Canonical crop metadata with Kannada script names and standard aliases
-CROP_CANONICAL_MAP: Dict[str, Dict[str, str]] = {
-    # Ragi / Finger Millet
-    "ragi": {"canonical": "ragi", "kannada": "ರಾಗಿ"},
-    "finger millet": {"canonical": "ragi", "kannada": "ರಾಗಿ"},
-    "fingermillet": {"canonical": "ragi", "kannada": "ರಾಗಿ"},
-    "mandua": {"canonical": "ragi", "kannada": "ರಾಗಿ"},
-    "eleusine coracana": {"canonical": "ragi", "kannada": "ರಾಗಿ"},
-    "ರಾಗಿ": {"canonical": "ragi", "kannada": "ರಾಗಿ"},
-    "ರಾಗಿಯ": {"canonical": "ragi", "kannada": "ರಾಗಿ"},
-    "ರಾಗಿಬೆಳೆ": {"canonical": "ragi", "kannada": "ರಾಗಿ"},
+# Canonical list of crops recognized by name but lacking full local RAG knowledge
+RECOGNIZED_UNSUPPORTED_CROPS: List[str] = [
+    crop_id for crop_id, data in _CROPS_DICT.items()
+    if data.get("support_status") == "recognized_not_supported"
+]
 
-    # Paddy / Rice
-    "paddy": {"canonical": "paddy", "kannada": "ಭತ್ತ"},
-    "rice": {"canonical": "paddy", "kannada": "ಭತ್ತ"},
-    "paddy crop": {"canonical": "paddy", "kannada": "ಭತ್ತ"},
-    "bhatta": {"canonical": "paddy", "kannada": "ಭತ್ತ"},
-    "oryza sativa": {"canonical": "paddy", "kannada": "ಭತ್ತ"},
-    "ಭತ್ತ": {"canonical": "paddy", "kannada": "ಭತ್ತ"},
-    "ಭತ್ತದ": {"canonical": "paddy", "kannada": "ಭತ್ತ"},
-    "ಭತ್ತಬೆಳೆ": {"canonical": "paddy", "kannada": "ಭತ್ತ"},
 
-    # Maize / Corn
-    "maize": {"canonical": "maize", "kannada": "ಮೆಕ್ಕೆಜೋಳ"},
-    "corn": {"canonical": "maize", "kannada": "ಮೆಕ್ಕೆಜೋಳ"},
-    "makka": {"canonical": "maize", "kannada": "ಮೆಕ್ಕೆಜೋಳ"},
-    "mekkejola": {"canonical": "maize", "kannada": "ಮೆಕ್ಕೆಜೋಳ"},
-    "zea mays": {"canonical": "maize", "kannada": "ಮೆಕ್ಕೆಜೋಳ"},
-    "ಮೆಕ್ಕೆಜೋಳ": {"canonical": "maize", "kannada": "ಮೆಕ್ಕೆಜೋಳ"},
-    "ಮೆಕ್ಕೆ ಜೋಳ": {"canonical": "maize", "kannada": "ಮೆಕ್ಕೆಜೋಳ"},
-    "ಮೆಕ್ಕೆಜೋಳದ": {"canonical": "maize", "kannada": "ಮೆಕ್ಕೆಜೋಳ"},
+def _build_canonical_map() -> Dict[str, Dict[str, str]]:
+    """Builds alias-to-canonical mapping dictionary from crop registry."""
+    mapping: Dict[str, Dict[str, str]] = {}
+    for canonical_id, data in _CROPS_DICT.items():
+        primary_kn = data.get("kannada_names", [""])[0] if data.get("kannada_names") else canonical_id
+        
+        # Add canonical name itself
+        mapping[canonical_id.lower()] = {"canonical": canonical_id, "kannada": primary_kn}
+        mapping[canonical_id.replace("_", " ").lower()] = {"canonical": canonical_id, "kannada": primary_kn}
+        
+        # Add all listed english names, kannada names, and aliases
+        all_aliases = set(data.get("english_names", [])) | set(data.get("kannada_names", [])) | set(data.get("aliases", []))
+        for alias in all_aliases:
+            if alias and alias.strip():
+                clean = alias.strip().lower()
+                mapping[clean] = {"canonical": canonical_id, "kannada": primary_kn}
+                # Also handle spacing variants
+                if " " in clean:
+                    mapping[clean.replace(" ", "")] = {"canonical": canonical_id, "kannada": primary_kn}
+    return mapping
 
-    # Groundnut / Peanut
-    "groundnut": {"canonical": "groundnut", "kannada": "ಕಡಲೆಕಾಯಿ"},
-    "peanut": {"canonical": "groundnut", "kannada": "ಕಡಲೆಕಾಯಿ"},
-    "kadlekai": {"canonical": "groundnut", "kannada": "ಕಡಲೆಕಾಯಿ"},
-    "shenga": {"canonical": "groundnut", "kannada": "ಕಡಲೆಕಾಯಿ"},
-    "arachis hypogaea": {"canonical": "groundnut", "kannada": "ಕಡಲೆಕಾಯಿ"},
-    "ಕಡಲೆಕಾಯಿ": {"canonical": "groundnut", "kannada": "ಕಡಲೆಕಾಯಿ"},
-    "ಕಡಲೆ ಕಾಯಿ": {"canonical": "groundnut", "kannada": "ಕಡಲೆಕಾಯಿ"},
-    "ಕಡಲೆಕಾಯಿಯ": {"canonical": "groundnut", "kannada": "ಕಡಲೆಕಾಯಿ"},
-    "ಶೇಂಗಾ": {"canonical": "groundnut", "kannada": "ಕಡಲೆಕಾಯಿ"},
 
-    # Sugarcane
-    "sugarcane": {"canonical": "sugarcane", "kannada": "ಕಬ್ಬು"},
-    "sugar cane": {"canonical": "sugarcane", "kannada": "ಕಬ್ಬು"},
-    "cane": {"canonical": "sugarcane", "kannada": "ಕಬ್ಬು"},
-    "kabbu": {"canonical": "sugarcane", "kannada": "ಕಬ್ಬು"},
-    "saccharum officinarum": {"canonical": "sugarcane", "kannada": "ಕಬ್ಬು"},
-    "ಕಬ್ಬು": {"canonical": "sugarcane", "kannada": "ಕಬ್ಬು"},
-    "ಕಬ್ಬಿನ": {"canonical": "sugarcane", "kannada": "ಕಬ್ಬು"},
-    "ಕಬ್ಬಿನ ಬೆಳೆ": {"canonical": "sugarcane", "kannada": "ಕಬ್ಬು"},
+CROP_CANONICAL_MAP: Dict[str, Dict[str, str]] = _build_canonical_map()
 
-    # Cotton
-    "cotton": {"canonical": "cotton", "kannada": "ಹತ್ತಿ"},
-    "kapas": {"canonical": "cotton", "kannada": "ಹತ್ತಿ"},
-    "hatti": {"canonical": "cotton", "kannada": "ಹತ್ತಿ"},
-    "gossypium": {"canonical": "cotton", "kannada": "ಹತ್ತಿ"},
-    "ಹತ್ತಿ": {"canonical": "cotton", "kannada": "ಹತ್ತಿ"},
-    "ಹತ್ತಿಯ": {"canonical": "cotton", "kannada": "ಹತ್ತಿ"},
-    "ಹತ್ತಿ ಬೆಳೆ": {"canonical": "cotton", "kannada": "ಹತ್ತಿ"},
 
-    # Chilli
-    "chilli": {"canonical": "chilli", "kannada": "ಮೆಣಸಿನಕಾಯಿ"},
-    "chili": {"canonical": "chilli", "kannada": "ಮೆಣಸಿನಕಾಯಿ"},
-    "green chilli": {"canonical": "chilli", "kannada": "ಮೆಣಸಿನಕಾಯಿ"},
-    "red chilli": {"canonical": "chilli", "kannada": "ಮೆಣಸಿನಕಾಯಿ"},
-    "mirchi": {"canonical": "chilli", "kannada": "ಮೆಣಸಿನಕಾಯಿ"},
-    "menasinakai": {"canonical": "chilli", "kannada": "ಮೆಣಸಿನಕಾಯಿ"},
-    "menasinakayi": {"canonical": "chilli", "kannada": "ಮೆಣಸಿನಕಾಯಿ"},
-    "capsicum": {"canonical": "chilli", "kannada": "ಮೆಣಸಿನಕಾಯಿ"},
-    "ಮೆಣಸಿನಕಾಯಿ": {"canonical": "chilli", "kannada": "ಮೆಣಸಿನಕಾಯಿ"},
-    "ಮೆಣಸಿನ ಕಾಯಿ": {"canonical": "chilli", "kannada": "ಮೆಣಸಿನಕಾಯಿ"},
-    "ಮೆಣಸಿನಕಾಯಿಯ": {"canonical": "chilli", "kannada": "ಮೆಣಸಿನಕಾಯಿ"},
-    "ಮೆಣಸಿನಗಿಡ": {"canonical": "chilli", "kannada": "ಮೆಣಸಿನಕಾಯಿ"},
+def get_crop_registry() -> Dict[str, Any]:
+    """Returns the full machine-readable crop registry data."""
+    return _REGISTRY_DATA
 
-    # Onion
-    "onion": {"canonical": "onion", "kannada": "ಈರುಳ್ಳಿ"},
-    "eerulli": {"canonical": "onion", "kannada": "ಈರುಳ್ಳಿ"},
-    "pyaz": {"canonical": "onion", "kannada": "ಈರುಳ್ಳಿ"},
-    "allium cepa": {"canonical": "onion", "kannada": "ಈರುಳ್ಳಿ"},
-    "ಈರುಳ್ಳಿ": {"canonical": "onion", "kannada": "ಈರುಳ್ಳಿ"},
-    "ಈರುಳ್ಳಿಯ": {"canonical": "onion", "kannada": "ಈರುಳ್ಳಿ"},
-    "ಈರುಳ್ಳಿ ಬೆಳೆ": {"canonical": "onion", "kannada": "ಈರುಳ್ಳಿ"},
 
-    # Potato
-    "potato": {"canonical": "potato", "kannada": "ಆಲೂಗಡ್ಡೆ"},
-    "aalugadde": {"canonical": "potato", "kannada": "ಆಲೂಗಡ್ಡೆ"},
-    "aloo": {"canonical": "potato", "kannada": "ಆಲೂಗಡ್ಡೆ"},
-    "solanum tuberosum": {"canonical": "potato", "kannada": "ಆಲೂಗಡ್ಡೆ"},
-    "ಆಲೂಗಡ್ಡೆ": {"canonical": "potato", "kannada": "ಆಲೂಗಡ್ಡೆ"},
-    "ಆಲೂಗೆಡ್ಡೆ": {"canonical": "potato", "kannada": "ಆಲೂಗಡ್ಡೆ"},
-    "ಆಲೂಗಡ್ಡೆಯ": {"canonical": "potato", "kannada": "ಆಲೂಗಡ್ಡೆ"},
+def get_crop_entry(crop_name: Optional[str]) -> Optional[Dict[str, Any]]:
+    """Returns the registry entry for a given canonical crop or alias."""
+    if not crop_name:
+        return None
+    canonical = normalize_crop_name(crop_name)
+    if canonical and canonical in _CROPS_DICT:
+        return _CROPS_DICT[canonical]
+    return None
 
-    # Banana
-    "banana": {"canonical": "banana", "kannada": "ಬಾಳೆ"},
-    "plantain": {"canonical": "banana", "kannada": "ಬಾಳೆ"},
-    "baale": {"canonical": "banana", "kannada": "ಬಾಳೆ"},
-    "bale": {"canonical": "banana", "kannada": "ಬಾಳೆ"},
-    "musa": {"canonical": "banana", "kannada": "ಬಾಳೆ"},
-    "ಬಾಳೆ": {"canonical": "banana", "kannada": "ಬಾಳೆ"},
-    "ಬಾಳೆಯ": {"canonical": "banana", "kannada": "ಬಾಳೆ"},
-    "ಬಾಳೆಹಣ್ಣು": {"canonical": "banana", "kannada": "ಬಾಳೆ"},
 
-    # Tomato
-    "tomato": {"canonical": "tomato", "kannada": "ಟೊಮ್ಯಾಟೊ"},
-    "tamota": {"canonical": "tomato", "kannada": "ಟೊಮ್ಯಾಟೊ"},
-    "tamatar": {"canonical": "tomato", "kannada": "ಟೊಮ್ಯಾಟೊ"},
-    "tometo": {"canonical": "tomato", "kannada": "ಟೊಮ್ಯಾಟೊ"},
-    "solanum lycopersicum": {"canonical": "tomato", "kannada": "ಟೊಮ್ಯಾಟೊ"},
-    "ಟೊಮ್ಯಾಟೊ": {"canonical": "tomato", "kannada": "ಟೊಮ್ಯಾಟೊ"},
-    "ಟೊಮೆಟೊ": {"canonical": "tomato", "kannada": "ಟೊಮ್ಯಾಟೊ"},
-    "ಟೊಮೇಟೊ": {"canonical": "tomato", "kannada": "ಟೊಮ್ಯಾಟೊ"},
-    "ಟೊಮ್ಯಾಟೊದ": {"canonical": "tomato", "kannada": "ಟೊಮ್ಯಾಟೊ"},
-}
+def get_supported_crops() -> List[str]:
+    """Returns list of all canonical crop IDs with verified RAG support."""
+    return list(SUPPORTED_CROPS)
+
+
+def get_recognized_crops() -> List[str]:
+    """Returns list of all recognized crop IDs (supported + recognized_unsupported)."""
+    return list(_CROPS_DICT.keys())
+
+
+def is_crop_supported(crop_name: Optional[str]) -> bool:
+    """Returns True if the crop has verified RAG package of practices."""
+    if not crop_name:
+        return False
+    canonical = normalize_crop_name(crop_name)
+    if not canonical or canonical not in _CROPS_DICT:
+        return False
+    entry = _CROPS_DICT[canonical]
+    return entry.get("support_status") == "supported" and entry.get("rag_supported", False)
+
+
+def get_crop_support_status(crop_name: Optional[str]) -> str:
+    """
+    Returns the three-tier support status for a crop:
+      - 'supported'
+      - 'recognized_not_supported'
+      - 'unsupported'
+    """
+    if not crop_name:
+        return "unsupported"
+    canonical = normalize_crop_name(crop_name)
+    if not canonical or canonical not in _CROPS_DICT:
+        return "unsupported"
+    return _CROPS_DICT[canonical].get("support_status", "unsupported")
+
+
+def get_crop_category(crop_name: Optional[str]) -> Optional[str]:
+    """Returns the agricultural category for a crop (e.g. 'cereal', 'pulse', 'spice')."""
+    entry = get_crop_entry(crop_name)
+    if entry:
+        return entry.get("category")
+    return None
 
 
 def normalize_crop_name(name: Optional[str]) -> Optional[str]:
@@ -150,7 +135,7 @@ def normalize_crop_name(name: Optional[str]) -> Optional[str]:
         name: Raw crop name string.
 
     Returns:
-        Canonical crop string (e.g. 'ragi', 'paddy', 'chilli') or None if unmapped.
+        Canonical crop string (e.g. 'ragi', 'paddy', 'chilli', 'arecanut') or None if unmapped.
     """
     if not name or not str(name).strip():
         return None
@@ -160,7 +145,7 @@ def normalize_crop_name(name: Optional[str]) -> Optional[str]:
     if mapping:
         return mapping["canonical"]
 
-    # Try word-boundary / substring matching against aliases
+    # Try matching against aliases
     for alias, meta in CROP_CANONICAL_MAP.items():
         if alias in clean_name:
             return meta["canonical"]
@@ -215,7 +200,7 @@ def resolve_canonical_crop(
         explicit_crop: Explicitly passed crop name string.
 
     Returns:
-        Canonical crop identifier (e.g. 'chilli', 'onion', 'ragi') or None.
+        Canonical crop identifier (e.g. 'chilli', 'onion', 'ragi', 'arecanut') or None.
     """
     # 1. Explicit argument priority
     if explicit_crop:

@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html lang="kn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RaithaMitra — Microphone Voice Advisory Tester (Dev)</title>
+  <style>
+    :root {
+      --primary: #15803d;
+      --primary-dark: #166534;
+      --primary-light: #dcfce7;
+      --accent: #ca8a04;
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --text-main: #0f172a;
+      --text-muted: #64748b;
+      --border: #e2e8f0;
+      --danger: #dc2626;
+      --danger-bg: #fee2e2;
+      --warning: #d97706;
+      --info: #0284c7;
+      --success: #16a34a;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans Kannada", "Kefa", sans-serif;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text-main);
+      padding: 24px;
+      line-height: 1.5;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    header {
+      background: linear-gradient(135deg, #14532d, #15803d);
+      color: white;
+      padding: 24px;
+      border-radius: 16px;
+      margin-bottom: 24px;
+      box-shadow: 0 4px 12px rgba(21, 128, 61, 0.15);
+    }
+
+    header h1 {
+      font-size: 24px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    header p {
+      margin-top: 6px;
+      opacity: 0.9;
+      font-size: 14px;
+    }
+
+    .badge-dev {
+      display: inline-block;
+      background: #fef08a;
+      color: #713f12;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 9999px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 24px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+    }
+
+    .card-title {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: #334155;
+    }
+
+    /* Location Bar */
+    .location-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+      text-transform: uppercase;
+    }
+
+    .form-group input, .form-group select {
+      width: 100%;
+      padding: 10px 12px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-size: 14px;
+      outline: none;
+      transition: border 0.2s;
+    }
+
+    .form-group input:focus, .form-group select:focus {
+      border-color: var(--primary);
+    }
+
+    .preset-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 8px;
+    }
+
+    .btn-preset {
+      background: #f1f5f9;
+      border: 1px solid var(--border);
+      font-size: 12px;
+      padding: 4px 10px;
+      border-radius: 6px;
+      cursor: pointer;
+      color: #475569;
+    }
+
+    .btn-preset:hover {
+      background: #e2e8f0;
+    }
+
+    /* Record Zone */
+    .recorder-zone {
+      text-align: center;
+      padding: 28px 16px;
+      background: #f8fafc;
+      border: 2px dashed var(--border);
+      border-radius: 16px;
+      margin-bottom: 16px;
+    }
+
+    .btn-mic {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      border: none;
+      background: var(--primary);
+      color: white;
+      font-size: 40px;
+      cursor: pointer;
+      transition: all 0.2s ease-in-out;
+      box-shadow: 0 6px 16px rgba(21, 128, 61, 0.3);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .btn-mic:hover:not(:disabled) {
+      transform: scale(1.05);
+      background: var(--primary-dark);
+    }
+
+    .btn-mic:disabled {
+      background: #94a3b8;
+      cursor: not-allowed;
+      box-shadow: none;
+    }
+
+    .btn-mic.recording {
+      background: var(--danger);
+      animation: pulse 1.5s infinite;
+      box-shadow: 0 0 0 0 rgba(220, 38, 38, 0.7);
+    }
+
+    @keyframes pulse {
+      0% {
+        box-shadow: 0 0 0 0 rgba(220, 38, 38, 0.7);
+      }
+      70% {
+        box-shadow: 0 0 0 20px rgba(220, 38, 38, 0);
+      }
+      100% {
+        box-shadow: 0 0 0 0 rgba(220, 38, 38, 0);
+      }
+    }
+
+    .recorder-status {
+      margin-top: 16px;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text-main);
+    }
+
+    .timer {
+      font-family: monospace;
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--danger);
+      margin-top: 6px;
+    }
+
+    .speaking-prompt {
+      margin-top: 14px;
+      padding: 12px 16px;
+      background: #fefce8;
+      border: 1px solid #fef08a;
+      border-radius: 8px;
+      color: #854d0e;
+      font-size: 13px;
+      display: inline-block;
+      max-width: 90%;
+    }
+
+    .btn-stop {
+      margin-top: 16px;
+      background: var(--danger);
+      color: white;
+      border: none;
+      padding: 10px 24px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      display: none;
+      align-items: center;
+      gap: 8px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .btn-stop:hover {
+      background: #b91c1c;
+    }
+
+    /* Live Pipeline Steps */
+    .pipeline-container {
+      margin-top: 16px;
+    }
+
+    .pipeline-step {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 8px 12px;
+      border-radius: 8px;
+      margin-bottom: 6px;
+      font-size: 13px;
+      background: #f8fafc;
+      color: var(--text-muted);
+      transition: all 0.2s;
+    }
+
+    .pipeline-step.active {
+      background: #eff6ff;
+      color: #1d4ed8;
+      font-weight: 600;
+      border-left: 4px solid #3b82f6;
+    }
+
+    .pipeline-step.done {
+      background: var(--primary-light);
+      color: var(--primary-dark);
+      border-left: 4px solid var(--primary);
+    }
+
+    .pipeline-step.error {
+      background: var(--danger-bg);
+      color: var(--danger);
+      border-left: 4px solid var(--danger);
+    }
+
+    .step-icon {
+      font-size: 16px;
+      width: 20px;
+      text-align: center;
+    }
+
+    /* Result Panels */
+    .result-box {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 14px;
+    }
+
+    .result-box-title {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .kannada-text {
+      font-size: 17px;
+      line-height: 1.6;
+      color: #0f172a;
+      white-space: pre-wrap;
+    }
+
+    .badge-crop {
+      background: #dbeafe;
+      color: #1e40af;
+      padding: 2px 8px;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    /* Audio Player */
+    .audio-player-zone {
+      margin-top: 14px;
+      padding: 16px;
+      background: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      border-radius: 10px;
+    }
+
+    .audio-player-zone audio {
+      width: 100%;
+      margin-top: 8px;
+    }
+
+    /* Latency Table */
+    .timing-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 12px;
+      margin-top: 8px;
+    }
+
+    .timing-table th, .timing-table td {
+      padding: 6px 10px;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .timing-table th {
+      background: #f1f5f9;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+
+    .error-banner {
+      background: var(--danger-bg);
+      border: 1px solid #fca5a5;
+      color: #991b1b;
+      padding: 14px;
+      border-radius: 8px;
+      margin-bottom: 16px;
+      display: none;
+      font-size: 14px;
+    }
+
+    .context-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 8px;
+    }
+
+    .context-tag {
+      background: #f1f5f9;
+      border: 1px solid var(--border);
+      padding: 3px 8px;
+      border-radius: 6px;
+      font-size: 11px;
+      color: #475569;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <header>
+    <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+      <div>
+        <h1>🌾 RaithaMitra (ರೈತಮಿತ್ರ) <span class="badge-dev">Dev Voice Tester</span></h1>
+        <p>Direct Browser Microphone ↔ End-to-End Kannada AI Agricultural Advisory Pipeline</p>
+      </div>
+      <div style="text-align: right; font-size: 12px; opacity: 0.85;">
+        <span>API: <code>POST /api/v1/advisory/audio</code></span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Error Banner -->
+  <div id="errorBanner" class="error-banner"></div>
+
+  <!-- Location Context Settings -->
+  <div class="card">
+    <div class="card-title">📍 Karnataka Location Grounding (ರೈತರ ಸ್ಥಳ)</div>
+    <div class="location-grid">
+      <div class="form-group">
+        <label for="districtInput">District (ಜಿಲ್ಲೆ)</label>
+        <input type="text" id="districtInput" value="Mandya" placeholder="e.g. Mandya, Mysuru, Belagavi">
+      </div>
+      <div class="form-group">
+        <label for="talukInput">Taluk (ತಾಲೂಕು)</label>
+        <input type="text" id="talukInput" value="Pandavapura" placeholder="e.g. Pandavapura">
+      </div>
+      <div class="form-group">
+        <label for="villageInput">Village (ಗ್ರಾಮ)</label>
+        <input type="text" id="villageInput" value="Melukote" placeholder="e.g. Melukote">
+      </div>
+      <div class="form-group">
+        <label for="apiUrlInput">Backend API URL</label>
+        <input type="text" id="apiUrlInput" value="http://127.0.0.1:5000/api/v1/advisory/audio">
+      </div>
+    </div>
+    <div>
+      <span style="font-size: 11px; font-weight: 600; color: var(--text-muted); text-transform: uppercase;">Quick Location Presets:</span>
+      <div class="preset-buttons">
+        <button class="btn-preset" onclick="setPreset('Mandya', 'Pandavapura', 'Melukote')">Mandya (Melukote - Ragi)</button>
+        <button class="btn-preset" onclick="setPreset('Mysuru', 'Hunsur', 'Hunsur')">Mysuru (Hunsur - Maize/Tobacco)</button>
+        <button class="btn-preset" onclick="setPreset('Belagavi', 'Athani', 'Athani')">Belagavi (Athani - Sugarcane)</button>
+        <button class="btn-preset" onclick="setPreset('Udupi', 'Kundapura', 'Basrur')">Udupi (Kundapura - Paddy)</button>
+        <button class="btn-preset" onclick="setPreset('Haveri', 'Byadgi', 'Byadgi')">Haveri (Byadgi - Chilli)</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Microphone Recording Zone -->
+  <div class="card">
+    <div class="card-title">🎙️ Spoken Kannada Farmer Query (ಧ್ವನಿ ರೆಕಾರ್ಡಿಂಗ್)</div>
+    
+    <div class="recorder-zone">
+      <button id="micBtn" class="btn-mic" onclick="toggleRecording()" title="Click to Record">
+        🎤
+      </button>
+      <div id="recorderStatus" class="recorder-status">Click microphone and speak your farming query in Kannada</div>
+      <div id="timerDisplay" class="timer" style="display: none;">00:00</div>
+      
+      <button id="stopBtn" class="btn-stop" onclick="stopRecording()">
+        ⏹ Stop Recording & Send Advisory Query
+      </button>
+
+      <div class="speaking-prompt">
+        💡 <strong>Suggested Kannada Queries to Speak:</strong><br>
+        1. <em>"ನನ್ನ ರಾಗಿ ಬೆಳೆಗೆ ಮಳೆ ಸರಿಯಾಗಿ ಆಗದೆ ಒಣಗುತ್ತಿದೆ. ಏನು ಮಾಡಬೇಕು?"</em> (Ragi drought advice)<br>
+        2. <em>"ಭತ್ತದ ಬೆಳೆಯಲ್ಲಿ ಹಳದಿ ಎಲೆಗಳು ಕಾಣಿಸಿಕೊಳ್ಳುತ್ತಿವೆ, ಏನು ಮಾಡಬೇಕು?"</em> (Paddy pest/disease)<br>
+        3. <em>"ಮಂಡ್ಯ ಮಾರುಕಟ್ಟೆಯಲ್ಲಿ ರಾಗಿಯ ಬೆಲೆ ಎಷ್ಟು?"</em> (Mandi commodity price)
+      </div>
+    </div>
+
+    <!-- Live Step Pipeline -->
+    <div class="pipeline-container">
+      <div class="result-box-title">System Execution Pipeline</div>
+      <div id="step-record" class="pipeline-step"><span class="step-icon">⚪</span> 1. Audio Capture (Microphone 16kHz PCM WAV)</div>
+      <div id="step-upload" class="pipeline-step"><span class="step-icon">⚪</span> 2. Uploading Audio to RaithaMitra Backend API</div>
+      <div id="step-asr" class="pipeline-step"><span class="step-icon">⚪</span> 3. Whisper Kannada ASR Transcription</div>
+      <div id="step-crop" class="pipeline-step"><span class="step-icon">⚪</span> 4. Canonical Crop & Intent Grounding</div>
+      <div id="step-context" class="pipeline-step"><span class="step-icon">⚪</span> 5. Context Retrieval (Weather, Soil, Schemes, APMC Market, UAS RAG)</div>
+      <div id="step-llm" class="pipeline-step"><span class="step-icon">⚪</span> 6. Dhenu Local Agricultural LLM Reasoning & Generation</div>
+      <div id="step-nllb" class="pipeline-step"><span class="step-icon">⚪</span> 7. NLLB Neural Translation (English ↔ Kannada)</div>
+      <div id="step-tts" class="pipeline-step"><span class="step-icon">⚪</span> 8. Neural Kannada TTS Spoken Audio Generation</div>
+    </div>
+  </div>
+
+  <!-- Results View -->
+  <div id="resultsCard" class="card" style="display: none;">
+    <div class="card-title">🌱 Generated Agricultural Advisory (ಕೃಷಿ ಸಲಹೆ ಫಲಿತಾಂಶ)</div>
+
+    <!-- ASR Transcript -->
+    <div class="result-box">
+      <div class="result-box-title">
+        <span>Transcribed Speech (ASR)</span>
+        <span id="asrDurationBadge" style="font-size: 11px; color: var(--text-muted);"></span>
+      </div>
+      <div id="transcriptText" class="kannada-text"></div>
+    </div>
+
+    <!-- Grounding Tags -->
+    <div class="result-box">
+      <div class="result-box-title">
+        <span>Grounded Agricultural Contexts</span>
+        <span id="cropBadge" class="badge-crop"></span>
+      </div>
+      <div id="contextTags" class="context-tags"></div>
+    </div>
+
+    <!-- Advisory Kannada Text -->
+    <div class="result-box" style="background: #ffffff; border: 2px solid #bbf7d0;">
+      <div class="result-box-title" style="color: var(--primary-dark);">
+        <span>Official Kannada Advisory (ಕೃಷಿ ತಜ್ಞರ ಉತ್ತರ)</span>
+        <span id="llmModelBadge" style="font-size: 11px; color: var(--primary);"></span>
+      </div>
+      <div id="advisoryText" class="kannada-text" style="font-weight: 500;"></div>
+    </div>
+
+    <!-- Audio Player -->
+    <div id="audioPlayerZone" class="audio-player-zone" style="display: none;">
+      <div class="result-box-title" style="color: var(--primary-dark); margin-bottom: 4px;">
+        <span>🔊 Spoken Kannada Audio Response (ಧ್ವನಿ ಉತ್ತರ)</span>
+        <span id="audioStatsBadge" style="font-size: 11px; color: #15803d;"></span>
+      </div>
+      <audio id="audioPlayer" controls autoplay></audio>
+      <div style="margin-top: 8px;">
+        <a id="downloadAudioBtn" href="#" download="raithamitra_advisory.wav" class="btn-preset" style="display: inline-block; text-decoration: none; background: #dcfce7; border-color: #86efac; color: #166534; font-weight: 600;">
+          ⬇️ Download Spoken WAV Audio
+        </a>
+      </div>
+    </div>
+
+    <!-- Latency Stats -->
+    <div class="result-box" style="margin-top: 14px;">
+      <div class="result-box-title">
+        <span>Latency & Timing Profile (Local CPU Execution)</span>
+        <span id="totalTimeBadge" style="font-weight: 700; color: #0284c7;"></span>
+      </div>
+      <table class="timing-table">
+        <thead>
+          <tr>
+            <th>Pipeline Stage</th>
+            <th>Engine / Provider</th>
+            <th>Duration</th>
+          </tr>
+        </thead>
+        <tbody id="timingTableBody"></tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<script>
+  let isRecording = false;
+  let audioContext = null;
+  let mediaStream = null;
+  let scriptProcessor = null;
+  let recordedSamples = [];
+  let timerInterval = null;
+  let startTime = null;
+
+  function setPreset(dist, taluk, vill) {
+    document.getElementById('districtInput').value = dist;
+    document.getElementById('talukInput').value = taluk;
+    document.getElementById('villageInput').value = vill;
+  }
+
+  function showError(msg) {
+    const el = document.getElementById('errorBanner');
+    el.innerHTML = `<strong>Error:</strong> ${msg}`;
+    el.style.display = 'block';
+  }
+
+  function clearError() {
+    const el = document.getElementById('errorBanner');
+    el.style.display = 'none';
+    el.innerHTML = '';
+  }
+
+  function setStep(stepId, state, detail = '') {
+    const el = document.getElementById(stepId);
+    if (!el) return;
+    el.className = `pipeline-step ${state}`;
+    const icons = { active: '⏳', done: '✅', error: '❌', default: '⚪' };
+    const iconSpan = el.querySelector('.step-icon');
+    if (iconSpan) iconSpan.innerText = icons[state] || icons.default;
+    if (detail) {
+      el.setAttribute('title', detail);
+    }
+  }
+
+  function resetSteps() {
+    ['step-record', 'step-upload', 'step-asr', 'step-crop', 'step-context', 'step-llm', 'step-nllb', 'step-tts'].forEach(id => {
+      setStep(id, 'default');
+    });
+  }
+
+  async function toggleRecording() {
+    if (isRecording) {
+      stopRecording();
+    } else {
+      startRecording();
+    }
+  }
+
+  async function startRecording() {
+    clearError();
+    resetSteps();
+    recordedSamples = [];
+
+    try {
+      mediaStream = await navigator.mediaDevices.getUserMedia({ audio: { channelCount: 1, sampleRate: 16000 } });
+    } catch (err) {
+      showError(`Microphone access denied or unavailable: ${err.message}. Please allow microphone permissions in your browser.`);
+      return;
+    }
+
+    try {
+      audioContext = new (window.AudioContext || window.webkitAudioContext)({ sampleRate: 16000 });
+      const source = audioContext.createMediaStreamSource(mediaStream);
+      scriptProcessor = audioContext.createScriptProcessor(4096, 1, 1);
+
+      scriptProcessor.onaudioprocess = function(e) {
+        if (!isRecording) return;
+        const input = e.inputBuffer.getChannelData(0);
+        for (let i = 0; i < input.length; i++) {
+          recordedSamples.push(input[i]);
+        }
+      };
+
+      source.connect(scriptProcessor);
+      scriptProcessor.connect(audioContext.destination);
+
+      isRecording = true;
+      startTime = Date.now();
+
+      const micBtn = document.getElementById('micBtn');
+      micBtn.classList.add('recording');
+      micBtn.innerText = '🔴';
+      document.getElementById('recorderStatus').innerText = 'Listening... Speak your agricultural query now in Kannada';
+      document.getElementById('stopBtn').style.display = 'inline-flex';
+      document.getElementById('timerDisplay').style.display = 'block';
+
+      setStep('step-record', 'active');
+
+      timerInterval = setInterval(() => {
+        const sec = Math.floor((Date.now() - startTime) / 1000);
+        const mm = String(Math.floor(sec / 60)).padStart(2, '0');
+        const ss = String(sec % 60).padStart(2, '0');
+        document.getElementById('timerDisplay').innerText = `${mm}:${ss}`;
+      }, 500);
+
+    } catch (err) {
+      showError(`Audio initialization failed: ${err.message}`);
+    }
+  }
+
+  async function stopRecording() {
+    if (!isRecording) return;
+    isRecording = false;
+    clearInterval(timerInterval);
+
+    const micBtn = document.getElementById('micBtn');
+    micBtn.classList.remove('recording');
+    micBtn.innerText = '🎤';
+    micBtn.disabled = true;
+    document.getElementById('stopBtn').style.display = 'none';
+    document.getElementById('recorderStatus').innerText = 'Encoding recorded audio (16kHz PCM WAV)...';
+
+    if (scriptProcessor) scriptProcessor.disconnect();
+    if (mediaStream) {
+      mediaStream.getTracks().forEach(track => track.stop());
+    }
+
+    const sampleRate = audioContext ? audioContext.sampleRate : 16000;
+    if (audioContext && audioContext.state !== 'closed') {
+      audioContext.close();
+    }
+
+    if (recordedSamples.length === 0) {
+      showError("No audio samples captured. Please try speaking again.");
+      micBtn.disabled = false;
+      return;
+    }
+
+    setStep('step-record', 'done');
+    setStep('step-upload', 'active');
+    document.getElementById('recorderStatus').innerText = 'Sending audio to RaithaMitra Advisory API...';
+
+    const wavBlob = encodeWAV(recordedSamples, sampleRate);
+    await uploadAndProcess(wavBlob);
+    micBtn.disabled = false;
+  }
+
+  function encodeWAV(samples, sampleRate) {
+    const buffer = new ArrayBuffer(44 + samples.length * 2);
+    const view = new DataView(buffer);
+    function writeString(v, offset, str) {
+      for (let i = 0; i < str.length; i++) v.setUint8(offset + i, str.charCodeAt(i));
+    }
+
+    writeString(view, 0, 'RIFF');
+    view.setUint32(4, 36 + samples.length * 2, true);
+    writeString(view, 8, 'WAVE');
+    writeString(view, 12, 'fmt ');
+    view.setUint32(16, 16, true);
+    view.setUint16(20, 1, true); // PCM
+    view.setUint16(22, 1, true); // Mono
+    view.setUint32(24, sampleRate, true);
+    view.setUint32(28, sampleRate * 2, true);
+    view.setUint16(32, 2, true);
+    view.setUint16(34, 16, true);
+    writeString(view, 36, 'data');
+    view.setUint32(40, samples.length * 2, true);
+
+    let offset = 44;
+    for (let i = 0; i < samples.length; i++, offset += 2) {
+      let s = Math.max(-1, Math.min(1, samples[i]));
+      view.setInt16(offset, s < 0 ? s * 0x8000 : s * 0x7FFF, true);
+    }
+    return new Blob([view], { type: 'audio/wav' });
+  }
+
+  async function uploadAndProcess(wavBlob) {
+    const apiUrl = document.getElementById('apiUrlInput').value.trim();
+    const district = document.getElementById('districtInput').value.trim();
+    const taluk = document.getElementById('talukInput').value.trim();
+    const village = document.getElementById('villageInput').value.trim();
+
+    const formData = new FormData();
+    formData.append('audio', wavBlob, 'query.wav');
+    formData.append('synthesize_audio', 'true');
+    if (district) formData.append('district', district);
+    if (taluk) formData.append('taluk', taluk);
+    if (village) formData.append('village', village);
+    formData.append('language', 'kn');
+
+    setStep('step-upload', 'done');
+    setStep('step-asr', 'active');
+    document.getElementById('recorderStatus').innerText = 'Transcribing spoken Kannada via Whisper ASR...';
+
+    const t0 = Date.now();
+
+    try {
+      const resp = await fetch(apiUrl, {
+        method: 'POST',
+        body: formData
+      });
+
+      const data = await resp.json();
+
+      if (!resp.ok || !data.success) {
+        const errorMsg = data.error?.message || `Server returned HTTP ${resp.status}`;
+        showError(`API Advisory Error: ${errorMsg}`);
+        setStep('step-asr', 'error');
+        document.getElementById('recorderStatus').innerText = 'Inference failed.';
+        return;
+      }
+
+      // Success Display
+      setStep('step-asr', 'done');
+      setStep('step-crop', 'done');
+      setStep('step-context', 'done');
+      setStep('step-llm', 'done');
+      setStep('step-nllb', 'done');
+      setStep('step-tts', data.audio?.available ? 'done' : 'default');
+
+      document.getElementById('recorderStatus').innerText = 'Advisory generated successfully!';
+      displayResults(data, (Date.now() - t0) / 1000);
+
+    } catch (err) {
+      showError(`Network / Connection failure: ${err.message}. Ensure backend is running on http://127.0.0.1:5000`);
+      setStep('step-upload', 'error');
+      document.getElementById('recorderStatus').innerText = 'Connection error.';
+    }
+  }
+
+  function displayResults(data, clientDurationSec) {
+    document.getElementById('resultsCard').style.display = 'block';
+
+    // 1. Transcript
+    const transcript = data.asr?.transcript || '(No transcript)';
+    document.getElementById('transcriptText').innerText = transcript;
+    document.getElementById('asrDurationBadge').innerText = data.asr?.audio_duration_seconds ? `${data.asr.audio_duration_seconds.toFixed(1)}s audio` : '';
+
+    // 2. Canonical Crop
+    const crop = data.canonical_crop;
+    const cropBadge = document.getElementById('cropBadge');
+    if (crop) {
+      cropBadge.innerText = `Crop: ${crop}`;
+      cropBadge.style.display = 'inline-block';
+    } else {
+      cropBadge.innerText = 'General Query';
+    }
+
+    // 3. Grounded Contexts Tags
+    const tagsDiv = document.getElementById('contextTags');
+    tagsDiv.innerHTML = '';
+    
+    if (data.location) {
+      tagsDiv.innerHTML += `<span class="context-tag">📍 ${data.location.hierarchy_label || data.location.district}</span>`;
+    }
+    if (data.weather && data.weather.available) {
+      tagsDiv.innerHTML += `<span class="context-tag">⛅ Weather: ${data.weather.current?.weather_condition || 'Available'} (${data.weather.current?.temperature_c}°C)</span>`;
+    }
+    if (data.soil && data.soil.available) {
+      tagsDiv.innerHTML += `<span class="context-tag">🌱 Soil: ${data.soil.soil_order}</span>`;
+    }
+    if (data.schemes && data.schemes.length > 0) {
+      tagsDiv.innerHTML += `<span class="context-tag">📜 Schemes: ${data.schemes.length} matched</span>`;
+    }
+    if (data.market && data.market.available) {
+      tagsDiv.innerHTML += `<span class="context-tag">💰 APMC Market Price</span>`;
+    }
+    if (data.metadata?.retrieved_documents_count > 0) {
+      tagsDiv.innerHTML += `<span class="context-tag">📚 UAS Corpus: ${data.metadata.retrieved_documents_count} Docs</span>`;
+    }
+
+    // 4. Advisory Text
+    document.getElementById('advisoryText').innerText = data.answer || '(No advisory response)';
+    document.getElementById('llmModelBadge').innerText = `${data.metadata?.backend || 'dhenu'} (${data.metadata?.model || 'Dhenu2-1B'})`;
+
+    // 5. Spoken Audio Player
+    const audioZone = document.getElementById('audioPlayerZone');
+    const audioPlayer = document.getElementById('audioPlayer');
+    const downloadBtn = document.getElementById('downloadAudioBtn');
+
+    if (data.audio && data.audio.available && data.audio.audio_path) {
+      const filename = data.audio.audio_path.split(/[\\/]/).pop();
+      const downloadUrl = `http://127.0.0.1:5000/api/v1/advisory/audio/download?file=${encodeURIComponent(filename)}`;
+      
+      audioPlayer.src = downloadUrl;
+      downloadBtn.href = downloadUrl;
+      downloadBtn.download = filename;
+      document.getElementById('audioStatsBadge').innerText = `${data.audio.voice || 'Neural Kannada'} (${data.audio.duration_seconds?.toFixed(1) || ''}s, ${data.audio.sample_rate || 24000}Hz)`;
+      audioZone.style.display = 'block';
+    } else {
+      audioZone.style.display = 'none';
+    }
+
+    // 6. Timing Table
+    const meta = data.metadata || {};
+    const asr = data.asr || {};
+    const audio = data.audio || {};
+
+    document.getElementById('totalTimeBadge').innerText = `Total: ${meta.voice_pipeline_total_time_seconds ? meta.voice_pipeline_total_time_seconds.toFixed(2) + 's' : clientDurationSec.toFixed(2) + 's'}`;
+
+    const timingRows = [
+      { stage: '1. Kannada Speech Recognition (ASR)', engine: asr.asr_model || 'whisper-kannada-small', time: asr.asr_processing_time_seconds ? `${asr.asr_processing_time_seconds.toFixed(2)}s` : '—' },
+      { stage: '2. Kannada → English Translation', engine: 'facebook/nllb-200-distilled-600M', time: meta.translation_in_time_seconds ? `${meta.translation_in_time_seconds.toFixed(3)}s` : '—' },
+      { stage: '3. Agricultural Context & RAG Retrieval', engine: 'Local BM25 / Vector Index', time: meta.retrieval_time_seconds ? `${meta.retrieval_time_seconds.toFixed(4)}s` : '—' },
+      { stage: '4. Dhenu Agricultural LLM Generation', engine: meta.model || 'Dhenu2-In-Llama3.2-1B-Instruct', time: meta.generation_time_seconds ? `${meta.generation_time_seconds.toFixed(2)}s` : '—' },
+      { stage: '5. English → Kannada Translation', engine: 'facebook/nllb-200-distilled-600M', time: meta.translation_out_time_seconds ? `${meta.translation_out_time_seconds.toFixed(3)}s` : '—' },
+      { stage: '6. Neural Kannada TTS Synthesis', engine: audio.voice || 'kn-IN-GaganNeural', time: audio.latency_seconds ? `${audio.latency_seconds.toFixed(2)}s` : '—' },
+    ];
+
+    const tbody = document.getElementById('timingTableBody');
+    tbody.innerHTML = timingRows.map(row => `
+      <tr>
+        <td><strong>${row.stage}</strong></td>
+        <td><code>${row.engine}</code></td>
+        <td><strong>${row.time}</strong></td>
+      </tr>
+    `).join('');
+
+    // Scroll smoothly to result
+    document.getElementById('resultsCard').scrollIntoView({ behavior: 'smooth' });
+  }
+</script>
+</body>
+</html>

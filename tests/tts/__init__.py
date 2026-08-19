@@ -1,3 +1,1 @@
-"""
-RaithaMitra TTS Test Suite Package
-"""
+# TTS tests package

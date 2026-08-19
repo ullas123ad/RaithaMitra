@@ -6,7 +6,15 @@ context attachment, graceful provider degradation, response schemas, and stack-t
 """
 
 import json
+import os
+import sys
 import unittest
+from pathlib import Path
+
+# Ensure project root is on sys.path
+PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent
+if str(PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(PROJECT_ROOT))
 
 from api.app import create_app
 from model.location.service import LocationService

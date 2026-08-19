@@ -22,7 +22,12 @@ from model.advisory.language_bridge import (
     PassThroughLanguageBridge
 )
 from model.advisory.retriever import AgriculturalRetriever
-from model.advisory.crop_identifier import resolve_canonical_crop
+from model.advisory.crop_identifier import (
+    resolve_canonical_crop,
+    get_crop_support_status,
+    get_crop_category,
+    is_crop_supported
+)
 
 
 class AdvisoryError(Exception):
@@ -186,6 +191,93 @@ class MockAdvisoryBackend(AdvisoryBackend):
         "maize": (
             "Maize fall armyworm requires prompt action: install pheromone traps @ 4/acre "
             "and apply Emamectin benzoate 5% SG (0.4g/L) inside the central whorl if holes appear."
+        ),
+        "vanilla": (
+            "Specific local package of practices for this crop is not currently available in the Karnataka agricultural knowledge base. Please consult your nearest Krishi Vigyan Kendra (KVK) or University of Agricultural Sciences for specialized guidance."
+        ),
+        "arecanut": (
+            "Arecanut Koleroga (Fruit Rot) is managed by spraying 1% Bordeaux mixture before monsoon onset and covering developing bunches with 100-gauge polythene covers."
+        ),
+        "koleroga": (
+            "Arecanut Koleroga (Fruit Rot) is managed by spraying 1% Bordeaux mixture before monsoon onset and covering developing bunches with 100-gauge polythene covers."
+        ),
+        "coffee": (
+            "Coffee leaf rust is managed by two rounds of 0.5% Bordeaux mixture spray (May pre-monsoon and October post-monsoon) and maintaining two-tier shade trees."
+        ),
+        "turmeric": (
+            "Turmeric rhizome rot is prevented by seed rhizome treatment with Trichoderma viride and soil drenching with Metalaxyl-Mancozeb (2g/L)."
+        ),
+        "ginger": (
+            "Ginger soft rot is managed by solarized raised bed planting with proper drainage and drenching with Copper oxychloride (3g/L) or Trichoderma."
+        ),
+        "red gram": (
+            "Red gram pod borer is managed using pheromone traps @ 4/acre and spraying Chlorantraniliprole 18.5 SC (0.3ml/L) or Emamectin benzoate (0.4g/L) at 50% flowering."
+        ),
+        "togari": (
+            "Red gram pod borer is managed using pheromone traps @ 4/acre and spraying Chlorantraniliprole 18.5 SC (0.3ml/L) or Emamectin benzoate (0.4g/L) at 50% flowering."
+        ),
+        "bengal gram": (
+            "Bengal gram Fusarium wilt is controlled by planting resistant varieties like JG-11 or JAKI-9218 and seed treatment with Trichoderma (4g/kg)."
+        ),
+        "kadale": (
+            "Bengal gram Fusarium wilt is controlled by planting resistant varieties like JG-11 or JAKI-9218 and seed treatment with Trichoderma (4g/kg)."
+        ),
+        "jowar": (
+            "Sorghum shoot fly is managed by early sowing within 7-10 days of monsoon onset and seed treatment with Imidacloprid 70 WS (3g/kg)."
+        ),
+        "bajra": (
+            "Pearl millet downy mildew is controlled by planting resistant hybrids (GHB-538) and seed treatment with Metalaxyl-M (Apron XL @ 2g/kg)."
+        ),
+        "coconut": (
+            "Coconut rhinoceros beetle is managed by hooking out beetles from crowns, leaf axil filling with neem cake and sand (1:2), and pheromone traps."
+        ),
+        "mango": (
+            "Mango hopper and powdery mildew are managed by spraying Imidacloprid (0.3ml/L) + Wettable Sulphur (2g/L) at bud break stage."
+        ),
+        "pomegranate": (
+            "Pomegranate bacterial blight (Telya) requires orchard sanitation, pruning infected twigs, and spraying Copper hydroxide (2g/L) + Bacteromycin (0.5g/L)."
+        ),
+        "grapes": (
+            "Grapes downy mildew is managed by canopy thinning, prophylactic 1% Bordeaux mixture, and Metalaxyl + Mancozeb (2.5g/L)."
+        ),
+        "black pepper": (
+            "Black pepper quick wilt is managed by painting Bordeaux paste on the vine base and spraying 1% Bordeaux mixture in June and August."
+        ),
+        "cardamom": (
+            "Cardamom Katte mosaic disease requires rogueing infected clumps and spraying panicles with Spinosad or Quinalphos for thrips."
+        ),
+        "brinjal": (
+            "Brinjal shoot and fruit borer is managed by clipping damaged shoots, installing Lucin-lure traps @ 12/acre, and spraying Chlorantraniliprole (0.4ml/L)."
+        ),
+        "cabbage": (
+            "Cabbage diamondback moth is managed by planting mustard trap crops and spraying Bacillus thuringiensis (Bt @ 1g/L) or Spinetoram."
+        ),
+        "bhendi": (
+            "Bhendi yellow vein mosaic virus is managed by growing resistant varieties (Arka Anamika) and spraying Imidacloprid (0.3ml/L) for whitefly control."
+        ),
+        "jasmine": (
+            "Jasmine bud borer and leaf webworm are managed by winter pruning and spraying Spinosad 45 SC (0.3ml/L) or Novaluron."
+        ),
+        "marigold": (
+            "Marigold Alternaria leaf spot is managed by seed treatment with Trichoderma and foliar spray of Mancozeb (2g/L)."
+        ),
+        "sunflower": (
+            "Sunflower Alternaria leaf blight is managed by seed treatment with Thiram (3g/kg) and foliar spray of Mancozeb (2g/L)."
+        ),
+        "soybean": (
+            "Soybean Asian rust is managed by rust-tolerant varieties (DSb-21) and spraying Hexaconazole 5 EC (1ml/L)."
+        ),
+        "cashew": (
+            "Cashew tea mosquito bug is managed by spraying Lambda cyhalothrin (0.6ml/L) at flushing, flowering, and nut formation."
+        ),
+        "tobacco": (
+            "FCV tobacco frog eye leaf spot is managed by crop rotation, removing lower sand leaves, and spraying Mancozeb 75 WP (2g/L)."
+        ),
+        "lime": (
+            "Acid lime citrus canker is managed by pruning infected twigs, spraying Copper oxychloride (3g/L) + Streptocycline (0.1g/L), and Bordeaux paste."
+        ),
+        "papaya": (
+            "Papaya ringspot virus is managed by planting barrier crops like maize and spraying Carbendazim (1g/L) for fruit rot."
         )
     }
 
@@ -209,7 +301,20 @@ class MockAdvisoryBackend(AdvisoryBackend):
             query_only = raw_text.strip().lower()
 
         # Single-word crop input without problem description -> ask for clarification
-        short_crops = {"ragi", "paddy", "maize", "groundnut", "sugarcane", "cotton", "chilli", "onion", "potato", "banana", "tomato", "ರಾಗಿ", "ಭತ್ತ", "ಮೆಕ್ಕೆಜೋಳ", "ಕಡಲೆಕಾಯಿ", "ಕಬ್ಬು", "ಹತ್ತಿ", "ಮೆಣಸಿನಕಾಯಿ", "ಈರುಳ್ಳಿ", "ಆಲೂಗಡ್ಡೆ", "ಬಾಳೆ", "ಟೊಮ್ಯಾಟೊ"}
+        short_crops = {
+            "ragi", "paddy", "maize", "groundnut", "sugarcane", "cotton", "chilli", "onion",
+            "potato", "banana", "tomato", "jowar", "bajra", "red_gram", "bengal_gram",
+            "green_gram", "black_gram", "sunflower", "soybean", "turmeric", "ginger",
+            "black_pepper", "cardamom", "brinjal", "cabbage", "bhendi", "mango",
+            "pomegranate", "grapes", "papaya", "lime", "arecanut", "coconut", "coffee",
+            "cashew", "tobacco", "jasmine", "marigold", "vanilla", "saffron",
+            "ರಾಗಿ", "ಭತ್ತ", "ಮೆಕ್ಕೆಜೋಳ", "ಕಡಲೆಕಾಯಿ", "ಕಬ್ಬು", "ಹತ್ತಿ", "ಮೆಣಸಿನಕಾಯಿ",
+            "ಈರುಳ್ಳಿ", "ಆಲೂಗಡ್ಡೆ", "ಬಾಳೆ", "ಟೊಮ್ಯಾಟೊ", "ಜೋಳ", "ಸಜ್ಜೆ", "ತೊಗರಿ", "ಕಡಲೆ",
+            "ಹೆಸರು", "ಉದ್ದು", "ಸೂರ್ಯಕಾಂತಿ", "ಸೋಯಾಬೀನ್", "ಅರಿಶಿನ", "ಶುಂಠಿ", "ಕರಿಮೆಣಸು",
+            "ಏಲಕ್ಕಿ", "ಬದನೆಕಾಯಿ", "ಎಲೆಕೋಸು", "ಬೆಂಡೆಕಾಯಿ", "ಮಾವು", "ದಾಳಿಂಬೆ", "ದ್ರಾಕ್ಷಿ",
+            "ಪಪ್ಪಾಯಿ", "ನಿಂಬೆ", "ಅಡಿಕೆ", "ತೆಂಗು", "ಕಾಫಿ", "ಗೋಡಂಬಿ", "ತಂಬಾಕು", "ಮಲ್ಲಿಗೆ",
+            "ಚೆಂಡುಹೂ", "ವೆನಿಲ್ಲಾ", "ಕೇಸರಿ"
+        }
         clean_short = query_only.strip().rstrip(".?!")
         if clean_short in short_crops:
             return "What issue are you facing with your crop? Please specify if you need guidance regarding leaf symptoms, pests, diseases, irrigation, fertilizer/soil, market prices, or government schemes."
@@ -541,6 +646,8 @@ class AdvisoryEngine:
             "query": clean_query,
             "response": final_response,
             "canonical_crop": canonical_crop,
+            "crop_support_status": get_crop_support_status(canonical_crop),
+            "crop_category": get_crop_category(canonical_crop),
             "intermediate_query": intermediate_query,
             "intermediate_response": intermediate_response,
             "source_language": source_language,

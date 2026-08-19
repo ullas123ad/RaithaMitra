@@ -17,6 +17,7 @@ from model.advisory.crop_identifier import (
     SUPPORTED_CROPS,
     detect_crop_from_text,
     normalize_crop_name,
+    get_crop_registry
 )
 
 
@@ -30,23 +31,8 @@ class AgriculturalRetriever:
     Lightweight, deterministic lexical agricultural knowledge retriever.
     Scores knowledge entries based on crop alignment, domain symptom keywords,
     topic overlap, and term frequency with precision filtering and strict
-    cross-crop contamination prevention.
+    cross-crop contamination prevention (0% cross-crop leakage).
     """
-
-    # Common agricultural crop synonyms for matching (English & Kannada aliases)
-    CROP_SYNONYMS: Dict[str, Set[str]] = {
-        "paddy": {"paddy", "rice", "bhatta", "ಭತ್ತ"},
-        "ragi": {"ragi", "finger millet", "mandua", "fingermillet", "ರಾಗಿ"},
-        "maize": {"maize", "corn", "makka", "mekkejola", "ಮೆಕ್ಕೆಜೋಳ"},
-        "groundnut": {"groundnut", "peanut", "shenga", "kadlekai", "ಕಡಲೆಕಾಯಿ"},
-        "sugarcane": {"sugarcane", "cane", "kabbu", "ಕಬ್ಬು"},
-        "cotton": {"cotton", "kapas", "hatti", "ಹತ್ತಿ"},
-        "chilli": {"chilli", "chili", "mirchi", "menasinakai", "menasinakayi", "capsicum", "ಮೆಣಸಿನಕಾಯಿ"},
-        "onion": {"onion", "pyaz", "eerulli", "ಈರುಳ್ಳಿ"},
-        "potato": {"potato", "aloo", "aalugadde", "ಆಲೂಗಡ್ಡೆ"},
-        "banana": {"banana", "plantain", "bale", "baale", "ಬಾಳೆ"},
-        "tomato": {"tomato", "tamatar", "tometo", "tamota", "ಟೊಮ್ಯಾಟೊ", "ಟೊಮೆಟೊ"}
-    }
 
     # Stopwords and generic non-specific terms ignored in content matching
     STOPWORDS: Set[str] = {
@@ -81,6 +67,8 @@ class AgriculturalRetriever:
         self.relevance_threshold = relevance_threshold
         self.score_gap_ratio = score_gap_ratio
         self.corpus_path = corpus_path or self._get_default_corpus_path()
+        self._all_crop_names = set(CROP_CANONICAL_MAP.keys())
+        self._all_crop_stemmed = {self._stem(c) for c in self._all_crop_names if len(c.split()) == 1}
         self._corpus: List[Dict[str, Any]] = []
         self._load_corpus()
 
@@ -205,11 +193,9 @@ class AgriculturalRetriever:
             return detected
 
         query_lower = query_raw.lower()
-        for canon, synonyms in self.CROP_SYNONYMS.items():
-            for syn in synonyms:
-                if syn in query_lower:
-                    detected.add(canon)
-                    break
+        for alias, meta in CROP_CANONICAL_MAP.items():
+            if alias in query_lower:
+                detected.add(meta["canonical"])
         return detected
 
     def score_document(
@@ -224,9 +210,9 @@ class AgriculturalRetriever:
         Scoring & Safety Rules:
         1. Target Crop Strictness:
            - If a target crop is specified or detected, documents for a DIFFERENT specific crop
-             are disqualified immediately (score = 0.0) to prevent cross-crop contamination.
+             are disqualified immediately (score = 0.0) to prevent cross-crop contamination (0% contamination).
            - Documents matching the target crop receive a +3.0 alignment bonus.
-           - General agronomic documents ('general') remain eligible without crop bonus.
+           - General agronomic documents ('general') remain eligible on symptom merits without crop bonus.
         2. Symptom & Problem Keyword Match (Weight: 2.0 / 0.8): Matches domain symptoms and remedies.
         3. Title Overlap (Weight: 1.2): Matches between query terms and document title.
         4. Topic Overlap (Weight: 1.0): Matches between query terms and topic category.
@@ -250,13 +236,13 @@ class AgriculturalRetriever:
             if len(detected) == 1:
                 effective_crop = next(iter(detected))
 
-        all_crop_names = set().union(*self.CROP_SYNONYMS.values())
-        all_crop_stemmed = {self._stem(c) for c in all_crop_names}
+        all_crop_names = self._all_crop_names
+        all_crop_stemmed = self._all_crop_stemmed
 
         score = 0.0
         has_crop_match = False
 
-        # 1. Crop Match & Strict Cross-Crop Exclusion
+        # 1. Crop Match & Strict Cross-Crop Exclusion (0% cross-crop contamination)
         if effective_crop:
             if doc_crop == effective_crop:
                 score += 3.0

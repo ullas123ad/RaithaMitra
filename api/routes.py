@@ -173,7 +173,7 @@ def get_advisory():
     return jsonify(response_payload), 200
 
 
-ALLOWED_AUDIO_EXTENSIONS = {".wav", ".mp3", ".ogg", ".flac", ".m4a", ".aac"}
+ALLOWED_AUDIO_EXTENSIONS = {".wav", ".mp3", ".ogg", ".flac", ".m4a", ".aac", ".webm"}
 MAX_AUDIO_SIZE_BYTES = 5 * 1024 * 1024  # 5 MB
 
 

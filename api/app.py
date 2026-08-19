@@ -93,12 +93,27 @@ def create_app(
     if advisory_engine is not None:
         app.config["ADVISORY_ENGINE"] = advisory_engine
     else:
+        import os
         from model.advisory.agriparam_engine import AdvisoryEngine
-        app.config["ADVISORY_ENGINE"] = AdvisoryEngine(
-            scheme_service=app.config["SCHEME_SERVICE"],
-            soil_service=app.config["SOIL_SERVICE"],
-            market_service=app.config["MARKET_SERVICE"]
-        )
+        from model.advisory.config import AdvisoryConfig
+
+        backend_type = os.environ.get("RAITHAMITRA_BACKEND", os.environ.get("ADVISORY_BACKEND", "mock")).lower()
+        if backend_type == "dhenu":
+            from model.advisory.language_bridge import NLLBTranslationBridge
+            app.config["ADVISORY_ENGINE"] = AdvisoryEngine(
+                config=AdvisoryConfig(backend="dhenu", use_rag=True, max_new_tokens=160),
+                language_bridge=NLLBTranslationBridge(),
+                scheme_service=app.config["SCHEME_SERVICE"],
+                soil_service=app.config["SOIL_SERVICE"],
+                market_service=app.config["MARKET_SERVICE"]
+            )
+        else:
+            app.config["ADVISORY_ENGINE"] = AdvisoryEngine(
+                config=AdvisoryConfig(backend="mock", use_rag=True),
+                scheme_service=app.config["SCHEME_SERVICE"],
+                soil_service=app.config["SOIL_SERVICE"],
+                market_service=app.config["MARKET_SERVICE"]
+            )
 
     if tts_engine is not None:
         app.config["TTS_ENGINE"] = tts_engine

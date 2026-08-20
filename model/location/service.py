@@ -384,3 +384,97 @@ class LocationService:
                             return results
 
         return results
+
+    def detect_location_from_text(self, text: str) -> Optional[LocationContext]:
+        """Detect explicit Karnataka district mention in spoken or written farmer text.
+
+        Handles English and Kannada district names with native Kannada locative suffixes
+        (e.g., 'ರಲ್ಲಿ', 'ದಲ್ಲಿ', 'ಯಲ್ಲಿ', 'ನಲ್ಲಿ', 'ಅಲ್ಲಿ').
+        """
+        import re
+
+        if not text or not text.strip():
+            return None
+
+        clean_text = self._normalize(text)
+
+        # Check all known districts & aliases
+        for dist in self._districts:
+            eng_name = dist.get("name", "").lower()
+            kn_name = dist.get("name_kn", "")
+
+            # Check English name (word boundary check)
+            if eng_name and re.search(r"\b" + re.escape(eng_name) + r"\b", clean_text, re.IGNORECASE):
+                return self.get_location(district=dist["name"])
+
+            # Check Kannada name stem & common locative suffixes
+            if kn_name:
+                stem = kn_name.strip()
+                patterns = [
+                    re.escape(stem) + r"(ದಲ್ಲಿ|ಯಲ್ಲಿ|ನಲ್ಲಿ|ರಲ್ಲಿ|ಅಲ್ಲಿ|ಗೆ|ಯ|ನ|ದಿಂದ)?",
+                ]
+                if stem in text or any(re.search(p, text) for p in patterns):
+                    return self.get_location(district=dist["name"])
+
+        # Alias mapping for English and Kannada district names & stems
+        alias_map = {
+            "ಬೆಂಗಳೂರು": "Bengaluru Urban", "bengaluru": "Bengaluru Urban", "bangalore": "Bengaluru Urban", "ಬೆಂಗಳೂ": "Bengaluru Urban",
+            "ಮೈಸೂರು": "Mysuru", "mysore": "Mysuru", "mysuru": "Mysuru", "ಮೈಸೂ": "Mysuru",
+            "ಶಿವಮೊಗ್ಗ": "Shivamogga", "shimoga": "Shivamogga", "shivamogga": "Shivamogga", "ಶಿವಮೊ": "Shivamogga",
+            "ಬಳ್ಳಾರಿ": "Ballari", "bellary": "Ballari", "ballari": "Ballari", "ಬಳ್ಳಾ": "Ballari",
+            "ಕಲಬುರಗಿ": "Kalaburagi", "gulbarga": "Kalaburagi", "kalaburagi": "Kalaburagi", "ಕಲಬು": "Kalaburagi",
+            "ವಿಜಯಪುರ": "Vijayapura", "bijapur": "Vijayapura", "vijayapura": "Vijayapura", "ವಿಜಯ": "Vijayapura",
+            "ಚಿಕ್ಕಮಗಳೂರು": "Chikkamagaluru", "chikmagalur": "Chikkamagaluru", "chikkamagaluru": "Chikkamagaluru", "ಚಿಕ್ಕಮ": "Chikkamagaluru",
+            "ಉಡುಪಿ": "Udupi", "udupi": "Udupi", "ಉಡುಪ": "Udupi",
+            "ಬೆಳಗಾವಿ": "Belagavi", "belgaum": "Belagavi", "belagavi": "Belagavi", "ಬೆಳಗಾ": "Belagavi",
+            "ಮಂಡ್ಯ": "Mandya", "mandya": "Mandya",
+            "ಹಾವೇರಿ": "Haveri", "haveri": "Haveri", "ಹಾವೇ": "Haveri",
+            "ಕೋಲಾರ": "Kolar", "kolar": "Kolar", "ಕೋಲಾ": "Kolar",
+            "ಹಾಸನ": "Hassan", "hassan": "Hassan", "ಹಾಸ": "Hassan",
+            "ತುಮಕೂರು": "Tumakuru", "tumkur": "Tumakuru", "tumakuru": "Tumakuru", "ತುಮಕೂ": "Tumakuru",
+            "ದಾವಣಗೆರೆ": "Davanagere", "davangere": "Davanagere", "davanagere": "Davanagere", "ದಾವಣ": "Davanagere",
+            "ಧಾರವಾಡ": "Dharwad", "dharwad": "Dharwad", "ಧಾರ್ವಾ": "Dharwad"
+        }
+
+        for alias, canon_dist in alias_map.items():
+            if alias in text or re.search(r"\b" + re.escape(alias) + r"\b", clean_text, re.IGNORECASE):
+                try:
+                    return self.get_location(district=canon_dist)
+                except LocationNotFoundError:
+                    pass
+
+        return None
+
+    def get_location_from_coordinates(self, latitude: float, longitude: float) -> LocationContext:
+        """Resolve GPS latitude and longitude coordinates to nearest supported Karnataka district.
+
+        Raises:
+            LocationValidationError: If coordinates are outside Karnataka bounding box.
+        """
+        import math
+
+        lat, lon = float(latitude), float(longitude)
+
+        # Karnataka bounding box validation (~11.0°N to 19.0°N, 73.5°E to 79.0°E)
+        if not (11.0 <= lat <= 19.0 and 73.5 <= lon <= 79.0):
+            raise LocationValidationError(
+                "RaithaMitra currently provides Karnataka-focused agricultural advisory. "
+                f"Coordinates ({lat:.4f}, {lon:.4f}) are outside Karnataka state bounds."
+            )
+
+        min_dist = float("inf")
+        nearest_dist_record = None
+
+        for dist in self._districts:
+            d_lat = float(dist.get("latitude", 0.0))
+            d_lon = float(dist.get("longitude", 0.0))
+            if d_lat and d_lon:
+                dist_val = math.sqrt((lat - d_lat) ** 2 + (lon - d_lon) ** 2)
+                if dist_val < min_dist:
+                    min_dist = dist_val
+                    nearest_dist_record = dist
+
+        if not nearest_dist_record:
+            raise LocationValidationError("Could not resolve GPS coordinates to a Karnataka district.")
+
+        return self.get_location(district=nearest_dist_record["name"])

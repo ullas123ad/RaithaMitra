@@ -30,6 +30,8 @@ def process_voice_advisory(
     district: Optional[str] = None,
     taluk: Optional[str] = None,
     village: Optional[str] = None,
+    latitude: Optional[float] = None,
+    longitude: Optional[float] = None,
     crop: Optional[str] = None,
     language: str = "kn",
     asr_config: Optional[Any] = None,
@@ -53,10 +55,12 @@ def process_voice_advisory(
         district: Optional Karnataka district name.
         taluk: Optional Karnataka taluk name.
         village: Optional Karnataka village name.
+        latitude: Optional latitude for GPS resolution.
+        longitude: Optional longitude for GPS resolution.
         crop: Optional explicit crop override.
         language: Target output language ('kn' or 'en').
         asr_config: Optional ASRConfig overrides.
-        tts_engine: Optional TTS synthesizer instance (e.g. KannadaTTSEngine or MockKannadaSynthesizer).
+        tts_engine: Optional TTS synthesizer instance.
         synthesize_audio: Boolean flag to enable spoken Kannada audio response generation.
         output_audio_path: Optional custom path for the generated response WAV.
 
@@ -82,18 +86,51 @@ def process_voice_advisory(
     if not transcript:
         raise VoiceAdvisoryError("ASR produced an empty transcription from the provided audio.")
 
-    # 2. Step 2: Location & Weather Context Resolution
+    # 2. Step 2: Location Precedence Hierarchy Resolution
     location = None
-    if location_service and (district or taluk or village):
+    location_source = "development_default"
+
+    # Precedence 1: Spoken Location in Transcript
+    if location_service and transcript:
         try:
-            location = location_service.get_location(
+            spoken_loc = location_service.detect_location_from_text(transcript)
+            if spoken_loc:
+                location = spoken_loc
+                location_source = "farmer_spoken"
+        except Exception as e:
+            logger.warning("Spoken location detection failed: %s", e)
+
+    # Precedence 2: GPS Coordinates
+    if location is None and location_service and latitude is not None and longitude is not None:
+        try:
+            gps_loc = location_service.get_location_from_coordinates(float(latitude), float(longitude))
+            if gps_loc:
+                location = gps_loc
+                location_source = "browser_gps"
+        except Exception as e:
+            logger.warning("GPS coordinate lookup failed: %s", e)
+
+    # Precedence 3: Manual Location Selection
+    if location is None and location_service and (district or taluk or village):
+        try:
+            manual_loc = location_service.get_location(
                 district=district,
                 taluk=taluk,
                 village=village
             )
+            if manual_loc:
+                location = manual_loc
+                location_source = "manual_selection"
         except Exception as e:
-            logger.warning("Location lookup failed in voice bridge: %s", e)
-            location = None
+            logger.warning("Manual location lookup failed: %s", e)
+
+    # Precedence 4: Development Default Fallback
+    if location is None and location_service:
+        try:
+            location = location_service.get_location(district="Mandya", taluk="Pandavapura", village="Melukote")
+            location_source = "development_default"
+        except Exception as e:
+            logger.warning("Default location lookup failed: %s", e)
 
     weather = None
     if weather_service and location:
@@ -118,6 +155,9 @@ def process_voice_advisory(
         raise VoiceAdvisoryError(f"Advisory validation error on transcript: {str(e)}")
     except Exception as e:
         raise VoiceAdvisoryError(f"Advisory generation failed: {str(e)}")
+
+    if advisory_result.get("location"):
+        advisory_result["location"]["location_source"] = location_source
 
     # 4. Step 4: Optional Text-to-Speech (TTS) Synthesis
     if synthesize_audio:

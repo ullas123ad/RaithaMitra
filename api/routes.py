@@ -208,6 +208,8 @@ def get_audio_advisory():
     district = form_data.get("district", "").strip() if form_data.get("district") else None
     taluk = form_data.get("taluk", "").strip() if form_data.get("taluk") else None
     village = form_data.get("village", "").strip() if form_data.get("village") else None
+    latitude = float(form_data.get("latitude")) if form_data.get("latitude") else None
+    longitude = float(form_data.get("longitude")) if form_data.get("longitude") else None
     crop = form_data.get("crop", "").strip() if form_data.get("crop") else None
     language = form_data.get("language", "kn").strip() if form_data.get("language") else "kn"
     
@@ -245,6 +247,8 @@ def get_audio_advisory():
             district=district,
             taluk=taluk,
             village=village,
+            latitude=latitude,
+            longitude=longitude,
             crop=crop,
             language=language,
             tts_engine=tts_engine,

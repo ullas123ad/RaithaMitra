@@ -432,13 +432,14 @@
       </div>
     </div>
     <div>
-      <span style="font-size: 11px; font-weight: 600; color: var(--text-muted); text-transform: uppercase;">Quick Location Presets:</span>
+      <span style="font-size: 11px; font-weight: 600; color: var(--text-muted); text-transform: uppercase;">Location Options & Presets:</span>
       <div class="preset-buttons">
-        <button class="btn-preset" onclick="setPreset('Mandya', 'Pandavapura', 'Melukote')">Mandya (Melukote - Ragi)</button>
-        <button class="btn-preset" onclick="setPreset('Mysuru', 'Hunsur', 'Hunsur')">Mysuru (Hunsur - Maize/Tobacco)</button>
-        <button class="btn-preset" onclick="setPreset('Belagavi', 'Athani', 'Athani')">Belagavi (Athani - Sugarcane)</button>
-        <button class="btn-preset" onclick="setPreset('Udupi', 'Kundapura', 'Basrur')">Udupi (Kundapura - Paddy)</button>
-        <button class="btn-preset" onclick="setPreset('Haveri', 'Byadgi', 'Byadgi')">Haveri (Byadgi - Chilli)</button>
+        <button id="gpsBtn" class="btn-preset" style="background: #e0f2fe; border-color: #7dd3fc; color: #0369a1; font-weight: 700;" onclick="getBrowserGPS()">📍 Use My GPS Location</button>
+        <button class="btn-preset" onclick="setPreset('Mandya', 'Pandavapura', 'Melukote')">Mandya (Test Default)</button>
+        <button class="btn-preset" onclick="setPreset('Mysuru', 'Hunsur', 'Hunsur')">Mysuru (Hunsur)</button>
+        <button class="btn-preset" onclick="setPreset('Belagavi', 'Athani', 'Athani')">Belagavi (Athani)</button>
+        <button class="btn-preset" onclick="setPreset('Udupi', 'Kundapura', 'Basrur')">Udupi (Kundapura)</button>
+        <button class="btn-preset" onclick="setPreset('Haveri', 'Byadgi', 'Byadgi')">Haveri (Byadgi)</button>
       </div>
     </div>
   </div>
@@ -553,6 +554,31 @@
   let recordedSamples = [];
   let timerInterval = null;
   let startTime = null;
+  let currentGPS = null;
+
+  function getBrowserGPS() {
+    clearError();
+    const gpsBtn = document.getElementById('gpsBtn');
+    if (!navigator.geolocation) {
+      showError("Geolocation is not supported by your browser.");
+      return;
+    }
+    document.getElementById('recorderStatus').innerText = "Requesting browser GPS location permission...";
+    navigator.geolocation.getCurrentPosition(
+      (pos) => {
+        currentGPS = {
+          lat: pos.coords.latitude,
+          lon: pos.coords.longitude
+        };
+        gpsBtn.innerText = `📍 GPS Active (${pos.coords.latitude.toFixed(2)}°, ${pos.coords.longitude.toFixed(2)}°)`;
+        document.getElementById('recorderStatus').innerText = `GPS location acquired: (${pos.coords.latitude.toFixed(4)}, ${pos.coords.longitude.toFixed(4)})`;
+      },
+      (err) => {
+        showError(`GPS Geolocation Error: ${err.message}. Using fallback location.`);
+      },
+      { enableHighAccuracy: true, timeout: 10000 }
+    );
+  }
 
   function setPreset(dist, taluk, vill) {
     document.getElementById('districtInput').value = dist;
@@ -728,6 +754,10 @@
     if (district) formData.append('district', district);
     if (taluk) formData.append('taluk', taluk);
     if (village) formData.append('village', village);
+    if (currentGPS) {
+      formData.append('latitude', currentGPS.lat);
+      formData.append('longitude', currentGPS.lon);
+    }
     formData.append('language', 'kn');
 
     setStep('step-upload', 'done');
@@ -793,7 +823,15 @@
     tagsDiv.innerHTML = '';
     
     if (data.location) {
-      tagsDiv.innerHTML += `<span class="context-tag">📍 ${data.location.hierarchy_label || data.location.district}</span>`;
+      const locSource = data.location.location_source || 'development_default';
+      const sourceIcons = {
+        'farmer_spoken': '🗣️ Spoken in Voice Query',
+        'browser_gps': '📍 Detected via Browser GPS',
+        'manual_selection': '📝 Manually Selected',
+        'development_default': '🧪 Test Default'
+      };
+      const labelStr = sourceIcons[locSource] || locSource;
+      tagsDiv.innerHTML += `<span class="context-tag">📍 Location: ${data.location.hierarchy_label || data.location.district} (${labelStr})</span>`;
     }
     if (data.weather && data.weather.available) {
       tagsDiv.innerHTML += `<span class="context-tag">⛅ Weather: ${data.weather.current?.weather_condition || 'Available'} (${data.weather.current?.temperature_c}°C)</span>`;

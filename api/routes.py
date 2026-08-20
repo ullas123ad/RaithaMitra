@@ -251,6 +251,11 @@ def get_audio_advisory():
             synthesize_audio=enable_tts
         )
 
+        audio_block = result.get("audio")
+        if audio_block and isinstance(audio_block, dict) and audio_block.get("audio_path"):
+            fname = os.path.basename(audio_block["audio_path"])
+            audio_block["audio_url"] = f"/api/v1/advisory/audio/download?file={fname}"
+
         response_payload = {
             "success": True,
             "language": result.get("target_language", language),
@@ -258,7 +263,7 @@ def get_audio_advisory():
             "answer": result.get("response", ""),
             "distress": result.get("distress", {"detected": False, "level": "NONE", "priority": "normal"}),
             "asr": result.get("asr"),
-            "audio": result.get("audio"),
+            "audio": audio_block,
             "location": result.get("location"),
             "weather": result.get("weather"),
             "soil": result.get("soil"),

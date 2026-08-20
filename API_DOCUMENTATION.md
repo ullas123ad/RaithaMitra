@@ -118,6 +118,11 @@ Accept: application/json
   "language": "kn",
   "canonical_crop": "ragi",
   "answer": "ರಾಗಿ ಬೆಳೆಗೆ ನೀರಿನ ಕೊರತೆಯಾದಾಗ ರಕ್ಷಣಾತ್ಮಕ ನೀರಾವರಿ ನೀಡಿ ಮತ್ತು ತೇವಾಂಶ ಸಂರಕ್ಷಣೆಗೆ ಮಣ್ಣಿನ ಹೊದಿಕೆ ಮಾಡಿ.",
+  "distress": {
+    "detected": false,
+    "level": "NONE",
+    "priority": "normal"
+  },
   "location": {
     "district": "Mandya",
     "district_kn": "ಮಂಡ್ಯ",

@@ -31,6 +31,12 @@ from model.advisory.crop_identifier import (
     check_crop_ambiguity,
     is_crop_supported
 )
+from model.distress import (
+    DistressLevel,
+    DistressResult,
+    DistressDetector,
+    get_distress_detector
+)
 
 
 class AdvisoryError(Exception):
@@ -428,12 +434,14 @@ class AdvisoryEngine:
         retriever: Optional[AgriculturalRetriever] = None,
         scheme_service: Optional[Any] = None,
         soil_service: Optional[Any] = None,
-        market_service: Optional[Any] = None
+        market_service: Optional[Any] = None,
+        distress_detector: Optional[Any] = None
     ):
         self.config = config or AdvisoryConfig()
         self.config.validate()
 
         self.language_bridge = language_bridge or PassThroughLanguageBridge()
+        self.distress_detector = distress_detector or get_distress_detector()
 
         # Initialize Retriever if RAG is enabled
         if retriever is not None:
@@ -519,6 +527,45 @@ class AdvisoryEngine:
         clean_query = query.strip()
         t_start = time.time()
 
+        # 0. Safety Signal: Farmer Distress Detection
+        distress_result = self.distress_detector.detect(clean_query)
+        if distress_result.level == DistressLevel.HIGH:
+            # FAST-PATH: Immediate Human Safety Escalation (Bypasses RAG, Dhenu LLM, NLLB, and Context Lookups)
+            safety_text = (
+                distress_result.safety_message_kn
+                if target_lang == "kn"
+                else (distress_result.safety_message_en or distress_result.safety_message_kn)
+            )
+            return {
+                "query": clean_query,
+                "response": safety_text,
+                "canonical_crop": None,
+                "crop_support_status": "unsupported",
+                "crop_category": None,
+                "karnataka_suitability": "UNKNOWN",
+                "karnataka_suitability_details": None,
+                "distress": distress_result.to_api_dict(),
+                "intermediate_query": clean_query,
+                "intermediate_response": distress_result.safety_message_en or safety_text,
+                "source_language": source_language,
+                "advisory_language": self.config.advisory_language,
+                "target_language": target_lang,
+                "model": self.config.model_id,
+                "backend": self.config.backend,
+                "rag_enabled": False,
+                "retrieved_documents": [],
+                "retrieved_schemes": [],
+                "soil": None,
+                "market": None,
+                "location": location.to_dict() if hasattr(location, "to_dict") else None,
+                "weather": weather.to_dict() if hasattr(weather, "to_dict") else None,
+                "retrieval_time_seconds": 0.0,
+                "translation_in_time_seconds": 0.0,
+                "generation_time_seconds": 0.0,
+                "translation_out_time_seconds": 0.0,
+                "processing_time_seconds": round(time.time() - t_start, 4)
+            }
+
         # 1. Translate Query from Source Language to Internal Advisory Language (English)
         t_tr_in_0 = time.time()
         intermediate_query = self.language_bridge.translate_to_advisory_lang(
@@ -548,6 +595,7 @@ class AdvisoryEngine:
                 "crop_category": None,
                 "karnataka_suitability": "UNKNOWN",
                 "karnataka_suitability_details": None,
+                "distress": distress_result.to_api_dict(),
                 "intermediate_query": clean_query,
                 "intermediate_response": clarification_en,
                 "source_language": source_language,
@@ -685,6 +733,21 @@ class AdvisoryEngine:
         )
         t_tr_out = time.time() - t_tr_out_0
 
+        # Attach Empathetic Framing and Official Agricultural Support Referral for MODERATE distress
+        if distress_result.level == DistressLevel.MODERATE:
+            empathy_prefix = (
+                distress_result.empathy_message_kn
+                if target_lang == "kn"
+                else (distress_result.empathy_message_en or "")
+            )
+            support_referral = (
+                distress_result.safety_message_kn
+                if target_lang == "kn"
+                else (distress_result.safety_message_en or "")
+            )
+            if empathy_prefix and not final_response.startswith(empathy_prefix.strip()):
+                final_response = f"{empathy_prefix}{final_response} {support_referral}"
+
         total_time = time.time() - t_start
 
         return {
@@ -695,6 +758,7 @@ class AdvisoryEngine:
             "crop_category": get_crop_category(canonical_crop),
             "karnataka_suitability": get_karnataka_suitability(canonical_crop),
             "karnataka_suitability_details": get_crop_suitability_details(canonical_crop),
+            "distress": distress_result.to_api_dict(),
             "intermediate_query": intermediate_query,
             "intermediate_response": intermediate_response,
             "source_language": source_language,

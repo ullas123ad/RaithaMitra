@@ -160,7 +160,21 @@ class MockLanguageBridge(LanguageBridge):
         "ಮೆಕ್ಕೆಜೋಳ": "maize",
         "ವೆನಿಲ್ಲಾ": "vanilla",
         "ಕೇಸರಿ": "saffron",
-        "My ragi price in Mandya today": "My ragi price in Mandya today"
+        "My ragi price in Mandya today": "My ragi price in Mandya today",
+        "ನನ್ನ ಬೆಳೆ ಸಂಪೂರ್ಣ ಹಾಳಾಗಿದೆ. ಸಾಲ ಹೇಗೆ ತೀರಿಸಲಿ?": "My crop is completely ruined. How can I repay my loan?",
+        "ಎರಡು ವರ್ಷಗಳಿಂದ ಬೆಳೆ ನಷ್ಟವಾಗುತ್ತಿದೆ. ತುಂಬಾ ಕಷ್ಟವಾಗುತ್ತಿದೆ.": "I have suffered crop loss for two years. It is extremely difficult.",
+        "ಸಾಲ ತುಂಬಾ ಇದೆ, ಏನು ಮಾಡಬೇಕು ಎಂದು ಗೊತ್ತಾಗುತ್ತಿಲ್ಲ.": "I have heavy debt, I do not know what to do.",
+        "ನನ್ನ ರಾಗಿ ಬೆಳೆ ಹಾಳಾಗಿದೆ, ಸಾಲ ತುಂಬಾ ಇದೆ": "My ragi crop is damaged, I have too much debt.",
+        "ಮಳೆಯಿಂದ ನನ್ನ ಎಲ್ಲಾ ಬೆಳೆ ಹಾಳಾಗಿದೆ, ಸಾಲವೂ ಇದೆ.": "All my crops are destroyed due to rain, and I have debt.",
+        "ರಾಗಿ ಬೆಲೆ ತುಂಬಾ ಕಡಿಮೆಯಾಗಿದೆ, ಸಾಲ ತೀರಿಸಲು ಆಗುತ್ತಿಲ್ಲ.": "Ragi price has dropped very low, I am unable to repay my loan.",
+        "ಸರ್ಕಾರಿ ಸಹಾಯ ಸಿಗದಿದ್ದರೆ ಸಾಲ ತೀರಿಸಲು ಆಗುವುದಿಲ್ಲ.": "If I do not get government assistance, I will not be able to repay my loan.",
+        "ನನ್ನ ಬೆಳೆ ಸತ್ತುಹೋಗುತ್ತಿದೆ, ಏನು ಮಾಡಬೇಕು?": "My crop is dying, what should I do?",
+        "ನನ್ನ ಬೆಳೆ ಸತ್ತುಹೋಗುತ್ತಿದೆ": "My crop is dying",
+        "ಗಿಡಗಳು ಸತ್ತುಹೋಗಿವೆ": "The plants are dead",
+        "ಬೆಳೆ ಹಾಳಾಗಿದೆ": "The crop is damaged",
+        "ನನ್ನ ಜೀವನ ಮುಗಿಸಿಕೊಳ್ಳಬೇಕು": "I want to end my life",
+        "ಬದುಕಲು ಇಷ್ಟವಿಲ್ಲ": "I do not want to live",
+        "ನಾನು ಸಾಯಬೇಕು ಅನ್ನಿಸುತ್ತಿದೆ": "I feel like dying"
     }
 
     SAMPLE_EN_TO_KN: Dict[str, str] = {

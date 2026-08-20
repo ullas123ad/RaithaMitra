@@ -26,9 +26,9 @@ class ASRConfig:
     cache_dir: Optional[str] = os.getenv("ASR_CACHE_DIR", None)
 
     # Generation parameters
-    num_beams: int = 4
+    num_beams: int = 1
     use_cache: bool = True
-    max_new_tokens: int = 440
+    max_new_tokens: int = 128
 
     # Device configuration
     device: Optional[str] = None  # Auto-detected if None

@@ -632,55 +632,53 @@ class AdvisoryEngine:
             retrieval_latency = time.time() - t_rag_0
             retrieved_context_text = self.retriever.format_context(retrieved_docs)
 
-        # 3. Retrieve Relevant Government Schemes
-        retrieved_schemes = []
-        scheme_context_text = ""
-        if schemes is not None:
-            retrieved_schemes = schemes
-            scheme_context_text = self.scheme_service.format_scheme_context(retrieved_schemes)
-        elif self.scheme_service is not None:
-            retrieved_schemes = self.scheme_service.find_relevant_schemes(
-                query=clean_query,
-                crop=canonical_crop,
-                location=location
-            )
-            if not retrieved_schemes and intermediate_query != clean_query:
-                # Also check translated query if raw query had no alias match
-                retrieved_schemes = self.scheme_service.find_relevant_schemes(
-                    query=intermediate_query,
-                    crop=canonical_crop,
-                    location=location
-                )
-            if retrieved_schemes:
-                scheme_context_text = self.scheme_service.format_scheme_context(retrieved_schemes)
+        # 3-6. Concurrent Retrieval of Schemes, Soil, Market, and Weather Contexts
+        from concurrent.futures import ThreadPoolExecutor
 
-        # 4. Format Soil Health Context
-        soil_context_text = ""
-        soil_ctx = None
-        if soil is not None:
-            soil_ctx = soil
-            if self.soil_service is not None:
-                soil_context_text = self.soil_service.format_soil_context(soil_ctx)
-        elif self.soil_service is not None and location is not None:
-            soil_ctx = self.soil_service.get_soil_context(location=location, crop=canonical_crop)
-            if soil_ctx and soil_ctx.available:
-                soil_context_text = self.soil_service.format_soil_context(soil_ctx)
+        def _fetch_schemes():
+            if schemes is not None:
+                return schemes
+            if self.scheme_service is not None:
+                res = self.scheme_service.find_relevant_schemes(query=clean_query, crop=canonical_crop, location=location)
+                if not res and intermediate_query != clean_query:
+                    res = self.scheme_service.find_relevant_schemes(query=intermediate_query, crop=canonical_crop, location=location)
+                return res
+            return []
 
-        # 5. Format APMC Mandi Market Context
-        market_context_text = ""
-        market_ctx = None
-        is_market_query = any(k in clean_query.lower() or k in intermediate_query.lower() for k in ["ಬೆಲೆ", "price", "ಮಾರುಕಟ್ಟೆ", "mandi", "apmc", "ಮಾರಾಟ", "rate", "market", "cost"])
-        if market is not None:
-            market_ctx = market
-            if self.market_service is not None:
-                market_context_text = self.market_service.format_market_context(market_ctx)
-        elif self.market_service is not None and (is_market_query or canonical_crop is not None):
-            if is_market_query and canonical_crop:
-                market_ctx = self.market_service.get_prices(crop=canonical_crop, location=location)
-                if market_ctx and market_ctx.available:
-                    market_context_text = self.market_service.format_market_context(market_ctx)
+        def _fetch_soil():
+            if soil is not None:
+                return soil
+            if self.soil_service is not None and location is not None:
+                return self.soil_service.get_soil_context(location=location, crop=canonical_crop)
+            return None
 
-        # 6. Format Dynamic Weather / Location Context
+        def _fetch_market():
+            if market is not None:
+                return market
+            is_mkt = any(k in clean_query.lower() or k in intermediate_query.lower() for k in ["ಬೆಲೆ", "price", "ಮಾರುಕಟ್ಟೆ", "mandi", "apmc", "ಮಾರಾಟ", "rate", "market", "cost"])
+            if self.market_service is not None and (is_mkt or canonical_crop is not None):
+                if is_mkt and canonical_crop:
+                    return self.market_service.get_prices(crop=canonical_crop, location=location)
+                elif location:
+                    district_name = getattr(location, "district", None) or getattr(location, "district_kn", None)
+                    if district_name:
+                        return self.market_service.get_prices(district=district_name, crop=canonical_crop)
+            return None
+
+        with ThreadPoolExecutor(max_workers=3) as executor:
+            fut_schemes = executor.submit(_fetch_schemes)
+            fut_soil = executor.submit(_fetch_soil)
+            fut_market = executor.submit(_fetch_market)
+
+            retrieved_schemes = fut_schemes.result()
+            soil_ctx = fut_soil.result()
+            market_ctx = fut_market.result()
+
+        scheme_context_text = self.scheme_service.format_scheme_context(retrieved_schemes) if (self.scheme_service and retrieved_schemes) else ""
+        soil_context_text = self.soil_service.format_soil_context(soil_ctx) if (self.soil_service and soil_ctx and getattr(soil_ctx, "available", False)) else ""
+        market_context_text = self.market_service.format_market_context(market_ctx) if (self.market_service and market_ctx and getattr(market_ctx, "available", False)) else ""
+
+        # Format Dynamic Weather / Location Context
         weather_context_text = ""
         if weather is not None:
             from model.weather.service import WeatherService

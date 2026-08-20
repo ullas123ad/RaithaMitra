@@ -331,7 +331,10 @@ class NLLBTranslationBridge(LanguageBridge):
                 outputs = self._model.generate(
                     **inputs,
                     forced_bos_token_id=tgt_id,
-                    max_new_tokens=max_new_tokens
+                    max_new_tokens=max_new_tokens,
+                    num_beams=1,
+                    do_sample=False,
+                    use_cache=True
                 )
 
             translated_text = self._tokenizer.decode(outputs[0], skip_special_tokens=True).strip()
@@ -355,7 +358,7 @@ class NLLBTranslationBridge(LanguageBridge):
         source_lang: str = "kn",
         target_lang: str = "en"
     ) -> str:
-        return self._translate(text, src_lang=source_lang, tgt_lang=target_lang, max_new_tokens=150)
+        return self._translate(text, src_lang=source_lang, tgt_lang=target_lang, max_new_tokens=64)
 
     def translate_from_advisory_lang(
         self,
@@ -363,4 +366,4 @@ class NLLBTranslationBridge(LanguageBridge):
         source_lang: str = "en",
         target_lang: str = "kn"
     ) -> str:
-        return self._translate(text, src_lang=source_lang, tgt_lang=target_lang, max_new_tokens=250)
+        return self._translate(text, src_lang=source_lang, tgt_lang=target_lang, max_new_tokens=120)

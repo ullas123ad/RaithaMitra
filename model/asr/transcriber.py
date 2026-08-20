@@ -168,8 +168,9 @@ class KannadaASR:
                     # Run Hugging Face pipeline inference (fine-tuned model naturally outputs Kannada)
                     gen_kwargs = {
                         "use_cache": getattr(self.config, "use_cache", True),
-                        "num_beams": getattr(self.config, "num_beams", 4),
-                        "max_new_tokens": getattr(self.config, "max_new_tokens", 440)
+                        "num_beams": getattr(self.config, "num_beams", 1),
+                        "do_sample": False,
+                        "max_new_tokens": getattr(self.config, "max_new_tokens", 128)
                     }
                     pipeline_out = self.asr_pipeline(
                         {"raw": speech_array, "sampling_rate": self.config.target_sampling_rate},
@@ -189,9 +190,10 @@ class KannadaASR:
                     input_features = inputs.input_features.to(self.device)
                     predicted_ids = self.model.generate(
                         input_features,
-                        num_beams=getattr(self.config, "num_beams", 4),
+                        num_beams=getattr(self.config, "num_beams", 1),
+                        do_sample=False,
                         use_cache=getattr(self.config, "use_cache", True),
-                        max_new_tokens=getattr(self.config, "max_new_tokens", 440)
+                        max_new_tokens=getattr(self.config, "max_new_tokens", 128)
                     )
                     transcription_text = self.processor.batch_decode(predicted_ids, skip_special_tokens=True)[0]
 

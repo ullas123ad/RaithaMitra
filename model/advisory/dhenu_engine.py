@@ -110,11 +110,13 @@ class DhenuBackend(AdvisoryBackend):
             import torch
 
             gen_kwargs = {
-                "max_new_tokens": kwargs.get("max_new_tokens", getattr(self.config, "max_new_tokens", 256)),
+                "max_new_tokens": kwargs.get("max_new_tokens", getattr(self.config, "max_new_tokens", 160)),
                 "temperature": kwargs.get("temperature", getattr(self.config, "temperature", 0.7)),
                 "top_p": kwargs.get("top_p", getattr(self.config, "top_p", 0.9)),
                 "repetition_penalty": kwargs.get("repetition_penalty", getattr(self.config, "repetition_penalty", 1.15)),
                 "do_sample": kwargs.get("temperature", getattr(self.config, "temperature", 0.7)) > 0.0,
+                "use_cache": True,
+                "num_beams": 1,
                 "pad_token_id": self._tokenizer.eos_token_id
             }
 

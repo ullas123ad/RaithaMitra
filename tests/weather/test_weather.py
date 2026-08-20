@@ -287,7 +287,11 @@ class TestKarnatakaWeatherModule(unittest.TestCase):
         """TEST 20: Verify repeated lookups with mock client produce identical outputs."""
         w1 = self.weather_service.get_weather(self.loc_melukote, crop="ragi")
         w2 = self.weather_service.get_weather(self.loc_melukote, crop="ragi")
-        self.assertEqual(w1.to_dict(), w2.to_dict())
+        d1 = w1.to_dict()
+        d2 = w2.to_dict()
+        d1.pop("timestamp", None)
+        d2.pop("timestamp", None)
+        self.assertEqual(d1, d2)
 
     def test_21_to_dict_serialization(self) -> None:
         """TEST 21: Verify full JSON serializability of WeatherContext."""

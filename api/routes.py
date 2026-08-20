@@ -283,7 +283,11 @@ def get_audio_advisory():
                 "translation_in_time_seconds": result.get("translation_in_time_seconds", 0.0),
                 "generation_time_seconds": result.get("generation_time_seconds", 0.0),
                 "translation_out_time_seconds": result.get("translation_out_time_seconds", 0.0),
-                "processing_time_seconds": result.get("processing_time_seconds", 0.0)
+                "processing_time_seconds": result.get("processing_time_seconds", 0.0),
+                "developer_debug": {
+                    "intermediate_query_en": result.get("intermediate_query"),
+                    "raw_dhenu_response_en": result.get("intermediate_response")
+                }
             }
         }
 

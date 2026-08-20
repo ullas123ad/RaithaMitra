@@ -526,18 +526,32 @@
       </div>
     </div>
 
-    <!-- Latency Stats -->
-    <div class="result-box" style="margin-top: 14px;">
-      <div class="result-box-title">
-        <span>Latency & Timing Profile (Local CPU Execution)</span>
-        <span id="totalTimeBadge" style="font-weight: 700; color: #0284c7;"></span>
+    <!-- Developer Debug Panel (Collapsible) -->
+    <details style="margin-top: 14px; padding: 10px; background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 8px;">
+      <summary style="font-weight: 600; font-size: 13px; color: #475569; cursor: pointer;">
+        🛠️ Developer Debug Logs & NLLB/LLM Intermediate Output (Click to Expand)
+      </summary>
+      <div style="margin-top: 10px;">
+        <div style="font-size: 12px; font-weight: 600; color: #64748b; margin-bottom: 4px;">1. NLLB Translated Query (English):</div>
+        <div id="debugIntermediateQuery" style="font-family: monospace; font-size: 12px; background: #ffffff; border: 1px solid #e2e8f0; padding: 8px; border-radius: 4px; margin-bottom: 8px;"></div>
+        <div style="font-size: 12px; font-weight: 600; color: #64748b; margin-bottom: 4px;">2. Raw Dhenu LLM Output (English):</div>
+        <div id="debugRawDhenuResponse" style="font-family: monospace; font-size: 12px; background: #ffffff; border: 1px solid #e2e8f0; padding: 8px; border-radius: 4px; margin-bottom: 12px;"></div>
+        <div class="result-box-title">
+          <span>Latency & Timing Profile (Local CPU Execution)</span>
+          <span id="totalTimeBadge" style="font-weight: 700; color: #0284c7;"></span>
+        </div>
+        <table class="timing-table">
+          <thead>
+            <tr>
+              <th>Pipeline Stage</th>
+              <th>Engine / Provider</th>
+              <th>Duration</th>
+            </tr>
+          </thead>
+          <tbody id="timingTableBody"></tbody>
+        </table>
       </div>
-      <table class="timing-table">
-        <thead>
-          <tr>
-            <th>Pipeline Stage</th>
-            <th>Engine / Provider</th>
-            <th>Duration</th>
+    </details>
           </tr>
         </thead>
         <tbody id="timingTableBody"></tbody>
@@ -871,10 +885,14 @@
       audioZone.style.display = 'none';
     }
 
-    // 6. Timing Table
+    // 6. Timing Table & Developer Debug Logs
     const meta = data.metadata || {};
     const asr = data.asr || {};
     const audio = data.audio || {};
+    const devDebug = meta.developer_debug || {};
+
+    document.getElementById('debugIntermediateQuery').innerText = devDebug.intermediate_query_en || '(None)';
+    document.getElementById('debugRawDhenuResponse').innerText = devDebug.raw_dhenu_response_en || '(None)';
 
     document.getElementById('totalTimeBadge').innerText = `Total: ${meta.voice_pipeline_total_time_seconds ? meta.voice_pipeline_total_time_seconds.toFixed(2) + 's' : clientDurationSec.toFixed(2) + 's'}`;
 

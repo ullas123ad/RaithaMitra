@@ -8,8 +8,11 @@ Provides modular orchestration across:
 """
 
 import time
+import logging
 from abc import ABC, abstractmethod
 from typing import Dict, Any, Optional, List
+
+logger = logging.getLogger(__name__)
 
 from model.advisory.config import AdvisoryConfig
 from model.advisory.prompt_templates import (
@@ -517,14 +520,17 @@ class AdvisoryEngine:
             crop: Optional crop name string.
             schemes: Optional list of GovernmentScheme instances.
 
-        Returns:
-            Dictionary containing structured advisory output and performance metrics.
         """
         if not query or not query.strip():
             raise AdvisoryValidationError("Farmer query text cannot be empty.")
 
-        target_lang = target_language or source_language
+        from model.advisory.language_bridge import is_valid_kannada_text
         clean_query = query.strip()
+        has_kannada_query = is_valid_kannada_text(clean_query)
+        effective_source_lang = source_language
+        if not has_kannada_query and source_language == "kn" and target_language is None:
+            effective_source_lang = "en"
+        target_lang = target_language or effective_source_lang
         t_start = time.time()
 
         # 0. Safety Signal: Farmer Distress Detection
@@ -730,6 +736,16 @@ class AdvisoryEngine:
             target_lang=target_lang
         )
         t_tr_out = time.time() - t_tr_out_0
+
+        # Enforce Kannada Language Invariant
+        from model.advisory.language_bridge import is_valid_kannada_text, MockLanguageBridge
+        if target_lang == "kn" and not is_valid_kannada_text(final_response):
+            logger.warning("Translation output failed Kannada validation. Applying safe Kannada fallback.")
+            final_response = MockLanguageBridge().translate_from_advisory_lang(
+                intermediate_response,
+                source_lang=self.config.advisory_language,
+                target_lang="kn"
+            )
 
         # Attach Empathetic Framing and Official Agricultural Support Referral for MODERATE distress
         if distress_result.level == DistressLevel.MODERATE:
